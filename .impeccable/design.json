@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-09T10:08:40.0478782+01:00",
+  "title": "Design System: OMNIQUIZ",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Midnight Ink",
+        "canonical": "#050a14",
+        "tonalRamp": ["oklch(15% 0.025 250)", "oklch(26% 0.025 250)", "oklch(38% 0.025 250)", "oklch(50% 0.025 250)", "oklch(62% 0.025 250)", "oklch(74% 0.025 250)", "oklch(86% 0.025 250)", "oklch(95% 0.025 250)"]
+      },
+      "abyss": {
+        "role": "neutral",
+        "displayName": "Abyss Blue",
+        "canonical": "#07111f",
+        "tonalRamp": ["oklch(15% 0.035 250)", "oklch(26% 0.035 250)", "oklch(38% 0.035 250)", "oklch(50% 0.035 250)", "oklch(62% 0.035 250)", "oklch(74% 0.035 250)", "oklch(86% 0.035 250)", "oklch(95% 0.035 250)"]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Pressure Panel",
+        "canonical": "rgba(11, 21, 38, 0.88)",
+        "tonalRamp": ["oklch(15% 0.04 250)", "oklch(26% 0.04 250)", "oklch(38% 0.04 250)", "oklch(50% 0.04 250)", "oklch(62% 0.04 250)", "oklch(74% 0.04 250)", "oklch(86% 0.04 250)", "oklch(95% 0.04 250)"]
+      },
+      "panel-soft": {
+        "role": "neutral",
+        "displayName": "Soft Sonar Panel",
+        "canonical": "rgba(16, 29, 51, 0.82)",
+        "tonalRamp": ["oklch(15% 0.045 250)", "oklch(26% 0.045 250)", "oklch(38% 0.045 250)", "oklch(50% 0.045 250)", "oklch(62% 0.045 250)", "oklch(74% 0.045 250)", "oklch(86% 0.045 250)", "oklch(95% 0.045 250)"]
+      },
+      "ocean": {
+        "role": "neutral",
+        "displayName": "Open Ocean Blue",
+        "canonical": "#0c3151",
+        "tonalRamp": ["oklch(15% 0.07 245)", "oklch(26% 0.07 245)", "oklch(38% 0.07 245)", "oklch(50% 0.07 245)", "oklch(62% 0.07 245)", "oklch(74% 0.07 245)", "oklch(86% 0.07 245)", "oklch(95% 0.07 245)"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hull Border",
+        "canonical": "#12233d",
+        "tonalRamp": ["oklch(15% 0.045 250)", "oklch(26% 0.045 250)", "oklch(38% 0.045 250)", "oklch(50% 0.045 250)", "oklch(62% 0.045 250)", "oklch(74% 0.045 250)", "oklch(86% 0.045 250)", "oklch(95% 0.045 250)"]
+      },
+      "border-bright": {
+        "role": "neutral",
+        "displayName": "Lit Hull Border",
+        "canonical": "#1b3b62",
+        "tonalRamp": ["oklch(15% 0.065 245)", "oklch(26% 0.065 245)", "oklch(38% 0.065 245)", "oklch(50% 0.065 245)", "oklch(62% 0.065 245)", "oklch(74% 0.065 245)", "oklch(86% 0.065 245)", "oklch(95% 0.065 245)"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Foam Paper",
+        "canonical": "#e8f1ff",
+        "tonalRamp": ["oklch(15% 0.018 250)", "oklch(26% 0.018 250)", "oklch(38% 0.018 250)", "oklch(50% 0.018 250)", "oklch(62% 0.018 250)", "oklch(74% 0.018 250)", "oklch(86% 0.018 250)", "oklch(95% 0.018 250)"]
+      },
+      "drift": {
+        "role": "neutral",
+        "displayName": "Current Drift",
+        "canonical": "#7d93b8",
+        "tonalRamp": ["oklch(15% 0.06 255)", "oklch(26% 0.06 255)", "oklch(38% 0.06 255)", "oklch(50% 0.06 255)", "oklch(62% 0.06 255)", "oklch(74% 0.06 255)", "oklch(86% 0.06 255)", "oklch(95% 0.06 255)"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Deep Muted Blue",
+        "canonical": "#526b8d",
+        "tonalRamp": ["oklch(15% 0.055 250)", "oklch(26% 0.055 250)", "oklch(38% 0.055 250)", "oklch(50% 0.055 250)", "oklch(62% 0.055 250)", "oklch(74% 0.055 250)", "oklch(86% 0.055 250)", "oklch(95% 0.055 250)"]
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "Dive Signal Cyan",
+        "canonical": "#4de3ff",
+        "tonalRamp": ["oklch(15% 0.13 210)", "oklch(26% 0.13 210)", "oklch(38% 0.13 210)", "oklch(50% 0.13 210)", "oklch(62% 0.13 210)", "oklch(74% 0.13 210)", "oklch(86% 0.13 210)", "oklch(95% 0.13 210)"]
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "Krill Coral",
+        "canonical": "#ff5d8f",
+        "tonalRamp": ["oklch(15% 0.20 5)", "oklch(26% 0.20 5)", "oklch(38% 0.20 5)", "oklch(50% 0.20 5)", "oklch(62% 0.20 5)", "oklch(74% 0.20 5)", "oklch(86% 0.20 5)", "oklch(95% 0.20 5)"]
+      },
+      "gold": {
+        "role": "tertiary",
+        "displayName": "Treasure Gold",
+        "canonical": "#ffd66d",
+        "tonalRamp": ["oklch(15% 0.15 90)", "oklch(26% 0.15 90)", "oklch(38% 0.15 90)", "oklch(50% 0.15 90)", "oklch(62% 0.15 90)", "oklch(74% 0.15 90)", "oklch(86% 0.15 90)", "oklch(95% 0.15 90)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Chromatic Brand Display",
+        "purpose": "OMNIQUIZ brand marks only."
+      },
+      "headline": {
+        "displayName": "Prompt Headline",
+        "purpose": "Prompt questions, feedback outcomes, and summary titles."
+      },
+      "title": {
+        "displayName": "Mode Title",
+        "purpose": "Mode names and prominent console labels."
+      },
+      "body": {
+        "displayName": "Console Body",
+        "purpose": "Descriptions, quips, answer text, and explanatory copy."
+      },
+      "label": {
+        "displayName": "Telemetry Label",
+        "purpose": "HUD telemetry, kickers, progress metadata, and compact controls."
+      }
+    },
+    "shadows": [
+      {
+        "name": "control-block",
+        "value": "3px 3px 0 rgba(3, 11, 24, 0.78)",
+        "purpose": "Hard down-right depth for compact icon controls."
+      },
+      {
+        "name": "hud-block",
+        "value": "5px 5px 0 rgba(3, 9, 19, 0.62)",
+        "purpose": "Hard down-right depth for telemetry meters."
+      },
+      {
+        "name": "prompt-block",
+        "value": "7px 8px 0 rgba(3, 11, 24, 0.72), 0 0 22px rgba(5, 17, 31, 0.28)",
+        "purpose": "Structural depth and quiet ambient separation for prompt panels."
+      },
+      {
+        "name": "launch-lift",
+        "value": "0 0 18px rgba(77, 227, 255, 0.13), 0 11px 0 rgba(3, 12, 26, 0.62)",
+        "purpose": "Signal glow plus heavy base for the primary descent action."
+      },
+      {
+        "name": "coral-lamp-glow",
+        "value": "0 0 9px rgba(255, 93, 143, 0.64)",
+        "purpose": "Completed round lamps only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "160ms ease-out",
+        "purpose": "Button, link, color, and short hover transitions."
+      },
+      {
+        "name": "rules-reveal",
+        "value": "240ms ease-out",
+        "purpose": "Tutorial rule disclosure."
+      },
+      {
+        "name": "panel-arrival",
+        "value": "460ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Prompt, feedback, and summary panel entrance."
+      },
+      {
+        "name": "ocean-descent",
+        "value": "700ms ease-out",
+        "purpose": "Depth-driven ocean layer opacity and translation."
+      },
+      {
+        "name": "depth-marker",
+        "value": "800ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Krill marker travel through the scene."
+      },
+      {
+        "name": "answer-progress",
+        "value": "1s linear",
+        "purpose": "Countdown progress depletion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.001ms, 1 iteration",
+        "purpose": "Collapse all animation and transition durations without removing functionality."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Begin Descent Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The full-width primary action that starts or retries a dive.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\"><span aria-hidden=\"true\">▼</span> BEGIN DESCENT <span aria-hidden=\"true\">▼</span></button>",
+      "css": ".ds-btn-primary { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 5vw, 2.2rem); width: min(100%, 612px); min-height: 78px; padding: 0.6rem 1rem; border: 2px solid var(--cyan, #4de3ff); outline: 1px solid rgba(77, 227, 255, 0.16); outline-offset: 4px; background: rgba(13, 29, 52, 0.84); box-shadow: 0 0 18px rgba(77, 227, 255, 0.13), 0 11px 0 rgba(3, 12, 26, 0.62); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: clamp(1rem, 2vw, 1.45rem); font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; transition: background 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; } .ds-btn-primary span { color: var(--cyan, #4de3ff); } .ds-btn-primary:hover { background: rgba(52, 109, 132, 0.45); color: #fff; transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; } .ds-btn-primary:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Dive Submit Button",
+      "kind": "button",
+      "refersTo": "button-submit",
+      "description": "The coral answer action at the right edge of the answer rail.",
+      "html": "<button class=\"ds-btn-dive\" type=\"button\">DIVE</button>",
+      "css": ".ds-btn-dive { height: 58px; padding: 0 0.8rem; border: 1px solid var(--coral, #ff5d8f); border-bottom-width: 4px; border-radius: 0; background: rgba(129, 38, 70, 0.78); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: 1rem; letter-spacing: 0.14em; transition: background 160ms ease-out, color 160ms ease-out; } .ds-btn-dive:hover { background: var(--coral, #ff5d8f); color: #180815; } .ds-btn-dive:focus-visible { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; } .ds-btn-dive:active { border-bottom-width: 1px; transform: translateY(3px); }"
+    },
+    {
+      "name": "Answer Field",
+      "kind": "input",
+      "refersTo": "input-answer",
+      "description": "The high-contrast single-answer console field used during timed play.",
+      "html": "<label class=\"ds-answer-label\" for=\"ds-answer\">YOUR ANSWER</label><input class=\"ds-answer\" id=\"ds-answer\" placeholder=\"type one answer…\" />",
+      "css": ".ds-answer-label { display: block; margin-bottom: 0.4rem; color: var(--drift, #7d93b8); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: 0.68rem; letter-spacing: 0.2em; } .ds-answer { width: min(100%, 410px); height: 58px; padding: 0 0.85rem; border: 2px solid var(--cyan, #4de3ff); border-bottom-width: 4px; border-radius: 0; outline: 0; background: rgba(7, 19, 36, 0.9); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: 1.15rem; letter-spacing: 0.08em; } .ds-answer::placeholder { color: #60799b; opacity: 1; } .ds-answer:hover { border-color: #8eeeff; } .ds-answer:focus-visible { border-color: var(--paper, #e8f1ff); box-shadow: 0 0 16px rgba(77, 227, 255, 0.15); outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Prompt Card",
+      "kind": "card",
+      "refersTo": "card-prompt",
+      "description": "The single dominant question panel in the upper play stage.",
+      "html": "<section class=\"ds-prompt-card\"><p class=\"ds-prompt-kicker\">PROMPT 3 OF 7</p><h2>NAME A CITY BUILT AROUND WATER.</h2><p class=\"ds-rarity-hint\">▼ rarer answers sink deeper ▼</p></section>",
+      "css": ".ds-prompt-card { position: relative; width: min(100%, 480px); padding: 1.45rem 1.55rem 1.15rem; border: 1px solid rgba(18, 35, 61, 0.95); border-radius: 0; background: rgba(10, 23, 42, 0.91); box-shadow: 7px 8px 0 rgba(3, 11, 24, 0.72), 0 0 22px rgba(5, 17, 31, 0.28); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); } .ds-prompt-card::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: rgba(77, 227, 255, 0.28); content: \"\"; } .ds-prompt-kicker { margin: 0; color: var(--coral, #ff5d8f); font-size: 0.68rem; letter-spacing: 0.3em; } .ds-prompt-card h2 { margin: 1rem 0 0; font-size: clamp(1.55rem, 3.1vw, 2.3rem); line-height: 1.08; letter-spacing: 0.04em; } .ds-rarity-hint { margin: 1rem 0 0; color: #88a2c3; font-size: 0.7rem; letter-spacing: 0.14em; } .ds-prompt-card:hover { border-color: rgba(77, 227, 255, 0.4); } .ds-prompt-card:focus-within { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; }"
+    },
+    {
+      "name": "Sound Control",
+      "kind": "button",
+      "refersTo": "control-icon",
+      "description": "A compact square telemetry control for the persisted mute preference.",
+      "html": "<button class=\"ds-sound\" type=\"button\" aria-label=\"Mute sound\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 10v4h4l5 4V6l-5 4H4Z\"></path><path d=\"M17 9.5c1.5 1.2 1.5 3.8 0 5\"></path></svg></button>",
+      "css": ".ds-sound { display: inline-grid; place-items: center; min-width: 38px; min-height: 30px; border: 1px solid rgba(77, 227, 255, 0.32); border-radius: 0; background: rgba(16, 31, 53, 0.72); box-shadow: 3px 3px 0 rgba(3, 11, 24, 0.78); color: var(--drift, #7d93b8); transition: border-color 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; } .ds-sound svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-linejoin: miter; stroke-width: 1.6; } .ds-sound:hover { border-color: var(--cyan, #4de3ff); color: var(--paper, #e8f1ff); } .ds-sound:focus-visible { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; } .ds-sound:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(3, 11, 24, 0.78); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Abyssal Arcade Console",
+    "overview": "OMNIQUIZ feels like a compact expedition terminal dropped into a living, pixel-art ocean. Layered sky, water, trench, fish, particles, scanlines, a depth ruler, and the krill marker make progress spatial: the interface does not merely report a score; it visibly descends with it.\n\nThe console layer is playful but disciplined. Monospaced pixel type, square controls, thin signal borders, hard offset shadows, and terse uppercase telemetry keep every state legible over the illustrated scene. Cyan is the navigational signal, coral is action and rarity energy, and gold is a scarce reward color. The built system rejects generic rounded SaaS cards, soft pastel minimalism, and decoration that competes with the prompt.",
+    "keyCharacteristics": [
+      "Layered pixel-ocean atmosphere that changes with depth.",
+      "Square, instrument-like panels with thin borders and hard offset shadows.",
+      "One monospaced pixel voice across display, copy, labels, and controls.",
+      "Cyan, coral, and gold signal roles against near-black blue surfaces.",
+      "Short arcade motion with a complete reduced-motion fallback."
+    ],
+    "rules": [
+      {
+        "name": "The Three-Signal Rule",
+        "body": "Cyan navigates, coral acts or scores, and gold rewards rarity; do not interchange them casually.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dark-Water Rule",
+        "body": "Large surfaces stay in the ink-to-ocean range so the pixel scenery and signal colors remain legible.",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Console Voice Rule",
+        "body": "Keep every interface role in the pixel-mono stack; express hierarchy without introducing a second font family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tracking Has Meaning Rule",
+        "body": "Wide uppercase tracking belongs to short labels and mode names, never to long prompts or paragraphs.",
+        "section": "typography"
+      },
+      {
+        "name": "The Down-Right Pressure Rule",
+        "body": "Structural elevation is a crisp dark block displaced down and right; ambient glows are secondary signal accents.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Glow Means Signal Rule",
+        "body": "Cyan and coral glow only around active progress, focus, rarity, or status—not around every container.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve square corners, thin signal borders, and down-right shadow blocks on console surfaces.",
+      "Do keep prompts and answers high-contrast in Foam Paper over dense navy panels.",
+      "Do use cyan for navigation/depth, coral for action/score, and gold only for rare rewards.",
+      "Do make responsive layouts safe at 320px, wrap compact navigation, and honor safe-area insets.",
+      "Do keep all functionality intact when reduced motion collapses animations and transitions.",
+      "Do render ocean and tier artwork with pixel-preserving treatment."
+    ],
+    "donts": [
+      "Don't introduce pill buttons, rounded SaaS cards, glassmorphism blur, or soft floating white surfaces.",
+      "Don't use cyan, coral, and gold as interchangeable decoration or let glow surround every panel.",
+      "Don't mix in a proportional display or body font; OMNIQUIZ speaks through one pixel-mono console voice.",
+      "Don't stretch prompt cards or action rails across wide desktop viewports beyond their implemented caps.",
+      "Don't place decorative ocean elements in the accessibility tree or allow them to obscure the prompt, timer, or answer rail.",
+      "Don't rely on motion alone to communicate depth, progress, feedback, or state."
+    ]
+  }
+}

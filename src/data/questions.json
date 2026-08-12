@@ -1,0 +1,4801 @@
+[
+  {
+    "id": "general-001",
+    "category": "General",
+    "prompt": "Which Brazilian metropolis is the country's largest city by population?",
+    "canonicalAnswer": "São Paulo",
+    "acceptedAliases": [
+      "Sao Paulo city",
+      "Brazilian city of Sao Paulo"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-002",
+    "category": "General",
+    "prompt": "What is the largest ocean on Earth?",
+    "canonicalAnswer": "Pacific Ocean",
+    "acceptedAliases": [
+      "Pacific",
+      "Pacific waters"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-003",
+    "category": "General",
+    "prompt": "How many squares are on a standard chessboard?",
+    "canonicalAnswer": "64",
+    "acceptedAliases": [
+      "sixty-four",
+      "64 squares"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-004",
+    "category": "General",
+    "prompt": "Which three colors are the primary colors of light in an RGB display?",
+    "canonicalAnswer": "red, green, and blue",
+    "acceptedAliases": [
+      "RGB",
+      "light primaries"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-005",
+    "category": "General",
+    "prompt": "Which language has the greatest number of native speakers?",
+    "canonicalAnswer": "Mandarin Chinese",
+    "acceptedAliases": [
+      "Mandarin",
+      "Chinese language"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-006",
+    "category": "General",
+    "prompt": "Who painted the Mona Lisa?",
+    "canonicalAnswer": "Leonardo da Vinci",
+    "acceptedAliases": [
+      "Leonardo Vinci",
+      "Da Vinci"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-007",
+    "category": "General",
+    "prompt": "Which musical instrument traditionally has 88 keys?",
+    "canonicalAnswer": "piano",
+    "acceptedAliases": [
+      "the piano",
+      "pianoforte"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-008",
+    "category": "General",
+    "prompt": "What is the name of Japan's currency?",
+    "canonicalAnswer": "Japanese yen",
+    "acceptedAliases": [
+      "yen",
+      "Japanese currency"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-009",
+    "category": "General",
+    "prompt": "Which insects are responsible for making honey?",
+    "canonicalAnswer": "honey bees",
+    "acceptedAliases": [
+      "bees",
+      "Apis mellifera"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-010",
+    "category": "General",
+    "prompt": "What is the SI base unit of temperature?",
+    "canonicalAnswer": "kelvin",
+    "acceptedAliases": [
+      "K",
+      "kelvin scale"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-011",
+    "category": "General",
+    "prompt": "How many rings appear on the Olympic flag?",
+    "canonicalAnswer": "five",
+    "acceptedAliases": [
+      "5",
+      "five rings"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-012",
+    "category": "General",
+    "prompt": "Who wrote Pride and Prejudice?",
+    "canonicalAnswer": "Jane Austen",
+    "acceptedAliases": [
+      "Austen",
+      "English novelist Jane Austen"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-013",
+    "category": "General",
+    "prompt": "How many days are in a leap year?",
+    "canonicalAnswer": "366",
+    "acceptedAliases": [
+      "three hundred sixty-six",
+      "366 days"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-014",
+    "category": "General",
+    "prompt": "Which metal is liquid at ordinary room temperature?",
+    "canonicalAnswer": "mercury",
+    "acceptedAliases": [
+      "Hg",
+      "quicksilver"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-015",
+    "category": "General",
+    "prompt": "Which board game features properties, railroads, and houses?",
+    "canonicalAnswer": "Monopoly",
+    "acceptedAliases": [
+      "the Monopoly game",
+      "property trading game"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-016",
+    "category": "General",
+    "prompt": "What is the largest mammal living today?",
+    "canonicalAnswer": "blue whale",
+    "acceptedAliases": [
+      "whale",
+      "blue whale species"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-017",
+    "category": "General",
+    "prompt": "How many planets are in the Solar System?",
+    "canonicalAnswer": "eight",
+    "acceptedAliases": [
+      "8",
+      "eight planets"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-018",
+    "category": "General",
+    "prompt": "Which fairy-tale character leaves behind a glass slipper?",
+    "canonicalAnswer": "Cinderella",
+    "acceptedAliases": [
+      "Cinderella story",
+      "Ella"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-019",
+    "category": "General",
+    "prompt": "What is the full name of the currency commonly called the pound in the United Kingdom?",
+    "canonicalAnswer": "pound sterling",
+    "acceptedAliases": [
+      "British pound",
+      "pound"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-020",
+    "category": "General",
+    "prompt": "What geometric shape has three sides?",
+    "canonicalAnswer": "triangle",
+    "acceptedAliases": [
+      "triangular shape",
+      "three-sided polygon"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-021",
+    "category": "General",
+    "prompt": "Which land animal is usually considered the fastest runner?",
+    "canonicalAnswer": "cheetah",
+    "acceptedAliases": [
+      "the cheetah",
+      "Acinonyx jubatus"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-022",
+    "category": "General",
+    "prompt": "What is the first month of the Gregorian calendar?",
+    "canonicalAnswer": "January",
+    "acceptedAliases": [
+      "Jan",
+      "first month"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-023",
+    "category": "General",
+    "prompt": "Which instrument measures atmospheric pressure?",
+    "canonicalAnswer": "barometer",
+    "acceptedAliases": [
+      "barometer instrument",
+      "pressure gauge"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-024",
+    "category": "General",
+    "prompt": "Which composer wrote the Ninth Symphony?",
+    "canonicalAnswer": "Ludwig van Beethoven",
+    "acceptedAliases": [
+      "Beethoven",
+      "Ludwig Beethoven"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-025",
+    "category": "General",
+    "prompt": "Which animal is traditionally called the ship of the desert?",
+    "canonicalAnswer": "camel",
+    "acceptedAliases": [
+      "dromedary",
+      "camel animal"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-026",
+    "category": "General",
+    "prompt": "What form of writing used picture symbols in ancient Egypt?",
+    "canonicalAnswer": "Egyptian hieroglyphs",
+    "acceptedAliases": [
+      "hieroglyphs",
+      "hieroglyphic writing"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-027",
+    "category": "General",
+    "prompt": "Which planet is the largest in our Solar System?",
+    "canonicalAnswer": "Jupiter",
+    "acceptedAliases": [
+      "the planet Jupiter",
+      "Jupiter planet"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-028",
+    "category": "General",
+    "prompt": "Who is credited with inventing the World Wide Web?",
+    "canonicalAnswer": "Tim Berners-Lee",
+    "acceptedAliases": [
+      "Tim Berners Lee",
+      "Berners-Lee"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-029",
+    "category": "General",
+    "prompt": "Which Greek goddess was associated with wisdom?",
+    "canonicalAnswer": "Athena",
+    "acceptedAliases": [
+      "Athena goddess",
+      "Greek wisdom goddess"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-030",
+    "category": "General",
+    "prompt": "What unit is commonly used to measure the area of a room?",
+    "canonicalAnswer": "square metre",
+    "acceptedAliases": [
+      "square meter",
+      "m²"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-031",
+    "category": "General",
+    "prompt": "Which sport is played at Wimbledon?",
+    "canonicalAnswer": "tennis",
+    "acceptedAliases": [
+      "the sport tennis",
+      "lawn tennis"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-032",
+    "category": "General",
+    "prompt": "Which leaf is a national symbol on Canada's flag?",
+    "canonicalAnswer": "Canadian maple leaf",
+    "acceptedAliases": [
+      "maple leaf",
+      "Canada maple leaf"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-033",
+    "category": "General",
+    "prompt": "What is the first element on the periodic table?",
+    "canonicalAnswer": "hydrogen",
+    "acceptedAliases": [
+      "H",
+      "hydrogen element"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-034",
+    "category": "General",
+    "prompt": "Who wrote The Hobbit?",
+    "canonicalAnswer": "J. R. R. Tolkien",
+    "acceptedAliases": [
+      "JRR Tolkien",
+      "Tolkien"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-035",
+    "category": "General",
+    "prompt": "Which brass instrument is played with a slide?",
+    "canonicalAnswer": "trombone",
+    "acceptedAliases": [
+      "the trombone",
+      "slide brass instrument"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-036",
+    "category": "General",
+    "prompt": "Which ridged pasta is shaped like a short, wide tube?",
+    "canonicalAnswer": "rigatoni",
+    "acceptedAliases": [
+      "rigatoni pasta",
+      "ridged tube pasta"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-037",
+    "category": "General",
+    "prompt": "What color results from mixing red and white paint?",
+    "canonicalAnswer": "pink",
+    "acceptedAliases": [
+      "pink color",
+      "light red"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-038",
+    "category": "General",
+    "prompt": "Which country is strongly associated with the tango?",
+    "canonicalAnswer": "Argentina",
+    "acceptedAliases": [
+      "Argentine Republic",
+      "tango country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-039",
+    "category": "General",
+    "prompt": "What is the highest number on a standard six-sided die?",
+    "canonicalAnswer": "six",
+    "acceptedAliases": [
+      "6",
+      "six spots"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-040",
+    "category": "General",
+    "prompt": "What is the Japanese art of folding paper called?",
+    "canonicalAnswer": "origami",
+    "acceptedAliases": [
+      "Japanese origami",
+      "paper folding"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-041",
+    "category": "General",
+    "prompt": "Which mythical bird is said to rise from its ashes?",
+    "canonicalAnswer": "phoenix",
+    "acceptedAliases": [
+      "the phoenix",
+      "firebird"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-042",
+    "category": "General",
+    "prompt": "What three-letter signal is internationally associated with distress?",
+    "canonicalAnswer": "SOS",
+    "acceptedAliases": [
+      "S.O.S.",
+      "distress signal"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-043",
+    "category": "General",
+    "prompt": "What is the hardest naturally occurring mineral?",
+    "canonicalAnswer": "diamond",
+    "acceptedAliases": [
+      "diamond mineral",
+      "hardest natural mineral"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-044",
+    "category": "General",
+    "prompt": "What collective noun is traditionally used for a group of owls?",
+    "canonicalAnswer": "parliament",
+    "acceptedAliases": [
+      "parliament of owls",
+      "owl group"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-045",
+    "category": "General",
+    "prompt": "What is the fear of spiders called?",
+    "canonicalAnswer": "arachnophobia",
+    "acceptedAliases": [
+      "fear of spiders",
+      "spider phobia"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-046",
+    "category": "General",
+    "prompt": "What was the name of the warrior class in feudal Japan?",
+    "canonicalAnswer": "samurai",
+    "acceptedAliases": [
+      "Japanese samurai",
+      "warrior class"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-047",
+    "category": "General",
+    "prompt": "Who was the first human to orbit Earth?",
+    "canonicalAnswer": "Yuri Gagarin",
+    "acceptedAliases": [
+      "Gagarin",
+      "Yuri Gagarin cosmonaut"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-048",
+    "category": "General",
+    "prompt": "What does the abbreviation CPU stand for?",
+    "canonicalAnswer": "central processing unit",
+    "acceptedAliases": [
+      "CPU",
+      "processor"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-049",
+    "category": "General",
+    "prompt": "Which gas do plants absorb from the atmosphere for photosynthesis?",
+    "canonicalAnswer": "carbon dioxide",
+    "acceptedAliases": [
+      "CO2",
+      "carbonic gas"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-050",
+    "category": "General",
+    "prompt": "What is the largest internal organ in the human body?",
+    "canonicalAnswer": "liver",
+    "acceptedAliases": [
+      "human liver",
+      "hepatic organ"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-051",
+    "category": "General",
+    "prompt": "Who created Sherlock Holmes?",
+    "canonicalAnswer": "Arthur Conan Doyle",
+    "acceptedAliases": [
+      "Conan Doyle",
+      "Arthur Doyle"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-052",
+    "category": "General",
+    "prompt": "Which Scandinavian country is especially known for its fjords?",
+    "canonicalAnswer": "Norway",
+    "acceptedAliases": [
+      "Kingdom of Norway",
+      "Norwegian country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-053",
+    "category": "General",
+    "prompt": "Which gemstone is the traditional birthstone for April?",
+    "canonicalAnswer": "diamond gemstone",
+    "acceptedAliases": [
+      "April diamond",
+      "diamond birthstone"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-054",
+    "category": "General",
+    "prompt": "How many strings does a standard violin have?",
+    "canonicalAnswer": "four",
+    "acceptedAliases": [
+      "4",
+      "four strings"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-055",
+    "category": "General",
+    "prompt": "What word describes a period of one hundred years?",
+    "canonicalAnswer": "century",
+    "acceptedAliases": [
+      "one hundred years",
+      "100-year period"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-056",
+    "category": "General",
+    "prompt": "What traditional Japanese wrestling sport is performed in a circular ring?",
+    "canonicalAnswer": "sumo wrestling",
+    "acceptedAliases": [
+      "sumo",
+      "Japanese wrestling"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-057",
+    "category": "General",
+    "prompt": "Who painted The Starry Night?",
+    "canonicalAnswer": "Vincent van Gogh",
+    "acceptedAliases": [
+      "Van Gogh",
+      "Vincent Gogh"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-058",
+    "category": "General",
+    "prompt": "What is the metric distance equal to one thousand metres?",
+    "canonicalAnswer": "kilometre",
+    "acceptedAliases": [
+      "kilometer",
+      "km"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-059",
+    "category": "General",
+    "prompt": "What food is made by fermenting milk with live cultures?",
+    "canonicalAnswer": "yogurt",
+    "acceptedAliases": [
+      "yoghurt",
+      "fermented milk"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-060",
+    "category": "General",
+    "prompt": "Which ocean current helps warm western Europe?",
+    "canonicalAnswer": "Gulf Stream",
+    "acceptedAliases": [
+      "Gulf Stream current",
+      "Atlantic warm current"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-061",
+    "category": "General",
+    "prompt": "What number is represented by the Roman numeral X?",
+    "canonicalAnswer": "ten",
+    "acceptedAliases": [
+      "10",
+      "Roman X"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-062",
+    "category": "General",
+    "prompt": "What traditional Scottish garment is worn like a skirt?",
+    "canonicalAnswer": "kilt",
+    "acceptedAliases": [
+      "Scottish kilt",
+      "Highland kilt"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-063",
+    "category": "General",
+    "prompt": "What fruit is the principal ingredient in guacamole?",
+    "canonicalAnswer": "avocado",
+    "acceptedAliases": [
+      "avocado fruit",
+      "guacamole fruit"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-064",
+    "category": "General",
+    "prompt": "Which bird is famous for mimicking human speech?",
+    "canonicalAnswer": "parrot",
+    "acceptedAliases": [
+      "parrot bird",
+      "talking parrot"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-065",
+    "category": "General",
+    "prompt": "Which award honors achievement in Broadway theatre?",
+    "canonicalAnswer": "Tony Award",
+    "acceptedAliases": [
+      "Tony",
+      "Broadway award"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-066",
+    "category": "General",
+    "prompt": "What is the capital city of Australia?",
+    "canonicalAnswer": "Canberra",
+    "acceptedAliases": [
+      "Canberra city",
+      "Australian capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-067",
+    "category": "General",
+    "prompt": "What is the world's smallest independent country by area?",
+    "canonicalAnswer": "Vatican City",
+    "acceptedAliases": [
+      "Vatican",
+      "Vatican City State"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-068",
+    "category": "General",
+    "prompt": "Which metal is widely used for electrical wiring?",
+    "canonicalAnswer": "copper",
+    "acceptedAliases": [
+      "Cu",
+      "copper metal"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-069",
+    "category": "General",
+    "prompt": "How many items are in a dozen?",
+    "canonicalAnswer": "twelve",
+    "acceptedAliases": [
+      "12",
+      "a dozen"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "general-070",
+    "category": "General",
+    "prompt": "What is the art of beautiful decorative handwriting called?",
+    "canonicalAnswer": "calligraphy",
+    "acceptedAliases": [
+      "calligraphy writing",
+      "decorative handwriting"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "general-071",
+    "category": "General",
+    "prompt": "Which reed instrument is a common member of a concert band?",
+    "canonicalAnswer": "clarinet",
+    "acceptedAliases": [
+      "the clarinet",
+      "reed instrument"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "general-072",
+    "category": "General",
+    "prompt": "Which planet is nicknamed the Red Planet?",
+    "canonicalAnswer": "Mars",
+    "acceptedAliases": [
+      "Mars planet",
+      "red planet"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "general-073",
+    "category": "General",
+    "prompt": "What material is the writing core of a modern pencil made from?",
+    "canonicalAnswer": "graphite",
+    "acceptedAliases": [
+      "graphite carbon",
+      "pencil lead"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "general-074",
+    "category": "General",
+    "prompt": "What type of story usually ends with a moral?",
+    "canonicalAnswer": "fable",
+    "acceptedAliases": [
+      "a fable",
+      "moral tale"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "general-075",
+    "category": "General",
+    "prompt": "What Spanish dance is known for stamping, clapping, and guitar music?",
+    "canonicalAnswer": "flamenco",
+    "acceptedAliases": [
+      "Spanish flamenco",
+      "flamenco dance"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-001",
+    "category": "Science",
+    "prompt": "What organelle is often called the powerhouse of a cell?",
+    "canonicalAnswer": "mitochondrion",
+    "acceptedAliases": [
+      "mitochondria",
+      "mitochondrion organelle"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-002",
+    "category": "Science",
+    "prompt": "What SI unit measures force?",
+    "canonicalAnswer": "newton",
+    "acceptedAliases": [
+      "N",
+      "newton unit"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-003",
+    "category": "Science",
+    "prompt": "What is the chemical formula for water?",
+    "canonicalAnswer": "H2O",
+    "acceptedAliases": [
+      "water",
+      "water molecule"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-004",
+    "category": "Science",
+    "prompt": "Which planet is closest to the Sun?",
+    "canonicalAnswer": "Mercury",
+    "acceptedAliases": [
+      "Mercury planet",
+      "first planet"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-005",
+    "category": "Science",
+    "prompt": "Which gas makes up the largest portion of Earth's atmosphere?",
+    "canonicalAnswer": "nitrogen",
+    "acceptedAliases": [
+      "N2",
+      "nitrogen gas"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-006",
+    "category": "Science",
+    "prompt": "What shape does a DNA molecule famously have?",
+    "canonicalAnswer": "double helix",
+    "acceptedAliases": [
+      "DNA helix",
+      "double-helical DNA"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-007",
+    "category": "Science",
+    "prompt": "What is the approximate speed of light in a vacuum?",
+    "canonicalAnswer": "299,792,458 meters per second",
+    "acceptedAliases": [
+      "299792458 m/s",
+      "speed of light"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-008",
+    "category": "Science",
+    "prompt": "What number represents neutral pH?",
+    "canonicalAnswer": "seven",
+    "acceptedAliases": [
+      "7",
+      "pH seven"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-009",
+    "category": "Science",
+    "prompt": "Which organ pumps blood around the human body?",
+    "canonicalAnswer": "heart",
+    "acceptedAliases": [
+      "human heart",
+      "cardiac organ"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-010",
+    "category": "Science",
+    "prompt": "Which green pigment allows plants to absorb light?",
+    "canonicalAnswer": "chlorophyll",
+    "acceptedAliases": [
+      "green chlorophyll",
+      "plant pigment"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-011",
+    "category": "Science",
+    "prompt": "What is the largest bone in the human body?",
+    "canonicalAnswer": "femur",
+    "acceptedAliases": [
+      "thigh bone",
+      "femur bone"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-012",
+    "category": "Science",
+    "prompt": "Which blood type is commonly described as the universal red-cell donor?",
+    "canonicalAnswer": "O negative blood",
+    "acceptedAliases": [
+      "O negative",
+      "universal donor"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-013",
+    "category": "Science",
+    "prompt": "What is the scientific study of fungi called?",
+    "canonicalAnswer": "mycology",
+    "acceptedAliases": [
+      "fungal biology",
+      "study of fungi"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-014",
+    "category": "Science",
+    "prompt": "What is the outermost solid layer of Earth called?",
+    "canonicalAnswer": "crust",
+    "acceptedAliases": [
+      "Earth crust",
+      "outer crust"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-015",
+    "category": "Science",
+    "prompt": "Which gas is commonly used to make balloons float?",
+    "canonicalAnswer": "helium",
+    "acceptedAliases": [
+      "He",
+      "helium gas"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-016",
+    "category": "Science",
+    "prompt": "What SI unit measures electric current?",
+    "canonicalAnswer": "ampere",
+    "acceptedAliases": [
+      "amp",
+      "A"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-017",
+    "category": "Science",
+    "prompt": "Which acid is present in the human stomach?",
+    "canonicalAnswer": "hydrochloric acid",
+    "acceptedAliases": [
+      "HCl",
+      "stomach acid"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-018",
+    "category": "Science",
+    "prompt": "What is the smallest unit that can carry out all basic life processes?",
+    "canonicalAnswer": "cell",
+    "acceptedAliases": [
+      "living cell",
+      "basic life unit"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-019",
+    "category": "Science",
+    "prompt": "What force attracts masses toward one another?",
+    "canonicalAnswer": "gravity",
+    "acceptedAliases": [
+      "gravity force",
+      "gravitation"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-020",
+    "category": "Science",
+    "prompt": "What term describes a change in genetic material?",
+    "canonicalAnswer": "mutation",
+    "acceptedAliases": [
+      "gene mutation",
+      "genetic mutation"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-021",
+    "category": "Science",
+    "prompt": "What is the approximate speed of sound in dry air at room temperature?",
+    "canonicalAnswer": "343 meters per second",
+    "acceptedAliases": [
+      "343 m/s",
+      "speed of sound"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-022",
+    "category": "Science",
+    "prompt": "Which vitamin can human skin produce in sunlight?",
+    "canonicalAnswer": "vitamin D",
+    "acceptedAliases": [
+      "vitamin D3",
+      "D vitamin"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-023",
+    "category": "Science",
+    "prompt": "What is the scientific study of earthquakes called?",
+    "canonicalAnswer": "seismology",
+    "acceptedAliases": [
+      "earthquake science",
+      "seismic study"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-024",
+    "category": "Science",
+    "prompt": "Which gas is released by plants during photosynthesis?",
+    "canonicalAnswer": "oxygen",
+    "acceptedAliases": [
+      "O2",
+      "oxygen gas"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-025",
+    "category": "Science",
+    "prompt": "At what temperature does water boil at sea level in the Celsius scale?",
+    "canonicalAnswer": "100 degrees Celsius",
+    "acceptedAliases": [
+      "100 C",
+      "one hundred degrees Celsius"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-026",
+    "category": "Science",
+    "prompt": "What renewable energy comes from moving air?",
+    "canonicalAnswer": "wind energy",
+    "acceptedAliases": [
+      "wind power"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-027",
+    "category": "Science",
+    "prompt": "Which blood cells carry most oxygen through the body?",
+    "canonicalAnswer": "red blood cells",
+    "acceptedAliases": [
+      "erythrocytes",
+      "red cells"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-028",
+    "category": "Science",
+    "prompt": "Which subatomic particle has a negative electric charge?",
+    "canonicalAnswer": "electron",
+    "acceptedAliases": [
+      "the electron",
+      "negative particle"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-029",
+    "category": "Science",
+    "prompt": "What chemical element has the symbol Au?",
+    "canonicalAnswer": "gold",
+    "acceptedAliases": [
+      "Au",
+      "gold element"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-030",
+    "category": "Science",
+    "prompt": "What process changes a liquid into a gas?",
+    "canonicalAnswer": "evaporation",
+    "acceptedAliases": [
+      "vaporization",
+      "evaporating"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-031",
+    "category": "Science",
+    "prompt": "Which element is represented by the symbol H?",
+    "canonicalAnswer": "hydrogen",
+    "acceptedAliases": [
+      "H element",
+      "hydrogen gas"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-032",
+    "category": "Science",
+    "prompt": "Which organ is the main control center of the human nervous system?",
+    "canonicalAnswer": "brain",
+    "acceptedAliases": [
+      "human brain",
+      "brain organ"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-033",
+    "category": "Science",
+    "prompt": "What is the name for a region with no matter through which sound cannot travel?",
+    "canonicalAnswer": "vacuum",
+    "acceptedAliases": [
+      "empty space",
+      "a vacuum"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-034",
+    "category": "Science",
+    "prompt": "What is Earth's natural satellite?",
+    "canonicalAnswer": "Moon",
+    "acceptedAliases": [
+      "the moon",
+      "Luna"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-035",
+    "category": "Science",
+    "prompt": "What form of energy does a moving object possess?",
+    "canonicalAnswer": "kinetic energy",
+    "acceptedAliases": [
+      "kinetic",
+      "motion energy"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-036",
+    "category": "Science",
+    "prompt": "What structure packages genetic information in many cells?",
+    "canonicalAnswer": "chromosome",
+    "acceptedAliases": [
+      "chromosomes",
+      "genetic structure"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-037",
+    "category": "Science",
+    "prompt": "What is the scientific study of plants called?",
+    "canonicalAnswer": "botany",
+    "acceptedAliases": [
+      "plant science",
+      "study of plants"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-038",
+    "category": "Science",
+    "prompt": "Which metal is liquid at room temperature?",
+    "canonicalAnswer": "mercury",
+    "acceptedAliases": [
+      "Hg",
+      "quicksilver"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-039",
+    "category": "Science",
+    "prompt": "What is a disease-causing organism or agent called?",
+    "canonicalAnswer": "pathogen",
+    "acceptedAliases": [
+      "infectious agent",
+      "pathogenic organism"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-040",
+    "category": "Science",
+    "prompt": "What process lets green plants make sugars from light?",
+    "canonicalAnswer": "photosynthesis",
+    "acceptedAliases": [
+      "plant food-making",
+      "photosynthetic process"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-041",
+    "category": "Science",
+    "prompt": "What SI unit measures frequency?",
+    "canonicalAnswer": "hertz",
+    "acceptedAliases": [
+      "Hz",
+      "cycles per second"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-042",
+    "category": "Science",
+    "prompt": "Which gas do humans need for aerobic respiration?",
+    "canonicalAnswer": "oxygen",
+    "acceptedAliases": [
+      "O2",
+      "oxygen gas"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-043",
+    "category": "Science",
+    "prompt": "What astronomical object is usually described as an icy body with a tail?",
+    "canonicalAnswer": "comet",
+    "acceptedAliases": [
+      "comet body",
+      "icy space object"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-044",
+    "category": "Science",
+    "prompt": "Which hormone helps regulate blood sugar?",
+    "canonicalAnswer": "insulin",
+    "acceptedAliases": [
+      "insulin hormone",
+      "blood-sugar hormone"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-045",
+    "category": "Science",
+    "prompt": "What is the outermost layer of human skin called?",
+    "canonicalAnswer": "epidermis",
+    "acceptedAliases": [
+      "skin epidermis",
+      "outer skin layer"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-046",
+    "category": "Science",
+    "prompt": "What is the boundary around a black hole beyond which light cannot escape?",
+    "canonicalAnswer": "event horizon",
+    "acceptedAliases": [
+      "black-hole boundary",
+      "event horizon boundary"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-047",
+    "category": "Science",
+    "prompt": "What molecule stores hereditary instructions in most living organisms?",
+    "canonicalAnswer": "DNA",
+    "acceptedAliases": [
+      "deoxyribonucleic acid",
+      "DNA molecule"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-048",
+    "category": "Science",
+    "prompt": "What shape best describes Earth's slightly flattened sphere?",
+    "canonicalAnswer": "oblate spheroid",
+    "acceptedAliases": [
+      "oblate sphere",
+      "flattened sphere"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-049",
+    "category": "Science",
+    "prompt": "What is the hardest substance in the human body?",
+    "canonicalAnswer": "tooth enamel",
+    "acceptedAliases": [
+      "dental enamel",
+      "enamel"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-050",
+    "category": "Science",
+    "prompt": "What process changes a solid directly into a gas?",
+    "canonicalAnswer": "sublimation",
+    "acceptedAliases": [
+      "subliming",
+      "solid-to-gas transition"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-051",
+    "category": "Science",
+    "prompt": "What SI unit measures electrical resistance?",
+    "canonicalAnswer": "ohm",
+    "acceptedAliases": [
+      "Ω",
+      "ohms"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-052",
+    "category": "Science",
+    "prompt": "Which pigment gives many plants their green color?",
+    "canonicalAnswer": "chlorophyll",
+    "acceptedAliases": [
+      "chlorophyll pigment",
+      "green plant pigment"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-053",
+    "category": "Science",
+    "prompt": "What mode of heat transfer occurs through direct contact?",
+    "canonicalAnswer": "conduction",
+    "acceptedAliases": [
+      "thermal conduction",
+      "heat conduction"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-054",
+    "category": "Science",
+    "prompt": "What branch of biology studies inheritance?",
+    "canonicalAnswer": "genetics",
+    "acceptedAliases": [
+      "genetic science",
+      "inheritance science"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-055",
+    "category": "Science",
+    "prompt": "Which subatomic particle has no electric charge?",
+    "canonicalAnswer": "neutron",
+    "acceptedAliases": [
+      "the neutron",
+      "neutral particle"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-056",
+    "category": "Science",
+    "prompt": "What does a seismograph primarily record?",
+    "canonicalAnswer": "seismic waves",
+    "acceptedAliases": [
+      "earthquake vibrations",
+      "seismic vibrations"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-057",
+    "category": "Science",
+    "prompt": "What liquid component makes up much of the volume of blood?",
+    "canonicalAnswer": "plasma",
+    "acceptedAliases": [
+      "blood plasma",
+      "liquid blood component"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-058",
+    "category": "Science",
+    "prompt": "What is a huge system of stars, gas, and dust called?",
+    "canonicalAnswer": "galaxy",
+    "acceptedAliases": [
+      "star galaxy",
+      "galactic system"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-059",
+    "category": "Science",
+    "prompt": "Which naturalist is most associated with evolution by natural selection?",
+    "canonicalAnswer": "Charles Darwin",
+    "acceptedAliases": [
+      "Darwin",
+      "Charles Darwin naturalist"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-060",
+    "category": "Science",
+    "prompt": "What scale is used to describe how acidic or basic a solution is?",
+    "canonicalAnswer": "pH scale",
+    "acceptedAliases": [
+      "pH",
+      "acidity scale"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-061",
+    "category": "Science",
+    "prompt": "What tiny blood vessels connect arteries and veins?",
+    "canonicalAnswer": "capillaries",
+    "acceptedAliases": [
+      "capillary vessels",
+      "tiny blood vessels"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-062",
+    "category": "Science",
+    "prompt": "What is the common name for sodium chloride?",
+    "canonicalAnswer": "sodium chloride",
+    "acceptedAliases": [
+      "table salt",
+      "NaCl"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-063",
+    "category": "Science",
+    "prompt": "What transparent structure focuses incoming light in the eye?",
+    "canonicalAnswer": "crystalline lens",
+    "acceptedAliases": [
+      "eye lens",
+      "crystalline eye lens"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-064",
+    "category": "Science",
+    "prompt": "What is an organism that makes its own food called?",
+    "canonicalAnswer": "autotroph",
+    "acceptedAliases": [
+      "producer organism",
+      "self-feeding organism"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-065",
+    "category": "Science",
+    "prompt": "Which planet has the most prominent visible ring system?",
+    "canonicalAnswer": "Saturn",
+    "acceptedAliases": [
+      "Saturn planet",
+      "ringed planet"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-066",
+    "category": "Science",
+    "prompt": "What is the lowest theoretically possible temperature?",
+    "canonicalAnswer": "absolute zero",
+    "acceptedAliases": [
+      "0 kelvin",
+      "absolute zero temperature"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-067",
+    "category": "Science",
+    "prompt": "What is the scientific study of fossils called?",
+    "canonicalAnswer": "paleontology",
+    "acceptedAliases": [
+      "fossil science",
+      "study of fossils"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-068",
+    "category": "Science",
+    "prompt": "What is the SI base unit of mass?",
+    "canonicalAnswer": "kilogram",
+    "acceptedAliases": [
+      "kg",
+      "kilogram unit"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-069",
+    "category": "Science",
+    "prompt": "What phenomenon bends light as it passes between materials?",
+    "canonicalAnswer": "refraction",
+    "acceptedAliases": [
+      "light refraction",
+      "bending of light"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "science-070",
+    "category": "Science",
+    "prompt": "What process produces two genetically similar daughter cells?",
+    "canonicalAnswer": "mitosis",
+    "acceptedAliases": [
+      "cell division",
+      "mitotic division"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "science-071",
+    "category": "Science",
+    "prompt": "What protein is abundant in hair and nails?",
+    "canonicalAnswer": "keratin",
+    "acceptedAliases": [
+      "hair keratin",
+      "structural protein"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "science-072",
+    "category": "Science",
+    "prompt": "What movement in Earth's mantle helps drive tectonic plates?",
+    "canonicalAnswer": "mantle convection",
+    "acceptedAliases": [
+      "convection currents",
+      "mantle currents"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "science-073",
+    "category": "Science",
+    "prompt": "What is the closest star to the Sun?",
+    "canonicalAnswer": "Proxima Centauri",
+    "acceptedAliases": [
+      "Proxima",
+      "Alpha Centauri C"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "science-074",
+    "category": "Science",
+    "prompt": "What unit is used to express sound intensity levels?",
+    "canonicalAnswer": "decibels",
+    "acceptedAliases": [
+      "dB",
+      "decibel scale"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "science-075",
+    "category": "Science",
+    "prompt": "Which insect is a familiar example of complete metamorphosis?",
+    "canonicalAnswer": "butterfly",
+    "acceptedAliases": [
+      "butterfly insect",
+      "metamorphosis insect"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-001",
+    "category": "Geography",
+    "prompt": "Which country has the greatest land area?",
+    "canonicalAnswer": "Russia",
+    "acceptedAliases": [
+      "Russian Federation",
+      "Russia country"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-002",
+    "category": "Geography",
+    "prompt": "What is the capital of Portugal?",
+    "canonicalAnswer": "Lisbon",
+    "acceptedAliases": [
+      "Lisboa",
+      "Lisbon city"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-003",
+    "category": "Geography",
+    "prompt": "Which river flows north through Egypt to the Mediterranean?",
+    "canonicalAnswer": "Nile",
+    "acceptedAliases": [
+      "Nile River",
+      "River Nile"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-004",
+    "category": "Geography",
+    "prompt": "What is the largest continent by land area?",
+    "canonicalAnswer": "Asia",
+    "acceptedAliases": [
+      "Asian continent",
+      "Asia continent"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-005",
+    "category": "Geography",
+    "prompt": "Which ocean lies between Africa, Asia, and Australia?",
+    "canonicalAnswer": "Indian Ocean",
+    "acceptedAliases": [
+      "Indian Ocean waters",
+      "Indian"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-006",
+    "category": "Geography",
+    "prompt": "What desert stretches across much of North Africa?",
+    "canonicalAnswer": "Sahara Desert",
+    "acceptedAliases": [
+      "Sahara",
+      "Sahara desert"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-007",
+    "category": "Geography",
+    "prompt": "What is the world's highest mountain above sea level?",
+    "canonicalAnswer": "Mount Everest",
+    "acceptedAliases": [
+      "Everest",
+      "Sagarmatha"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-008",
+    "category": "Geography",
+    "prompt": "Which country is often described as being shaped like a boot?",
+    "canonicalAnswer": "Italy",
+    "acceptedAliases": [
+      "Italian peninsula",
+      "Italy country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-009",
+    "category": "Geography",
+    "prompt": "What is the capital of Japan?",
+    "canonicalAnswer": "Tokyo",
+    "acceptedAliases": [
+      "Tokyo city",
+      "Japanese capital"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-010",
+    "category": "Geography",
+    "prompt": "Which river is the longest major river in South America?",
+    "canonicalAnswer": "Amazon River",
+    "acceptedAliases": [
+      "Amazon",
+      "River Amazon"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-011",
+    "category": "Geography",
+    "prompt": "Which city occupies territory on both Europe and Asia?",
+    "canonicalAnswer": "Istanbul",
+    "acceptedAliases": [
+      "Istanbul city",
+      "Turkish transcontinental city"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-012",
+    "category": "Geography",
+    "prompt": "Which country contains the Great Barrier Reef?",
+    "canonicalAnswer": "Australia",
+    "acceptedAliases": [
+      "Australian mainland",
+      "Australia country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-013",
+    "category": "Geography",
+    "prompt": "What imaginary line circles Earth halfway between the poles?",
+    "canonicalAnswer": "Equator",
+    "acceptedAliases": [
+      "the Equator",
+      "equatorial line"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-014",
+    "category": "Geography",
+    "prompt": "Which country is often counted as having the most islands?",
+    "canonicalAnswer": "Sweden",
+    "acceptedAliases": [
+      "Kingdom of Sweden",
+      "Swedish country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-015",
+    "category": "Geography",
+    "prompt": "What is the capital of Kenya?",
+    "canonicalAnswer": "Nairobi",
+    "acceptedAliases": [
+      "Nairobi city",
+      "Kenyan capital"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-016",
+    "category": "Geography",
+    "prompt": "Which sea lies between southern Europe and northern Africa?",
+    "canonicalAnswer": "Mediterranean Sea",
+    "acceptedAliases": [
+      "Mediterranean",
+      "Mediterranean waters"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-017",
+    "category": "Geography",
+    "prompt": "Which country is home to Mount Fuji?",
+    "canonicalAnswer": "Japan",
+    "acceptedAliases": [
+      "Japanese archipelago",
+      "Japan country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-018",
+    "category": "Geography",
+    "prompt": "What is the world's largest desert by total area?",
+    "canonicalAnswer": "Antarctic Desert",
+    "acceptedAliases": [
+      "Antarctica",
+      "polar desert"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-019",
+    "category": "Geography",
+    "prompt": "What is the capital of Canada?",
+    "canonicalAnswer": "Ottawa",
+    "acceptedAliases": [
+      "Ottawa city",
+      "Canadian capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-020",
+    "category": "Geography",
+    "prompt": "In which country is the Taj Mahal located?",
+    "canonicalAnswer": "India",
+    "acceptedAliases": [
+      "Indian subcontinent",
+      "India country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-021",
+    "category": "Geography",
+    "prompt": "Which small country is landlocked in the Pyrenees between France and Spain?",
+    "canonicalAnswer": "Andorra",
+    "acceptedAliases": [
+      "Principality of Andorra",
+      "Andorra country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-022",
+    "category": "Geography",
+    "prompt": "What is the capital of Iceland?",
+    "canonicalAnswer": "Reykjavik",
+    "acceptedAliases": [
+      "Reykjavik city",
+      "Icelandic capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-023",
+    "category": "Geography",
+    "prompt": "Which waterfall lies on the border of Zambia and Zimbabwe?",
+    "canonicalAnswer": "Victoria Falls",
+    "acceptedAliases": [
+      "Mosi-oa-Tunya",
+      "Victoria waterfall"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-024",
+    "category": "Geography",
+    "prompt": "Which country is renowned for its long, deeply cut fjords?",
+    "canonicalAnswer": "Norway",
+    "acceptedAliases": [
+      "Kingdom of Norway",
+      "Norwegian country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-025",
+    "category": "Geography",
+    "prompt": "Which river flows through London?",
+    "canonicalAnswer": "Thames",
+    "acceptedAliases": [
+      "River Thames",
+      "Thames River"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-026",
+    "category": "Geography",
+    "prompt": "What is the capital of Egypt?",
+    "canonicalAnswer": "Cairo",
+    "acceptedAliases": [
+      "Cairo city",
+      "Egyptian capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-027",
+    "category": "Geography",
+    "prompt": "What peninsula contains most of Saudi Arabia?",
+    "canonicalAnswer": "Arabian Peninsula",
+    "acceptedAliases": [
+      "Arabia",
+      "Arabian peninsula"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-028",
+    "category": "Geography",
+    "prompt": "What is the world's largest island that is not a continent?",
+    "canonicalAnswer": "Greenland",
+    "acceptedAliases": [
+      "Greenland island",
+      "Kalaallit Nunaat"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-029",
+    "category": "Geography",
+    "prompt": "Which canal connects the Mediterranean Sea with the Red Sea?",
+    "canonicalAnswer": "Suez Canal",
+    "acceptedAliases": [
+      "Suez",
+      "Suez waterway"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-030",
+    "category": "Geography",
+    "prompt": "What is the capital of Brazil?",
+    "canonicalAnswer": "Brasília",
+    "acceptedAliases": [
+      "federal capital of Brazil",
+      "Brasilia capital"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-031",
+    "category": "Geography",
+    "prompt": "Which mountain range traditionally marks part of the boundary between Europe and Asia?",
+    "canonicalAnswer": "Ural Mountains",
+    "acceptedAliases": [
+      "Urals",
+      "Ural range"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-032",
+    "category": "Geography",
+    "prompt": "In which country is Machu Picchu located?",
+    "canonicalAnswer": "Peru",
+    "acceptedAliases": [
+      "Peruvian Andes",
+      "Peru country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-033",
+    "category": "Geography",
+    "prompt": "Which Great Lake has the largest surface area?",
+    "canonicalAnswer": "Lake Superior",
+    "acceptedAliases": [
+      "Superior",
+      "Lake Superior freshwater"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-034",
+    "category": "Geography",
+    "prompt": "What is the capital of South Korea?",
+    "canonicalAnswer": "Seoul",
+    "acceptedAliases": [
+      "Seoul city",
+      "South Korean capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-035",
+    "category": "Geography",
+    "prompt": "Which desert spans parts of northern China and southern Mongolia?",
+    "canonicalAnswer": "Gobi Desert",
+    "acceptedAliases": [
+      "Gobi",
+      "Gobi region"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-036",
+    "category": "Geography",
+    "prompt": "Which South American country forms a long strip along the Pacific coast?",
+    "canonicalAnswer": "Chile",
+    "acceptedAliases": [
+      "Chilean country",
+      "long Pacific country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-037",
+    "category": "Geography",
+    "prompt": "Which river flows through Paris?",
+    "canonicalAnswer": "Seine",
+    "acceptedAliases": [
+      "River Seine",
+      "Seine River"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-038",
+    "category": "Geography",
+    "prompt": "What is the capital of Greece?",
+    "canonicalAnswer": "Athens",
+    "acceptedAliases": [
+      "Athens city",
+      "Greek capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-039",
+    "category": "Geography",
+    "prompt": "Which island country off West Africa was formerly called Cabo Verde?",
+    "canonicalAnswer": "Cape Verde",
+    "acceptedAliases": [
+      "Cabo Verde",
+      "Cape Verde islands"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-040",
+    "category": "Geography",
+    "prompt": "Which strait separates Spain from Morocco?",
+    "canonicalAnswer": "Strait of Gibraltar",
+    "acceptedAliases": [
+      "Gibraltar Strait",
+      "Mediterranean Atlantic passage"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-041",
+    "category": "Geography",
+    "prompt": "Which Italian city is famous for canals and gondolas?",
+    "canonicalAnswer": "Venice",
+    "acceptedAliases": [
+      "Venice city",
+      "Italian canal city"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-042",
+    "category": "Geography",
+    "prompt": "What is the capital of Morocco?",
+    "canonicalAnswer": "Rabat",
+    "acceptedAliases": [
+      "Rabat city",
+      "Moroccan capital"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-043",
+    "category": "Geography",
+    "prompt": "Which continent contains the greatest number of sovereign countries?",
+    "canonicalAnswer": "Africa",
+    "acceptedAliases": [
+      "African continent",
+      "Africa continent"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-044",
+    "category": "Geography",
+    "prompt": "Which country contains the Serengeti ecosystem?",
+    "canonicalAnswer": "Tanzania",
+    "acceptedAliases": [
+      "United Republic of Tanzania",
+      "Tanzania country"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-045",
+    "category": "Geography",
+    "prompt": "Which high-altitude lake lies between Peru and Bolivia?",
+    "canonicalAnswer": "Lake Titicaca",
+    "acceptedAliases": [
+      "Titicaca",
+      "Andean lake"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-046",
+    "category": "Geography",
+    "prompt": "What is the capital of New Zealand?",
+    "canonicalAnswer": "Wellington",
+    "acceptedAliases": [
+      "Wellington city",
+      "New Zealand capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-047",
+    "category": "Geography",
+    "prompt": "Which waterfalls sit on the border between the United States and Canada?",
+    "canonicalAnswer": "Niagara Falls",
+    "acceptedAliases": [
+      "Niagara",
+      "Niagara waterfall"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-048",
+    "category": "Geography",
+    "prompt": "In which country can the ancient city of Petra be visited?",
+    "canonicalAnswer": "Jordan",
+    "acceptedAliases": [
+      "Jordan country",
+      "Hashemite Kingdom"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-049",
+    "category": "Geography",
+    "prompt": "Which major European river flows through Germany and the Netherlands?",
+    "canonicalAnswer": "Rhine",
+    "acceptedAliases": [
+      "Rhine River",
+      "River Rhine"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-050",
+    "category": "Geography",
+    "prompt": "What is the capital of Thailand?",
+    "canonicalAnswer": "Bangkok",
+    "acceptedAliases": [
+      "Bangkok city",
+      "Thai capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-051",
+    "category": "Geography",
+    "prompt": "Which island country lies southeast of India?",
+    "canonicalAnswer": "Sri Lanka",
+    "acceptedAliases": [
+      "Ceylon",
+      "Sri Lankan island"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-052",
+    "category": "Geography",
+    "prompt": "What mountain range runs through western North America?",
+    "canonicalAnswer": "Rocky Mountains",
+    "acceptedAliases": [
+      "Rockies",
+      "Rocky Mountain range"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-053",
+    "category": "Geography",
+    "prompt": "What is the capital of Argentina?",
+    "canonicalAnswer": "Buenos Aires",
+    "acceptedAliases": [
+      "Buenos Aires city",
+      "Argentine capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-054",
+    "category": "Geography",
+    "prompt": "Which sea lies along the eastern coast of Italy?",
+    "canonicalAnswer": "Adriatic Sea",
+    "acceptedAliases": [
+      "Adriatic",
+      "Adriatic waters"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-055",
+    "category": "Geography",
+    "prompt": "Which country has the Andes and the Pacific coast at the Equator?",
+    "canonicalAnswer": "Ecuador",
+    "acceptedAliases": [
+      "Ecuador country",
+      "Equatorial South American country"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-056",
+    "category": "Geography",
+    "prompt": "What is the capital of Turkey?",
+    "canonicalAnswer": "Ankara",
+    "acceptedAliases": [
+      "Ankara city",
+      "Turkish capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-057",
+    "category": "Geography",
+    "prompt": "Which continent surrounds the South Pole?",
+    "canonicalAnswer": "Antarctica",
+    "acceptedAliases": [
+      "Antarctic continent",
+      "the Antarctic"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-058",
+    "category": "Geography",
+    "prompt": "Which country contains the Acropolis of Athens?",
+    "canonicalAnswer": "Greece",
+    "acceptedAliases": [
+      "Greek country",
+      "Hellenic Republic"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-059",
+    "category": "Geography",
+    "prompt": "Which river runs through the city of Rome?",
+    "canonicalAnswer": "Tiber",
+    "acceptedAliases": [
+      "Tiber River",
+      "River Tiber"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-060",
+    "category": "Geography",
+    "prompt": "What is the capital of Norway?",
+    "canonicalAnswer": "Oslo",
+    "acceptedAliases": [
+      "Oslo city",
+      "Norwegian capital"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-061",
+    "category": "Geography",
+    "prompt": "Which peninsula is the largest in the world by area?",
+    "canonicalAnswer": "Arabian Peninsula",
+    "acceptedAliases": [
+      "Arabia",
+      "Arabian landmass"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-062",
+    "category": "Geography",
+    "prompt": "Which country administers the Galápagos Islands?",
+    "canonicalAnswer": "Ecuador",
+    "acceptedAliases": [
+      "Galapagos country",
+      "Ecuadorian Republic"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-063",
+    "category": "Geography",
+    "prompt": "Which city is commonly nicknamed the Big Apple?",
+    "canonicalAnswer": "New York City",
+    "acceptedAliases": [
+      "New York",
+      "NYC"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-064",
+    "category": "Geography",
+    "prompt": "What is the capital of Vietnam?",
+    "canonicalAnswer": "Hanoi",
+    "acceptedAliases": [
+      "Hanoi city",
+      "Vietnamese capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-065",
+    "category": "Geography",
+    "prompt": "Which Venezuelan waterfall is the world's highest uninterrupted waterfall?",
+    "canonicalAnswer": "Angel Falls",
+    "acceptedAliases": [
+      "Kerepakupai Merú",
+      "Angel waterfall"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-066",
+    "category": "Geography",
+    "prompt": "Which country is crossed by the Trans-Siberian Railway?",
+    "canonicalAnswer": "Russia",
+    "acceptedAliases": [
+      "Trans-Siberian country",
+      "Russian railway country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-067",
+    "category": "Geography",
+    "prompt": "Which strait separates eastern Russia from Alaska?",
+    "canonicalAnswer": "Bering Strait",
+    "acceptedAliases": [
+      "Bering",
+      "Bering passage"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-068",
+    "category": "Geography",
+    "prompt": "What is the capital of Ireland?",
+    "canonicalAnswer": "Dublin",
+    "acceptedAliases": [
+      "Dublin city",
+      "Irish capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-069",
+    "category": "Geography",
+    "prompt": "Which ocean surrounds the North Pole?",
+    "canonicalAnswer": "Arctic Ocean",
+    "acceptedAliases": [
+      "Arctic",
+      "Arctic waters"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "geography-070",
+    "category": "Geography",
+    "prompt": "Which country contains Mount Kilimanjaro?",
+    "canonicalAnswer": "Tanzania",
+    "acceptedAliases": [
+      "Kilimanjaro country",
+      "Tanzanian Republic"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "geography-071",
+    "category": "Geography",
+    "prompt": "What is the capital of the Netherlands?",
+    "canonicalAnswer": "Amsterdam",
+    "acceptedAliases": [
+      "Amsterdam city",
+      "Dutch capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "geography-072",
+    "category": "Geography",
+    "prompt": "Which country is famous for its spring tulip fields?",
+    "canonicalAnswer": "Netherlands",
+    "acceptedAliases": [
+      "Holland",
+      "Dutch country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "geography-073",
+    "category": "Geography",
+    "prompt": "Which river forms part of the border between Texas and Mexico?",
+    "canonicalAnswer": "Rio Grande",
+    "acceptedAliases": [
+      "Rio Grande River",
+      "Río Grande"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "geography-074",
+    "category": "Geography",
+    "prompt": "What is the capital of Hungary?",
+    "canonicalAnswer": "Budapest",
+    "acceptedAliases": [
+      "Budapest city",
+      "Hungarian capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "geography-075",
+    "category": "Geography",
+    "prompt": "Which country displays a cedar tree on its national flag?",
+    "canonicalAnswer": "Lebanon",
+    "acceptedAliases": [
+      "Lebanese Republic",
+      "cedar country"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-001",
+    "category": "History",
+    "prompt": "Who was the first president of the United States?",
+    "canonicalAnswer": "George Washington",
+    "acceptedAliases": [
+      "Washington",
+      "first US president"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-002",
+    "category": "History",
+    "prompt": "Which ancient civilization built the pyramids at Giza?",
+    "canonicalAnswer": "Egypt",
+    "acceptedAliases": [
+      "ancient Egypt",
+      "Egyptian civilization"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-003",
+    "category": "History",
+    "prompt": "In what year was Magna Carta first sealed?",
+    "canonicalAnswer": "1215",
+    "acceptedAliases": [
+      "year 1215",
+      "thirteen fifteen"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-004",
+    "category": "History",
+    "prompt": "In what year did World War II end?",
+    "canonicalAnswer": "1945",
+    "acceptedAliases": [
+      "year 1945",
+      "nineteen forty-five"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-005",
+    "category": "History",
+    "prompt": "Which Roman city was buried by Mount Vesuvius?",
+    "canonicalAnswer": "Pompeii",
+    "acceptedAliases": [
+      "Pompeii city",
+      "Roman Pompeii"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-006",
+    "category": "History",
+    "prompt": "Who was the first person to walk on the Moon?",
+    "canonicalAnswer": "Neil Armstrong",
+    "acceptedAliases": [
+      "Armstrong",
+      "Neil Armstrong astronaut"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-007",
+    "category": "History",
+    "prompt": "In which country did the Renaissance begin?",
+    "canonicalAnswer": "Italy",
+    "acceptedAliases": [
+      "Italian Renaissance",
+      "Italian birthplace of the Renaissance"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-008",
+    "category": "History",
+    "prompt": "Which ancient Greek city-state was home to the Acropolis?",
+    "canonicalAnswer": "Athens",
+    "acceptedAliases": [
+      "Athens polis",
+      "ancient Athens"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-009",
+    "category": "History",
+    "prompt": "What trade network connected China with the Mediterranean world?",
+    "canonicalAnswer": "Silk Road",
+    "acceptedAliases": [
+      "Silk Route",
+      "Eurasian trade route"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-010",
+    "category": "History",
+    "prompt": "Who was the first emperor of a unified China?",
+    "canonicalAnswer": "Qin Shi Huang",
+    "acceptedAliases": [
+      "Qin emperor",
+      "Shi Huangdi"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-011",
+    "category": "History",
+    "prompt": "What year is traditionally used for the fall of the Western Roman Empire?",
+    "canonicalAnswer": "476 CE",
+    "acceptedAliases": [
+      "476",
+      "year 476"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-012",
+    "category": "History",
+    "prompt": "In what year did the French Revolution begin?",
+    "canonicalAnswer": "1789",
+    "acceptedAliases": [
+      "year 1789",
+      "seventeen eighty-nine"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-013",
+    "category": "History",
+    "prompt": "In what year did the Berlin Wall fall?",
+    "canonicalAnswer": "1989",
+    "acceptedAliases": [
+      "year 1989",
+      "nineteen eighty-nine"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-014",
+    "category": "History",
+    "prompt": "Who is credited with developing the movable-type printing press in Europe?",
+    "canonicalAnswer": "Johannes Gutenberg",
+    "acceptedAliases": [
+      "Gutenberg",
+      "Johann Gutenberg"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-015",
+    "category": "History",
+    "prompt": "In what year did the Titanic sink?",
+    "canonicalAnswer": "1912",
+    "acceptedAliases": [
+      "year 1912",
+      "nineteen twelve"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-016",
+    "category": "History",
+    "prompt": "Which ancient Greek philosopher taught Plato?",
+    "canonicalAnswer": "Socrates",
+    "acceptedAliases": [
+      "Socrates philosopher",
+      "the philosopher Socrates"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-017",
+    "category": "History",
+    "prompt": "In what year was the Battle of Hastings fought?",
+    "canonicalAnswer": "1066",
+    "acceptedAliases": [
+      "year 1066",
+      "ten sixty-six"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-018",
+    "category": "History",
+    "prompt": "What was the capital of the Inca Empire?",
+    "canonicalAnswer": "Cusco",
+    "acceptedAliases": [
+      "Cuzco",
+      "Inca capital"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-019",
+    "category": "History",
+    "prompt": "During which century did the Black Death reach Europe?",
+    "canonicalAnswer": "fourteenth century",
+    "acceptedAliases": [
+      "14th century",
+      "the fourteenth century"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-020",
+    "category": "History",
+    "prompt": "In what year did the United States adopt its Declaration of Independence?",
+    "canonicalAnswer": "1776",
+    "acceptedAliases": [
+      "year 1776",
+      "seventeen seventy-six"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-021",
+    "category": "History",
+    "prompt": "Which Egyptian ruler was allied with Julius Caesar and Mark Antony?",
+    "canonicalAnswer": "Cleopatra VII",
+    "acceptedAliases": [
+      "Cleopatra",
+      "Cleopatra the Seventh"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-022",
+    "category": "History",
+    "prompt": "What was Istanbul called for much of its Byzantine history?",
+    "canonicalAnswer": "Constantinople",
+    "acceptedAliases": [
+      "Constantinople city",
+      "Byzantine capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-023",
+    "category": "History",
+    "prompt": "Which two superpowers were the principal rivals in the Cold War?",
+    "canonicalAnswer": "United States and Soviet Union",
+    "acceptedAliases": [
+      "USA and USSR",
+      "US and USSR"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-024",
+    "category": "History",
+    "prompt": "Where were the ancient Olympic Games held?",
+    "canonicalAnswer": "Greece",
+    "acceptedAliases": [
+      "ancient Greece",
+      "Greek city-states"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-025",
+    "category": "History",
+    "prompt": "Which ancient city is associated with Hammurabi's famous law code?",
+    "canonicalAnswer": "Babylon",
+    "acceptedAliases": [
+      "Babylonian kingdom",
+      "ancient Babylon"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-026",
+    "category": "History",
+    "prompt": "Which navigator's 1492 voyage reached the Caribbean from Europe?",
+    "canonicalAnswer": "Christopher Columbus",
+    "acceptedAliases": [
+      "Columbus",
+      "Christopher Colon"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-027",
+    "category": "History",
+    "prompt": "Who became a leading figure in the Haitian Revolution?",
+    "canonicalAnswer": "Toussaint Louverture",
+    "acceptedAliases": [
+      "Toussaint",
+      "Louverture"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-028",
+    "category": "History",
+    "prompt": "In what year did the Great Fire of London occur?",
+    "canonicalAnswer": "1666",
+    "acceptedAliases": [
+      "year 1666",
+      "sixteen sixty-six"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-029",
+    "category": "History",
+    "prompt": "In what year did India become independent from British rule?",
+    "canonicalAnswer": "1947",
+    "acceptedAliases": [
+      "year 1947",
+      "nineteen forty-seven"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-030",
+    "category": "History",
+    "prompt": "In which modern country is the ancient site of Troy located?",
+    "canonicalAnswer": "Turkey",
+    "acceptedAliases": [
+      "Anatolia",
+      "modern Turkey"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-031",
+    "category": "History",
+    "prompt": "Who founded the largest contiguous empire in history?",
+    "canonicalAnswer": "Genghis Khan",
+    "acceptedAliases": [
+      "Chinggis Khan",
+      "Temujin"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-032",
+    "category": "History",
+    "prompt": "Which scientist was the first person to win Nobel Prizes in two sciences?",
+    "canonicalAnswer": "Marie Curie",
+    "acceptedAliases": [
+      "Curie",
+      "Madame Curie"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-033",
+    "category": "History",
+    "prompt": "In what year did the Spanish Armada campaign against England take place?",
+    "canonicalAnswer": "1588",
+    "acceptedAliases": [
+      "year 1588",
+      "fifteen eighty-eight"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-034",
+    "category": "History",
+    "prompt": "What was the capital of the Byzantine Empire?",
+    "canonicalAnswer": "Constantinople",
+    "acceptedAliases": [
+      "Constantinople metropolis",
+      "Byzantine imperial capital"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-035",
+    "category": "History",
+    "prompt": "What war was fought between Athens and Sparta?",
+    "canonicalAnswer": "Peloponnesian War",
+    "acceptedAliases": [
+      "Peloponnesian conflict",
+      "Athens-Sparta war"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-036",
+    "category": "History",
+    "prompt": "Where did Robert E. Lee surrender to Ulysses S. Grant?",
+    "canonicalAnswer": "Appomattox Court House",
+    "acceptedAliases": [
+      "Appomattox",
+      "Appomattox surrender"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-037",
+    "category": "History",
+    "prompt": "Where were the first modern Olympic Games held in 1896?",
+    "canonicalAnswer": "Athens",
+    "acceptedAliases": [
+      "1896 Athens Games",
+      "modern Athens Olympics"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-038",
+    "category": "History",
+    "prompt": "Which mission carried the first humans to the Moon's surface?",
+    "canonicalAnswer": "Apollo 11",
+    "acceptedAliases": [
+      "Apollo Eleven",
+      "lunar mission Apollo 11"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-039",
+    "category": "History",
+    "prompt": "Who became South Africa's first Black president?",
+    "canonicalAnswer": "Nelson Mandela",
+    "acceptedAliases": [
+      "Mandela",
+      "Nelson Mandela president"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-040",
+    "category": "History",
+    "prompt": "The Maya civilization developed in what broad region?",
+    "canonicalAnswer": "Mesoamerica",
+    "acceptedAliases": [
+      "Mesoamerican region",
+      "central Mexico and Central America"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-041",
+    "category": "History",
+    "prompt": "Which treaty formally ended World War I with Germany?",
+    "canonicalAnswer": "Treaty of Versailles",
+    "acceptedAliases": [
+      "Versailles Treaty",
+      "Paris Peace Treaty"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-042",
+    "category": "History",
+    "prompt": "What writing system did ancient Egyptians use for monumental inscriptions?",
+    "canonicalAnswer": "hieroglyphs",
+    "acceptedAliases": [
+      "Egyptian hieroglyphs",
+      "hieroglyphic script"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-043",
+    "category": "History",
+    "prompt": "Who led the Norman conquest of England in 1066?",
+    "canonicalAnswer": "William the Conqueror",
+    "acceptedAliases": [
+      "William I",
+      "Norman William"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-044",
+    "category": "History",
+    "prompt": "In which country did the Industrial Revolution first accelerate?",
+    "canonicalAnswer": "Britain",
+    "acceptedAliases": [
+      "Great Britain",
+      "United Kingdom"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-045",
+    "category": "History",
+    "prompt": "What movement campaigned for women's right to vote?",
+    "canonicalAnswer": "women's suffrage",
+    "acceptedAliases": [
+      "suffrage movement",
+      "female suffrage"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-046",
+    "category": "History",
+    "prompt": "Which civilization developed one of the earliest writing systems called cuneiform?",
+    "canonicalAnswer": "Sumer",
+    "acceptedAliases": [
+      "Sumerian civilization",
+      "Mesopotamian Sumer"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-047",
+    "category": "History",
+    "prompt": "What was the capital of the Aztec Empire?",
+    "canonicalAnswer": "Tenochtitlan",
+    "acceptedAliases": [
+      "Aztec capital",
+      "Mexico City predecessor"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-048",
+    "category": "History",
+    "prompt": "Which French military leader was defeated at Waterloo?",
+    "canonicalAnswer": "Napoleon Bonaparte",
+    "acceptedAliases": [
+      "Napoleon",
+      "Bonaparte"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-049",
+    "category": "History",
+    "prompt": "Which ruler is associated with the Terracotta Army?",
+    "canonicalAnswer": "Qin Shi Huang",
+    "acceptedAliases": [
+      "Terracotta Emperor",
+      "Qin Shi Huangdi"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-050",
+    "category": "History",
+    "prompt": "What name is commonly given to the influenza pandemic that began in 1918?",
+    "canonicalAnswer": "Spanish flu",
+    "acceptedAliases": [
+      "1918 influenza",
+      "influenza pandemic"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-051",
+    "category": "History",
+    "prompt": "Which Roman numeral represents one hundred?",
+    "canonicalAnswer": "C",
+    "acceptedAliases": [
+      "Roman numeral C",
+      "one hundred"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-052",
+    "category": "History",
+    "prompt": "Which ruler is often identified as the first pharaoh of a unified ancient Egypt?",
+    "canonicalAnswer": "Narmer",
+    "acceptedAliases": [
+      "Menes",
+      "King Narmer"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-053",
+    "category": "History",
+    "prompt": "Which battle in 490 BCE saw Athens defeat a Persian force?",
+    "canonicalAnswer": "Battle of Marathon",
+    "acceptedAliases": [
+      "Marathon",
+      "Marathon battle"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-054",
+    "category": "History",
+    "prompt": "What international organization was founded in 1945 to promote cooperation between nations?",
+    "canonicalAnswer": "United Nations",
+    "acceptedAliases": [
+      "UN",
+      "United Nations Organization"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-055",
+    "category": "History",
+    "prompt": "What name is given to the Allied landings in Normandy on June 6, 1944?",
+    "canonicalAnswer": "D-Day",
+    "acceptedAliases": [
+      "Normandy landings",
+      "June 6 landings"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-056",
+    "category": "History",
+    "prompt": "What 1962 confrontation brought the United States and Soviet Union close to nuclear war?",
+    "canonicalAnswer": "Cuban Missile Crisis",
+    "acceptedAliases": [
+      "1962 missile crisis",
+      "Cuba crisis"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-057",
+    "category": "History",
+    "prompt": "What was the first spacecraft to reach the Moon's surface?",
+    "canonicalAnswer": "Luna 2",
+    "acceptedAliases": [
+      "Lunik 2",
+      "Luna Two"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-058",
+    "category": "History",
+    "prompt": "What language was widely used in the administration of ancient Rome?",
+    "canonicalAnswer": "Latin",
+    "acceptedAliases": [
+      "Latin language",
+      "Roman Latin"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-059",
+    "category": "History",
+    "prompt": "What disease caused the medieval epidemic known as the Black Death?",
+    "canonicalAnswer": "bubonic plague",
+    "acceptedAliases": [
+      "Black Death disease",
+      "Yersinia pestis plague"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-060",
+    "category": "History",
+    "prompt": "Who was the first woman to serve as prime minister of the United Kingdom?",
+    "canonicalAnswer": "Margaret Thatcher",
+    "acceptedAliases": [
+      "Thatcher",
+      "Iron Lady"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-061",
+    "category": "History",
+    "prompt": "What political transformation began in Japan in 1868?",
+    "canonicalAnswer": "Meiji Restoration",
+    "acceptedAliases": [
+      "Meiji era restoration",
+      "Japanese Meiji Restoration"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-062",
+    "category": "History",
+    "prompt": "What barrier divided East and West Berlin during the Cold War?",
+    "canonicalAnswer": "Berlin Wall",
+    "acceptedAliases": [
+      "Wall of Berlin",
+      "East-West barrier"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-063",
+    "category": "History",
+    "prompt": "Which artifact helped scholars decipher Egyptian hieroglyphs?",
+    "canonicalAnswer": "Rosetta Stone",
+    "acceptedAliases": [
+      "Rosetta",
+      "Rosetta artifact"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-064",
+    "category": "History",
+    "prompt": "Which West African empire was ruled by the famous emperor Mansa Musa?",
+    "canonicalAnswer": "Mali Empire",
+    "acceptedAliases": [
+      "Mali",
+      "Mali Empire kingdom"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-065",
+    "category": "History",
+    "prompt": "Which Norse explorer is often credited with reaching North America before Columbus?",
+    "canonicalAnswer": "Leif Erikson",
+    "acceptedAliases": [
+      "Leif Eriksson",
+      "Norse explorer Leif"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-066",
+    "category": "History",
+    "prompt": "Which 1917 Russian uprising helped bring down the monarchy?",
+    "canonicalAnswer": "February Revolution",
+    "acceptedAliases": [
+      "1917 February Revolution",
+      "Russian February Revolution"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-067",
+    "category": "History",
+    "prompt": "Which ancient city fought Rome in the Punic Wars?",
+    "canonicalAnswer": "Carthage",
+    "acceptedAliases": [
+      "ancient Carthage",
+      "Punic city"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-068",
+    "category": "History",
+    "prompt": "Who led the expedition that began the first circumnavigation of Earth?",
+    "canonicalAnswer": "Ferdinand Magellan",
+    "acceptedAliases": [
+      "Magellan",
+      "Fernão de Magalhães"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-069",
+    "category": "History",
+    "prompt": "What 1054 event divided the medieval Christian church into eastern and western branches?",
+    "canonicalAnswer": "Great Schism of 1054",
+    "acceptedAliases": [
+      "East-West Schism",
+      "1054 schism"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  },
+  {
+    "id": "history-070",
+    "category": "History",
+    "prompt": "In what year was the United States Constitution signed?",
+    "canonicalAnswer": "1787",
+    "acceptedAliases": [
+      "year 1787",
+      "seventeen eighty-seven"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "plankton",
+      "score": 10,
+      "depth": 0.08
+    }
+  },
+  {
+    "id": "history-071",
+    "category": "History",
+    "prompt": "What name is given to the era associated with Queen Victoria's reign?",
+    "canonicalAnswer": "Victorian era",
+    "acceptedAliases": [
+      "Victorian age",
+      "Queen Victoria era"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "tooclever",
+      "score": 15,
+      "depth": 0.18
+    }
+  },
+  {
+    "id": "history-072",
+    "category": "History",
+    "prompt": "What civil code was established under Napoleon Bonaparte?",
+    "canonicalAnswer": "Napoleonic Code",
+    "acceptedAliases": [
+      "Code Napoleon",
+      "French Civil Code"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "schooler",
+      "score": 30,
+      "depth": 0.36
+    }
+  },
+  {
+    "id": "history-073",
+    "category": "History",
+    "prompt": "Which Cuban writer and activist became a symbol of independence?",
+    "canonicalAnswer": "José Martí",
+    "acceptedAliases": [
+      "Jose Marti",
+      "Cuban independence leader"
+    ],
+    "difficulty": "easy",
+    "rarity": {
+      "tier": "rare",
+      "score": 60,
+      "depth": 0.6
+    }
+  },
+  {
+    "id": "history-074",
+    "category": "History",
+    "prompt": "At what sanctuary were the ancient Olympic Games celebrated?",
+    "canonicalAnswer": "Olympia",
+    "acceptedAliases": [
+      "ancient Olympia",
+      "Olympia sanctuary"
+    ],
+    "difficulty": "medium",
+    "rarity": {
+      "tier": "deepcut",
+      "score": 85,
+      "depth": 0.82
+    }
+  },
+  {
+    "id": "history-075",
+    "category": "History",
+    "prompt": "What was the name of the first artificial satellite launched into orbit?",
+    "canonicalAnswer": "Sputnik 1",
+    "acceptedAliases": [
+      "Sputnik",
+      "Sputnik One satellite"
+    ],
+    "difficulty": "hard",
+    "rarity": {
+      "tier": "krillion",
+      "score": 100,
+      "depth": 0.97
+    }
+  }
+]
