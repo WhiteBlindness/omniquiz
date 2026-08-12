@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import type { CSSProperties } from "react";
 
 type OceanBackdropProps = Readonly<{
@@ -30,19 +28,19 @@ const PARTICLES = [
 
 export function OceanBackdrop({ depthMetres, mode }: OceanBackdropProps) {
   const depthFactor = Math.min(1, Math.max(0, depthMetres / 7_000));
+  const showMidwater = depthMetres >= 1_400;
+  const showTrench = depthMetres >= 4_200;
   const style = {
     "--depth-factor": depthFactor,
     "--depth-metres": `${Math.round(depthMetres)}m`,
+    "--depth-marker": `${4 + depthFactor * 92}%`,
   } as CSSProperties;
 
   return (
     <div className="ocean-backdrop" data-mode={mode} data-depth={depthMetres} style={style}>
-      <div className="sky-layer" aria-hidden="true" />
-      <div className="surface-glow" aria-hidden="true" />
-      <div className="water-layer water-layer-top" aria-hidden="true" />
-      <div className="water-layer water-layer-mid" aria-hidden="true" />
-      <div className="water-layer water-layer-trench" aria-hidden="true" />
-      <div className="surface-line" aria-hidden="true" />
+      <div className="mission-panorama" aria-hidden="true" />
+      {showMidwater ? <div className="water-layer water-layer-mid" aria-hidden="true" /> : null}
+      {showTrench ? <div className="water-layer water-layer-trench" aria-hidden="true" /> : null}
       <div className="scanlines" aria-hidden="true" />
 
       <div className="fish-field" aria-hidden="true">
@@ -65,17 +63,17 @@ export function OceanBackdrop({ depthMetres, mode }: OceanBackdropProps) {
         ))}
       </div>
 
-      <div className="krill-marker" aria-hidden="true">
-        <Image src="/ocean/tier-krillion.png" alt="" width={96} height={96} priority />
-      </div>
-
       <aside className="depth-ruler" aria-label="Depth scale">
-        {[0, 100, 200, 300, 400, 500].map((mark) => (
-          <span className="depth-mark" key={mark} style={{ top: `${15 + mark / 7}%` }}>
+        {[0, 1_000, 2_000, 3_000, 4_000, 5_000, 6_000, 7_000].map((mark) => (
+          <span className="depth-mark" key={mark} style={{ top: `${4 + (mark / 7_000) * 92}%` }}>
             <i aria-hidden="true" />
-            <b>{mark === 0 ? "0m" : `-${mark}m`}</b>
+            <b>{mark === 0 ? "0m" : `${mark}m`}</b>
           </span>
         ))}
+        <span className="current-depth-marker" style={{ top: "var(--depth-marker)" }}>
+          <i aria-hidden="true" />
+          <b>{Math.round(depthMetres)}m current depth</b>
+        </span>
       </aside>
     </div>
   );

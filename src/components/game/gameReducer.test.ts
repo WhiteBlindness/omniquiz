@@ -109,6 +109,31 @@ describe("gameReducer", () => {
     expect(expired.phase).toBe("feedback");
     expect(expired.lastResult?.accepted).toBe(false);
     expect(expired.lastResult?.score).toBe(0);
+    expect(expired.lastOutcome).toBe("timeout");
+  });
+
+  it("records an explicit pass as distinct zero-score feedback", () => {
+    const loaded = gameReducer(createInitialGameState("daily"), {
+      type: "LOAD_QUESTIONS",
+      questions: [question],
+    });
+    const afterOne = gameReducer(loaded, { type: "PREVIEW_TICK" });
+    const afterTwo = gameReducer(afterOne, { type: "PREVIEW_TICK" });
+    const answering = gameReducer(afterTwo, { type: "PREVIEW_TICK" });
+
+    const passed = gameReducer(answering, { type: "PASS_QUESTION" });
+
+    expect(passed).toMatchObject({
+      phase: "feedback",
+      lastOutcome: "pass",
+      score: 0,
+      depthMetres: 0,
+      lastResult: expect.objectContaining({
+        accepted: false,
+        score: 0,
+        quip: expect.stringMatching(/no points lost/i),
+      }),
+    });
   });
 
   it("starts the next preview and finishes after the final round", () => {

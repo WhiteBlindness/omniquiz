@@ -1,178 +1,195 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-09T10:08:40.0478782+01:00",
+  "generatedAt": "2026-08-12T15:59:00.9635638+01:00",
   "title": "Design System: OMNIQUIZ",
   "extensions": {
     "colorMeta": {
       "ink": {
         "role": "neutral",
-        "displayName": "Midnight Ink",
-        "canonical": "#050a14",
-        "tonalRamp": ["oklch(15% 0.025 250)", "oklch(26% 0.025 250)", "oklch(38% 0.025 250)", "oklch(50% 0.025 250)", "oklch(62% 0.025 250)", "oklch(74% 0.025 250)", "oklch(86% 0.025 250)", "oklch(95% 0.025 250)"]
+        "displayName": "Blackwater Ink",
+        "canonical": "#020711",
+        "tonalRamp": ["oklch(15% 0.025 255)", "oklch(26% 0.025 255)", "oklch(38% 0.025 255)", "oklch(50% 0.025 255)", "oklch(62% 0.025 255)", "oklch(74% 0.025 255)", "oklch(86% 0.025 255)", "oklch(95% 0.025 255)"]
       },
       "abyss": {
         "role": "neutral",
-        "displayName": "Abyss Blue",
-        "canonical": "#07111f",
+        "displayName": "Abyss Navy",
+        "canonical": "#050f1d",
         "tonalRamp": ["oklch(15% 0.035 250)", "oklch(26% 0.035 250)", "oklch(38% 0.035 250)", "oklch(50% 0.035 250)", "oklch(62% 0.035 250)", "oklch(74% 0.035 250)", "oklch(86% 0.035 250)", "oklch(95% 0.035 250)"]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Pressure Steel",
+        "canonical": "#0a1a2c",
+        "tonalRamp": ["oklch(15% 0.045 245)", "oklch(26% 0.045 245)", "oklch(38% 0.045 245)", "oklch(50% 0.045 245)", "oklch(62% 0.045 245)", "oklch(74% 0.045 245)", "oklch(86% 0.045 245)", "oklch(95% 0.045 245)"]
       },
       "panel": {
         "role": "neutral",
-        "displayName": "Pressure Panel",
-        "canonical": "rgba(11, 21, 38, 0.88)",
-        "tonalRamp": ["oklch(15% 0.04 250)", "oklch(26% 0.04 250)", "oklch(38% 0.04 250)", "oklch(50% 0.04 250)", "oklch(62% 0.04 250)", "oklch(74% 0.04 250)", "oklch(86% 0.04 250)", "oklch(95% 0.04 250)"]
+        "displayName": "Broadcast Panel",
+        "canonical": "rgba(4, 15, 29, 0.94)",
+        "tonalRamp": ["oklch(15% 0.035 245)", "oklch(26% 0.035 245)", "oklch(38% 0.035 245)", "oklch(50% 0.035 245)", "oklch(62% 0.035 245)", "oklch(74% 0.035 245)", "oklch(86% 0.035 245)", "oklch(95% 0.035 245)"]
       },
-      "panel-soft": {
+      "line": {
         "role": "neutral",
-        "displayName": "Soft Sonar Panel",
-        "canonical": "rgba(16, 29, 51, 0.82)",
-        "tonalRamp": ["oklch(15% 0.045 250)", "oklch(26% 0.045 250)", "oklch(38% 0.045 250)", "oklch(50% 0.045 250)", "oklch(62% 0.045 250)", "oklch(74% 0.045 250)", "oklch(86% 0.045 250)", "oklch(95% 0.045 250)"]
+        "displayName": "Quiet Hull Line",
+        "canonical": "rgba(112, 168, 192, 0.27)",
+        "tonalRamp": ["oklch(15% 0.055 225)", "oklch(26% 0.055 225)", "oklch(38% 0.055 225)", "oklch(50% 0.055 225)", "oklch(62% 0.055 225)", "oklch(74% 0.055 225)", "oklch(86% 0.055 225)", "oklch(95% 0.055 225)"]
       },
-      "ocean": {
+      "line-hot": {
         "role": "neutral",
-        "displayName": "Open Ocean Blue",
-        "canonical": "#0c3151",
-        "tonalRamp": ["oklch(15% 0.07 245)", "oklch(26% 0.07 245)", "oklch(38% 0.07 245)", "oklch(50% 0.07 245)", "oklch(62% 0.07 245)", "oklch(74% 0.07 245)", "oklch(86% 0.07 245)", "oklch(95% 0.07 245)"]
-      },
-      "border": {
-        "role": "neutral",
-        "displayName": "Hull Border",
-        "canonical": "#12233d",
-        "tonalRamp": ["oklch(15% 0.045 250)", "oklch(26% 0.045 250)", "oklch(38% 0.045 250)", "oklch(50% 0.045 250)", "oklch(62% 0.045 250)", "oklch(74% 0.045 250)", "oklch(86% 0.045 250)", "oklch(95% 0.045 250)"]
-      },
-      "border-bright": {
-        "role": "neutral",
-        "displayName": "Lit Hull Border",
-        "canonical": "#1b3b62",
-        "tonalRamp": ["oklch(15% 0.065 245)", "oklch(26% 0.065 245)", "oklch(38% 0.065 245)", "oklch(50% 0.065 245)", "oklch(62% 0.065 245)", "oklch(74% 0.065 245)", "oklch(86% 0.065 245)", "oklch(95% 0.065 245)"]
+        "displayName": "Live Hull Line",
+        "canonical": "rgba(91, 226, 239, 0.72)",
+        "tonalRamp": ["oklch(15% 0.13 205)", "oklch(26% 0.13 205)", "oklch(38% 0.13 205)", "oklch(50% 0.13 205)", "oklch(62% 0.13 205)", "oklch(74% 0.13 205)", "oklch(86% 0.13 205)", "oklch(95% 0.13 205)"]
       },
       "paper": {
         "role": "neutral",
-        "displayName": "Foam Paper",
-        "canonical": "#e8f1ff",
-        "tonalRamp": ["oklch(15% 0.018 250)", "oklch(26% 0.018 250)", "oklch(38% 0.018 250)", "oklch(50% 0.018 250)", "oklch(62% 0.018 250)", "oklch(74% 0.018 250)", "oklch(86% 0.018 250)", "oklch(95% 0.018 250)"]
+        "displayName": "Phosphor Paper",
+        "canonical": "#edf7f7",
+        "tonalRamp": ["oklch(15% 0.015 195)", "oklch(26% 0.015 195)", "oklch(38% 0.015 195)", "oklch(50% 0.015 195)", "oklch(62% 0.015 195)", "oklch(74% 0.015 195)", "oklch(86% 0.015 195)", "oklch(95% 0.015 195)"]
       },
       "drift": {
         "role": "neutral",
         "displayName": "Current Drift",
-        "canonical": "#7d93b8",
-        "tonalRamp": ["oklch(15% 0.06 255)", "oklch(26% 0.06 255)", "oklch(38% 0.06 255)", "oklch(50% 0.06 255)", "oklch(62% 0.06 255)", "oklch(74% 0.06 255)", "oklch(86% 0.06 255)", "oklch(95% 0.06 255)"]
+        "canonical": "#84a5b5",
+        "tonalRamp": ["oklch(15% 0.045 225)", "oklch(26% 0.045 225)", "oklch(38% 0.045 225)", "oklch(50% 0.045 225)", "oklch(62% 0.045 225)", "oklch(74% 0.045 225)", "oklch(86% 0.045 225)", "oklch(95% 0.045 225)"]
       },
       "muted": {
         "role": "neutral",
         "displayName": "Deep Muted Blue",
-        "canonical": "#526b8d",
-        "tonalRamp": ["oklch(15% 0.055 250)", "oklch(26% 0.055 250)", "oklch(38% 0.055 250)", "oklch(50% 0.055 250)", "oklch(62% 0.055 250)", "oklch(74% 0.055 250)", "oklch(86% 0.055 250)", "oklch(95% 0.055 250)"]
+        "canonical": "#526e7e",
+        "tonalRamp": ["oklch(15% 0.045 225)", "oklch(26% 0.045 225)", "oklch(38% 0.045 225)", "oklch(50% 0.045 225)", "oklch(62% 0.045 225)", "oklch(74% 0.045 225)", "oklch(86% 0.045 225)", "oklch(95% 0.045 225)"]
       },
       "cyan": {
         "role": "primary",
-        "displayName": "Dive Signal Cyan",
-        "canonical": "#4de3ff",
-        "tonalRamp": ["oklch(15% 0.13 210)", "oklch(26% 0.13 210)", "oklch(38% 0.13 210)", "oklch(50% 0.13 210)", "oklch(62% 0.13 210)", "oklch(74% 0.13 210)", "oklch(86% 0.13 210)", "oklch(95% 0.13 210)"]
+        "displayName": "Sonar Cyan",
+        "canonical": "#5be2ef",
+        "tonalRamp": ["oklch(15% 0.13 205)", "oklch(26% 0.13 205)", "oklch(38% 0.13 205)", "oklch(50% 0.13 205)", "oklch(62% 0.13 205)", "oklch(74% 0.13 205)", "oklch(86% 0.13 205)", "oklch(95% 0.13 205)"]
       },
       "coral": {
         "role": "secondary",
-        "displayName": "Krill Coral",
-        "canonical": "#ff5d8f",
-        "tonalRamp": ["oklch(15% 0.20 5)", "oklch(26% 0.20 5)", "oklch(38% 0.20 5)", "oklch(50% 0.20 5)", "oklch(62% 0.20 5)", "oklch(74% 0.20 5)", "oklch(86% 0.20 5)", "oklch(95% 0.20 5)"]
+        "displayName": "Alarm Coral",
+        "canonical": "#ff667f",
+        "tonalRamp": ["oklch(15% 0.19 15)", "oklch(26% 0.19 15)", "oklch(38% 0.19 15)", "oklch(50% 0.19 15)", "oklch(62% 0.19 15)", "oklch(74% 0.19 15)", "oklch(86% 0.19 15)", "oklch(95% 0.19 15)"]
       },
       "gold": {
         "role": "tertiary",
-        "displayName": "Treasure Gold",
-        "canonical": "#ffd66d",
-        "tonalRamp": ["oklch(15% 0.15 90)", "oklch(26% 0.15 90)", "oklch(38% 0.15 90)", "oklch(50% 0.15 90)", "oklch(62% 0.15 90)", "oklch(74% 0.15 90)", "oklch(86% 0.15 90)", "oklch(95% 0.15 90)"]
+        "displayName": "Recovery Gold",
+        "canonical": "#f3cd69",
+        "tonalRamp": ["oklch(15% 0.14 90)", "oklch(26% 0.14 90)", "oklch(38% 0.14 90)", "oklch(50% 0.14 90)", "oklch(62% 0.14 90)", "oklch(74% 0.14 90)", "oklch(86% 0.14 90)", "oklch(95% 0.14 90)"]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Instrument Green",
+        "canonical": "#80e3b5",
+        "tonalRamp": ["oklch(15% 0.11 160)", "oklch(26% 0.11 160)", "oklch(38% 0.11 160)", "oklch(50% 0.11 160)", "oklch(62% 0.11 160)", "oklch(74% 0.11 160)", "oklch(86% 0.11 160)", "oklch(95% 0.11 160)"]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Chromatic Brand Display",
-        "purpose": "OMNIQUIZ brand marks only."
+        "purpose": "The OMNIQUIZ wordmark only."
       },
       "headline": {
-        "displayName": "Prompt Headline",
-        "purpose": "Prompt questions, feedback outcomes, and summary titles."
+        "displayName": "Live Feed Headline",
+        "purpose": "Prompts, feedback outcomes, and dive-log titles."
       },
       "title": {
-        "displayName": "Mode Title",
-        "purpose": "Mode names and prominent console labels."
+        "displayName": "Mission Title",
+        "purpose": "Short mode names and prominent operational labels."
       },
       "body": {
-        "displayName": "Console Body",
-        "purpose": "Descriptions, quips, answer text, and explanatory copy."
+        "displayName": "Broadcast Body",
+        "purpose": "Answers and general explanatory copy."
       },
       "label": {
         "displayName": "Telemetry Label",
-        "purpose": "HUD telemetry, kickers, progress metadata, and compact controls."
+        "purpose": "Uppercase HUD data, controls, round state, and compact metadata."
       }
     },
     "shadows": [
       {
-        "name": "control-block",
-        "value": "3px 3px 0 rgba(3, 11, 24, 0.78)",
-        "purpose": "Hard down-right depth for compact icon controls."
+        "name": "panel-lift",
+        "value": "0 18px 34px rgba(0, 4, 12, 0.52)",
+        "purpose": "Ambient separation for launch control and the final dive log."
       },
       {
-        "name": "hud-block",
-        "value": "5px 5px 0 rgba(3, 9, 19, 0.62)",
-        "purpose": "Hard down-right depth for telemetry meters."
+        "name": "control-lift",
+        "value": "0 8px 18px rgba(0, 4, 12, 0.38)",
+        "purpose": "Compact standalone controls such as audio."
       },
       {
-        "name": "prompt-block",
-        "value": "7px 8px 0 rgba(3, 11, 24, 0.72), 0 0 22px rgba(5, 17, 31, 0.28)",
-        "purpose": "Structural depth and quiet ambient separation for prompt panels."
+        "name": "spine-separation",
+        "value": "12px 0 30px rgba(0, 2, 8, 0.3)",
+        "purpose": "Lateral depth between the desktop telemetry spine and the live stage."
       },
       {
-        "name": "launch-lift",
-        "value": "0 0 18px rgba(77, 227, 255, 0.13), 0 11px 0 rgba(3, 12, 26, 0.62)",
-        "purpose": "Signal glow plus heavy base for the primary descent action."
-      },
-      {
-        "name": "coral-lamp-glow",
-        "value": "0 0 9px rgba(255, 93, 143, 0.64)",
-        "purpose": "Completed round lamps only."
+        "name": "surface-glow",
+        "value": "inset 0 18px 55px rgba(102, 228, 239, 0.16)",
+        "purpose": "Environmental light near the ocean surface; not a container shadow."
       }
     ],
     "motion": [
       {
         "name": "state-fast",
-        "value": "160ms ease-out",
-        "purpose": "Button, link, color, and short hover transitions."
+        "value": "140ms ease-out",
+        "purpose": "Buttons, pack cards, borders, and short hover changes."
       },
       {
         "name": "rules-reveal",
-        "value": "240ms ease-out",
-        "purpose": "Tutorial rule disclosure."
+        "value": "180ms ease-out",
+        "purpose": "Tutorial disclosure entrance."
       },
       {
         "name": "panel-arrival",
-        "value": "460ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Prompt, feedback, and summary panel entrance."
+        "value": "420ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Prompt, feedback, and dive-log entrance; feedback uses the score-slam keyframes."
+      },
+      {
+        "name": "title-flicker",
+        "value": "8s steps(1, end) infinite",
+        "purpose": "Sparse broadcast flicker on the OMNIQUIZ launch wordmark."
       },
       {
         "name": "ocean-descent",
         "value": "700ms ease-out",
-        "purpose": "Depth-driven ocean layer opacity and translation."
+        "purpose": "Depth-linked panorama and water-layer filter, opacity, and translation changes."
       },
       {
         "name": "depth-marker",
         "value": "800ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Krill marker travel through the scene."
+        "purpose": "Current-depth marker travel along the 0–7,000m ruler."
       },
       {
         "name": "answer-progress",
         "value": "1s linear",
-        "purpose": "Countdown progress depletion."
+        "purpose": "Timed answer-rail depletion."
+      },
+      {
+        "name": "critical-urgency",
+        "value": "760ms steps(2, end) infinite",
+        "purpose": "Critical timer pulse during the final five seconds."
       },
       {
         "name": "reduced-motion",
         "value": "0.001ms, 1 iteration",
-        "purpose": "Collapse all animation and transition durations without removing functionality."
+        "purpose": "Collapse every animation and transition without removing state or function."
       }
     ],
     "breakpoints": [
       {
-        "name": "compact",
+        "name": "tight-desktop",
+        "value": "900px"
+      },
+      {
+        "name": "mobile-instrument-dock",
         "value": "700px"
+      },
+      {
+        "name": "narrow-mobile",
+        "value": "370px"
+      },
+      {
+        "name": "short-mobile",
+        "value": "max-height: 680px and max-width: 700px"
       }
     ]
   },
@@ -181,100 +198,155 @@
       "name": "Begin Descent Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The full-width primary action that starts or retries a dive.",
-      "html": "<button class=\"ds-btn-primary\" type=\"button\"><span aria-hidden=\"true\">▼</span> BEGIN DESCENT <span aria-hidden=\"true\">▼</span></button>",
-      "css": ".ds-btn-primary { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 5vw, 2.2rem); width: min(100%, 612px); min-height: 78px; padding: 0.6rem 1rem; border: 2px solid var(--cyan, #4de3ff); outline: 1px solid rgba(77, 227, 255, 0.16); outline-offset: 4px; background: rgba(13, 29, 52, 0.84); box-shadow: 0 0 18px rgba(77, 227, 255, 0.13), 0 11px 0 rgba(3, 12, 26, 0.62); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: clamp(1rem, 2vw, 1.45rem); font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; transition: background 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; } .ds-btn-primary span { color: var(--cyan, #4de3ff); } .ds-btn-primary:hover { background: rgba(52, 109, 132, 0.45); color: #fff; transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; } .ds-btn-primary:active { transform: translateY(1px); }"
+      "description": "The full-width coral launch action that begins or retries a mission.",
+      "html": "<button class=\"ds-begin-button\" type=\"button\"><span class=\"ds-descent-mark\" aria-hidden=\"true\"></span><b>BEGIN DESCENT</b><span class=\"ds-descent-mark\" aria-hidden=\"true\"></span></button>",
+      "css": ".ds-begin-button { display: flex; align-items: center; justify-content: space-between; width: min(100%, 420px); min-height: 62px; padding: 0.8rem 1rem; border: 1px solid var(--coral, #ff667f); border-bottom-width: 5px; border-radius: 0; background: #6e2638; color: var(--paper, #edf7f7); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); font-size: 0.8rem; letter-spacing: 0.16em; transition: background 140ms ease-out, color 140ms ease-out, transform 140ms ease-out; } .ds-begin-button b { font: inherit; } .ds-descent-mark { width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); } .ds-begin-button:hover { background: var(--coral, #ff667f); color: #17070d; transform: translateY(-2px); } .ds-begin-button:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; } .ds-begin-button:active { transform: translateY(1px); }"
     },
     {
       "name": "Dive Submit Button",
       "kind": "button",
       "refersTo": "button-submit",
-      "description": "The coral answer action at the right edge of the answer rail.",
-      "html": "<button class=\"ds-btn-dive\" type=\"button\">DIVE</button>",
-      "css": ".ds-btn-dive { height: 58px; padding: 0 0.8rem; border: 1px solid var(--coral, #ff5d8f); border-bottom-width: 4px; border-radius: 0; background: rgba(129, 38, 70, 0.78); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: 1rem; letter-spacing: 0.14em; transition: background 160ms ease-out, color 160ms ease-out; } .ds-btn-dive:hover { background: var(--coral, #ff5d8f); color: #180815; } .ds-btn-dive:focus-visible { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; } .ds-btn-dive:active { border-bottom-width: 1px; transform: translateY(3px); }"
+      "description": "The compact coral action that logs a typed answer.",
+      "html": "<button class=\"ds-dive-submit\" type=\"button\">DIVE</button>",
+      "css": ".ds-dive-submit { min-height: 56px; padding: 0.65rem; border: 1px solid var(--coral, #ff667f); border-bottom-width: 4px; border-radius: 0; background: #672739; color: var(--paper, #edf7f7); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); font-size: 0.7rem; letter-spacing: 0.11em; transition: background 140ms ease-out, color 140ms ease-out; } .ds-dive-submit:hover { background: var(--coral, #ff667f); color: var(--ink, #020711); } .ds-dive-submit:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; } .ds-dive-submit:active { border-bottom-width: 1px; transform: translateY(3px); }"
+    },
+    {
+      "name": "Pass Button",
+      "kind": "button",
+      "refersTo": "button-pass",
+      "description": "The secondary answer-rail action for logging no answer.",
+      "html": "<button class=\"ds-pass-button\" type=\"button\">PASS</button>",
+      "css": ".ds-pass-button { min-height: 56px; padding: 0.65rem; border: 1px solid var(--line-hot, rgba(91, 226, 239, 0.72)); border-bottom-width: 4px; border-radius: 0; background: #0a2132; color: var(--drift, #84a5b5); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); font-size: 0.7rem; letter-spacing: 0.11em; transition: border-color 140ms ease-out, color 140ms ease-out; } .ds-pass-button:hover { border-color: var(--cyan, #5be2ef); color: var(--paper, #edf7f7); } .ds-pass-button:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; } .ds-pass-button:active { border-bottom-width: 1px; transform: translateY(3px); }"
     },
     {
       "name": "Answer Field",
       "kind": "input",
       "refersTo": "input-answer",
-      "description": "The high-contrast single-answer console field used during timed play.",
-      "html": "<label class=\"ds-answer-label\" for=\"ds-answer\">YOUR ANSWER</label><input class=\"ds-answer\" id=\"ds-answer\" placeholder=\"type one answer…\" />",
-      "css": ".ds-answer-label { display: block; margin-bottom: 0.4rem; color: var(--drift, #7d93b8); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: 0.68rem; letter-spacing: 0.2em; } .ds-answer { width: min(100%, 410px); height: 58px; padding: 0 0.85rem; border: 2px solid var(--cyan, #4de3ff); border-bottom-width: 4px; border-radius: 0; outline: 0; background: rgba(7, 19, 36, 0.9); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); font-size: 1.15rem; letter-spacing: 0.08em; } .ds-answer::placeholder { color: #60799b; opacity: 1; } .ds-answer:hover { border-color: #8eeeff; } .ds-answer:focus-visible { border-color: var(--paper, #e8f1ff); box-shadow: 0 0 16px rgba(77, 227, 255, 0.15); outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; }"
+      "description": "The high-contrast single-answer field used during timed play.",
+      "html": "<label class=\"ds-answer-label\" for=\"ds-answer\">YOUR ANSWER</label><input class=\"ds-answer-field\" id=\"ds-answer\" placeholder=\"type one answer…\" />",
+      "css": ".ds-answer-label { display: block; margin-bottom: 0.35rem; color: var(--drift, #84a5b5); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); font-size: 0.53rem; letter-spacing: 0.16em; } .ds-answer-field { width: min(100%, 420px); height: 56px; padding: 0 0.85rem; border: 1px solid var(--cyan, #5be2ef); border-bottom-width: 4px; border-radius: 0; outline: 0; background: #061525; color: var(--paper, #edf7f7); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); font-size: clamp(0.85rem, 1.3vw, 1.05rem); letter-spacing: 0.04em; } .ds-answer-field::placeholder { color: #628090; opacity: 1; } .ds-answer-field:hover { border-color: var(--paper, #edf7f7); } .ds-answer-field:focus-visible { border-color: var(--paper, #edf7f7); box-shadow: 0 0 0 2px rgba(91, 226, 239, 0.18); outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; }"
     },
     {
-      "name": "Prompt Card",
+      "name": "Prompt Hull",
       "kind": "card",
       "refersTo": "card-prompt",
-      "description": "The single dominant question panel in the upper play stage.",
-      "html": "<section class=\"ds-prompt-card\"><p class=\"ds-prompt-kicker\">PROMPT 3 OF 7</p><h2>NAME A CITY BUILT AROUND WATER.</h2><p class=\"ds-rarity-hint\">▼ rarer answers sink deeper ▼</p></section>",
-      "css": ".ds-prompt-card { position: relative; width: min(100%, 480px); padding: 1.45rem 1.55rem 1.15rem; border: 1px solid rgba(18, 35, 61, 0.95); border-radius: 0; background: rgba(10, 23, 42, 0.91); box-shadow: 7px 8px 0 rgba(3, 11, 24, 0.72), 0 0 22px rgba(5, 17, 31, 0.28); color: var(--paper, #e8f1ff); font-family: var(--pixel, \"Lucida Console\", \"Courier New\", monospace); } .ds-prompt-card::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: rgba(77, 227, 255, 0.28); content: \"\"; } .ds-prompt-kicker { margin: 0; color: var(--coral, #ff5d8f); font-size: 0.68rem; letter-spacing: 0.3em; } .ds-prompt-card h2 { margin: 1rem 0 0; font-size: clamp(1.55rem, 3.1vw, 2.3rem); line-height: 1.08; letter-spacing: 0.04em; } .ds-rarity-hint { margin: 1rem 0 0; color: #88a2c3; font-size: 0.7rem; letter-spacing: 0.14em; } .ds-prompt-card:hover { border-color: rgba(77, 227, 255, 0.4); } .ds-prompt-card:focus-within { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; }"
+      "description": "The single dominant question surface framed by the project-owned prompt hull raster.",
+      "html": "<section class=\"ds-prompt-hull\"><h2>NAME A CITY BUILT AROUND WATER.</h2><p>rarer answers sink deeper</p><small>PLACES / MEDIUM</small></section>",
+      "css": ".ds-prompt-hull { width: min(100%, 620px); padding: clamp(1.1rem, 2.4vw, 1.8rem); border: 18px solid transparent; border-image-source: url(\"/ui/prompt-hull.webp\"); border-image-slice: 46 52 fill; border-image-width: 18px; border-image-outset: 7px; background: rgba(2, 10, 21, 0.94); color: var(--paper, #edf7f7); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); } .ds-prompt-hull h2 { margin: 0; font-size: clamp(1.35rem, 2.7vw, 2.55rem); font-variation-settings: \"wght\" 620; letter-spacing: -0.025em; line-height: 1.12; } .ds-prompt-hull p { margin: 1.2rem 0 0; color: #9fb6be; font-size: 0.7rem; line-height: 1.55; } .ds-prompt-hull small { display: block; margin-top: 1.2rem; padding-top: 0.85rem; border-top: 1px solid var(--line, rgba(112, 168, 192, 0.27)); color: var(--gold, #f3cd69); font-size: 0.7rem; letter-spacing: 0.14em; }"
     },
     {
-      "name": "Sound Control",
-      "kind": "button",
-      "refersTo": "control-icon",
-      "description": "A compact square telemetry control for the persisted mute preference.",
-      "html": "<button class=\"ds-sound\" type=\"button\" aria-label=\"Mute sound\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 10v4h4l5 4V6l-5 4H4Z\"></path><path d=\"M17 9.5c1.5 1.2 1.5 3.8 0 5\"></path></svg></button>",
-      "css": ".ds-sound { display: inline-grid; place-items: center; min-width: 38px; min-height: 30px; border: 1px solid rgba(77, 227, 255, 0.32); border-radius: 0; background: rgba(16, 31, 53, 0.72); box-shadow: 3px 3px 0 rgba(3, 11, 24, 0.78); color: var(--drift, #7d93b8); transition: border-color 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; } .ds-sound svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: square; stroke-linejoin: miter; stroke-width: 1.6; } .ds-sound:hover { border-color: var(--cyan, #4de3ff); color: var(--paper, #e8f1ff); } .ds-sound:focus-visible { outline: 2px solid var(--paper, #e8f1ff); outline-offset: 4px; } .ds-sound:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 rgba(3, 11, 24, 0.78); }"
+      "name": "Answer Hull",
+      "kind": "custom",
+      "refersTo": "input-answer",
+      "description": "The project-owned answer frame that binds the field, DIVE, PASS, and timed progress into one instrument.",
+      "html": "<form class=\"ds-answer-hull\"><input aria-label=\"Your answer\" placeholder=\"type one answer…\" /><button class=\"ds-answer-dive\" type=\"button\">DIVE</button><button class=\"ds-answer-pass\" type=\"button\">PASS</button><i aria-hidden=\"true\"><b></b></i></form>",
+      "css": ".ds-answer-hull { position: relative; display: grid; grid-template-columns: minmax(8rem, 1fr) 96px 76px; align-items: center; gap: 0.55rem; width: min(100%, 690px); padding: 0.55rem; border: 15px solid transparent; border-image-source: url(\"/ui/answer-hull.webp\"); border-image-slice: 38 54 fill; border-image-width: 15px; border-image-outset: 6px; background: rgba(2, 10, 21, 0.94); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); } .ds-answer-hull input { min-width: 0; height: 56px; padding: 0 0.85rem; border: 1px solid var(--cyan, #5be2ef); border-bottom-width: 4px; border-radius: 0; outline: 0; background: #061525; color: var(--paper, #edf7f7); font: inherit; } .ds-answer-hull button { min-height: 56px; padding: 0.65rem; border: 1px solid var(--coral, #ff667f); border-bottom-width: 4px; border-radius: 0; background: #672739; color: var(--paper, #edf7f7); font: inherit; font-size: 0.7rem; letter-spacing: 0.11em; } .ds-answer-hull .ds-answer-pass { border-color: var(--line-hot, rgba(91, 226, 239, 0.72)); background: #0a2132; color: var(--drift, #84a5b5); } .ds-answer-hull input:focus-visible, .ds-answer-hull button:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; } .ds-answer-hull button:hover { background: var(--coral, #ff667f); color: var(--ink, #020711); } .ds-answer-hull .ds-answer-pass:hover { border-color: var(--cyan, #5be2ef); background: #0a2132; color: var(--paper, #edf7f7); } .ds-answer-hull > i { position: absolute; right: calc(172px + 1.1rem); bottom: 4px; left: 0.55rem; height: 2px; background: rgba(91, 226, 239, 0.12); } .ds-answer-hull > i b { display: block; width: 62%; height: 100%; background: var(--cyan, #5be2ef); }"
+    },
+    {
+      "name": "Telemetry Meter",
+      "kind": "custom",
+      "refersTo": "telemetry-meter",
+      "description": "A square spine or dock readout for depth and score.",
+      "html": "<div class=\"ds-telemetry-meter\"><span>DEPTH</span><strong>1840m</strong></div>",
+      "css": ".ds-telemetry-meter { display: grid; gap: 0.45rem; min-width: 150px; min-height: 58px; padding: 0.55rem 0.65rem; border: 1px solid rgba(91, 226, 239, 0.18); border-left: 3px solid var(--cyan, #5be2ef); border-radius: 0; background: rgba(4, 18, 32, 0.82); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); } .ds-telemetry-meter span { color: var(--drift, #84a5b5); font-size: 0.56rem; letter-spacing: 0.2em; } .ds-telemetry-meter strong { color: var(--paper, #edf7f7); font-size: clamp(1.25rem, 2.2vw, 1.9rem); font-variation-settings: \"wght\" 650; letter-spacing: 0.03em; }"
+    },
+    {
+      "name": "Countdown Gauge",
+      "kind": "custom",
+      "refersTo": "timer-gauge",
+      "description": "The circular timer dial that switches from cyan to stepped coral urgency.",
+      "html": "<div class=\"ds-timer-gauge\" role=\"timer\" aria-label=\"12 seconds remaining\"><strong>12</strong></div>",
+      "css": ".ds-timer-gauge { position: relative; display: grid; place-items: center; width: clamp(70px, 7vw, 92px); aspect-ratio: 1; border: 8px solid rgba(91, 226, 239, 0.18); border-top-color: var(--cyan, #5be2ef); border-right-color: var(--cyan, #5be2ef); border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(91, 226, 239, 0.28); color: var(--paper, #edf7f7); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); } .ds-timer-gauge::before, .ds-timer-gauge::after { position: absolute; width: 5px; height: 5px; background: var(--cyan, #5be2ef); content: \"\"; } .ds-timer-gauge::before { top: -8px; left: 50%; } .ds-timer-gauge::after { top: 50%; right: -8px; } .ds-timer-gauge strong { font-size: clamp(1.25rem, 2.4vw, 2rem); font-variation-settings: \"wght\" 650; } .ds-timer-gauge:hover { border-top-color: var(--paper, #edf7f7); border-right-color: var(--paper, #edf7f7); } .ds-timer-gauge:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; }"
+    },
+    {
+      "name": "Launch Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "The compact two-column rail for switching dive modes and themed packs.",
+      "html": "<nav class=\"ds-launch-nav\" aria-label=\"Other dives\"><a href=\"#\">THEMED PACKS</a><a href=\"#\">UNLIMITED ∞</a></nav>",
+      "css": ".ds-launch-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; width: min(100%, 420px); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); } .ds-launch-nav a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.55rem; border: 1px solid var(--line, rgba(112, 168, 192, 0.27)); border-radius: 0; color: var(--drift, #84a5b5); font-size: 0.59rem; letter-spacing: 0.12em; text-align: center; text-decoration: none; transition: border-color 140ms ease-out, color 140ms ease-out; } .ds-launch-nav a:hover { border-color: var(--cyan, #5be2ef); color: var(--paper, #edf7f7); } .ds-launch-nav a:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; } .ds-launch-nav a:active { color: var(--cyan, #5be2ef); }"
+    },
+    {
+      "name": "Dive Log Card",
+      "kind": "card",
+      "refersTo": "card-summary",
+      "description": "The final run record with score, reached depth, replay, and route handoff.",
+      "html": "<section class=\"ds-dive-log\"><h2>DIVE COMPLETE</h2><div><span>FINAL SCORE</span><strong>184</strong><small>points below the surface</small></div><p>YOU REACHED <b>1840m</b></p><button type=\"button\">DIVE AGAIN</button><a href=\"#\">TRY ENDLESS MODE</a></section>",
+      "css": ".ds-dive-log { width: min(100%, 520px); padding: clamp(1.3rem, 3vw, 2.1rem); border-top: 3px solid var(--cyan, #5be2ef); border-right: 1px solid var(--line, rgba(112, 168, 192, 0.27)); border-bottom: 1px solid var(--line, rgba(112, 168, 192, 0.27)); border-left: 1px solid var(--line, rgba(112, 168, 192, 0.27)); border-radius: 0; background: var(--panel, rgba(4, 15, 29, 0.94)); box-shadow: 0 18px 34px rgba(0, 4, 12, 0.52); color: var(--paper, #edf7f7); font-family: var(--pixel, \"Pixelify Sans Variable\", \"Pixelify Sans\", monospace); } .ds-dive-log h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.7rem); } .ds-dive-log div { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 0.35rem 1rem; margin-top: 1.4rem; padding: 1rem 0; border-top: 1px solid var(--line, rgba(112, 168, 192, 0.27)); border-bottom: 1px solid var(--line, rgba(112, 168, 192, 0.27)); } .ds-dive-log span, .ds-dive-log small { color: var(--drift, #84a5b5); font-size: 0.59rem; letter-spacing: 0.18em; } .ds-dive-log strong { grid-column: 2; grid-row: 1 / span 2; color: var(--coral, #ff667f); font-size: clamp(3rem, 7vw, 5rem); font-weight: 400; line-height: 0.8; } .ds-dive-log p { display: flex; justify-content: space-between; color: var(--drift, #84a5b5); font-size: 0.59rem; letter-spacing: 0.18em; } .ds-dive-log p b { color: var(--cyan, #5be2ef); font-size: 1.6rem; font-weight: 400; } .ds-dive-log button, .ds-dive-log a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 56px; margin-top: 0.5rem; border: 1px solid var(--coral, #ff667f); border-bottom-width: 4px; border-radius: 0; background: #672739; color: var(--paper, #edf7f7); font: inherit; font-size: 0.7rem; letter-spacing: 0.11em; text-decoration: none; } .ds-dive-log a { min-height: 44px; border-color: var(--line, rgba(112, 168, 192, 0.27)); border-bottom-width: 1px; background: transparent; color: var(--drift, #84a5b5); } .ds-dive-log button:hover { background: var(--coral, #ff667f); color: var(--ink, #020711); } .ds-dive-log a:hover { border-color: var(--cyan, #5be2ef); color: var(--paper, #edf7f7); } .ds-dive-log button:focus-visible, .ds-dive-log a:focus-visible { outline: 2px solid var(--paper, #edf7f7); outline-offset: 4px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Abyssal Arcade Console",
-    "overview": "OMNIQUIZ feels like a compact expedition terminal dropped into a living, pixel-art ocean. Layered sky, water, trench, fish, particles, scanlines, a depth ruler, and the krill marker make progress spatial: the interface does not merely report a score; it visibly descends with it.\n\nThe console layer is playful but disciplined. Monospaced pixel type, square controls, thin signal borders, hard offset shadows, and terse uppercase telemetry keep every state legible over the illustrated scene. Cyan is the navigational signal, coral is action and rarity energy, and gold is a scarce reward color. The built system rejects generic rounded SaaS cards, soft pastel minimalism, and decoration that competes with the prompt.",
+    "northStar": "The Live ROV Mission Broadcast",
+    "overview": "OMNIQUIZ presents a trivia run as a live 16-bit dive operation. A cold, detailed ocean raster owns the world while coral and cyan telemetry, scanlines, a depth ruler, and instrument panels turn every answer into mission data rather than generic quiz chrome.\n\nThe experience tells one continuous operational story: launch control hands off to a dominant live prompt feed, feedback slams the score and depth into view, and the run resolves as a compact dive log. The density is cinematic but controlled; the current prompt remains the only dominant reading surface while telemetry stays peripheral and explicit.",
     "keyCharacteristics": [
-      "Layered pixel-ocean atmosphere that changes with depth.",
-      "Square, instrument-like panels with thin borders and hard offset shadows.",
-      "One monospaced pixel voice across display, copy, labels, and controls.",
-      "Cyan, coral, and gold signal roles against near-black blue surfaces.",
-      "Short arcade motion with a complete reduced-motion fallback."
+      "Project-owned pixel-ocean and hull rasters, never stock-photo scenery or generic sci-fi framing.",
+      "A desktop vertical telemetry spine beside one dominant live stage; a top instrument dock on mobile.",
+      "One self-hosted variable bitmap family across display, prompts, controls, and metadata.",
+      "Cold navy material with cyan navigation, coral action, gold rarity, and restrained green pack accents.",
+      "Depth-driven environmental change, deliberate score and urgency motion, and a complete reduced-motion fallback."
     ],
     "rules": [
       {
         "name": "The Three-Signal Rule",
-        "body": "Cyan navigates, coral acts or scores, and gold rewards rarity; do not interchange them casually.",
+        "body": "Cyan navigates and reports depth, coral acts and scores, and gold marks rarity; keep those meanings stable.",
         "section": "colors"
       },
       {
         "name": "The Dark-Water Rule",
-        "body": "Large surfaces stay in the ink-to-ocean range so the pixel scenery and signal colors remain legible.",
+        "body": "Large surfaces remain near-black navy so Phosphor Paper and the mission signals carry the hierarchy.",
         "section": "colors"
       },
       {
-        "name": "The One-Console Voice Rule",
-        "body": "Keep every interface role in the pixel-mono stack; express hierarchy without introducing a second font family.",
+        "name": "The One-Broadcast Voice Rule",
+        "body": "Keep display, prompts, controls, and telemetry in Pixelify Sans; hierarchy comes from the variable weight axis and spacing, not a second family.",
         "section": "typography"
       },
       {
         "name": "The Tracking Has Meaning Rule",
-        "body": "Wide uppercase tracking belongs to short labels and mode names, never to long prompts or paragraphs.",
+        "body": "Wide uppercase tracking belongs to short operational labels; prompts and explanatory sentences stay tightly tracked.",
         "section": "typography"
       },
       {
-        "name": "The Down-Right Pressure Rule",
-        "body": "Structural elevation is a crisp dark block displaced down and right; ambient glows are secondary signal accents.",
+        "name": "The Telemetry Spine Rule",
+        "body": "On desktop, preserve a narrow vertical instrument spine and give the remaining viewport to one framed live stage; on mobile, move the same data into the top dock.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Live Feed Rule",
+        "body": "Prompt or feedback is the sole dominant panel; score, depth, timing, navigation, and progress remain instrumentation around it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Raster Owns the World Rule",
+        "body": "The mission panorama and both hull-frame assets are first-class material; preserve their pixel rendering and do not replace them with stock imagery, blur glass, or generic gradient frames.",
         "section": "elevation"
       },
       {
         "name": "The Glow Means Signal Rule",
-        "body": "Cyan and coral glow only around active progress, focus, rarity, or status—not around every container.",
+        "body": "Cyan and coral glow belongs to active progress, the critical timer, or environmental light; resting containers do not all glow.",
         "section": "elevation"
+      },
+      {
+        "name": "The Circle Is a Gauge Rule",
+        "body": "Use the full-circle token for measured instrumentation, not for general actions, cards, chips, or navigation.",
+        "section": "shapes"
       }
     ],
     "dos": [
-      "Do preserve square corners, thin signal borders, and down-right shadow blocks on console surfaces.",
-      "Do keep prompts and answers high-contrast in Foam Paper over dense navy panels.",
-      "Do use cyan for navigation/depth, coral for action/score, and gold only for rare rewards.",
-      "Do make responsive layouts safe at 320px, wrap compact navigation, and honor safe-area insets.",
-      "Do keep all functionality intact when reduced motion collapses animations and transitions.",
-      "Do render ocean and tier artwork with pixel-preserving treatment."
+      "Do keep the owned panorama and hull rasters pixel-sharp and structurally central.",
+      "Do preserve the desktop spine/live-stage split and the mobile top-dock transformation at 700px.",
+      "Do keep prompts high-contrast and singular while telemetry stays peripheral.",
+      "Do use cyan for navigation/depth, coral for action/score/urgency, and gold for rarity.",
+      "Do make controls keyboard reachable, at least 44px tall, safe-area aware, and operable with reduced motion.",
+      "Do let score and depth visibly alter the environment as well as the numbers."
     ],
     "donts": [
-      "Don't introduce pill buttons, rounded SaaS cards, glassmorphism blur, or soft floating white surfaces.",
-      "Don't use cyan, coral, and gold as interchangeable decoration or let glow surround every panel.",
-      "Don't mix in a proportional display or body font; OMNIQUIZ speaks through one pixel-mono console voice.",
-      "Don't stretch prompt cards or action rails across wide desktop viewports beyond their implemented caps.",
-      "Don't place decorative ocean elements in the accessibility tree or allow them to obscure the prompt, timer, or answer rail.",
-      "Don't rely on motion alone to communicate depth, progress, feedback, or state."
+      "Don't replace the ROV world with stock ocean photography, smooth vector gradients, or generic sci-fi glass panels.",
+      "Don't introduce pills, softened SaaS cards, blur-heavy glassmorphism, or rounded navigation.",
+      "Don't use coral, cyan, gold, and green as interchangeable decoration.",
+      "Don't add a proportional display or body family; the shipped system uses one Pixelify Sans variable voice.",
+      "Don't stretch the prompt beyond 620px or the answer hull beyond 690px on desktop.",
+      "Don't rely on motion alone to communicate timer urgency, progress, feedback, score, or depth."
     ]
   }
 }

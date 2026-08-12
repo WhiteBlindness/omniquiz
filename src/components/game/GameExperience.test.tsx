@@ -103,8 +103,48 @@ describe("GameExperience", () => {
       fireEvent.click(dive);
     });
 
-    expect(screen.getByText(/answer logged/i)).toBeVisible();
+    expect(screen.getByRole("status")).toHaveTextContent(/answer logged/i);
     expect(screen.getByText(/a sharp bit of recall/i)).toBeVisible();
+    expect(
+      screen.getByRole("button", { name: /continue descent|surface with score/i }),
+    ).toHaveFocus();
+  });
+
+  it("lets a player pass without waiting for the answer timer", async () => {
+    render(<GameExperience mode="daily" />);
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+    });
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(3_000);
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: /^pass$/i }));
+
+    expect(screen.getByRole("status")).toHaveTextContent(/pass logged/i);
+    expect(screen.getByRole("status")).toHaveTextContent(/no points lost/i);
+    expect(screen.getByRole("button", { name: /surface with score/i })).toHaveFocus();
+  });
+
+  it("announces the final five seconds without relying on color alone", async () => {
+    render(<GameExperience mode="daily" />);
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+    });
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(3_000);
+    });
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(10_000);
+    });
+
+    expect(screen.getByText(/5 seconds left/i)).toBeVisible();
+    expect(screen.getByLabelText(/5 seconds remaining/i)).toHaveAttribute(
+      "data-urgency",
+      "critical",
+    );
   });
 
   it("restores scored feedback after a reload-equivalent remount", async () => {
@@ -128,7 +168,7 @@ describe("GameExperience", () => {
     render(<GameExperience mode="daily" />);
     await act(async () => {});
 
-    expect(screen.getByText(/answer logged/i)).toBeVisible();
+    expect(screen.getByRole("status")).toHaveTextContent(/answer logged/i);
     expect(screen.getByText(/a sharp bit of recall/i)).toBeVisible();
   });
 

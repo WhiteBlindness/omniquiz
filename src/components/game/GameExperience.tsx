@@ -17,6 +17,7 @@ import { SoundControl } from "./SoundControl";
 type GameExperienceProps = Readonly<{
   mode: GameMode;
   category?: Category;
+  dailyLabel?: string;
 }>;
 
 const RULES = [
@@ -28,16 +29,18 @@ const RULES = [
   "One dive per day. No second chances.",
 ] as const;
 
-export function GameExperience({ mode, category }: GameExperienceProps) {
+export function GameExperience({ mode, category, dailyLabel }: GameExperienceProps) {
   const [tutorialOpen, setTutorialOpen] = useState(false);
   const [shareLabel, setShareLabel] = useState("SHARE DIVE LOG");
   const {
     state,
     stats,
+    dayLabel,
     muted,
     toggleMute,
     startDive,
     submitAnswer,
+    passQuestion,
     setAnswer,
     continueDive,
   } = useGameLoop(mode, category);
@@ -48,6 +51,10 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
     ? "dive after dive · rarer answers sink deeper"
     : "7 prompts · 15 seconds each · rarer answers sink deeper";
   const isLastRound = state.questionIndex + 1 >= state.questions.length;
+  const feedbackResult = state.phase === "feedback" ? state.lastResult : null;
+  const diveLabel = mode === "unlimited"
+    ? dayLabel ? `ENDLESS / UTC DAY ${dayLabel}` : "ENDLESS DIVE #1"
+    : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
 
   const handleShare = useCallback(async () => {
     const shareText = `OMNIQUIZ ${mode === "unlimited" ? "endless" : "daily"} dive: ${state.score} points, ${state.depthMetres}m deep.`;
@@ -67,7 +74,6 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
 
   return (
     <div className={`game-shell phase-${state.phase} mode-${mode}`} data-phase={state.phase}>
-      {/* Visual contract: retro pixel ocean, centered title/boat/waterline, submerged fixed CTA, HUD/game loop, OMNIQUIZ brand. */}
       <OceanBackdrop depthMetres={state.depthMetres} mode={mode} />
       <SoundControl muted={muted} onToggle={toggleMute} />
 
@@ -95,7 +101,7 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
                 aria-controls="tutorial-rules"
                 onClick={() => setTutorialOpen((open) => !open)}
               >
-                <span aria-hidden="true">▸</span> HOW TO PLAY
+                <span className="pixel-chevron" aria-hidden="true" /> HOW TO PLAY
               </button>
               {tutorialOpen ? (
                 <ul className="tutorial-rules" id="tutorial-rules">
@@ -110,13 +116,13 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
               onClick={() => { void startDive(); }}
               disabled={state.phase === "loading"}
             >
-              <span aria-hidden="true">▼</span>
+              <span className="pixel-descent-mark" aria-hidden="true" />
               {state.phase === "loading" ? "LOADING QUESTIONS" : state.phase === "error" ? "RETRY DESCENT" : "BEGIN DESCENT"}
-              <span aria-hidden="true">▼</span>
+              <span className="pixel-descent-mark" aria-hidden="true" />
             </button>
 
             <div className="launch-rail">
-              <span>{mode === "unlimited" ? "ENDLESS DIVE #1" : "DIVE #25"}</span>
+              <span>{diveLabel}</span>
               <nav aria-label="Other dives">
                 {mode === "daily" ? <Link href="/packs">THEMED PACKS</Link> : <Link href="/packs">THEMED PACKS</Link>}
                 <Link href={mode === "daily" ? "/unlimited/classic" : "/"}>
@@ -140,11 +146,28 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
           </button>
         </main>
       ) : (
-        <main className="game-layer" aria-labelledby="current-prompt">
+        <main
+          className="game-layer"
+          aria-labelledby={feedbackResult ? "feedback-title" : "current-prompt"}
+        >
+          <div className="feed-plate" aria-hidden="true">CAM 01 · ROV FEED</div>
+          <div className="timecode-plate" aria-hidden="true">
+            TC 00:00:00:{String(state.remainingSeconds).padStart(2, "0")}
+          </div>
           <GameHud state={state} mode={mode} />
-          <div className="game-title-echo" aria-hidden="true">{title}</div>
           <div className="prompt-zone">
-            <PromptCard state={state} phase={state.phase} />
+            {feedbackResult ? (
+              <FeedbackPanel
+                result={feedbackResult}
+                score={state.score}
+                depthMetres={state.depthMetres}
+                isLastRound={isLastRound}
+                outcome={state.lastOutcome ?? "answer"}
+                onContinue={continueDive}
+              />
+            ) : (
+              <PromptCard state={state} phase={state.phase} />
+            )}
           </div>
 
           {state.phase === "answering" || state.phase === "submitting" ? (
@@ -152,16 +175,7 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
               state={state}
               onAnswer={setAnswer}
               onSubmit={() => { void submitAnswer(); }}
-            />
-          ) : null}
-
-          {state.phase === "feedback" && state.lastResult ? (
-            <FeedbackPanel
-              result={state.lastResult}
-              score={state.score}
-              depthMetres={state.depthMetres}
-              isLastRound={isLastRound}
-              onContinue={continueDive}
+              onPass={passQuestion}
             />
           ) : null}
 
@@ -171,7 +185,7 @@ export function GameExperience({ mode, category }: GameExperienceProps) {
 
           {question && state.phase === "answering" ? (
             <p className="live-prompt-announcement sr-only" aria-live="polite">
-              {question.prompt}. {state.remainingSeconds} seconds remaining.
+              {question.prompt}. You have 15 seconds.
             </p>
           ) : null}
         </main>

@@ -17,6 +17,8 @@ export type GamePhase =
   | "summary"
   | "error";
 
+export type GameOutcome = "answer" | "pass" | "timeout";
+
 export type GameState = Readonly<{
   mode: GameMode;
   phase: GamePhase;
@@ -28,6 +30,7 @@ export type GameState = Readonly<{
   score: number;
   depthMetres: number;
   lastResult: SubmissionResult | null;
+  lastOutcome: GameOutcome | null;
   error: string | null;
 }>;
 
@@ -41,6 +44,7 @@ export type GameAction =
   | { type: "SUBMIT_START" }
   | { type: "SUBMIT_RESOLVED"; result: SubmissionResult }
   | { type: "SUBMIT_FAILED"; error: string }
+  | { type: "PASS_QUESTION" }
   | { type: "TIME_EXPIRED" }
   | { type: "NEXT_ROUND" }
   | { type: "RESTORE_PROGRESS"; progress: Partial<GameState> }
@@ -55,6 +59,15 @@ const expiredResult = Object.freeze({
   quip: "The current carried you past this prompt.",
 });
 
+const passedResult = Object.freeze({
+  accepted: false,
+  normalizedAnswer: "",
+  tier: "plankton" as const,
+  score: 0,
+  depth: 0,
+  quip: "Pass logged. No points lost.",
+});
+
 export const createInitialGameState = (mode: GameMode): GameState =>
   Object.freeze({
     mode,
@@ -67,6 +80,7 @@ export const createInitialGameState = (mode: GameMode): GameState =>
     score: 0,
     depthMetres: 0,
     lastResult: null,
+    lastOutcome: null,
     error: null,
   });
 
@@ -82,6 +96,7 @@ const prepareNextQuestion = (
     remainingSeconds: ANSWER_SECONDS,
     previewSeconds: PREVIEW_SECONDS,
     lastResult: null,
+    lastOutcome: null,
     error: null,
   });
 
@@ -96,6 +111,7 @@ export const gameReducer = (
         phase: "loading",
         error: null,
         lastResult: null,
+        lastOutcome: null,
       });
 
     case "LOAD_QUESTIONS":
@@ -111,6 +127,7 @@ export const gameReducer = (
             score: 0,
             depthMetres: 0,
             lastResult: null,
+            lastOutcome: null,
             error: null,
           })
         : Object.freeze({
@@ -123,6 +140,8 @@ export const gameReducer = (
       return Object.freeze({
         ...state,
         phase: "error",
+        lastResult: null,
+        lastOutcome: null,
         error: action.error,
       });
 
@@ -166,6 +185,7 @@ export const gameReducer = (
         score: state.score + action.result.score,
         depthMetres: state.depthMetres + action.result.score * METRES_PER_POINT,
         lastResult: action.result,
+        lastOutcome: "answer",
         remainingSeconds: 0,
         error: null,
       });
@@ -177,6 +197,18 @@ export const gameReducer = (
         error: action.error,
       });
 
+    case "PASS_QUESTION":
+      if (state.phase !== "answering") return state;
+      return Object.freeze({
+        ...state,
+        phase: "feedback",
+        answer: "",
+        remainingSeconds: 0,
+        lastResult: passedResult,
+        lastOutcome: "pass",
+        error: null,
+      });
+
     case "TIME_EXPIRED":
       if (state.phase !== "answering" && state.phase !== "preview") return state;
       return Object.freeze({
@@ -185,13 +217,14 @@ export const gameReducer = (
         remainingSeconds: 0,
         previewSeconds: 0,
         lastResult: expiredResult,
+        lastOutcome: "timeout",
         error: null,
       });
 
     case "NEXT_ROUND":
       if (state.phase !== "feedback") return state;
       return state.questionIndex + 1 >= state.questions.length
-        ? Object.freeze({ ...state, phase: "summary", lastResult: null })
+        ? Object.freeze({ ...state, phase: "summary", lastResult: null, lastOutcome: null })
         : prepareNextQuestion(state, state.questionIndex + 1);
 
     case "RESTORE_PROGRESS": {
@@ -219,6 +252,8 @@ export const gameReducer = (
         remainingSeconds: Math.max(0, progress.remainingSeconds ?? ANSWER_SECONDS),
         previewSeconds: Math.max(0, progress.previewSeconds ?? 0),
         lastResult: phase === "feedback" ? progress.lastResult ?? null : null,
+        lastOutcome:
+          phase === "feedback" ? progress.lastOutcome ?? "answer" : null,
         error: null,
       });
     }

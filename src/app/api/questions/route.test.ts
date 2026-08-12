@@ -2,14 +2,22 @@ import { describe, expect, it } from "vitest";
 
 import { NextRequest } from "next/server";
 
-import { GET } from "./route";
+import { GET, getUtcDayOfYear } from "./route";
 
 describe("GET /api/questions", () => {
+  it("labels UTC calendar boundaries and leap years correctly", () => {
+    expect(getUtcDayOfYear("2026-01-01")).toBe(1);
+    expect(getUtcDayOfYear("2024-02-29")).toBe(60);
+    expect(getUtcDayOfYear("2024-12-31")).toBe(366);
+    expect(getUtcDayOfYear("2026-12-31")).toBe(365);
+  });
+
   it("returns seven public questions in a success envelope", async () => {
     const response = await GET(new NextRequest("http://localhost/api/questions"));
     const body = await response.json();
 
     expect(response.status).toBe(200);
+    expect(response.headers.get("x-omniquiz-day")).toMatch(/^\d{3}$/);
     expect(body).toMatchObject({ success: true, error: null });
     expect(body.data).toHaveLength(7);
     expect(body.data[0]).not.toHaveProperty("canonicalAnswer");

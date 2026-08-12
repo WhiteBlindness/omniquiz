@@ -4,7 +4,7 @@ const PACKS = [
   {
     title: "AT THE MOVIES",
     detail: "30 pictures · a night drive down the boulevard",
-    action: "TAKE THE DRIVE →",
+    action: "TAKE THE DRIVE",
     categoryLabel: "PLAYABLE AS HISTORY",
     href: "/unlimited/classic?category=History",
     state: "NOW SHOWING",
@@ -13,7 +13,7 @@ const PACKS = [
   {
     title: "SPORTS",
     detail: "30 games · run the gauntlet, court to podium",
-    action: "TAKE THE TUNNEL ↓",
+    action: "TAKE THE TUNNEL",
     categoryLabel: "PLAYABLE AS GENERAL",
     href: "/unlimited/classic?category=General",
     state: "GAME ON",
@@ -109,7 +109,7 @@ export default function PacksPage() {
         </button>
       </section>
 
-      <Link className="back-dive" href="/">← TODAY&apos;S DIVE</Link>
+      <Link className="back-dive" href="/">TODAY&apos;S DIVE</Link>
     </main>
   );
 }

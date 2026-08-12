@@ -1,7 +1,7 @@
 import type { PublicQuestion } from "../../lib/questions/types";
 import { RARITY_TIERS } from "../../lib/questions/types";
 import type { SubmissionResult } from "../../lib/game/scoring";
-import type { GameMode, GamePhase, GameState } from "./gameReducer";
+import type { GameMode, GameOutcome, GamePhase, GameState } from "./gameReducer";
 
 export const PROGRESS_STORAGE_KEY = "omniquiz-progress-v1";
 export const PREFERENCES_STORAGE_KEY = "omniquiz-preferences-v1";
@@ -21,6 +21,7 @@ export type PersistedProgress = Readonly<{
   remainingSeconds: number;
   previewSeconds: number;
   lastResult: SubmissionResult | null;
+  lastOutcome?: GameOutcome | null;
   savedAt: number;
 }>;
 
@@ -53,6 +54,9 @@ const isPhase = (value: unknown): value is PersistedPhase =>
   value === "submitting" ||
   value === "feedback" ||
   value === "summary";
+
+const isOutcome = (value: unknown): value is GameOutcome =>
+  value === "answer" || value === "pass" || value === "timeout";
 
 const isNumber = (value: unknown): value is number =>
   typeof value === "number" && Number.isFinite(value);
@@ -92,6 +96,12 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
   }
   if (value.phase === "feedback" && !lastResult) return null;
 
+  let lastOutcome: GameOutcome | null = null;
+  if ("lastOutcome" in value && value.lastOutcome !== null && value.lastOutcome !== undefined) {
+    if (!isOutcome(value.lastOutcome)) return null;
+    lastOutcome = value.lastOutcome;
+  }
+
   return Object.freeze({
     version: 1,
     mode: value.mode,
@@ -106,6 +116,7 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
     remainingSeconds: value.remainingSeconds,
     previewSeconds: value.previewSeconds,
     lastResult,
+    lastOutcome: value.phase === "feedback" ? lastOutcome ?? "answer" : null,
     savedAt: value.savedAt,
   });
 };
@@ -123,6 +134,7 @@ export const recoverPersistedProgress = (
       remainingSeconds: 0,
       previewSeconds: 0,
       lastResult: null,
+      lastOutcome: null,
       savedAt: now,
     });
   }
@@ -167,6 +179,7 @@ export const toPersistedProgress = (
     lastResult: state.lastResult
       ? freezeSubmissionResult(state.lastResult)
       : null,
+    lastOutcome: state.lastOutcome,
     savedAt: now,
   });
 

@@ -12,6 +12,7 @@ import {
   type GameMode,
 } from "../components/game/gameReducer";
 import {
+  DEFAULT_STATS,
   readProgress,
   readStats,
   isSubmissionResult,
@@ -56,7 +57,8 @@ const getApiData = async <T>(response: Response): Promise<T> => {
 export const useGameLoop = (mode: GameMode, category?: Category) => {
   const [state, dispatch] = useReducer(gameReducer, mode, createInitialGameState);
   const [hydrated, setHydrated] = useState(false);
-  const [stats, setStats] = useState<DiveStats>(readStats);
+  const [stats, setStats] = useState<DiveStats>(DEFAULT_STATS);
+  const [dayLabel, setDayLabel] = useState<string | null>(null);
   const mountedRef = useRef(true);
   const unlimitedRunRef = useRef<number | null>(null);
   const { muted, toggleMute, play } = useSoundFx();
@@ -67,7 +69,9 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     if (progress) dispatch({ type: "RESTORE_PROGRESS", progress });
     let hydrationCancelled = false;
     queueMicrotask(() => {
-      if (!hydrationCancelled && mountedRef.current) setHydrated(true);
+      if (hydrationCancelled || !mountedRef.current) return;
+      setStats(readStats());
+      setHydrated(true);
     });
 
     return () => {
@@ -118,6 +122,13 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         throw new Error("The question signal returned an unreadable payload.");
       }
       if (!mountedRef.current) return;
+      const serverDayLabel =
+        typeof response.headers?.get === "function"
+          ? response.headers.get("x-omniquiz-day")
+          : null;
+      if (serverDayLabel && /^\d{3}$/.test(serverDayLabel)) {
+        setDayLabel(serverDayLabel);
+      }
       dispatch({ type: "LOAD_QUESTIONS", questions });
       play("start");
     } catch (error) {
@@ -162,6 +173,17 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     }
   }, [play, state.answer, state.phase, state.questionIndex, state.questions]);
 
+  const passQuestion = useCallback(() => {
+    if (state.phase !== "answering") return;
+
+    dispatch({ type: "PASS_QUESTION" });
+    play("miss");
+    setStats((current) => ({
+      ...current,
+      answers: current.answers + 1,
+    }));
+  }, [play, state.phase]);
+
   const continueDive = useCallback(() => {
     const isFinalFeedback =
       state.phase === "feedback" && state.questionIndex === state.questions.length - 1;
@@ -196,10 +218,12 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     state,
     stats,
     hydrated,
+    dayLabel,
     muted,
     toggleMute,
     startDive,
     submitAnswer,
+    passQuestion,
     setAnswer,
     continueDive,
     resetDive,

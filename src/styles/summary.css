@@ -1,0 +1,108 @@
+/* End-of-run dive log. */
+.summary-layer {
+  display: grid;
+  place-items: center;
+  padding: 5.5rem 1rem 6rem;
+}
+
+.summary-panel {
+  width: min(100%, 520px);
+  padding: clamp(1.3rem, 3vw, 2.1rem);
+  border-top: 3px solid var(--cyan);
+  border-right: var(--edge);
+  border-bottom: var(--edge);
+  border-left: var(--edge);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  text-align: left;
+  animation: card-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.summary-panel h1 {
+  font-size: clamp(1.5rem, 3vw, 2.7rem);
+}
+
+.summary-score {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 0.35rem 1rem;
+  margin-top: 1.4rem;
+  padding: 1rem 0;
+  border-top: var(--edge);
+  border-bottom: var(--edge);
+}
+
+.summary-score span,
+.summary-depth span {
+  color: var(--drift);
+  font-size: 0.59rem;
+  letter-spacing: 0.18em;
+}
+
+.summary-score strong {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--coral);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 400;
+  line-height: 0.8;
+}
+
+.summary-score small {
+  color: #7895a3;
+  font-size: 0.61rem;
+}
+
+.summary-depth {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.summary-depth b {
+  color: var(--cyan);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.summary-stats {
+  margin: 1rem 0 0;
+  color: var(--drift);
+  font-size: 0.61rem;
+  letter-spacing: 0.12em;
+}
+
+.summary-actions {
+  margin-top: 1rem;
+}
+
+.secondary-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  border: var(--edge);
+  color: var(--drift);
+  font-size: 0.61rem;
+  letter-spacing: 0.12em;
+}
+
+.secondary-link:hover {
+  border-color: var(--cyan);
+  color: var(--paper);
+}
+
+.share-button {
+  position: absolute;
+  right: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  min-height: 44px;
+  border-color: var(--line-hot);
+  border-bottom-width: 1px;
+  background: rgba(3, 14, 28, 0.92);
+  color: var(--drift);
+  transform: translateX(50%);
+}

@@ -1,5 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const requestedPort = process.env.OMNIQUIZ_PLAYWRIGHT_PORT ?? "3017";
+const playwrightPort = /^\d{2,5}$/.test(requestedPort) ? requestedPort : "3017";
+const localBaseUrl = `http://127.0.0.1:${playwrightPort}`;
+const configuredBaseUrl = process.env.BASE_URL;
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -8,7 +13,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: process.env.BASE_URL ?? "http://127.0.0.1:3000",
+    baseURL: configuredBaseUrl ?? localBaseUrl,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
@@ -19,10 +24,12 @@ export default defineConfig({
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "mobile-chrome", use: { ...devices["Pixel 5"] } },
   ],
-  webServer: {
-    command: "npm.cmd run dev -- --hostname 127.0.0.1 --port 3000",
-    url: "http://127.0.0.1:3000",
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
+  webServer: configuredBaseUrl
+    ? undefined
+    : {
+        command: `npm.cmd run dev -- --hostname 127.0.0.1 --port ${playwrightPort}`,
+        url: localBaseUrl,
+        reuseExistingServer: false,
+        timeout: 120_000,
+      },
 });

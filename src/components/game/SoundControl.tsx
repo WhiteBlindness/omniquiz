@@ -17,6 +17,9 @@ export function SoundControl({ muted, onToggle }: SoundControlProps) {
         {muted ? <path className="sound-slash" d="m17 9 4 6m0-6-4 6" /> : <path d="M17 9.5c1.5 1.2 1.5 3.8 0 5" />}
       </svg>
       <span className="sr-only">{muted ? "muted" : "sound on"}</span>
+      <span className="sound-control-label" aria-hidden="true">
+        {muted ? "AUDIO OFF" : "AUDIO ON"}
+      </span>
     </button>
   );
 }

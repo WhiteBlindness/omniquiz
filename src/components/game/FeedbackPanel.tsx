@@ -1,4 +1,7 @@
 import type { SubmissionResult } from "../../lib/game/scoring";
+import { useEffect, useRef } from "react";
+
+import type { GameOutcome } from "./gameReducer";
 
 type FeedbackPanelProps = Readonly<{
   result: SubmissionResult;
@@ -6,6 +9,7 @@ type FeedbackPanelProps = Readonly<{
   depthMetres: number;
   isLastRound: boolean;
   onContinue: () => void;
+  outcome?: GameOutcome;
 }>;
 
 const TIER_LABELS: Record<SubmissionResult["tier"], string> = {
@@ -23,18 +27,48 @@ export function FeedbackPanel({
   depthMetres,
   isLastRound,
   onContinue,
+  outcome = "answer",
 }: FeedbackPanelProps) {
+  const continueRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    continueRef.current?.focus();
+  }, []);
+
+  const kicker = outcome === "pass"
+    ? "PASS LOGGED"
+    : outcome === "timeout"
+      ? "TIME EXPIRED"
+      : "ANSWER LOGGED";
+  const heading = outcome === "pass"
+    ? "PASS RECORDED"
+    : outcome === "timeout"
+      ? "CURRENT MISSED"
+      : result.accepted
+        ? TIER_LABELS[result.tier]
+        : "NOT THIS TIME";
+
   return (
-    <section className={`feedback-panel tier-${result.tier}`} role="status" aria-live="polite">
-      <p className="feedback-kicker">ANSWER LOGGED</p>
-      <h1>{result.accepted ? TIER_LABELS[result.tier] : "NOT THIS TIME"}</h1>
+    <section
+      className={`feedback-panel tier-${result.tier} outcome-${outcome}`}
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <p className="sr-only">{kicker}</p>
+      <h1 id="feedback-title">{heading}</h1>
       <p className="feedback-quip">{result.quip}</p>
       <div className="feedback-stats">
         <span><b>+{result.score}</b> PTS</span>
         <span><b>{score}</b> TOTAL</span>
         <span><b>{depthMetres}m</b> DEPTH</span>
       </div>
-      <button className="continue-button" type="button" onClick={onContinue}>
+      <button
+        ref={continueRef}
+        className="continue-button"
+        type="button"
+        onClick={onContinue}
+      >
         {isLastRound ? "SURFACE WITH SCORE" : "CONTINUE DESCENT"}
       </button>
     </section>

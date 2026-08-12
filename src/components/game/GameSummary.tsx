@@ -11,7 +11,7 @@ type GameSummaryProps = Readonly<{
 export function GameSummary({ score, depthMetres, mode, stats, onReplay }: GameSummaryProps) {
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
-      <p className="summary-kicker">DIVE LOGGED / 07 PROMPTS</p>
+      <p className="sr-only">Dive logged after seven prompts</p>
       <h1 id="summary-title">{mode === "unlimited" ? "ENDLESS RUN COMPLETE" : "DIVE COMPLETE"}</h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>

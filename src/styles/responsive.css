@@ -1,0 +1,445 @@
+@media (max-width: 900px) {
+  .landing-layer {
+    grid-template-columns: minmax(16rem, 0.85fr) minmax(20rem, 1.15fr);
+    gap: 2rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  .game-layer {
+    grid-template-columns: 13.5rem minmax(0, 1fr);
+  }
+
+  .prompt-zone {
+    padding-right: 5.5rem;
+    padding-left: 2.5rem;
+  }
+
+  .dive-form {
+    width: calc(100% - 3rem);
+  }
+
+  .pack-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .game-shell {
+    min-height: 100dvh;
+  }
+
+  .sound-control {
+    top: max(0.55rem, env(safe-area-inset-top));
+    right: max(0.5rem, env(safe-area-inset-right));
+    padding: 0 0.55rem;
+  }
+
+  .sound-control-label {
+    display: none;
+  }
+
+  .mission-panorama {
+    background-position: 68% center;
+  }
+
+  .krill-marker {
+    left: 71%;
+    width: 58px;
+  }
+
+  .depth-ruler {
+    top: 11%;
+    right: 3px;
+    bottom: 3%;
+    width: 38px;
+    opacity: 0.72;
+  }
+
+  .depth-mark {
+    gap: 3px;
+    font-size: 0.46rem;
+  }
+
+  .depth-mark b {
+    min-width: 27px;
+  }
+
+  .current-depth-marker {
+    right: 0;
+    width: 99px;
+    font-size: 0.49rem;
+  }
+
+  .current-depth-marker b {
+    min-width: 74px;
+    padding: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .landing-layer {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: clamp(1.25rem, 4vh, 2.5rem);
+    padding: max(4.25rem, env(safe-area-inset-top) + 3.5rem) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .brand-stage {
+    width: 100%;
+    margin: auto 0 0;
+    padding: 0 0.35rem;
+  }
+
+  .brand-stage::before {
+    margin-bottom: 0.75rem;
+    font-size: 0.51rem;
+  }
+
+  .chromatic-title {
+    font-size: clamp(3rem, 16vw, 5.2rem);
+    text-shadow: -3px 0 var(--coral), 3px 0 var(--cyan), 5px 5px #020713;
+  }
+
+  .mode-title {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.21em;
+  }
+
+  .mode-description {
+    margin-top: 0.55rem;
+    font-size: 0.61rem;
+    line-height: 1.5;
+  }
+
+  .landing-console {
+    width: 100%;
+    max-width: none;
+    padding: 0.75rem;
+  }
+
+  .landing-console::before {
+    margin-bottom: 0.55rem;
+    font-size: 0.5rem;
+  }
+
+  .tutorial-toggle {
+    min-height: 44px;
+  }
+
+  .tutorial-rules {
+    gap: 0.42rem;
+    max-height: 24vh;
+    overflow-y: auto;
+    padding-bottom: 0.75rem;
+    font-size: 0.56rem;
+  }
+
+  .begin-button {
+    min-height: 56px;
+    margin-top: 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .launch-rail {
+    margin-top: 0.55rem;
+    font-size: 0.51rem;
+  }
+
+  .launch-rail nav a {
+    font-size: 0.51rem;
+  }
+
+  .game-layer {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    height: 100dvh;
+    min-height: 568px;
+  }
+
+  .game-hud {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-areas:
+      "brand brand brand brand"
+      "depth rounds timer score"
+      "meta meta meta meta";
+    grid-template-columns: 56px minmax(0, 1fr) 50px 56px;
+    grid-template-rows: 28px 52px 14px;
+    gap: 0.25rem;
+    padding: max(0.35rem, env(safe-area-inset-top)) 0.45rem 0.35rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(91, 226, 239, 0.28);
+    background: rgba(2, 10, 21, 0.92);
+  }
+
+  .game-hud::before {
+    display: none;
+  }
+
+  .game-hud::after {
+    display: none;
+  }
+
+  .hud-brand {
+    align-self: center;
+    padding: 0;
+    border: 0;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hud-meter {
+    gap: 0.2rem;
+    min-height: 48px;
+    padding: 0.42rem;
+    border-left-width: 2px;
+  }
+
+  .hud-meter span {
+    font-size: 0.44rem;
+    letter-spacing: 0.09em;
+  }
+
+  .hud-meter strong {
+    font-size: 0.92rem;
+  }
+
+  .hud-title {
+    display: none;
+  }
+
+  .hud-timer {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .hud-timer > span {
+    display: none;
+  }
+
+  .hud-timer-dial {
+    width: 48px;
+    border-width: 4px;
+  }
+
+  .hud-timer-dial::before { top: -4px; }
+  .hud-timer-dial::after { right: -4px; }
+
+  .hud-timer-dial strong {
+    font-size: 0.78rem;
+  }
+
+  .hud-rounds {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0.12rem;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .hud-rounds-label,
+  .hud-round-step i {
+    display: none;
+  }
+
+  .hud-round-step {
+    display: block;
+    min-height: 0;
+  }
+
+  .hud-round-step b {
+    height: 24px;
+    font-size: 0.48rem;
+  }
+
+  .hud-question-meta {
+    align-self: center;
+    margin: 0;
+    overflow: hidden;
+    font-size: 0.42rem;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .feed-plate,
+  .timecode-plate {
+    top: 160px;
+    min-height: 24px;
+    padding: 0.35rem 0.45rem;
+    font-size: 0.43rem;
+  }
+
+  .feed-plate {
+    left: 0.5rem;
+  }
+
+  .timecode-plate {
+    right: 2.7rem;
+  }
+
+  .prompt-zone {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 2.1rem 2.8rem 0.75rem 0.55rem;
+  }
+
+  .prompt-card,
+  .feedback-panel {
+    padding: 0.72rem;
+    border-width: 11px;
+    border-image-width: 11px;
+    border-image-outset: 3px;
+    box-shadow: none;
+  }
+
+  .prompt-card h1,
+  .feedback-panel h1 {
+    margin-top: 0;
+    font-size: clamp(1.05rem, 5.6vw, 1.48rem);
+    line-height: 1.08;
+  }
+
+  .rarity-hint,
+  .prompt-category,
+  .feedback-quip,
+  .preview-countdown {
+    margin-top: 0.75rem;
+    font-size: 0.56rem;
+  }
+
+  .feedback-stats {
+    gap: 0.3rem;
+    margin-top: 0.75rem;
+    padding-top: 0.65rem;
+  }
+
+  .feedback-stats span { font-size: 0.44rem; }
+  .feedback-stats b { font-size: 0.72rem; }
+  .continue-button { min-height: 48px; margin-top: 0.75rem; }
+
+  .dive-form {
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: minmax(0, 1fr) 47px 47px;
+    gap: 0.35rem;
+    width: calc(100% - 0.65rem);
+    margin: 0 0.325rem max(0.45rem, env(safe-area-inset-bottom));
+    padding: 0.38rem;
+    border-width: 10px;
+    border-image-width: 10px;
+    border-image-outset: 2px;
+  }
+
+  .dive-form input,
+  .dive-submit,
+  .dive-pass {
+    min-height: 48px;
+    height: 48px;
+  }
+
+  .dive-form input {
+    padding: 0 0.45rem;
+    font-size: 0.76rem;
+  }
+
+  .dive-submit,
+  .dive-pass {
+    padding: 0.35rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+  }
+
+  .answer-progress {
+    right: calc(94px + 0.8rem);
+    bottom: 2px;
+    left: 0.38rem;
+  }
+
+  .timer-urgency,
+  .form-error {
+    bottom: calc(100% + 0.25rem);
+    font-size: 0.49rem;
+  }
+
+  .preview-footer {
+    grid-column: 1;
+    grid-row: 3;
+    margin-bottom: max(1rem, env(safe-area-inset-bottom));
+    font-size: 0.52rem;
+  }
+
+  .summary-layer {
+    padding: 4rem 0.65rem 5.5rem;
+  }
+
+  .summary-panel {
+    padding: 1rem;
+  }
+
+  .summary-score strong {
+    font-size: 3rem;
+  }
+
+  .share-button {
+    white-space: nowrap;
+  }
+
+  .packs-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .packs-header p {
+    text-align: left;
+  }
+
+  .pack-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pack-card {
+    grid-template-rows: 145px 1fr;
+  }
+
+  .logbook {
+    align-items: flex-end;
+    padding: 0.8rem;
+  }
+
+  .logbook-copy {
+    display: block;
+    margin: 0.35rem 0 0;
+  }
+}
+
+@media (max-width: 370px) {
+  .mode-description { max-width: 17rem; }
+  .landing-layer { gap: 0.85rem; }
+  .brand-stage::before { display: none; }
+  .chromatic-title { font-size: 2.85rem; }
+  .mode-title { margin-top: 0.7rem; }
+  .landing-console { padding: 0.55rem; }
+  .tutorial-rules { max-height: 20vh; }
+  .prompt-zone { padding-top: 0.65rem; padding-bottom: 0.65rem; }
+  .prompt-card h1, .feedback-panel h1 { font-size: 1.18rem; }
+  .feedback-quip { line-height: 1.35; }
+  .dive-form { grid-template-columns: minmax(0, 1fr) 45px 45px; }
+  .dive-form input { font-size: 0.69rem; }
+  .dive-submit, .dive-pass { font-size: 0.52rem; }
+}
+
+@media (max-height: 680px) and (max-width: 700px) {
+  .game-layer { min-height: 540px; }
+  .game-hud { padding-top: max(3rem, env(safe-area-inset-top) + 2.7rem); }
+  .prompt-zone { padding-top: 0.55rem; padding-bottom: 0.55rem; }
+  .prompt-card, .feedback-panel { padding: 0.75rem; }
+  .rarity-hint, .prompt-category { margin-top: 0.5rem; }
+}

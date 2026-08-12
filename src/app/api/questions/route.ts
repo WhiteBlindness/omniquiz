@@ -15,8 +15,11 @@ type ApiEnvelope<T> = Readonly<{
   error: string | null;
 }>;
 
-const response = <T>(body: ApiEnvelope<T>, status: number) =>
-  Response.json(body, { status });
+const response = <T>(
+  body: ApiEnvelope<T>,
+  status: number,
+  headers?: HeadersInit,
+) => Response.json(body, { status, headers });
 
 const failure = (message: string, status = 400) =>
   response({ success: false, data: null, error: message }, status);
@@ -78,12 +81,20 @@ export async function GET(request: Request) {
   const today = new Date().toISOString().slice(0, 10);
   const date = mode === "unlimited" ? offsetIsoDate(today, run - 1) : today;
   const questions = selectDailyQuestions(candidates, date, limit);
+  const dayLabel = String(getUtcDayOfYear(date)).padStart(3, "0");
 
   return response(
     { success: true, data: toPublicQuestions(questions), error: null },
     200,
+    { "X-Omniquiz-Day": dayLabel },
   );
 }
+
+export const getUtcDayOfYear = (isoDate: string): number => {
+  const date = new Date(`${isoDate}T00:00:00.000Z`);
+  const yearStart = Date.UTC(date.getUTCFullYear(), 0, 0);
+  return Math.floor((date.getTime() - yearStart) / 86_400_000);
+};
 
 const offsetIsoDate = (date: string, offsetDays: number): string => {
   const parsed = new Date(`${date}T00:00:00.000Z`);

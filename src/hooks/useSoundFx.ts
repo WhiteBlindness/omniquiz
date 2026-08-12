@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { readMutePreference, writeMutePreference } from "../components/game/storage";
 
@@ -20,7 +20,18 @@ type AudioWindow = Window &
   };
 
 export const useSoundFx = () => {
-  const [muted, setMuted] = useState(() => readMutePreference());
+  const [muted, setMuted] = useState(false);
+
+  useEffect(() => {
+    let hydrationCancelled = false;
+    queueMicrotask(() => {
+      if (!hydrationCancelled) setMuted(readMutePreference());
+    });
+
+    return () => {
+      hydrationCancelled = true;
+    };
+  }, []);
 
   const toggleMute = useCallback(() => {
     setMuted((current) => {
