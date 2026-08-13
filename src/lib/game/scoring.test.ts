@@ -1,61 +1,76 @@
 import { describe, expect, it } from "vitest";
 
-import { evaluateSubmission, RARITY_RULES } from "./scoring";
+import {
+  evaluateSubmission,
+  rarityForCrowdShare,
+} from "./scoring";
+import type { Question } from "../questions/types";
 
-const question = (tier: keyof typeof RARITY_RULES) => ({
-  id: `test-${tier}`,
-  category: "General" as const,
-  prompt: "What is the canonical answer?",
-  canonicalAnswer: "São Paulo",
-  acceptedAliases: ["sao-paulo", "Sao Paulo city"],
-  difficulty: "medium" as const,
-  rarity: RARITY_RULES[tier],
+const question: Question = Object.freeze({
+  id: "general-001",
+  category: "General",
+  prompt: "Name something people do when they cannot sleep.",
+  answers: Object.freeze([
+    Object.freeze({ label: "Check their phone", aliases: Object.freeze(["scroll"]), share: 34, insight: "The glowing rectangle wins the midnight vote." }),
+    Object.freeze({ label: "Read", aliases: Object.freeze(["read a book"]), share: 19, insight: "A familiar route back toward sleep." }),
+    Object.freeze({ label: "Count backwards", aliases: Object.freeze(["count sheep"]), share: 14, insight: "The classic answer still travels in a school." }),
+    Object.freeze({ label: "Make tea", aliases: Object.freeze(["tea"]), share: 10, insight: "A warm cup joins the night shift." }),
+    Object.freeze({ label: "Walk around", aliases: Object.freeze(["walk"]), share: 8, insight: "Some sleepers reset by moving." }),
+    Object.freeze({ label: "Rearrange the room", aliases: Object.freeze(["move furniture"]), share: 6, insight: "Restlessness becomes interior design." }),
+    Object.freeze({ label: "Listen to train sounds", aliases: Object.freeze(["train noises"]), share: 7.5, insight: "A side channel of the night shift." }),
+    Object.freeze({ label: "Watch the ceiling", aliases: Object.freeze(["stare at the ceiling"]), share: 1.5, insight: "A tiny crowd studies the dark." }),
+  ]),
 });
 
-describe("evaluateSubmission", () => {
-  it("accepts normalized canonical answers and awards the tier score", () => {
-    const result = evaluateSubmission(question("deepcut"), "  SÃO-PAULO! ");
-
-    expect(result).toMatchObject({
-      accepted: true,
-      normalizedAnswer: "saopaulo",
-      tier: "deepcut",
-      score: 85,
-      depth: 0.82,
+describe("crowd-rarity scoring", () => {
+  it.each([
+    [30, "plankton", 10],
+    [18, "tooclever", 15],
+    [10, "schooler", 30],
+    [5, "rare", 60],
+    [2, "deepcut", 85],
+    [1.99, "krillion", 100],
+  ] as const)("derives %s%% share as %s", (share, tier, score) => {
+    expect(rarityForCrowdShare(share)).toEqual({
+      tier,
+      score,
+      depthMetres: score * 10,
     });
-    expect(result.quip.length).toBeGreaterThan(0);
   });
 
-  it("accepts aliases without mutating the question", () => {
-    const source = question("plankton");
-    const aliasesBefore = [...source.acceptedAliases];
-
-    const result = evaluateSubmission(source, "Sao Paulo city");
-
-    expect(result.accepted).toBe(true);
-    expect(source.acceptedAliases).toEqual(aliasesBefore);
-  });
-
-  it("returns zero score for an incorrect answer while preserving rarity context", () => {
-    const result = evaluateSubmission(question("krillion"), "Mars");
+  it("scores an alias from its share and returns common comparisons", () => {
+    const result = evaluateSubmission(question, "  TRAIN noises! ");
 
     expect(result).toMatchObject({
-      accepted: false,
-      normalizedAnswer: "mars",
-      tier: "krillion",
+      recognized: true,
+      normalizedAnswer: "trainnoises",
+      answerLabel: "Listen to train sounds",
+      crowdShare: 7.5,
+      tier: "rare",
+      score: 60,
+      depthMetres: 600,
+      quip: "A side channel of the night shift.",
+    });
+    expect(result.commonAnswers.slice(0, 2)).toEqual([
+      { label: "Check their phone", share: 34 },
+      { label: "Read", share: 19 },
+    ]);
+  });
+
+  it("treats unlisted text as uncharted instead of rewarding nonsense", () => {
+    expect(evaluateSubmission(question, "purple quantum walrus")).toMatchObject({
+      recognized: false,
+      answerLabel: "purple quantum walrus",
+      crowdShare: null,
+      tier: "uncharted",
       score: 0,
-      depth: 0.97,
+      depthMetres: 0,
     });
   });
 
-  it("keeps every tier mapped to the required score and depth", () => {
-    expect(RARITY_RULES).toEqual({
-      plankton: { tier: "plankton", score: 10, depth: 0.08 },
-      tooclever: { tier: "tooclever", score: 15, depth: 0.18 },
-      schooler: { tier: "schooler", score: 30, depth: 0.36 },
-      rare: { tier: "rare", score: 60, depth: 0.6 },
-      deepcut: { tier: "deepcut", score: 85, depth: 0.82 },
-      krillion: { tier: "krillion", score: 100, depth: 0.97 },
-    });
+  it("does not mutate the prompt atlas", () => {
+    const before = JSON.stringify(question);
+    evaluateSubmission(question, "phone");
+    expect(JSON.stringify(question)).toBe(before);
   });
 });

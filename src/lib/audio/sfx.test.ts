@@ -3,20 +3,18 @@ import { describe, expect, it, vi } from "vitest";
 import { createSfx } from "./sfx";
 
 describe("createSfx", () => {
-  it("exposes named 8-bit effects through the shared player", () => {
+  it("exposes rarity-play cues through the shared player", () => {
     const play = vi.fn();
     const sfx = createSfx(play);
 
-    sfx.correct();
-    sfx.wrong();
-    sfx.gameOver();
+    sfx.reveal();
+    sfx.uncharted();
 
-    expect(play).toHaveBeenNthCalledWith(1, "correct");
-    expect(play).toHaveBeenNthCalledWith(2, "wrong");
-    expect(play).toHaveBeenNthCalledWith(3, "gameOver");
+    expect(play).toHaveBeenNthCalledWith(1, "reveal");
+    expect(play).toHaveBeenNthCalledWith(2, "uncharted");
   });
 
-  it("keeps button and mission-start cues available", () => {
+  it("keeps button, mission-start, and submit cues available", () => {
     const play = vi.fn();
     const sfx = createSfx(play);
 

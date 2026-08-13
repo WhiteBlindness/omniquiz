@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "OMNIQUIZ — Dive Control",
-  description: "Choose a daily expedition or a 15-round sudden-death arcade dive.",
+  description: "Explore broad prompts, crowd rarity, and a pixel-ocean descent.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

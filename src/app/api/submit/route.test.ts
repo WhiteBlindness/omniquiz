@@ -3,62 +3,53 @@ import { describe, expect, it } from "vitest";
 import { POST } from "./route";
 
 describe("POST /api/submit", () => {
-  it("accepts a canonical answer with normalization and scoring metadata", async () => {
+  it("reveals canonical label, crowd share, tier, points, depth, quip, and comparisons", async () => {
     const response = await POST(
       new Request("http://localhost/api/submit", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ questionId: "general-001", answer: "  SÃO-PAULO! " }),
+        body: JSON.stringify({ questionId: "general-001", answer: "shower" }),
       }),
     );
     const body = await response.json();
 
     expect(response.status).toBe(200);
-    expect(body).toMatchObject({
-      success: true,
-      error: null,
-      data: {
-        accepted: true,
-        normalizedAnswer: "saopaulo",
-        tier: expect.any(String),
-        score: expect.any(Number),
-        quip: expect.any(String),
-        depth: expect.any(Number),
-      },
+    expect(body.data).toMatchObject({
+      recognized: true,
+      answerLabel: "A shower",
+      crowdShare: 19,
+      tier: "tooclever",
+      score: 15,
+      depthMetres: 150,
+      quip: expect.any(String),
+      commonAnswers: expect.arrayContaining([expect.objectContaining({ label: "Coffee", share: 34 })]),
     });
-  });
-
-  it("accepts a stored alias without leaking the answer", async () => {
-    const response = await POST(
-      new Request("http://localhost/api/submit", {
-        method: "POST",
-        body: JSON.stringify({ questionId: "general-001", answer: "Sao Paulo city" }),
-      }),
-    );
-    const body = await response.json();
-
-    expect(response.status).toBe(200);
-    expect(body.data.accepted).toBe(true);
-    expect(body.data).not.toHaveProperty("canonicalAnswer");
+    expect(body.data).not.toHaveProperty("answers");
     expect(body.data).not.toHaveProperty("acceptedAliases");
   });
 
-  it("returns 400 for malformed JSON and invalid fields", async () => {
-    const malformed = await POST(
+  it("returns an uncharted zero-score result for unlisted text", async () => {
+    const response = await POST(
       new Request("http://localhost/api/submit", {
         method: "POST",
-        body: "not-json",
+        body: JSON.stringify({ questionId: "general-001", answer: "purple quantum walrus" }),
       }),
     );
-    const malformedBody = await malformed.json();
+    const body = await response.json();
 
-    expect(malformed.status).toBe(400);
-    expect(malformedBody).toEqual({
-      success: false,
-      data: null,
-      error: expect.any(String),
+    expect(response.status).toBe(200);
+    expect(body.data).toMatchObject({
+      recognized: false,
+      answerLabel: "purple quantum walrus",
+      crowdShare: null,
+      tier: "uncharted",
+      score: 0,
+      depthMetres: 0,
     });
+  });
 
+  it("returns 400 for malformed JSON and invalid fields", async () => {
+    const malformed = await POST(new Request("http://localhost/api/submit", { method: "POST", body: "not-json" }));
     const invalid = await POST(
       new Request("http://localhost/api/submit", {
         method: "POST",
@@ -66,6 +57,7 @@ describe("POST /api/submit", () => {
       }),
     );
 
+    expect(malformed.status).toBe(400);
     expect(invalid.status).toBe(400);
   });
 
@@ -76,7 +68,6 @@ describe("POST /api/submit", () => {
         body: JSON.stringify({ questionId: "general-999", answer: "anything" }),
       }),
     );
-
     expect(response.status).toBe(404);
   });
 });

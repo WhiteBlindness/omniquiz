@@ -203,7 +203,7 @@ Dark is the default broadcast field. The light theme is a deliberate surface inv
 
 ## Layout
 
-The launch viewport is an asymmetric two-column broadcast: a launch-control panel capped at 420px occupies the left track and the brand stage capped at 760px occupies the larger right track. The console begins with a two-option mode selector—Daily (7 prompts / 1 run) and Arcade (15 rounds / sudden death)—then exposes the mode-specific briefing and launch action. The selected option uses the live cyan hull line and a small coral status lamp. At 900px the columns tighten; at 700px and below the composition becomes a bottom-weighted vertical launch sequence with full-width console controls and safe-area padding.
+The launch viewport is an asymmetric two-column broadcast: a launch-control panel capped at 420px occupies the left track and the brand stage capped at 760px occupies the larger right track. The console begins with a two-option mode selector—Daily (7 prompts / 1 run) and Unlimited (15 prompts / full run)—then exposes the mode-specific briefing and launch action. The selected option uses the live cyan hull line and a small coral status lamp. At 900px the columns tighten; at 700px and below the composition becomes a bottom-weighted vertical launch sequence with full-width console controls and safe-area padding.
 
 Active play uses a desktop vertical telemetry spine sized with `clamp(14.5rem, 20vw, 18.5rem)` beside a dominant live stage. The prompt or feedback hull caps at 620px; the bottom answer hull caps at 690px. Feed and timecode plates float over the stage without joining the reading order. The state sequence is launch control → live prompt feed → score/depth feedback → dive log.
 
@@ -257,8 +257,8 @@ The control language is square and engineered: buttons, inputs, route cards, lin
 - **Prompt / Feedback:** A 620px-max blackwater panel is wrapped by the sliced `public/ui/prompt-hull.webp` raster; feedback inherits the same hull and swaps to the score-slam entrance.
 - **Answer Hull:** The 690px-max form uses `public/ui/answer-hull.webp` around a flexible answer field plus DIVE and PASS controls.
 - **Launch / Dive Log:** Dense Broadcast Panel surfaces use a three-pixel cyan top rail, quiet side borders, and Panel Lift.
-- **Daily Dive Log:** After seven prompts, retain final score and depth, then add `EST. SCORE PERCENTILE` against the 700-point daily ceiling. Wrong answers, passes, and timeouts apply the 50-point daily penalty before the percentile is estimated.
-- **Arcade Game Over:** A wrong answer, pass, or timeout ends the 15-round run immediately. The summary switches to a coral top rail and `GAME OVER`, reports final score/depth, and offers `PLAY AGAIN` plus `TODAY'S DIVE`; it does not show a Daily percentile.
+- **Daily Dive Log:** After seven prompts, retain final score and depth, add `EST. SCORE PERCENTILE` against the 700-point daily ceiling, and show the immutable per-round rarity log.
+- **Unlimited Dive Log:** Fifteen prompts always resolve to a full log; zero-score pass, timeout, and uncharted rounds never terminate the run.
 
 ### Inputs / Fields
 
@@ -272,7 +272,7 @@ Launch navigation is a two-column rail of 44px-minimum square links with quiet h
 
 ### Telemetry Spine and Dock
 
-The desktop spine stacks brand, mode, depth, circular timer, score, and a seven-step progress window with current question metadata. Daily's seven steps represent the full run; Arcade keeps 15 rounds explicit with `ROUND n / 15` while the seven-step window slides around the current round. On mobile, the same information is recomposed into the top dock; labels and ornamental connector lines disappear before any core value does.
+The desktop spine stacks brand, mode, depth, circular timer, score, and a seven-step progress window with current question metadata. Daily's seven steps represent the full run; Unlimited keeps 15 prompts explicit with `ROUND n / 15` while the seven-step window slides around the current round. On mobile, the same information is recomposed into the top dock; labels and ornamental connector lines disappear before any core value does.
 
 ### Mission Backdrop
 

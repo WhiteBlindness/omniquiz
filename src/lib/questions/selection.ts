@@ -1,4 +1,4 @@
-import type { Difficulty, Question } from "./types";
+import type { Question } from "./types";
 
 export const DAILY_QUESTION_COUNT = 7;
 export const ARCADE_QUESTION_COUNT = 15;
@@ -8,8 +8,7 @@ const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const isDateKey = (date: string): boolean => {
   if (!DATE_PATTERN.test(date)) return false;
   const parsed = new Date(`${date}T00:00:00.000Z`);
-  return !Number.isNaN(parsed.valueOf()) &&
-    parsed.toISOString().slice(0, 10) === date;
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === date;
 };
 
 const hash = (value: string): number => {
@@ -19,15 +18,6 @@ const hash = (value: string): number => {
     result = Math.imul(result, 16777619);
   }
   return result >>> 0;
-};
-
-export const getDifficultyForRound = (round: number): Difficulty => {
-  if (!Number.isInteger(round) || round < 1) {
-    throw new RangeError("round must be a positive integer");
-  }
-  if (round <= 3) return "easy";
-  if (round <= 7) return "medium";
-  return "hard";
 };
 
 export const selectDailyQuestions = (
@@ -54,25 +44,5 @@ export const selectDailyQuestions = (
     return leftHash - rightHash || left.id.localeCompare(right.id);
   });
 
-  const selected: Question[] = [];
-  const selectedIds = new Set<string>();
-
-  for (let index = 0; index < limit; index += 1) {
-    const difficulty = getDifficultyForRound(index + 1);
-    const question = ordered.find(
-      (candidate) =>
-        candidate.difficulty === difficulty && !selectedIds.has(candidate.id),
-    );
-
-    if (!question) {
-      throw new RangeError(
-        `not enough unique ${difficulty} questions for the requested progression`,
-      );
-    }
-
-    selected.push(question);
-    selectedIds.add(question.id);
-  }
-
-  return Object.freeze(selected);
+  return Object.freeze(ordered.slice(0, limit));
 };

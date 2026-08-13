@@ -3,7 +3,7 @@ import Link from "next/link";
 const PACKS = [
   {
     title: "AT THE MOVIES",
-    detail: "30 pictures · a night drive down the boulevard",
+    detail: "15 broad prompts · a night drive down the boulevard",
     action: "TAKE THE DRIVE",
     categoryLabel: "PLAYABLE AS HISTORY",
     href: "/unlimited/classic?category=History",
@@ -12,7 +12,7 @@ const PACKS = [
   },
   {
     title: "SPORTS",
-    detail: "30 games · run the gauntlet, court to podium",
+    detail: "15 broad prompts · run the gauntlet, court to podium",
     action: "TAKE THE TUNNEL",
     categoryLabel: "PLAYABLE AS GENERAL",
     href: "/unlimited/classic?category=General",

@@ -13,7 +13,6 @@ import { FeedbackPanel } from "./FeedbackPanel";
 import { GameHud } from "./GameHud";
 import { GameSummary } from "./GameSummary";
 import {
-  DAILY_WRONG_ANSWER_PENALTY,
   getCurrentQuestion,
   type GameMode,
 } from "./gameReducer";
@@ -33,20 +32,20 @@ type GameSessionProps = GameExperienceProps & Readonly<{
 
 const DAILY_RULES = [
   "Seven prompts a day. Same for everyone.",
-  "15 seconds to name one thing.",
-  "Rare answers score big. Obvious ones float.",
-  "A miss costs 50 points — wrong answer, pass, or timeout.",
-  "Every point sinks you 10 metres. 700 is the trench.",
-  "One dive per day. No second chances.",
+  "15 seconds to name one honest thing.",
+  "The atlas recognizes answer families, not one fixed fact.",
+  "Crowd share maps to rarity, points, and depth.",
+  "Pass, timeout, or an uncharted answer scores zero and keeps the dive moving.",
+  "Every point sinks you 10 metres. Surface with a full dive log.",
 ] as const;
 
 const ARCADE_RULES = [
-  "Fifteen rounds. One miss, pass, or timeout ends the run.",
-  "15 seconds to name one thing.",
-  "Rounds 1–3 are Easy — find your footing.",
-  "Rounds 4–7 are Medium — pressure rising.",
-  "Round 8 onward is Hard — keep the signal alive.",
-  "Rare answers score big. Obvious ones float.",
+  "Fifteen prompts. Every run reaches the surface.",
+  "15 seconds to name one honest thing.",
+  "The atlas recognizes many reasonable answer families.",
+  "Crowd share maps to rarity, points, and depth.",
+  "Pass, timeout, or an uncharted answer scores zero and keeps the dive moving.",
+  "Replay to chart a different route through the crowd.",
 ] as const;
 
 const MODE_OPTIONS: readonly Readonly<{
@@ -55,7 +54,7 @@ const MODE_OPTIONS: readonly Readonly<{
   detail: string;
 }>[] = [
   { mode: "daily", label: "DAILY", detail: "7 PROMPTS / 1 RUN" },
-  { mode: "unlimited", label: "ARCADE", detail: "15 ROUNDS / SUDDEN DEATH" },
+  { mode: "unlimited", label: "UNLIMITED", detail: "15 PROMPTS / FULL RUN" },
 ];
 
 export function GameExperience(props: GameExperienceProps) {
@@ -104,11 +103,10 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
   const question = getCurrentQuestion(state);
   const title = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
   const description = mode === "unlimited"
-    ? "dive after dive · keep the signal live"
-    : "7 prompts · 15 seconds each · rarer answers sink deeper";
+    ? "15 prompts · repeatable crowd-rarity expeditions"
+    : "7 prompts · 15 seconds each · rarer recognizable answers sink deeper";
   const isLastRound = state.questionIndex + 1 >= state.questions.length;
   const feedbackResult = state.phase === "feedback" ? state.lastResult : null;
-  const isGameOver = state.phase === "game-over";
   const rules = mode === "unlimited" ? ARCADE_RULES : DAILY_RULES;
   const diveLabel = mode === "unlimited"
     ? dayLabel ? `ARCADE / UTC DAY ${dayLabel}` : "ARCADE RUN #1"
@@ -244,14 +242,14 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             </div>
           </div>
         </main>
-      ) : state.phase === "summary" || isGameOver ? (
+      ) : state.phase === "summary" ? (
         <main className="summary-layer" aria-live="polite">
           <GameSummary
             score={state.score}
             depthMetres={state.depthMetres}
             mode={mode}
             stats={stats}
-            gameOver={isGameOver}
+            roundLog={state.roundLog}
             onReplay={() => {
               sfx.click();
               void startDive();
@@ -282,14 +280,10 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             {feedbackResult ? (
               <FeedbackPanel
                 result={feedbackResult}
+                submittedAnswer={state.answer}
                 score={state.score}
                 depthMetres={state.depthMetres}
                 isLastRound={isLastRound}
-                penaltyPoints={
-                  mode === "daily" && !feedbackResult.accepted
-                    ? DAILY_WRONG_ANSWER_PENALTY
-                    : 0
-                }
                 outcome={state.lastOutcome ?? "answer"}
                 onContinue={() => {
                   sfx.click();

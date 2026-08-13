@@ -1,33 +1,34 @@
-import type { DiveStats } from "./storage";
 import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
+import type { RoundLog } from "./gameReducer";
+import type { DiveStats } from "./storage";
 
 type GameSummaryProps = Readonly<{
   score: number;
   depthMetres: number;
   mode: "daily" | "unlimited";
   stats: DiveStats;
-  gameOver: boolean;
+  roundLog: readonly RoundLog[];
   onReplay: () => void;
 }>;
 
-export function GameSummary({ score, depthMetres, mode, stats, gameOver, onReplay }: GameSummaryProps) {
+export function GameSummary({
+  score,
+  depthMetres,
+  mode,
+  stats,
+  roundLog,
+  onReplay,
+}: GameSummaryProps) {
   const estimatedPercentile = getEstimatedDailyPercentile(score);
 
   return (
-    <section
-      className={`summary-panel ${gameOver ? "game-over-panel" : ""}`}
-      aria-labelledby="summary-title"
-    >
-      <p className="sr-only">
-        {gameOver ? "Game over after a missed prompt." : "Dive logged after the final prompt"}
-      </p>
-      <h1 id="summary-title">
-        {gameOver ? "GAME OVER" : mode === "unlimited" ? "ARCADE RUN COMPLETE" : "DIVE COMPLETE"}
-      </h1>
+    <section className="summary-panel" aria-labelledby="summary-title">
+      <p className="sr-only">Dive logged after the final prompt</p>
+      <h1 id="summary-title">{mode === "unlimited" ? "UNLIMITED DIVE COMPLETE" : "DIVE COMPLETE"}</h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>
         <strong>{score}</strong>
-        <small>points below the surface</small>
+        <small>points earned from recognizable rarity</small>
       </div>
       <div className="summary-depth">
         <span>YOU REACHED</span>
@@ -40,13 +41,29 @@ export function GameSummary({ score, depthMetres, mode, stats, gameOver, onRepla
           <small>against the 700-point daily ceiling</small>
         </div>
       ) : null}
-      <p className="summary-stats">BEST LOG {stats.bestScore} · RUNS {stats.runs}</p>
+      <p className="summary-stats">
+        BEST LOG {stats.bestScore} · RUNS {stats.runs} · RECOGNIZED {stats.recognized}
+      </p>
+      <div className="summary-log" aria-label="Dive log">
+        <div className="summary-log-heading"><span>DIVE LOG</span><small>{roundLog.length} ROUNDS</small></div>
+        {roundLog.map((entry, index) => (
+          <div className="summary-log-entry" key={`${entry.questionId}-${index}`}>
+            <span className="summary-log-round">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <strong>{entry.answerLabel}</strong>
+              <small>
+                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
+              </small>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className="summary-actions">
         <button className="continue-button" type="button" onClick={onReplay}>
-          {gameOver ? "PLAY AGAIN" : "DIVE AGAIN"}
+          DIVE AGAIN
         </button>
         <a className="secondary-link" href={mode === "unlimited" ? "/" : "/unlimited/classic"}>
-          {mode === "unlimited" ? "TODAY'S DIVE" : "TRY ARCADE MODE"}
+          {mode === "unlimited" ? "TODAY'S DIVE" : "TRY UNLIMITED MODE"}
         </a>
       </div>
     </section>

@@ -1,23 +1,17 @@
 import type { PublicQuestion } from "../../lib/questions/types";
-import {
-  CATEGORIES,
-  DIFFICULTIES,
-  RARITY_TIERS,
-} from "../../lib/questions/types";
+import { CATEGORIES, RARITY_TIERS } from "../../lib/questions/types";
 import type { SubmissionResult } from "../../lib/game/scoring";
-import type { GameMode, GameOutcome, GamePhase, GameState } from "./gameReducer";
+import type { GameMode, GameOutcome, GamePhase, GameState, RoundLog } from "./gameReducer";
 
-export const PROGRESS_STORAGE_KEY = "omniquiz-progress-v1";
+export const PROGRESS_STORAGE_KEY = "omniquiz-progress-v2";
 export const PREFERENCES_STORAGE_KEY = "omniquiz-preferences-v1";
 export const THEME_STORAGE_KEY = "omniquiz-theme-v1";
-export const STATS_STORAGE_KEY = "omniquiz-stats-v1";
-
-export type ThemePreference = "dark" | "light";
+export const STATS_STORAGE_KEY = "omniquiz-stats-v2";
 
 type PersistedPhase = Exclude<GamePhase, "loading" | "error">;
 
 export type PersistedProgress = Readonly<{
-  version: 1;
+  version: 2;
   mode: GameMode;
   phase: PersistedPhase;
   questions?: readonly PublicQuestion[];
@@ -29,21 +23,22 @@ export type PersistedProgress = Readonly<{
   previewSeconds: number;
   lastResult: SubmissionResult | null;
   lastOutcome?: GameOutcome | null;
+  roundLog: readonly RoundLog[];
   savedAt: number;
 }>;
 
 export type DiveStats = Readonly<{
   runs: number;
-  answers: number;
-  correct: number;
+  rounds: number;
+  recognized: number;
   bestScore: number;
   lastScore: number;
 }>;
 
 export const DEFAULT_STATS: DiveStats = Object.freeze({
   runs: 0,
-  answers: 0,
-  correct: 0,
+  rounds: 0,
+  recognized: 0,
   bestScore: 0,
   lastScore: 0,
 });
@@ -60,7 +55,6 @@ const isPhase = (value: unknown): value is PersistedPhase =>
   value === "answering" ||
   value === "submitting" ||
   value === "feedback" ||
-  value === "game-over" ||
   value === "summary";
 
 const isOutcome = (value: unknown): value is GameOutcome =>
@@ -77,32 +71,58 @@ const isPublicQuestion = (value: unknown): value is PublicQuestion =>
   value.prompt.length > 0 &&
   typeof value.category === "string" &&
   (CATEGORIES as readonly string[]).includes(value.category) &&
-  typeof value.difficulty === "string" &&
-  (DIFFICULTIES as readonly string[]).includes(value.difficulty) &&
-  isRecord(value.rarity) &&
-  typeof value.rarity.tier === "string" &&
-  (RARITY_TIERS as readonly string[]).includes(value.rarity.tier) &&
-  isNumber(value.rarity.score) &&
-  isNumber(value.rarity.depth);
+  Object.keys(value).sort().join(",") === "category,id,prompt";
 
-const freezePublicQuestion = (question: PublicQuestion): PublicQuestion =>
-  Object.freeze({ ...question, rarity: Object.freeze({ ...question.rarity }) });
+const isCommonAnswer = (value: unknown): value is SubmissionResult["commonAnswers"][number] =>
+  isRecord(value) && typeof value.label === "string" && isNumber(value.share);
 
 export const isSubmissionResult = (value: unknown): value is SubmissionResult =>
   isRecord(value) &&
-  typeof value.accepted === "boolean" &&
+  typeof value.recognized === "boolean" &&
   typeof value.normalizedAnswer === "string" &&
+  typeof value.answerLabel === "string" &&
+  (value.crowdShare === null || isNumber(value.crowdShare)) &&
   typeof value.tier === "string" &&
   (RARITY_TIERS as readonly string[]).includes(value.tier) &&
   isNumber(value.score) &&
-  isNumber(value.depth) &&
-  typeof value.quip === "string";
+  isNumber(value.depthMetres) &&
+  typeof value.quip === "string" &&
+  Array.isArray(value.commonAnswers) &&
+  value.commonAnswers.every(isCommonAnswer);
 
 const freezeSubmissionResult = (result: SubmissionResult): SubmissionResult =>
-  Object.freeze({ ...result });
+  Object.freeze({
+    ...result,
+    commonAnswers: Object.freeze(
+      result.commonAnswers.map((answer) => Object.freeze({ ...answer })),
+    ),
+  });
+
+const isRoundLog = (value: unknown): value is RoundLog =>
+  isRecord(value) &&
+  typeof value.questionId === "string" &&
+  typeof value.prompt === "string" &&
+  isOutcome(value.outcome) &&
+  typeof value.submittedAnswer === "string" &&
+  typeof value.answerLabel === "string" &&
+  (value.crowdShare === null || isNumber(value.crowdShare)) &&
+  typeof value.tier === "string" &&
+  (RARITY_TIERS as readonly string[]).includes(value.tier) &&
+  isNumber(value.score) &&
+  isNumber(value.depthMetres) &&
+  Array.isArray(value.commonAnswers) &&
+  value.commonAnswers.every(isCommonAnswer);
+
+const freezeRoundLog = (entry: RoundLog): RoundLog =>
+  Object.freeze({
+    ...entry,
+    commonAnswers: Object.freeze(
+      entry.commonAnswers.map((answer) => Object.freeze({ ...answer })),
+    ),
+  });
 
 const parseProgress = (value: unknown): PersistedProgress | null => {
-  if (!isRecord(value) || value.version !== 1 || !isMode(value.mode)) return null;
+  if (!isRecord(value) || value.version !== 2 || !isMode(value.mode)) return null;
   if (!isPhase(value.phase)) return null;
   if (
     !isNumber(value.questionIndex) ||
@@ -111,36 +131,34 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
     typeof value.answer !== "string" ||
     !isNumber(value.remainingSeconds) ||
     !isNumber(value.previewSeconds) ||
-    !isNumber(value.savedAt)
+    !isNumber(value.savedAt) ||
+    !Array.isArray(value.roundLog) ||
+    !value.roundLog.every(isRoundLog)
   ) {
     return null;
   }
 
   let lastResult: SubmissionResult | null = null;
-  if ("lastResult" in value && value.lastResult !== null && value.lastResult !== undefined) {
+  if (value.lastResult !== null && value.lastResult !== undefined) {
     if (!isSubmissionResult(value.lastResult)) return null;
     lastResult = freezeSubmissionResult(value.lastResult);
   }
-  if ((value.phase === "feedback" || value.phase === "game-over") && !lastResult) {
-    return null;
-  }
+  if (value.phase === "feedback" && !lastResult) return null;
 
   let questions: readonly PublicQuestion[] | undefined;
-  if ("questions" in value && value.questions !== undefined) {
-    if (!Array.isArray(value.questions) || !value.questions.every(isPublicQuestion)) {
-      return null;
-    }
-    questions = Object.freeze(value.questions.map(freezePublicQuestion));
+  if (value.questions !== undefined) {
+    if (!Array.isArray(value.questions) || !value.questions.every(isPublicQuestion)) return null;
+    questions = Object.freeze(value.questions.map((question) => Object.freeze({ ...question })));
   }
 
   let lastOutcome: GameOutcome | null = null;
-  if ("lastOutcome" in value && value.lastOutcome !== null && value.lastOutcome !== undefined) {
+  if (value.lastOutcome !== null && value.lastOutcome !== undefined) {
     if (!isOutcome(value.lastOutcome)) return null;
     lastOutcome = value.lastOutcome;
   }
 
   return Object.freeze({
-    version: 1,
+    version: 2,
     mode: value.mode,
     phase: value.phase,
     questions,
@@ -151,10 +169,8 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
     remainingSeconds: value.remainingSeconds,
     previewSeconds: value.previewSeconds,
     lastResult,
-    lastOutcome:
-      value.phase === "feedback" || value.phase === "game-over"
-        ? lastOutcome ?? "answer"
-        : null,
+    lastOutcome: value.phase === "feedback" ? lastOutcome ?? "answer" : null,
+    roundLog: Object.freeze(value.roundLog.map(freezeRoundLog)),
     savedAt: value.savedAt,
   });
 };
@@ -164,28 +180,11 @@ export const recoverPersistedProgress = (
   now = Date.now(),
 ): PersistedProgress => {
   const elapsed = Math.max(0, now - progress.savedAt);
-  if (progress.phase === "feedback" && !progress.lastResult) {
-    return Object.freeze({
-      ...progress,
-      phase: "intro",
-      answer: "",
-      remainingSeconds: 0,
-      previewSeconds: 0,
-      lastResult: null,
-      lastOutcome: null,
-      savedAt: now,
-    });
-  }
   if (progress.phase === "submitting") {
     return Object.freeze({ ...progress, phase: "answering", savedAt: now });
   }
   if (progress.phase === "answering" && elapsed >= progress.remainingSeconds * 1_000) {
-    return Object.freeze({
-      ...progress,
-      phase: "answering",
-      remainingSeconds: 1,
-      savedAt: now,
-    });
+    return Object.freeze({ ...progress, remainingSeconds: 1, savedAt: now });
   }
   if (progress.phase === "preview" && elapsed >= progress.previewSeconds * 1_000) {
     return Object.freeze({
@@ -199,25 +198,21 @@ export const recoverPersistedProgress = (
   return Object.freeze({ ...progress, savedAt: now });
 };
 
-export const toPersistedProgress = (
-  state: GameState,
-  now = Date.now(),
-): PersistedProgress =>
+export const toPersistedProgress = (state: GameState, now = Date.now()): PersistedProgress =>
   Object.freeze({
-    version: 1,
+    version: 2,
     mode: state.mode,
     phase: state.phase === "loading" || state.phase === "error" ? "intro" : state.phase,
-    questions: Object.freeze([...state.questions]),
+    questions: Object.freeze(state.questions.map((question) => Object.freeze({ ...question }))),
     questionIndex: state.questionIndex,
     score: state.score,
     depthMetres: state.depthMetres,
     answer: state.answer,
     remainingSeconds: state.remainingSeconds,
     previewSeconds: state.previewSeconds,
-    lastResult: state.lastResult
-      ? freezeSubmissionResult(state.lastResult)
-      : null,
+    lastResult: state.lastResult ? freezeSubmissionResult(state.lastResult) : null,
     lastOutcome: state.lastOutcome,
+    roundLog: Object.freeze(state.roundLog.map(freezeRoundLog)),
     savedAt: now,
   });
 
@@ -235,12 +230,9 @@ export const readProgress = (mode: GameMode): PersistedProgress | null => {
 export const writeProgress = (state: GameState): void => {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(
-      PROGRESS_STORAGE_KEY,
-      JSON.stringify(toPersistedProgress(state)),
-    );
+    window.localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(toPersistedProgress(state)));
   } catch {
-    // Storage is an enhancement; a private browsing quota must not stop a dive.
+    // Local persistence is an enhancement; a private browsing quota must not stop a dive.
   }
 };
 
@@ -260,7 +252,7 @@ export const writeMutePreference = (muted: boolean): void => {
   try {
     window.localStorage.setItem(PREFERENCES_STORAGE_KEY, JSON.stringify({ muted }));
   } catch {
-    // See writeProgress: audio preference is optional state.
+    // Audio preference is optional state.
   }
 };
 
@@ -275,12 +267,14 @@ export const readThemePreference = (): ThemePreference => {
   }
 };
 
+export type ThemePreference = "dark" | "light";
+
 export const writeThemePreference = (theme: ThemePreference): void => {
   if (typeof window === "undefined") return;
   try {
     window.localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(theme));
   } catch {
-    // Theme is an enhancement and should not block a dive.
+    // Theme is optional state.
   }
 };
 
@@ -292,8 +286,8 @@ export const readStats = (): DiveStats => {
     if (!isRecord(parsed)) return DEFAULT_STATS;
     return Object.freeze({
       runs: isNumber(parsed.runs) ? Math.max(0, parsed.runs) : 0,
-      answers: isNumber(parsed.answers) ? Math.max(0, parsed.answers) : 0,
-      correct: isNumber(parsed.correct) ? Math.max(0, parsed.correct) : 0,
+      rounds: isNumber(parsed.rounds) ? Math.max(0, parsed.rounds) : 0,
+      recognized: isNumber(parsed.recognized) ? Math.max(0, parsed.recognized) : 0,
       bestScore: isNumber(parsed.bestScore) ? Math.max(0, parsed.bestScore) : 0,
       lastScore: isNumber(parsed.lastScore) ? Math.max(0, parsed.lastScore) : 0,
     });

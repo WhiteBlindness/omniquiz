@@ -7,7 +7,7 @@ describe("getEstimatedDailyPercentile", () => {
     expect(getEstimatedDailyPercentile(700)).toBe(99);
   });
 
-  it("makes a fifty-point miss penalty materially lower the estimate", () => {
+  it("changes as the earned score changes", () => {
     expect(getEstimatedDailyPercentile(60)).toBeGreaterThan(
       getEstimatedDailyPercentile(10),
     );

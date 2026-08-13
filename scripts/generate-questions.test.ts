@@ -7,8 +7,8 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const generator = fileURLToPath(new URL("./generate-questions.mjs", import.meta.url));
 const output = fileURLToPath(new URL("../src/data/questions.json", import.meta.url));
 
-describe("question generator", () => {
-  it("writes the exact balanced offline catalog deterministically", () => {
+describe("crowd atlas generator", () => {
+  it("writes the deterministic broad-prompt catalog", () => {
     execFileSync(process.execPath, [generator], { cwd: root });
     const first = readFileSync(output, "utf8");
     execFileSync(process.execPath, [generator], { cwd: root });
@@ -16,12 +16,22 @@ describe("question generator", () => {
     const records = JSON.parse(second) as Array<Record<string, unknown>>;
 
     expect(second).toBe(first);
-    expect(records).toHaveLength(300);
-    expect(records.filter((record) => record.category === "General")).toHaveLength(75);
-    expect(records.filter((record) => record.category === "Science")).toHaveLength(75);
-    expect(records.filter((record) => record.category === "Geography")).toHaveLength(75);
-    expect(records.filter((record) => record.category === "History")).toHaveLength(75);
-    expect(new Set(records.map((record) => record.id)).size).toBe(300);
-    expect(new Set(records.map((record) => record.prompt)).size).toBe(300);
+    expect(records.length).toBeGreaterThanOrEqual(30);
+    expect(records.every((record) => Array.isArray(record.answers))).toBe(true);
+    expect(records.every((record) => (record.answers as unknown[]).length >= 8)).toBe(true);
+    expect(new Set(records.map((record) => record.id)).size).toBe(records.length);
+    expect(new Set(records.map((record) => record.prompt)).size).toBe(records.length);
+
+    const morning = records.find((record) => record.id === "general-001") as {
+      answers: Array<{ label: string; aliases: string[] }>;
+    };
+    const shower = morning.answers.find((answer) => answer.label === "A shower");
+    expect(shower?.aliases).toContain("shower");
+
+    const queue = records.find((record) => record.id === "general-005") as {
+      answers: Array<{ label: string; aliases: string[] }>;
+    };
+    const scrolling = queue.answers.find((answer) => answer.label === "Scroll on the phone");
+    expect(scrolling?.aliases).toContain("Scroll phone");
   });
 });

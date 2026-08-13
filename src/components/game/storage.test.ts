@@ -14,16 +14,19 @@ import {
 import { createInitialGameState, gameReducer } from "./gameReducer";
 
 const lastResult: SubmissionResult = Object.freeze({
-  accepted: true,
-  normalizedAnswer: "gulf stream",
+  recognized: true,
+  normalizedAnswer: "gulfstream",
+  answerLabel: "Gulf Stream",
+  crowdShare: 7.5,
   tier: "rare",
   score: 60,
-  depth: 0.6,
-  quip: "A sharp bit of recall.",
+  depthMetres: 600,
+  quip: "A warm current with a quieter route.",
+  commonAnswers: Object.freeze([{ label: "Phone", share: 34 }]),
 });
 
 const baseProgress: PersistedProgress = {
-  version: 1,
+  version: 2,
   mode: "daily",
   phase: "answering",
   questionIndex: 0,
@@ -33,20 +36,19 @@ const baseProgress: PersistedProgress = {
   remainingSeconds: 4,
   previewSeconds: 0,
   lastResult: null,
+  roundLog: [],
   questions: [
     {
       id: "general-001",
       category: "General",
       prompt: "Name a warm current.",
-      difficulty: "easy",
-      rarity: { tier: "rare", score: 60, depth: 0.6 },
     },
   ],
   savedAt: 1_000,
 };
 
-describe("recoverPersistedProgress", () => {
-  it("keeps an expired answer actionable until the reducer creates timeout feedback", () => {
+describe("crowd dive persistence", () => {
+  it("keeps an expired answer actionable until timeout feedback is created", () => {
     const recovered = recoverPersistedProgress(baseProgress, 6_500);
     const restored = gameReducer(createInitialGameState("daily"), {
       type: "RESTORE_PROGRESS",
@@ -54,35 +56,44 @@ describe("recoverPersistedProgress", () => {
     });
     const timedOut = gameReducer(restored, { type: "ANSWER_TICK" });
 
-    expect(recovered).toMatchObject({
-      phase: "answering",
-      remainingSeconds: 1,
-    });
-    expect(timedOut).toMatchObject({
-      phase: "feedback",
-      lastResult: expect.objectContaining({ accepted: false, score: 0 }),
-    });
+    expect(recovered).toMatchObject({ phase: "answering", remainingSeconds: 1 });
+    expect(timedOut).toMatchObject({ phase: "feedback", lastOutcome: "timeout", score: 30 });
   });
 
   it("preserves a live timer and resets unsafe submitting state", () => {
     const submitting = { ...baseProgress, phase: "submitting" as const };
-
     expect(recoverPersistedProgress(submitting, 2_000)).toMatchObject({
       phase: "answering",
       remainingSeconds: 4,
     });
   });
 
-  it("retains a valid feedback result at the storage boundary", () => {
+  it("retains a valid feedback result and immutable round log", () => {
     localStorage.setItem(
       PROGRESS_STORAGE_KEY,
-      JSON.stringify({ ...baseProgress, phase: "feedback", lastResult }),
+      JSON.stringify({
+        ...baseProgress,
+        phase: "feedback",
+        lastResult,
+        roundLog: [{
+          questionId: "general-001",
+          prompt: "Name a warm current.",
+          outcome: "answer",
+          submittedAnswer: "Gulf Stream",
+          answerLabel: "Gulf Stream",
+          crowdShare: 7.5,
+          tier: "rare",
+          score: 60,
+          depthMetres: 600,
+          commonAnswers: [{ label: "Phone", share: 34 }],
+        }],
+      }),
     );
 
-    expect(readProgress("daily")).toMatchObject({
-      phase: "feedback",
-      lastResult,
-    });
+    const progress = readProgress("daily");
+    expect(progress).toMatchObject({ phase: "feedback", lastResult });
+    expect(Object.isFrozen(progress?.roundLog)).toBe(true);
+    expect(Object.isFrozen(progress?.roundLog[0])).toBe(true);
   });
 
   it("rejects malformed feedback instead of restoring a dead-end phase", () => {
@@ -94,23 +105,10 @@ describe("recoverPersistedProgress", () => {
         lastResult: { ...lastResult, tier: "not-a-tier" },
       }),
     );
-
     expect(readProgress("daily")).toBeNull();
   });
 
-  it("rejects malformed persisted questions at the storage boundary", () => {
-    localStorage.setItem(
-      PROGRESS_STORAGE_KEY,
-      JSON.stringify({
-        ...baseProgress,
-        questions: [{ ...baseProgress.questions?.[0], difficulty: "impossible" }],
-      }),
-    );
-
-    expect(readProgress("daily")).toBeNull();
-  });
-
-  it("restores a finished summary with its scored progress", () => {
+  it("restores a finished summary with its scored progress and log", () => {
     localStorage.setItem(
       PROGRESS_STORAGE_KEY,
       JSON.stringify({
@@ -121,43 +119,16 @@ describe("recoverPersistedProgress", () => {
         lastResult: null,
       }),
     );
-
-    expect(readProgress("daily")).toMatchObject({
-      phase: "summary",
-      score: 145,
-      depthMetres: 1_450,
-      lastResult: null,
-    });
-  });
-
-  it("restores an arcade game-over state with its final answer result", () => {
-    localStorage.setItem(
-      PROGRESS_STORAGE_KEY,
-      JSON.stringify({
-        ...baseProgress,
-        mode: "unlimited",
-        phase: "game-over",
-        lastResult: { ...lastResult, accepted: false, score: 0 },
-        lastOutcome: "answer",
-      }),
-    );
-
-    expect(readProgress("unlimited")).toMatchObject({
-      phase: "game-over",
-      lastResult: expect.objectContaining({ accepted: false, score: 0 }),
-      lastOutcome: "answer",
-    });
+    expect(readProgress("daily")).toMatchObject({ phase: "summary", score: 145, depthMetres: 1_450 });
   });
 
   it("reads and writes a valid theme preference", () => {
     writeThemePreference("light");
-
     expect(readThemePreference()).toBe("light");
   });
 
   it("falls back to dark when the theme preference is malformed", () => {
     localStorage.setItem("omniquiz-theme-v1", JSON.stringify("solarized"));
-
     expect(readThemePreference()).toBe("dark");
   });
 });

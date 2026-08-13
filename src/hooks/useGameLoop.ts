@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 
-import type { Category, PublicQuestion } from "../lib/questions/types";
+import { CATEGORIES, type Category, type PublicQuestion } from "../lib/questions/types";
 import {
   ARCADE_QUESTION_COUNT,
   DAILY_QUESTION_COUNT,
@@ -41,13 +41,13 @@ const isPublicQuestion = (value: unknown): value is PublicQuestion => {
   if (!isRecord(value) || typeof value.id !== "string" || typeof value.prompt !== "string") {
     return false;
   }
-  if (typeof value.category !== "string" || typeof value.difficulty !== "string") return false;
-  if (!isRecord(value.rarity)) return false;
-  return (
-    typeof value.rarity.tier === "string" &&
-    typeof value.rarity.score === "number" &&
-    typeof value.rarity.depth === "number"
-  );
+  if (
+    typeof value.category !== "string" ||
+    !(CATEGORIES as readonly string[]).includes(value.category)
+  ) {
+    return false;
+  }
+  return Object.keys(value).sort().join(",") === "category,id,prompt";
 };
 
 const errorMessage = (error: unknown, fallback: string): string =>
@@ -112,7 +112,6 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       state.phase === "preview" ||
       state.phase === "answering" ||
       state.phase === "feedback" ||
-      state.phase === "game-over" ||
       state.phase === "summary";
     if (!hydrated || !persistablePhase) return;
     writeProgress(state);
@@ -122,7 +121,6 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     if (
       state.phase !== "intro" &&
       state.phase !== "summary" &&
-      state.phase !== "game-over" &&
       state.phase !== "error"
     ) {
       return;
@@ -190,16 +188,11 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     dispatch({ type: "TIME_EXPIRED" });
     const nextStats = Object.freeze({
       ...stats,
-      answers: stats.answers + 1,
+      rounds: stats.rounds + 1,
     });
-    if (mode === "unlimited") {
-      sfx.gameOver();
-      finalizeRun(state.score, nextStats);
-    } else {
-      sfx.wrong();
-      setStats(nextStats);
-    }
-  }, [finalizeRun, mode, sfx, state.phase, state.score, stats]);
+    sfx.uncharted();
+    setStats(nextStats);
+  }, [sfx, state.phase, stats]);
 
   useEffect(() => {
     stateRef.current = state;
@@ -243,19 +236,12 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       dispatch({ type: "SUBMIT_RESOLVED", result });
       const nextStats = Object.freeze({
         ...stats,
-        answers: stats.answers + 1,
-        correct: stats.correct + (result.accepted ? 1 : 0),
+        rounds: stats.rounds + 1,
+        recognized: stats.recognized + (result.recognized ? 1 : 0),
       });
-      if (result.accepted) {
-        sfx.correct();
-        setStats(nextStats);
-      } else if (mode === "unlimited") {
-        sfx.gameOver();
-        finalizeRun(state.score, nextStats);
-      } else {
-        sfx.wrong();
-        setStats(nextStats);
-      }
+      if (result.recognized) sfx.reveal();
+      else sfx.uncharted();
+      setStats(nextStats);
     } catch (error) {
       if (!mountedRef.current) return;
       dispatch({
@@ -266,14 +252,11 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       });
     }
   }, [
-    finalizeRun,
-    mode,
     sfx,
     state.answer,
     state.phase,
     state.questionIndex,
     state.questions,
-    state.score,
     stats,
   ]);
 
@@ -283,16 +266,11 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     dispatch({ type: "PASS_QUESTION" });
     const nextStats = Object.freeze({
       ...stats,
-      answers: stats.answers + 1,
+      rounds: stats.rounds + 1,
     });
-    if (mode === "unlimited") {
-      sfx.gameOver();
-      finalizeRun(state.score, nextStats);
-    } else {
-      sfx.wrong();
-      setStats(nextStats);
-    }
-  }, [finalizeRun, mode, sfx, state.phase, state.score, stats]);
+    sfx.uncharted();
+    setStats(nextStats);
+  }, [sfx, state.phase, stats]);
 
   const continueDive = useCallback(() => {
     const isFinalFeedback =

@@ -844,6 +844,34 @@
   color: var(--cyan);
 }
 
+.feedback-answer {
+  display: grid;
+  gap: 0.28rem;
+  margin: 1rem 0 0;
+  padding: 0.7rem;
+  border-left: 3px solid var(--cyan);
+  background: rgba(8, 28, 45, 0.72);
+}
+
+.feedback-answer span,
+.feedback-answer small {
+  color: var(--drift);
+  font-size: 0.53rem;
+  letter-spacing: 0.14em;
+}
+
+.feedback-answer strong {
+  overflow-wrap: anywhere;
+  color: var(--paper);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.feedback-answer small {
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
 .tier-plankton h1,
 .tier-tooclever h1,
 .outcome-pass h1,
@@ -874,6 +902,43 @@
   color: var(--paper);
   font-size: 0.9rem;
   font-weight: 400;
+}
+
+.common-answers {
+  display: grid;
+  gap: 0.42rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: var(--edge);
+}
+
+.common-answers-title {
+  color: var(--gold);
+  font-size: 0.54rem;
+  letter-spacing: 0.15em;
+}
+
+.common-answer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--drift);
+  font-size: 0.62rem;
+}
+
+.common-answer b {
+  color: var(--paper);
+  font-weight: 500;
+}
+
+.common-answer small {
+  color: var(--muted);
+}
+
+.common-answers-empty {
+  margin: 1rem 0 0;
+  color: var(--drift);
+  font-size: 0.61rem;
 }
 
 .continue-button {

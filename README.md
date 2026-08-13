@@ -1,6 +1,6 @@
 # OMNIQUIZ
 
-A cinematic 16-bit ocean trivia game built with Next.js. Choose a seven-question Daily Challenge or a 15-round Arcade dive with sudden death, a strict Easy → Medium → Hard progression, persistent themes, and synthesized 8-bit sound effects.
+A cinematic 16-bit ocean rarity game built with Next.js. Choose a seven-prompt Daily Dive or a 15-prompt Unlimited Dive, then discover how recognizable answers distribute across a curated crowd atlas.
 
 ## Getting started
 
@@ -23,10 +23,11 @@ npm run test:e2e
 
 ## Game rules
 
-- Daily: seven prompts, 15 seconds each, and a 50-point penalty for every wrong answer, pass, or timeout.
-- Arcade: 15 rounds; any wrong answer, pass, or timeout immediately ends the run.
-- Arcade difficulty: rounds 1–3 Easy, 4–7 Medium, and 8–15 Hard.
-- Rarer accepted answers score more points and drive the visible descent.
+- Daily: seven broad prompts, 15 seconds each, from one deterministic UTC set.
+- Unlimited: 15 broad prompts; every run reaches the surface and can be replayed.
+- Recognized answer shares map to Plankton (10), Too Clever (15), Schooler (30), Rare Catch (60), Deep Cut (85), or One in a Krillion (100).
+- Pass, timeout, and unlisted text score zero with no penalty; every point drives the dive 10 metres.
+- The server keeps answer atlases private. The browser receives only prompt metadata, and feedback reveals the matched label, share, insight, and common-answer comparisons.
 
 Progress, statistics, theme, and audio preference are stored locally. The game uses local question and submission API routes; no external gameplay service is required.
 

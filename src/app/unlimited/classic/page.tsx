@@ -3,7 +3,7 @@ import { CATEGORIES, type Category } from "../../../lib/questions/types";
 
 export const metadata = {
   title: "OMNIQUIZ — Arcade Dive",
-  description: "Fifteen rounds. One miss ends the run. Rarer answers sink deeper.",
+  description: "Fifteen prompts. Every run reaches the surface. Rarer answers sink deeper.",
 };
 
 type UnlimitedClassicPageProps = Readonly<{

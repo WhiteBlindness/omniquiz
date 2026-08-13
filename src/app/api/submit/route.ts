@@ -35,6 +35,7 @@ export async function POST(request: Request) {
     typeof questionId !== "string" ||
     !QUESTION_ID_PATTERN.test(questionId) ||
     typeof answer !== "string" ||
+    answer.length > 120 ||
     !normalizeAnswer(answer)
   ) {
     return failure("questionId and a non-empty answer are required");

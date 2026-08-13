@@ -5,8 +5,6 @@ export const toPublicQuestion = (question: Question): PublicQuestion =>
     id: question.id,
     category: question.category,
     prompt: question.prompt,
-    difficulty: question.difficulty,
-    rarity: Object.freeze({ ...question.rarity }),
   });
 
 export const toPublicQuestions = (

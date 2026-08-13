@@ -12,7 +12,6 @@ export function GameHud({ state, mode }: GameHudProps) {
   const completedRounds = Math.min(
     state.questionIndex + (
       state.phase === "feedback" ||
-      state.phase === "game-over" ||
       state.phase === "summary"
         ? 1
         : 0
@@ -78,12 +77,12 @@ export function GameHud({ state, mode }: GameHudProps) {
       <span className="hud-title">{label}</span>
       {currentQuestion ? (
         <span className="hud-question-meta">
-          {currentQuestion.category.toUpperCase()} / {currentQuestion.difficulty.toUpperCase()}
+          {currentQuestion.category.toUpperCase()} / CROWD ATLAS
         </span>
       ) : null}
       <div className="hud-legend" role="group" aria-label="Rarity legend">
         <span><i className="hud-legend-swatch hud-legend-common" aria-hidden="true" />PLANKTON 10</span>
-        <span><i className="hud-legend-swatch hud-legend-rare" aria-hidden="true" />RARE 60</span>
+        <span><i className="hud-legend-swatch hud-legend-rare" aria-hidden="true" />RARE CATCH 60</span>
         <span><i className="hud-legend-swatch hud-legend-krillion" aria-hidden="true" />KRILLION 100</span>
         <span className="sr-only">points; every point descends 10 metres</span>
       </div>

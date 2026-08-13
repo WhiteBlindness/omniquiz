@@ -34,19 +34,14 @@ const CUE_PATTERNS: Readonly<Record<SoundCue, readonly Tone[]>> = {
     { frequency: 392, duration: 0.14, offset: 0.16 },
   ],
   submit: [{ frequency: 246, duration: 0.09 }],
-  correct: [
+  reveal: [
     { frequency: 523, duration: 0.08 },
     { frequency: 659, duration: 0.08, offset: 0.08 },
     { frequency: 784, duration: 0.16, offset: 0.16 },
   ],
-  wrong: [
+  uncharted: [
     { frequency: 220, duration: 0.1 },
     { frequency: 164, duration: 0.18, offset: 0.1 },
-  ],
-  gameOver: [
-    { frequency: 392, duration: 0.1 },
-    { frequency: 330, duration: 0.1, offset: 0.1 },
-    { frequency: 262, duration: 0.22, offset: 0.2 },
   ],
 };
 

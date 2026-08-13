@@ -1,13 +1,15 @@
-import type { SubmissionResult } from "../../lib/game/scoring";
+import {
+  createZeroScoreResult,
+  type SubmissionResult,
+} from "../../lib/game/scoring";
 import type { PublicQuestion } from "../../lib/questions/types";
+
+export { METRES_PER_POINT } from "../../lib/game/scoring";
 
 export const PREVIEW_SECONDS = 3;
 export const ANSWER_SECONDS = 15;
-export const METRES_PER_POINT = 10;
-export const DAILY_WRONG_ANSWER_PENALTY = 50;
 
 export type GameMode = "daily" | "unlimited";
-
 export type GamePhase =
   | "intro"
   | "loading"
@@ -15,11 +17,22 @@ export type GamePhase =
   | "answering"
   | "submitting"
   | "feedback"
-  | "game-over"
   | "summary"
   | "error";
-
 export type GameOutcome = "answer" | "pass" | "timeout";
+
+export type RoundLog = Readonly<{
+  questionId: string;
+  prompt: string;
+  outcome: GameOutcome;
+  submittedAnswer: string;
+  answerLabel: string;
+  crowdShare: number | null;
+  tier: SubmissionResult["tier"];
+  score: number;
+  depthMetres: number;
+  commonAnswers: readonly SubmissionResult["commonAnswers"][number][];
+}>;
 
 export type GameState = Readonly<{
   mode: GameMode;
@@ -33,6 +46,7 @@ export type GameState = Readonly<{
   depthMetres: number;
   lastResult: SubmissionResult | null;
   lastOutcome: GameOutcome | null;
+  roundLog: readonly RoundLog[];
   error: string | null;
 }>;
 
@@ -52,28 +66,59 @@ export type GameAction =
   | { type: "RESTORE_PROGRESS"; progress: Partial<GameState> }
   | { type: "RESET" };
 
-const expiredResult = Object.freeze({
-  accepted: false,
-  normalizedAnswer: "",
-  tier: "plankton" as const,
-  score: 0,
-  depth: 0.08,
-  quip: "The current carried you past this prompt.",
-});
+const freezeResult = (result: SubmissionResult): SubmissionResult =>
+  Object.freeze({
+    ...result,
+    commonAnswers: Object.freeze(
+      result.commonAnswers.map((answer) => Object.freeze({ ...answer })),
+    ),
+  });
 
-const passedResult = Object.freeze({
-  accepted: false,
-  normalizedAnswer: "",
-  tier: "plankton" as const,
-  score: 0,
-  depth: 0,
-  quip: "Pass logged. Mission penalty applied.",
-});
+const appendRoundLog = (
+  state: GameState,
+  result: SubmissionResult,
+  outcome: GameOutcome,
+): readonly RoundLog[] => {
+  const question = state.questions[state.questionIndex];
+  if (!question) return state.roundLog;
+  const entry: RoundLog = Object.freeze({
+    questionId: question.id,
+    prompt: question.prompt,
+    outcome,
+    submittedAnswer: state.answer,
+    answerLabel: result.answerLabel,
+    crowdShare: result.crowdShare,
+    tier: result.tier,
+    score: result.score,
+    depthMetres: result.depthMetres,
+    commonAnswers: Object.freeze(
+      result.commonAnswers.map((answer) => Object.freeze({ ...answer })),
+    ),
+  });
+  return Object.freeze([...state.roundLog, entry]);
+};
 
-const getMissScore = (state: GameState): number =>
-  state.mode === "daily"
-    ? Math.max(0, state.score - DAILY_WRONG_ANSWER_PENALTY)
-    : state.score;
+const completeRound = (
+  state: GameState,
+  result: SubmissionResult,
+  outcome: GameOutcome,
+): GameState => {
+  const safeResult = freezeResult(result);
+  const scoreDelta = Math.max(0, safeResult.score);
+  const depthDelta = Math.max(0, safeResult.depthMetres);
+  return Object.freeze({
+    ...state,
+    phase: "feedback" as const,
+    score: state.score + scoreDelta,
+    depthMetres: state.depthMetres + depthDelta,
+    lastResult: safeResult,
+    lastOutcome: outcome,
+    roundLog: appendRoundLog(state, safeResult, outcome),
+    remainingSeconds: 0,
+    previewSeconds: 0,
+    error: null,
+  });
+};
 
 export const createInitialGameState = (mode: GameMode): GameState =>
   Object.freeze({
@@ -88,13 +133,11 @@ export const createInitialGameState = (mode: GameMode): GameState =>
     depthMetres: 0,
     lastResult: null,
     lastOutcome: null,
+    roundLog: Object.freeze([]),
     error: null,
   });
 
-const prepareNextQuestion = (
-  state: GameState,
-  questionIndex: number,
-): GameState =>
+const prepareNextQuestion = (state: GameState, questionIndex: number): GameState =>
   Object.freeze({
     ...state,
     phase: "preview" as const,
@@ -107,10 +150,7 @@ const prepareNextQuestion = (
     error: null,
   });
 
-export const gameReducer = (
-  state: GameState,
-  action: GameAction,
-): GameState => {
+export const gameReducer = (state: GameState, action: GameAction): GameState => {
   switch (action.type) {
     case "LOAD_START":
       return Object.freeze({
@@ -125,8 +165,8 @@ export const gameReducer = (
       return action.questions.length > 0
         ? Object.freeze({
             ...state,
-            phase: "preview",
-            questions: Object.freeze([...action.questions]),
+            phase: "preview" as const,
+            questions: Object.freeze(action.questions.map((question) => Object.freeze({ ...question }))),
             questionIndex: 0,
             answer: "",
             remainingSeconds: ANSWER_SECONDS,
@@ -135,18 +175,19 @@ export const gameReducer = (
             depthMetres: 0,
             lastResult: null,
             lastOutcome: null,
+            roundLog: Object.freeze([]),
             error: null,
           })
         : Object.freeze({
             ...state,
-            phase: "error",
+            phase: "error" as const,
             error: "No questions are available for this dive.",
           });
 
     case "LOAD_FAILED":
       return Object.freeze({
         ...state,
-        phase: "error",
+        phase: "error" as const,
         lastResult: null,
         lastOutcome: null,
         error: action.error,
@@ -157,24 +198,18 @@ export const gameReducer = (
       return state.previewSeconds <= 1
         ? Object.freeze({
             ...state,
-            phase: "answering",
+            phase: "answering" as const,
             previewSeconds: 0,
             remainingSeconds: ANSWER_SECONDS,
             error: null,
           })
-        : Object.freeze({
-            ...state,
-            previewSeconds: state.previewSeconds - 1,
-          });
+        : Object.freeze({ ...state, previewSeconds: state.previewSeconds - 1 });
 
     case "ANSWER_TICK":
       if (state.phase !== "answering") return state;
       return state.remainingSeconds <= 1
         ? gameReducer(state, { type: "TIME_EXPIRED" })
-        : Object.freeze({
-            ...state,
-            remainingSeconds: state.remainingSeconds - 1,
-          });
+        : Object.freeze({ ...state, remainingSeconds: state.remainingSeconds - 1 });
 
     case "SET_ANSWER":
       if (state.phase !== "answering") return state;
@@ -182,112 +217,66 @@ export const gameReducer = (
 
     case "SUBMIT_START":
       if (state.phase !== "answering" || !state.answer.trim()) return state;
-      return Object.freeze({ ...state, phase: "submitting", error: null });
+      return Object.freeze({ ...state, phase: "submitting" as const, error: null });
 
     case "SUBMIT_RESOLVED":
       if (state.phase !== "submitting") return state;
-      {
-        const isWrongAnswer = !action.result.accepted;
-        const scoreDelta = action.result.accepted
-          ? action.result.score
-          : state.mode === "daily"
-            ? -DAILY_WRONG_ANSWER_PENALTY
-            : 0;
-        const score = Math.max(0, state.score + scoreDelta);
-
-        return Object.freeze({
-          ...state,
-          phase: state.mode === "unlimited" && isWrongAnswer ? "game-over" : "feedback",
-          score,
-          depthMetres: Math.max(0, state.depthMetres + scoreDelta * METRES_PER_POINT),
-          lastResult: action.result,
-          lastOutcome: "answer",
-          remainingSeconds: 0,
-          error: null,
-        });
-      }
+      return completeRound(state, action.result, "answer");
 
     case "SUBMIT_FAILED":
-      return Object.freeze({
-        ...state,
-        phase: "answering",
-        error: action.error,
-      });
+      return Object.freeze({ ...state, phase: "answering" as const, error: action.error });
 
     case "PASS_QUESTION":
       if (state.phase !== "answering") return state;
-      {
-        const score = getMissScore(state);
-        return Object.freeze({
-          ...state,
-          phase: state.mode === "unlimited" ? "game-over" : "feedback",
-          answer: "",
-          score,
-          depthMetres: score * METRES_PER_POINT,
-          remainingSeconds: 0,
-          lastResult: passedResult,
-          lastOutcome: "pass",
-          error: null,
-        });
-      }
+      return completeRound(
+        state,
+        createZeroScoreResult("pass"),
+        "pass",
+      );
 
     case "TIME_EXPIRED":
       if (state.phase !== "answering" && state.phase !== "preview") return state;
-      {
-        const score = getMissScore(state);
-        return Object.freeze({
-          ...state,
-          phase: state.mode === "unlimited" ? "game-over" : "feedback",
-          score,
-          depthMetres: score * METRES_PER_POINT,
-          remainingSeconds: 0,
-          previewSeconds: 0,
-          lastResult: expiredResult,
-          lastOutcome: "timeout",
-          error: null,
-        });
-      }
+      return completeRound(
+        state,
+        createZeroScoreResult("timeout"),
+        "timeout",
+      );
 
     case "NEXT_ROUND":
       if (state.phase !== "feedback") return state;
       return state.questionIndex + 1 >= state.questions.length
-        ? Object.freeze({ ...state, phase: "summary", lastResult: null, lastOutcome: null })
+        ? Object.freeze({ ...state, phase: "summary" as const, lastResult: null, lastOutcome: null })
         : prepareNextQuestion(state, state.questionIndex + 1);
 
     case "RESTORE_PROGRESS": {
       const progress = action.progress;
       const questions = progress.questions?.length
-        ? Object.freeze([...progress.questions])
+        ? Object.freeze(progress.questions.map((question) => Object.freeze({ ...question })))
         : state.questions;
       const phase = progress.phase;
-      if (!phase || !questions.length || phase === "loading" || phase === "error") {
-        return state;
-      }
-      if ((phase === "feedback" || phase === "game-over") && !progress.lastResult) {
-        return state;
-      }
+      if (!phase || !questions.length || phase === "loading" || phase === "error") return state;
+      if (phase === "feedback" && !progress.lastResult) return state;
+      const lastResult = progress.lastResult ? freezeResult(progress.lastResult) : null;
+      const roundLog = progress.roundLog?.map((entry) =>
+        Object.freeze({
+          ...entry,
+          commonAnswers: Object.freeze(entry.commonAnswers.map((answer) => Object.freeze({ ...answer }))),
+        }),
+      ) ?? [];
       return Object.freeze({
         ...state,
         ...progress,
         phase,
         questions,
-        questionIndex: Math.max(
-          0,
-          Math.min(progress.questionIndex ?? 0, questions.length - 1),
-        ),
+        questionIndex: Math.max(0, Math.min(progress.questionIndex ?? 0, questions.length - 1)),
         score: Math.max(0, progress.score ?? 0),
         depthMetres: Math.max(0, progress.depthMetres ?? 0),
         answer: progress.answer ?? "",
         remainingSeconds: Math.max(0, progress.remainingSeconds ?? ANSWER_SECONDS),
         previewSeconds: Math.max(0, progress.previewSeconds ?? 0),
-        lastResult:
-          phase === "feedback" || phase === "game-over"
-            ? progress.lastResult ?? null
-            : null,
-        lastOutcome:
-          phase === "feedback" || phase === "game-over"
-            ? progress.lastOutcome ?? "answer"
-            : null,
+        lastResult: phase === "feedback" ? lastResult : null,
+        lastOutcome: phase === "feedback" ? progress.lastOutcome ?? "answer" : null,
+        roundLog: Object.freeze(roundLog),
         error: null,
       });
     }
@@ -300,6 +289,5 @@ export const gameReducer = (
   }
 };
 
-export const getCurrentQuestion = (
-  state: GameState,
-): PublicQuestion | null => state.questions[state.questionIndex] ?? null;
+export const getCurrentQuestion = (state: GameState): PublicQuestion | null =>
+  state.questions[state.questionIndex] ?? null;

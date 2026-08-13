@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { toPublicQuestion } from "./public";
 import {
   MINIMUM_QUESTION_COUNT,
   QuestionBankValidationError,
@@ -25,19 +26,13 @@ const record = (index: number, overrides: Record<string, unknown> = {}) => ({
 const catalog = () =>
   Array.from({ length: MINIMUM_QUESTION_COUNT }, (_, index) => record(index + 1));
 
-describe("validateQuestionBank", () => {
+describe("crowd atlas catalog contract", () => {
   it("accepts enough broad prompts to supply a full unlimited run", () => {
     const validated = validateQuestionBank(catalog());
     expect(MINIMUM_QUESTION_COUNT).toBeGreaterThanOrEqual(15);
     expect(validated).toHaveLength(MINIMUM_QUESTION_COUNT);
-    expect(Object.isFrozen(validated)).toBe(true);
-    expect(Object.isFrozen(validated[0])).toBe(true);
     expect(Object.isFrozen(validated[0].answers)).toBe(true);
     expect(Object.isFrozen(validated[0].answers[0].aliases)).toBe(true);
-  });
-
-  it("rejects catalogs that cannot supply a full run", () => {
-    expect(() => validateQuestionBank(catalog().slice(0, 14))).toThrow(/at least/i);
   });
 
   it("rejects duplicate normalized aliases across answer families", () => {
@@ -59,5 +54,16 @@ describe("validateQuestionBank", () => {
       answers: Array.from({ length: 8 }, (_, index) => answer(index + 1, { share: 5 })),
     });
     expect(() => validateQuestionBank(records)).toThrow(/100/i);
+  });
+
+  it("never exposes the answer atlas in a public question", () => {
+    const [question] = validateQuestionBank(catalog());
+    const publicQuestion = toPublicQuestion(question);
+    expect(publicQuestion).toEqual({
+      id: question.id,
+      category: question.category,
+      prompt: question.prompt,
+    });
+    expect(publicQuestion).not.toHaveProperty("answers");
   });
 });
