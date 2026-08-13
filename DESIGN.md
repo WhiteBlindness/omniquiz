@@ -177,6 +177,8 @@ The palette is a near-black ocean instrument field punctuated by three high-clar
 
 **The Dark-Water Rule.** Large surfaces remain near-black navy so Phosphor Paper and the mission signals carry the hierarchy.
 
+Dark is the default broadcast field. The light theme is a deliberate surface inversion rather than a second identity: seafoam/steel panels replace the darkest surfaces, ink-toned copy replaces Phosphor Paper, signal cyan/coral/gold are retuned for contrast, and structural shadows soften. The Three-Signal Rule remains unchanged across both themes.
+
 ## Typography
 
 **Display Font:** Pixelify Sans Variable (with Pixelify Sans and monospace fallbacks)
@@ -201,11 +203,11 @@ The palette is a near-black ocean instrument field punctuated by three high-clar
 
 ## Layout
 
-The launch viewport is an asymmetric two-column broadcast: a launch-control panel capped at 420px occupies the left track and the brand stage capped at 760px occupies the larger right track. At 900px the columns tighten; at 700px and below the composition becomes a bottom-weighted vertical launch sequence with full-width console controls and safe-area padding.
+The launch viewport is an asymmetric two-column broadcast: a launch-control panel capped at 420px occupies the left track and the brand stage capped at 760px occupies the larger right track. The console begins with a two-option mode selector—Daily (7 prompts / 1 run) and Arcade (15 rounds / sudden death)—then exposes the mode-specific briefing and launch action. The selected option uses the live cyan hull line and a small coral status lamp. At 900px the columns tighten; at 700px and below the composition becomes a bottom-weighted vertical launch sequence with full-width console controls and safe-area padding.
 
 Active play uses a desktop vertical telemetry spine sized with `clamp(14.5rem, 20vw, 18.5rem)` beside a dominant live stage. The prompt or feedback hull caps at 620px; the bottom answer hull caps at 690px. Feed and timecode plates float over the stage without joining the reading order. The state sequence is launch control → live prompt feed → score/depth feedback → dive log.
 
-At 900px the spine settles to 13.5rem and stage padding contracts. At 700px and below, the spine becomes a top instrument dock with four compact columns for depth, rounds, timer, and score; the prompt occupies the middle row and the answer hull the bottom row. A 370px breakpoint tightens type and controls further, while the paired 680px-height/700px-width query protects short phones. The shell supports a 320px minimum width, the mobile game targets a 568px minimum height, and safe-area insets are honored.
+At 900px the spine settles to 13.5rem and stage padding contracts. At 700px and below, the spine becomes a top instrument dock with four compact columns for depth, rounds, timer, and score; the prompt occupies the middle row and the answer hull the bottom row. The paired theme/audio controls stay in the top-right broadcast chrome, retaining their square icon targets while their labels collapse on mobile. A 370px breakpoint tightens type and controls further, while the paired 680px-height/700px-width query protects short phones. The shell supports a 320px minimum width, the mobile game targets a 568px minimum height, and safe-area insets are honored.
 
 **The Telemetry Spine Rule.** On desktop, preserve a narrow vertical instrument spine and give the remaining viewport to one framed live stage; on mobile, move the same data into the top dock.
 
@@ -243,12 +245,20 @@ The control language is square and engineered: buttons, inputs, route cards, lin
 - **Hover / Focus:** Hover fills coral and lifts the launch action by 2px; keyboard focus retains the global two-pixel Phosphor Paper outline at a four-pixel offset.
 - **Submit / Pass / Continue:** DIVE and Continue use the coral action family; PASS stays navy with a live-line border and secondary text until hover.
 
+### Global Controls
+
+- **Pairing:** Theme and audio are adjacent square `pixel-control` instruments in the top-right corner, sharing the quiet hull border, restrained lift, and 44px minimum target.
+- **Theme:** The control exposes `THEME / DARK` or `THEME / LIGHT`; toggling swaps the semantic dark/light field and keeps signal roles, focus treatment, and raster ocean material intact.
+- **Audio:** The neighboring speaker control exposes `AUDIO ON` or `AUDIO OFF` and gates the synthesized 8-bit acknowledgement cues. Desktop shows the labels; at 700px and below the icon targets remain while labels hide.
+
 ### Cards / Containers
 
 - **Corner Style:** Square (`rounded.square`) with straight border geometry.
 - **Prompt / Feedback:** A 620px-max blackwater panel is wrapped by the sliced `public/ui/prompt-hull.webp` raster; feedback inherits the same hull and swaps to the score-slam entrance.
 - **Answer Hull:** The 690px-max form uses `public/ui/answer-hull.webp` around a flexible answer field plus DIVE and PASS controls.
 - **Launch / Dive Log:** Dense Broadcast Panel surfaces use a three-pixel cyan top rail, quiet side borders, and Panel Lift.
+- **Daily Dive Log:** After seven prompts, retain final score and depth, then add `EST. SCORE PERCENTILE` against the 700-point daily ceiling. Wrong answers, passes, and timeouts apply the 50-point daily penalty before the percentile is estimated.
+- **Arcade Game Over:** A wrong answer, pass, or timeout ends the 15-round run immediately. The summary switches to a coral top rail and `GAME OVER`, reports final score/depth, and offers `PLAY AGAIN` plus `TODAY'S DIVE`; it does not show a Daily percentile.
 
 ### Inputs / Fields
 
@@ -262,7 +272,7 @@ Launch navigation is a two-column rail of 44px-minimum square links with quiet h
 
 ### Telemetry Spine and Dock
 
-The desktop spine stacks brand, mode, depth, circular timer, score, seven round steps, and current question metadata. On mobile, the same information is recomposed into the top dock; labels and ornamental connector lines disappear before any core value does.
+The desktop spine stacks brand, mode, depth, circular timer, score, and a seven-step progress window with current question metadata. Daily's seven steps represent the full run; Arcade keeps 15 rounds explicit with `ROUND n / 15` while the seven-step window slides around the current round. On mobile, the same information is recomposed into the top dock; labels and ornamental connector lines disappear before any core value does.
 
 ### Mission Backdrop
 

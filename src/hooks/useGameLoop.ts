@@ -3,6 +3,11 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 
 import type { Category, PublicQuestion } from "../lib/questions/types";
+import {
+  ARCADE_QUESTION_COUNT,
+  DAILY_QUESTION_COUNT,
+} from "../lib/questions/selection";
+import { useAppState } from "../state/AppStateProvider";
 import { useSoundFx } from "./useSoundFx";
 import {
   ANSWER_SECONDS,
@@ -27,6 +32,8 @@ type ApiEnvelope<T> = Readonly<{
   error: string | null;
 }>;
 
+export const SUBMISSION_TIMEOUT_MS = 8_000;
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
 
@@ -46,6 +53,23 @@ const isPublicQuestion = (value: unknown): value is PublicQuestion => {
 const errorMessage = (error: unknown, fallback: string): string =>
   error instanceof Error && error.message ? error.message : fallback;
 
+const isAbortError = (error: unknown): boolean =>
+  isRecord(error) && error.name === "AbortError";
+
+const fetchWithDeadline = async (
+  input: RequestInfo | URL,
+  init: RequestInit,
+): Promise<Response> => {
+  const controller = new AbortController();
+  const deadline = window.setTimeout(() => controller.abort(), SUBMISSION_TIMEOUT_MS);
+
+  try {
+    return await fetch(input, { ...init, signal: controller.signal });
+  } finally {
+    window.clearTimeout(deadline);
+  }
+};
+
 const getApiData = async <T>(response: Response): Promise<T> => {
   const payload = (await response.json()) as ApiEnvelope<T>;
   if (!response.ok || !payload.success || payload.data === null) {
@@ -61,7 +85,10 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   const [dayLabel, setDayLabel] = useState<string | null>(null);
   const mountedRef = useRef(true);
   const unlimitedRunRef = useRef<number | null>(null);
-  const { muted, toggleMute, play } = useSoundFx();
+  const stateRef = useRef(state);
+  const expireQuestionRef = useRef<() => void>(() => undefined);
+  const { theme, toggleTheme } = useAppState();
+  const { muted, toggleMute, play, sfx } = useSoundFx();
 
   useEffect(() => {
     mountedRef.current = true;
@@ -81,33 +108,32 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   }, [mode]);
 
   useEffect(() => {
-    if (state.phase !== "preview" && state.phase !== "answering") return undefined;
-
-    const timer = window.setInterval(() => {
-      dispatch({ type: state.phase === "preview" ? "PREVIEW_TICK" : "ANSWER_TICK" });
-    }, 1_000);
-
-    return () => window.clearInterval(timer);
-  }, [state.phase]);
-
-  useEffect(() => {
     const persistablePhase =
       state.phase === "preview" ||
       state.phase === "answering" ||
       state.phase === "feedback" ||
+      state.phase === "game-over" ||
       state.phase === "summary";
     if (!hydrated || !persistablePhase) return;
     writeProgress(state);
   }, [hydrated, state]);
 
   const startDive = useCallback(async () => {
-    if (state.phase !== "intro" && state.phase !== "summary" && state.phase !== "error") {
+    if (
+      state.phase !== "intro" &&
+      state.phase !== "summary" &&
+      state.phase !== "game-over" &&
+      state.phase !== "error"
+    ) {
       return;
     }
 
     dispatch({ type: "LOAD_START" });
     try {
-      const query = new URLSearchParams({ limit: "7", mode });
+      const query = new URLSearchParams({
+        limit: String(mode === "unlimited" ? ARCADE_QUESTION_COUNT : DAILY_QUESTION_COUNT),
+        mode,
+      });
       if (mode === "unlimited") {
         const run = unlimitedRunRef.current ?? Math.max(1, readStats().runs + 1);
         unlimitedRunRef.current = run;
@@ -130,7 +156,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         setDayLabel(serverDayLabel);
       }
       dispatch({ type: "LOAD_QUESTIONS", questions });
-      play("start");
+      sfx.start();
     } catch (error) {
       if (!mountedRef.current) return;
       dispatch({
@@ -138,16 +164,73 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         error: errorMessage(error, "The dive signal is quiet. Try again."),
       });
     }
-  }, [category, mode, play, state.phase]);
+  }, [category, mode, sfx, state.phase]);
+
+  const finalizeRun = useCallback(
+    (finalScore: number, statsForRun: DiveStats = stats) => {
+      const nextStats = Object.freeze({
+        ...statsForRun,
+        runs: statsForRun.runs + 1,
+        bestScore: Math.max(statsForRun.bestScore, finalScore),
+        lastScore: finalScore,
+      });
+      setStats(nextStats);
+      writeStats(nextStats);
+      if (mode === "unlimited") {
+        const currentRun = unlimitedRunRef.current ?? nextStats.runs;
+        unlimitedRunRef.current = Math.max(currentRun + 1, nextStats.runs + 1);
+      }
+    },
+    [mode, stats],
+  );
+
+  const expireQuestion = useCallback(() => {
+    if (state.phase !== "answering") return;
+
+    dispatch({ type: "TIME_EXPIRED" });
+    const nextStats = Object.freeze({
+      ...stats,
+      answers: stats.answers + 1,
+    });
+    if (mode === "unlimited") {
+      sfx.gameOver();
+      finalizeRun(state.score, nextStats);
+    } else {
+      sfx.wrong();
+      setStats(nextStats);
+    }
+  }, [finalizeRun, mode, sfx, state.phase, state.score, stats]);
+
+  useEffect(() => {
+    stateRef.current = state;
+    expireQuestionRef.current = expireQuestion;
+  }, [expireQuestion, state]);
+
+  useEffect(() => {
+    if (state.phase !== "preview" && state.phase !== "answering") return undefined;
+
+    const timer = window.setInterval(() => {
+      const latestState = stateRef.current;
+      if (latestState.phase === "preview") {
+        dispatch({ type: "PREVIEW_TICK" });
+      } else if (latestState.phase === "answering" && latestState.remainingSeconds <= 1) {
+        expireQuestionRef.current();
+      } else if (latestState.phase === "answering") {
+        dispatch({ type: "ANSWER_TICK" });
+      }
+    }, 1_000);
+
+    return () => window.clearInterval(timer);
+  }, [state.phase]);
 
   const submitAnswer = useCallback(async () => {
     const question = state.questions[state.questionIndex];
     if (state.phase !== "answering" || !question || !state.answer.trim()) return;
 
     dispatch({ type: "SUBMIT_START" });
-    play("submit");
+    sfx.submit();
     try {
-      const response = await fetch("/api/submit", {
+      const response = await fetchWithDeadline("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ questionId: question.id, answer: state.answer }),
@@ -158,53 +241,69 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       }
       if (!mountedRef.current) return;
       dispatch({ type: "SUBMIT_RESOLVED", result });
-      play(result.accepted ? "success" : "miss");
-      setStats((current) => ({
-        ...current,
-        answers: current.answers + 1,
-        correct: current.correct + (result.accepted ? 1 : 0),
-      }));
+      const nextStats = Object.freeze({
+        ...stats,
+        answers: stats.answers + 1,
+        correct: stats.correct + (result.accepted ? 1 : 0),
+      });
+      if (result.accepted) {
+        sfx.correct();
+        setStats(nextStats);
+      } else if (mode === "unlimited") {
+        sfx.gameOver();
+        finalizeRun(state.score, nextStats);
+      } else {
+        sfx.wrong();
+        setStats(nextStats);
+      }
     } catch (error) {
       if (!mountedRef.current) return;
       dispatch({
         type: "SUBMIT_FAILED",
-        error: errorMessage(error, "The answer did not reach the log. Try again."),
+        error: isAbortError(error)
+          ? "The answer signal timed out. Try again."
+          : errorMessage(error, "The answer did not reach the log. Try again."),
       });
     }
-  }, [play, state.answer, state.phase, state.questionIndex, state.questions]);
+  }, [
+    finalizeRun,
+    mode,
+    sfx,
+    state.answer,
+    state.phase,
+    state.questionIndex,
+    state.questions,
+    state.score,
+    stats,
+  ]);
 
   const passQuestion = useCallback(() => {
     if (state.phase !== "answering") return;
 
     dispatch({ type: "PASS_QUESTION" });
-    play("miss");
-    setStats((current) => ({
-      ...current,
-      answers: current.answers + 1,
-    }));
-  }, [play, state.phase]);
+    const nextStats = Object.freeze({
+      ...stats,
+      answers: stats.answers + 1,
+    });
+    if (mode === "unlimited") {
+      sfx.gameOver();
+      finalizeRun(state.score, nextStats);
+    } else {
+      sfx.wrong();
+      setStats(nextStats);
+    }
+  }, [finalizeRun, mode, sfx, state.phase, state.score, stats]);
 
   const continueDive = useCallback(() => {
     const isFinalFeedback =
       state.phase === "feedback" && state.questionIndex === state.questions.length - 1;
 
     if (isFinalFeedback) {
-      const nextStats = Object.freeze({
-        ...stats,
-        runs: stats.runs + 1,
-        bestScore: Math.max(stats.bestScore, state.score),
-        lastScore: state.score,
-      });
-      setStats(nextStats);
-      writeStats(nextStats);
-      if (mode === "unlimited") {
-        const currentRun = unlimitedRunRef.current ?? nextStats.runs;
-        unlimitedRunRef.current = Math.max(currentRun + 1, nextStats.runs + 1);
-      }
+      finalizeRun(state.score);
     }
 
     dispatch({ type: "NEXT_ROUND" });
-  }, [mode, state.phase, state.questionIndex, state.questions.length, state.score, stats]);
+  }, [finalizeRun, state.phase, state.questionIndex, state.questions.length, state.score]);
 
   const setAnswer = useCallback((answer: string) => {
     dispatch({ type: "SET_ANSWER", answer });
@@ -219,8 +318,12 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     stats,
     hydrated,
     dayLabel,
+    theme,
     muted,
     toggleMute,
+    toggleTheme,
+    play,
+    sfx,
     startDive,
     submitAnswer,
     passQuestion,

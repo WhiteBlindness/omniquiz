@@ -1,6 +1,7 @@
 import { QUESTION_BANK } from "../../../lib/questions/catalog";
 import { toPublicQuestions } from "../../../lib/questions/public";
 import {
+  ARCADE_QUESTION_COUNT,
   DAILY_QUESTION_COUNT,
   selectDailyQuestions,
 } from "../../../lib/questions/selection";
@@ -54,17 +55,23 @@ export async function GET(request: Request) {
     return failure("category and mode must be supported values");
   }
 
+  const mode: GameMode = modeValue ?? "daily";
+  const defaultLimit = mode === "unlimited"
+    ? ARCADE_QUESTION_COUNT
+    : DAILY_QUESTION_COUNT;
+  const maximumLimit = mode === "unlimited"
+    ? ARCADE_QUESTION_COUNT
+    : DAILY_QUESTION_COUNT;
   const limit =
     limitValue === null
-      ? DAILY_QUESTION_COUNT
-      : /^[1-7]$/.test(limitValue)
+      ? defaultLimit
+      : /^\d{1,2}$/.test(limitValue)
         ? Number(limitValue)
         : NaN;
-  if (!Number.isInteger(limit) || limit < 1 || limit > DAILY_QUESTION_COUNT) {
-    return failure(`limit must be an integer between 1 and ${DAILY_QUESTION_COUNT}`);
+  if (!Number.isInteger(limit) || limit < 1 || limit > maximumLimit) {
+    return failure(`limit must be an integer between 1 and ${maximumLimit}`);
   }
 
-  const mode: GameMode = modeValue ?? "daily";
   const run =
     runValue === null
       ? 1

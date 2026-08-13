@@ -7,11 +7,26 @@ type GameHudProps = Readonly<{
 
 export function GameHud({ state, mode }: GameHudProps) {
   const roundCount = state.questions.length || 7;
-  const label = mode === "unlimited" ? "THE ENDLESS DIVE" : "THE DAILY DIVE";
+  const label = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
   const currentQuestion = state.questions[state.questionIndex] ?? null;
   const completedRounds = Math.min(
-    state.questionIndex + (state.phase === "feedback" || state.phase === "summary" ? 1 : 0),
+    state.questionIndex + (
+      state.phase === "feedback" ||
+      state.phase === "game-over" ||
+      state.phase === "summary"
+        ? 1
+        : 0
+    ),
     roundCount,
+  );
+  const visibleRoundCount = Math.min(7, roundCount);
+  const firstVisibleRound = Math.min(
+    Math.max(0, state.questionIndex - 3),
+    Math.max(0, roundCount - visibleRoundCount),
+  );
+  const visibleRounds = Array.from(
+    { length: visibleRoundCount },
+    (_, index) => firstVisibleRound + index,
   );
   const progressText = `${completedRounds} of ${roundCount} prompts logged`;
   const remainingTime = String(state.remainingSeconds).padStart(2, "0");
@@ -49,8 +64,8 @@ export function GameHud({ state, mode }: GameHudProps) {
         aria-valuenow={completedRounds}
         aria-valuetext={progressText}
       >
-        <span className="hud-rounds-label">ROUND</span>
-        {Array.from({ length: roundCount }, (_, index) => (
+        <span className="hud-rounds-label">ROUND {state.questionIndex + 1} / {roundCount}</span>
+        {visibleRounds.map((index) => (
           <span
             className={`hud-round-step ${index < completedRounds ? "is-complete" : ""} ${index === state.questionIndex ? "is-current" : ""}`}
             aria-hidden="true"

@@ -1,11 +1,18 @@
 import type { PublicQuestion } from "../../lib/questions/types";
-import { RARITY_TIERS } from "../../lib/questions/types";
+import {
+  CATEGORIES,
+  DIFFICULTIES,
+  RARITY_TIERS,
+} from "../../lib/questions/types";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import type { GameMode, GameOutcome, GamePhase, GameState } from "./gameReducer";
 
 export const PROGRESS_STORAGE_KEY = "omniquiz-progress-v1";
 export const PREFERENCES_STORAGE_KEY = "omniquiz-preferences-v1";
+export const THEME_STORAGE_KEY = "omniquiz-theme-v1";
 export const STATS_STORAGE_KEY = "omniquiz-stats-v1";
+
+export type ThemePreference = "dark" | "light";
 
 type PersistedPhase = Exclude<GamePhase, "loading" | "error">;
 
@@ -53,6 +60,7 @@ const isPhase = (value: unknown): value is PersistedPhase =>
   value === "answering" ||
   value === "submitting" ||
   value === "feedback" ||
+  value === "game-over" ||
   value === "summary";
 
 const isOutcome = (value: unknown): value is GameOutcome =>
@@ -60,6 +68,25 @@ const isOutcome = (value: unknown): value is GameOutcome =>
 
 const isNumber = (value: unknown): value is number =>
   typeof value === "number" && Number.isFinite(value);
+
+const isPublicQuestion = (value: unknown): value is PublicQuestion =>
+  isRecord(value) &&
+  typeof value.id === "string" &&
+  value.id.length > 0 &&
+  typeof value.prompt === "string" &&
+  value.prompt.length > 0 &&
+  typeof value.category === "string" &&
+  (CATEGORIES as readonly string[]).includes(value.category) &&
+  typeof value.difficulty === "string" &&
+  (DIFFICULTIES as readonly string[]).includes(value.difficulty) &&
+  isRecord(value.rarity) &&
+  typeof value.rarity.tier === "string" &&
+  (RARITY_TIERS as readonly string[]).includes(value.rarity.tier) &&
+  isNumber(value.rarity.score) &&
+  isNumber(value.rarity.depth);
+
+const freezePublicQuestion = (question: PublicQuestion): PublicQuestion =>
+  Object.freeze({ ...question, rarity: Object.freeze({ ...question.rarity }) });
 
 export const isSubmissionResult = (value: unknown): value is SubmissionResult =>
   isRecord(value) &&
@@ -94,7 +121,17 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
     if (!isSubmissionResult(value.lastResult)) return null;
     lastResult = freezeSubmissionResult(value.lastResult);
   }
-  if (value.phase === "feedback" && !lastResult) return null;
+  if ((value.phase === "feedback" || value.phase === "game-over") && !lastResult) {
+    return null;
+  }
+
+  let questions: readonly PublicQuestion[] | undefined;
+  if ("questions" in value && value.questions !== undefined) {
+    if (!Array.isArray(value.questions) || !value.questions.every(isPublicQuestion)) {
+      return null;
+    }
+    questions = Object.freeze(value.questions.map(freezePublicQuestion));
+  }
 
   let lastOutcome: GameOutcome | null = null;
   if ("lastOutcome" in value && value.lastOutcome !== null && value.lastOutcome !== undefined) {
@@ -106,9 +143,7 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
     version: 1,
     mode: value.mode,
     phase: value.phase,
-    questions: Array.isArray(value.questions)
-      ? Object.freeze(value.questions as readonly PublicQuestion[])
-      : undefined,
+    questions,
     questionIndex: value.questionIndex,
     score: value.score,
     depthMetres: value.depthMetres,
@@ -116,7 +151,10 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
     remainingSeconds: value.remainingSeconds,
     previewSeconds: value.previewSeconds,
     lastResult,
-    lastOutcome: value.phase === "feedback" ? lastOutcome ?? "answer" : null,
+    lastOutcome:
+      value.phase === "feedback" || value.phase === "game-over"
+        ? lastOutcome ?? "answer"
+        : null,
     savedAt: value.savedAt,
   });
 };
@@ -223,6 +261,26 @@ export const writeMutePreference = (muted: boolean): void => {
     window.localStorage.setItem(PREFERENCES_STORAGE_KEY, JSON.stringify({ muted }));
   } catch {
     // See writeProgress: audio preference is optional state.
+  }
+};
+
+export const readThemePreference = (): ThemePreference => {
+  if (typeof window === "undefined") return "dark";
+  try {
+    const raw = window.localStorage.getItem(THEME_STORAGE_KEY);
+    const parsed: unknown = raw ? JSON.parse(raw) : null;
+    return parsed === "light" ? "light" : "dark";
+  } catch {
+    return "dark";
+  }
+};
+
+export const writeThemePreference = (theme: ThemePreference): void => {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(theme));
+  } catch {
+    // Theme is an enhancement and should not block a dive.
   }
 };
 

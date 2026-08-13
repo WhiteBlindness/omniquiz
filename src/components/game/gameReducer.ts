@@ -4,6 +4,7 @@ import type { PublicQuestion } from "../../lib/questions/types";
 export const PREVIEW_SECONDS = 3;
 export const ANSWER_SECONDS = 15;
 export const METRES_PER_POINT = 10;
+export const DAILY_WRONG_ANSWER_PENALTY = 50;
 
 export type GameMode = "daily" | "unlimited";
 
@@ -14,6 +15,7 @@ export type GamePhase =
   | "answering"
   | "submitting"
   | "feedback"
+  | "game-over"
   | "summary"
   | "error";
 
@@ -65,8 +67,13 @@ const passedResult = Object.freeze({
   tier: "plankton" as const,
   score: 0,
   depth: 0,
-  quip: "Pass logged. No points lost.",
+  quip: "Pass logged. Mission penalty applied.",
 });
+
+const getMissScore = (state: GameState): number =>
+  state.mode === "daily"
+    ? Math.max(0, state.score - DAILY_WRONG_ANSWER_PENALTY)
+    : state.score;
 
 export const createInitialGameState = (mode: GameMode): GameState =>
   Object.freeze({
@@ -179,16 +186,26 @@ export const gameReducer = (
 
     case "SUBMIT_RESOLVED":
       if (state.phase !== "submitting") return state;
-      return Object.freeze({
-        ...state,
-        phase: "feedback",
-        score: state.score + action.result.score,
-        depthMetres: state.depthMetres + action.result.score * METRES_PER_POINT,
-        lastResult: action.result,
-        lastOutcome: "answer",
-        remainingSeconds: 0,
-        error: null,
-      });
+      {
+        const isWrongAnswer = !action.result.accepted;
+        const scoreDelta = action.result.accepted
+          ? action.result.score
+          : state.mode === "daily"
+            ? -DAILY_WRONG_ANSWER_PENALTY
+            : 0;
+        const score = Math.max(0, state.score + scoreDelta);
+
+        return Object.freeze({
+          ...state,
+          phase: state.mode === "unlimited" && isWrongAnswer ? "game-over" : "feedback",
+          score,
+          depthMetres: Math.max(0, state.depthMetres + scoreDelta * METRES_PER_POINT),
+          lastResult: action.result,
+          lastOutcome: "answer",
+          remainingSeconds: 0,
+          error: null,
+        });
+      }
 
     case "SUBMIT_FAILED":
       return Object.freeze({
@@ -199,27 +216,37 @@ export const gameReducer = (
 
     case "PASS_QUESTION":
       if (state.phase !== "answering") return state;
-      return Object.freeze({
-        ...state,
-        phase: "feedback",
-        answer: "",
-        remainingSeconds: 0,
-        lastResult: passedResult,
-        lastOutcome: "pass",
-        error: null,
-      });
+      {
+        const score = getMissScore(state);
+        return Object.freeze({
+          ...state,
+          phase: state.mode === "unlimited" ? "game-over" : "feedback",
+          answer: "",
+          score,
+          depthMetres: score * METRES_PER_POINT,
+          remainingSeconds: 0,
+          lastResult: passedResult,
+          lastOutcome: "pass",
+          error: null,
+        });
+      }
 
     case "TIME_EXPIRED":
       if (state.phase !== "answering" && state.phase !== "preview") return state;
-      return Object.freeze({
-        ...state,
-        phase: "feedback",
-        remainingSeconds: 0,
-        previewSeconds: 0,
-        lastResult: expiredResult,
-        lastOutcome: "timeout",
-        error: null,
-      });
+      {
+        const score = getMissScore(state);
+        return Object.freeze({
+          ...state,
+          phase: state.mode === "unlimited" ? "game-over" : "feedback",
+          score,
+          depthMetres: score * METRES_PER_POINT,
+          remainingSeconds: 0,
+          previewSeconds: 0,
+          lastResult: expiredResult,
+          lastOutcome: "timeout",
+          error: null,
+        });
+      }
 
     case "NEXT_ROUND":
       if (state.phase !== "feedback") return state;
@@ -236,7 +263,9 @@ export const gameReducer = (
       if (!phase || !questions.length || phase === "loading" || phase === "error") {
         return state;
       }
-      if (phase === "feedback" && !progress.lastResult) return state;
+      if ((phase === "feedback" || phase === "game-over") && !progress.lastResult) {
+        return state;
+      }
       return Object.freeze({
         ...state,
         ...progress,
@@ -251,9 +280,14 @@ export const gameReducer = (
         answer: progress.answer ?? "",
         remainingSeconds: Math.max(0, progress.remainingSeconds ?? ANSWER_SECONDS),
         previewSeconds: Math.max(0, progress.previewSeconds ?? 0),
-        lastResult: phase === "feedback" ? progress.lastResult ?? null : null,
+        lastResult:
+          phase === "feedback" || phase === "game-over"
+            ? progress.lastResult ?? null
+            : null,
         lastOutcome:
-          phase === "feedback" ? progress.lastOutcome ?? "answer" : null,
+          phase === "feedback" || phase === "game-over"
+            ? progress.lastOutcome ?? "answer"
+            : null,
         error: null,
       });
     }

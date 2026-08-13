@@ -62,7 +62,7 @@
 .mode-description {
   max-width: 33rem;
   margin: 0.8rem 0 0;
-  color: #afc5cb;
+  color: var(--drift);
   font-size: clamp(0.68rem, 0.9vw, 0.82rem);
   line-height: 1.7;
 }
@@ -79,6 +79,77 @@
   border-left: var(--edge);
   background: var(--panel);
   box-shadow: var(--shadow);
+}
+
+.mode-selector {
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.mode-selector-label {
+  color: var(--muted);
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+}
+
+.mode-selector-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.mode-option {
+  display: grid;
+  min-height: 60px;
+  gap: 0.28rem;
+  align-content: center;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-bottom: 3px solid var(--line);
+  border-radius: 0;
+  background: rgba(3, 14, 28, 0.44);
+  color: var(--drift);
+  text-align: left;
+  transition: border-color 140ms ease-out, background 140ms ease-out, color 140ms ease-out, transform 140ms ease-out;
+}
+
+.mode-option span {
+  color: inherit;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.mode-option small {
+  color: var(--muted);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+}
+
+.mode-option:hover,
+.mode-option:focus-visible {
+  border-color: var(--cyan);
+  color: var(--paper);
+}
+
+.mode-option:hover:not(.is-selected) {
+  transform: translateY(-1px);
+}
+
+.mode-option.is-selected {
+  border-color: var(--cyan);
+  border-bottom-color: var(--cyan);
+  background: rgba(16, 87, 104, 0.5);
+  color: var(--paper);
+}
+
+.mode-option.is-selected span::before {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0.42rem 1px 0;
+  background: var(--coral);
+  content: "";
 }
 
 .landing-console::before {
@@ -211,6 +282,39 @@
 .signal-error p {
   margin: 0.45rem 0 0;
   line-height: 1.45;
+}
+
+.game-shell[data-theme="light"] .landing-console,
+.game-shell[data-theme="light"] .summary-panel {
+  background: var(--panel);
+}
+
+.game-shell[data-theme="light"] .mode-option {
+  background: rgba(213, 233, 233, 0.78);
+}
+
+.game-shell[data-theme="light"] .mode-option.is-selected {
+  background: rgba(181, 220, 222, 0.9);
+}
+
+.game-shell[data-theme="light"] .begin-button {
+  background: #982f48;
+}
+
+.game-shell[data-theme="light"] .begin-button:hover:not(:disabled) {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .game-hud {
+  background: rgba(237, 248, 246, 0.94);
+  box-shadow: 12px 0 30px rgba(12, 54, 64, 0.14);
+}
+
+.game-shell[data-theme="light"] .prompt-card,
+.game-shell[data-theme="light"] .feedback-panel,
+.game-shell[data-theme="light"] .dive-form {
+  filter: brightness(1.16) saturate(0.9);
 }
 
 /* Active dive: broadcast spine / live mission feed. */

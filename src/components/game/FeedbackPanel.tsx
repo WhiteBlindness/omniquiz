@@ -8,6 +8,7 @@ type FeedbackPanelProps = Readonly<{
   score: number;
   depthMetres: number;
   isLastRound: boolean;
+  penaltyPoints?: number;
   onContinue: () => void;
   outcome?: GameOutcome;
 }>;
@@ -26,6 +27,7 @@ export function FeedbackPanel({
   score,
   depthMetres,
   isLastRound,
+  penaltyPoints = 0,
   onContinue,
   outcome = "answer",
 }: FeedbackPanelProps) {
@@ -59,7 +61,9 @@ export function FeedbackPanel({
       <h1 id="feedback-title">{heading}</h1>
       <p className="feedback-quip">{result.quip}</p>
       <div className="feedback-stats">
-        <span><b>+{result.score}</b> PTS</span>
+        <span>
+          {penaltyPoints > 0 ? <><b>{penaltyPoints}</b> PT PENALTY</> : <><b>+{result.score}</b> PTS</>}
+        </span>
         <span><b>{score}</b> TOTAL</span>
         <span><b>{depthMetres}m</b> DEPTH</span>
       </div>

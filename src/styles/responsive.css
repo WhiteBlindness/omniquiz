@@ -29,13 +29,19 @@
     min-height: 100dvh;
   }
 
-  .sound-control {
+  .global-controls {
     top: max(0.55rem, env(safe-area-inset-top));
     right: max(0.5rem, env(safe-area-inset-right));
+    gap: 0.3rem;
+  }
+
+  .sound-control,
+  .theme-control {
     padding: 0 0.55rem;
   }
 
-  .sound-control-label {
+  .sound-control-label,
+  .theme-control-label {
     display: none;
   }
 
@@ -123,6 +129,28 @@
   .landing-console::before {
     margin-bottom: 0.55rem;
     font-size: 0.5rem;
+  }
+
+  .mode-selector {
+    gap: 0.42rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .mode-selector-label {
+    font-size: 0.47rem;
+  }
+
+  .mode-option {
+    min-height: 54px;
+    padding: 0.45rem;
+  }
+
+  .mode-option span {
+    font-size: 0.61rem;
+  }
+
+  .mode-option small {
+    font-size: 0.42rem;
   }
 
   .tutorial-toggle {

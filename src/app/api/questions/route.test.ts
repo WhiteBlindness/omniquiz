@@ -24,6 +24,21 @@ describe("GET /api/questions", () => {
     expect(body.data[0]).not.toHaveProperty("acceptedAliases");
   });
 
+  it("serves the daily questions in the required difficulty progression", async () => {
+    const response = await GET(new NextRequest("http://localhost/api/questions"));
+    const body = await response.json();
+
+    expect(body.data.map((question: { difficulty: string }) => question.difficulty)).toEqual([
+      "easy",
+      "easy",
+      "easy",
+      "medium",
+      "medium",
+      "medium",
+      "medium",
+    ]);
+  });
+
   it("keeps daily selection stable while varying unlimited runs", async () => {
     const dailyFirst = await GET(
       new NextRequest("http://localhost/api/questions?mode=daily"),
@@ -51,6 +66,29 @@ describe("GET /api/questions", () => {
     );
   });
 
+  it("serves a full arcade survival ramp with Hard questions from round eight", async () => {
+    const response = await GET(
+      new NextRequest("http://localhost/api/questions?mode=unlimited&run=1"),
+    );
+    const body = await response.json();
+    const difficulties = body.data.map(
+      (question: { difficulty: string }) => question.difficulty,
+    );
+
+    expect(response.status).toBe(200);
+    expect(difficulties).toHaveLength(15);
+    expect(difficulties.slice(0, 3)).toEqual(["easy", "easy", "easy"]);
+    expect(difficulties.slice(3, 7)).toEqual([
+      "medium",
+      "medium",
+      "medium",
+      "medium",
+    ]);
+    expect(difficulties.slice(7).every((difficulty: string) => difficulty === "hard")).toBe(
+      true,
+    );
+  });
+
   it("validates category and limit query parameters", async () => {
     const response = await GET(
       new NextRequest("http://localhost/api/questions?category=Science&limit=3"),
@@ -73,7 +111,7 @@ describe("GET /api/questions", () => {
     const body = await response.json();
 
     expect(response.status).toBe(200);
-    expect(body.data).toHaveLength(7);
+    expect(body.data).toHaveLength(15);
     expect(
       body.data.every((question: { category: string }) => question.category === "History"),
     ).toBe(true);

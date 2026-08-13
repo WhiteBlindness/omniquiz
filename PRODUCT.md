@@ -8,11 +8,11 @@ web
 
 ## Users
 
-Curious players who want a short, repeatable daily trivia ritual that rewards uncommon knowledge.
+Curious players who want either a short daily trivia ritual or a replayable arcade challenge that rewards uncommon knowledge.
 
 ## Product Purpose
 
-OMNIQUIZ is a local-first trivia experience: players answer seven prompts, receive immediate rarity-based feedback, and descend through an illustrated ocean as their score grows.
+OMNIQUIZ is a local-first trivia experience: players choose a seven-prompt Daily Challenge or a 15-round sudden-death Arcade run, receive immediate rarity-based feedback, and descend through an illustrated ocean as their score grows.
 
 ## Positioning
 
@@ -20,11 +20,11 @@ Answers are treated as discoveries with depth and rarity, so a quiz run feels li
 
 ## Operating Context
 
-The experience is played in a browser on desktop or mobile. A daily run is seven prompts with a short answer window; an endless mode supports repeat local play.
+The experience is played in a browser on desktop or mobile. Daily Challenge uses seven prompts and applies a 50-point penalty for wrong answers, passes, or timeouts before estimating a final percentile. Arcade Mode uses 15 rounds, ends immediately on any miss, and ramps from Easy in rounds 1–3 to Medium in rounds 4–7 and Hard from round 8 onward.
 
 ## Capabilities and Constraints
 
-Question selection and answer evaluation are provided by the existing local `/api/questions` and `/api/submit` routes. Client progress, run stats, and mute preference may be stored safely in local storage. No external submission service is part of the product.
+Question selection and answer evaluation are provided by the existing local `/api/questions` and `/api/submit` routes. Client progress, run stats, theme, and mute preference may be stored safely in local storage. Synthesized 8-bit cues acknowledge controls, correct answers, misses, and game over without external media. No external submission service is part of the product.
 
 ## Brand Commitments
 
@@ -37,7 +37,7 @@ The local question catalog, scoring rules, ocean background/tier assets under `p
 ## Product Principles
 
 - Make one prompt feel like an event.
-- Reward curiosity without punishing misses.
+- Reward curiosity while making each mode's miss rule unmistakable.
 - Keep the full loop playable with local, reliable state.
 - Make depth and rarity understandable at a glance.
 

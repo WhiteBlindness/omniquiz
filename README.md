@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OMNIQUIZ
 
-## Getting Started
+A cinematic 16-bit ocean trivia game built with Next.js. Choose a seven-question Daily Challenge or a 15-round Arcade dive with sudden death, a strict Easy → Medium → Hard progression, persistent themes, and synthesized 8-bit sound effects.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verification
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm test
+npm run test:coverage
+npm run lint
+npm run build
+npm run test:e2e
+```
 
-## Learn More
+## Game rules
 
-To learn more about Next.js, take a look at the following resources:
+- Daily: seven prompts, 15 seconds each, and a 50-point penalty for every wrong answer, pass, or timeout.
+- Arcade: 15 rounds; any wrong answer, pass, or timeout immediately ends the run.
+- Arcade difficulty: rounds 1–3 Easy, 4–7 Medium, and 8–15 Hard.
+- Rarer accepted answers score more points and drive the visible descent.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Progress, statistics, theme, and audio preference are stored locally. The game uses local question and submission API routes; no external gameplay service is required.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` — landing page and Daily Challenge
+- `/unlimited/classic` — Arcade Mode with optional `category` query parameter
+- `/packs` — themed category routes

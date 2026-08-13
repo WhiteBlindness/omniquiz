@@ -1,6 +1,7 @@
-import type { Question } from "./types";
+import type { Difficulty, Question } from "./types";
 
 export const DAILY_QUESTION_COUNT = 7;
+export const ARCADE_QUESTION_COUNT = 15;
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -20,6 +21,15 @@ const hash = (value: string): number => {
   return result >>> 0;
 };
 
+export const getDifficultyForRound = (round: number): Difficulty => {
+  if (!Number.isInteger(round) || round < 1) {
+    throw new RangeError("round must be a positive integer");
+  }
+  if (round <= 3) return "easy";
+  if (round <= 7) return "medium";
+  return "hard";
+};
+
 export const selectDailyQuestions = (
   questions: readonly Question[],
   date: string,
@@ -27,8 +37,8 @@ export const selectDailyQuestions = (
 ): readonly Question[] => {
   if (!Array.isArray(questions)) throw new TypeError("questions must be an array");
   if (!isDateKey(date)) throw new RangeError("date must be an ISO date");
-  if (!Number.isInteger(limit) || limit < 1 || limit > DAILY_QUESTION_COUNT) {
-    throw new RangeError(`limit must be between 1 and ${DAILY_QUESTION_COUNT}`);
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new RangeError("limit must be a positive integer");
   }
 
   const uniqueQuestions = Array.from(
@@ -44,5 +54,25 @@ export const selectDailyQuestions = (
     return leftHash - rightHash || left.id.localeCompare(right.id);
   });
 
-  return Object.freeze(ordered.slice(0, limit));
+  const selected: Question[] = [];
+  const selectedIds = new Set<string>();
+
+  for (let index = 0; index < limit; index += 1) {
+    const difficulty = getDifficultyForRound(index + 1);
+    const question = ordered.find(
+      (candidate) =>
+        candidate.difficulty === difficulty && !selectedIds.has(candidate.id),
+    );
+
+    if (!question) {
+      throw new RangeError(
+        `not enough unique ${difficulty} questions for the requested progression`,
+      );
+    }
+
+    selected.push(question);
+    selectedIds.add(question.id);
+  }
+
+  return Object.freeze(selected);
 };

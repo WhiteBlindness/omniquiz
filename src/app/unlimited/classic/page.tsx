@@ -2,8 +2,8 @@ import { GameExperience } from "../../../components/game/GameExperience";
 import { CATEGORIES, type Category } from "../../../lib/questions/types";
 
 export const metadata = {
-  title: "OMNIQUIZ — The Endless Dive",
-  description: "Dive after dive. Rarer answers sink deeper.",
+  title: "OMNIQUIZ — Arcade Dive",
+  description: "Fifteen rounds. One miss ends the run. Rarer answers sink deeper.",
 };
 
 type UnlimitedClassicPageProps = Readonly<{

@@ -4,6 +4,7 @@ import type { PublicQuestion } from "../../lib/questions/types";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import {
   ANSWER_SECONDS,
+  DAILY_WRONG_ANSWER_PENALTY,
   PREVIEW_SECONDS,
   createInitialGameState,
   gameReducer,
@@ -25,6 +26,25 @@ const success: SubmissionResult = Object.freeze({
   depth: 0.6,
   quip: "A sharp bit of recall.",
 });
+
+const wrong: SubmissionResult = Object.freeze({
+  accepted: false,
+  normalizedAnswer: "mars",
+  tier: "rare",
+  score: 0,
+  depth: 0.6,
+  quip: "Not this time; keep the curiosity alive.",
+});
+
+const toAnswering = (mode: "daily" | "unlimited", questions = [question]) => {
+  const loaded = gameReducer(createInitialGameState(mode), {
+    type: "LOAD_QUESTIONS",
+    questions,
+  });
+  const afterPreview = gameReducer(loaded, { type: "PREVIEW_TICK" });
+  const afterSecondPreview = gameReducer(afterPreview, { type: "PREVIEW_TICK" });
+  return gameReducer(afterSecondPreview, { type: "PREVIEW_TICK" });
+};
 
 describe("gameReducer", () => {
   it("starts in a quiet intro state with no question loaded", () => {
@@ -131,8 +151,123 @@ describe("gameReducer", () => {
       lastResult: expect.objectContaining({
         accepted: false,
         score: 0,
-        quip: expect.stringMatching(/no points lost/i),
+        quip: expect.stringMatching(/penalty applied/i),
       }),
+    });
+  });
+
+  it("ends an arcade run immediately after an incorrect answer", () => {
+    const answering = toAnswering("unlimited", [question, { ...question, id: "general-002" }]);
+    const withAnswer = gameReducer(answering, { type: "SET_ANSWER", answer: "Mars" });
+    const submitting = gameReducer(withAnswer, { type: "SUBMIT_START" });
+    const gameOver = gameReducer(submitting, { type: "SUBMIT_RESOLVED", result: wrong });
+
+    expect(gameOver).toMatchObject({
+      phase: "game-over",
+      questionIndex: 0,
+      score: 0,
+      depthMetres: 0,
+      lastResult: wrong,
+      lastOutcome: "answer",
+    });
+    expect(gameReducer(gameOver, { type: "NEXT_ROUND" })).toBe(gameOver);
+  });
+
+  it.each([
+    ["PASS_QUESTION" as const, "pass"],
+    ["TIME_EXPIRED" as const, "timeout"],
+  ])("treats %s as sudden death in arcade mode", (type, outcome) => {
+    const answering = toAnswering("unlimited", [
+      question,
+      { ...question, id: "general-002" },
+    ]);
+
+    const gameOver = gameReducer(answering, { type });
+
+    expect(gameOver).toMatchObject({
+      phase: "game-over",
+      questionIndex: 0,
+      score: 0,
+      depthMetres: 0,
+      lastOutcome: outcome,
+    });
+    expect(gameReducer(gameOver, { type: "NEXT_ROUND" })).toBe(gameOver);
+  });
+
+  it("keeps daily play alive but applies a heavy incorrect-answer penalty", () => {
+    const answering = toAnswering("daily", [
+      question,
+      { ...question, id: "general-002" },
+      { ...question, id: "general-003" },
+    ]);
+    const correctSubmitting = gameReducer(
+      gameReducer(answering, { type: "SET_ANSWER", answer: "Gulf Stream" }),
+      { type: "SUBMIT_START" },
+    );
+    const firstFeedback = gameReducer(correctSubmitting, {
+      type: "SUBMIT_RESOLVED",
+      result: success,
+    });
+    const secondPreview = gameReducer(firstFeedback, { type: "NEXT_ROUND" });
+    const secondAnswering = gameReducer(
+      gameReducer(
+        gameReducer(secondPreview, { type: "PREVIEW_TICK" }),
+        { type: "PREVIEW_TICK" },
+      ),
+      { type: "PREVIEW_TICK" },
+    );
+    const wrongSubmitting = gameReducer(
+      gameReducer(secondAnswering, { type: "SET_ANSWER", answer: "Mars" }),
+      { type: "SUBMIT_START" },
+    );
+    const wrongFeedback = gameReducer(wrongSubmitting, {
+      type: "SUBMIT_RESOLVED",
+      result: wrong,
+    });
+
+    expect(wrongFeedback).toMatchObject({
+      phase: "feedback",
+      score: success.score - DAILY_WRONG_ANSWER_PENALTY,
+      depthMetres: (success.score - DAILY_WRONG_ANSWER_PENALTY) * 10,
+      lastResult: wrong,
+    });
+    expect(gameReducer(wrongFeedback, { type: "NEXT_ROUND" })).toMatchObject({
+      phase: "preview",
+      questionIndex: 2,
+    });
+  });
+
+  it.each([
+    ["PASS_QUESTION" as const, "pass"],
+    ["TIME_EXPIRED" as const, "timeout"],
+  ])("keeps Daily alive but applies the miss penalty for %s", (type, outcome) => {
+    const answering = toAnswering("daily", [
+      question,
+      { ...question, id: "general-002" },
+    ]);
+    const scored = gameReducer(
+      gameReducer(
+        gameReducer(answering, { type: "SET_ANSWER", answer: "Gulf Stream" }),
+        { type: "SUBMIT_START" },
+      ),
+      { type: "SUBMIT_RESOLVED", result: success },
+    );
+    const secondPreview = gameReducer(scored, { type: "NEXT_ROUND" });
+    const secondAnswering = gameReducer(
+      gameReducer(
+        gameReducer(secondPreview, { type: "PREVIEW_TICK" }),
+        { type: "PREVIEW_TICK" },
+      ),
+      { type: "PREVIEW_TICK" },
+    );
+
+    const feedback = gameReducer(secondAnswering, { type });
+
+    expect(feedback).toMatchObject({
+      phase: "feedback",
+      score: success.score - DAILY_WRONG_ANSWER_PENALTY,
+      depthMetres: (success.score - DAILY_WRONG_ANSWER_PENALTY) * 10,
+      lastOutcome: outcome,
     });
   });
 

@@ -99,6 +99,25 @@ input:focus-visible {
   background: var(--ink);
 }
 
+.game-shell[data-theme="light"] {
+  --ink: #edf7f5;
+  --abyss: #d8ebeb;
+  --steel: #c3dadd;
+  --panel: rgba(240, 249, 247, 0.95);
+  --panel-soft: rgba(226, 242, 241, 0.94);
+  --line: rgba(8, 54, 68, 0.3);
+  --line-hot: rgba(5, 119, 142, 0.72);
+  --paper: #062533;
+  --drift: #315b68;
+  --muted: #597783;
+  --cyan: #087f96;
+  --coral: #bb3e57;
+  --gold: #8e6414;
+  --green: #177b5f;
+  --shadow: 0 18px 34px rgba(12, 54, 64, 0.22);
+  color-scheme: light;
+}
+
 .pixel-control {
   display: inline-flex;
   align-items: center;
@@ -117,18 +136,25 @@ input:focus-visible {
   color: var(--paper);
 }
 
-.sound-control {
+.global-controls {
   position: absolute;
   top: max(1rem, env(safe-area-inset-top));
   right: clamp(0.75rem, 2vw, 1.5rem);
+  display: flex;
+  gap: 0.45rem;
   z-index: 20;
+}
+
+.sound-control,
+.theme-control {
   gap: 0.5rem;
   padding: 0 0.7rem;
   font-size: 0.61rem;
   letter-spacing: 0.12em;
 }
 
-.sound-control svg {
+.sound-control svg,
+.theme-control svg {
   width: 17px;
   height: 17px;
   fill: none;
@@ -142,7 +168,8 @@ input:focus-visible {
   stroke: var(--coral);
 }
 
-.sound-control-label {
+.sound-control-label,
+.theme-control-label {
   white-space: nowrap;
 }
 

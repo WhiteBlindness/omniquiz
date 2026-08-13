@@ -6,7 +6,9 @@ import type { SubmissionResult } from "../../lib/game/scoring";
 import {
   PROGRESS_STORAGE_KEY,
   readProgress,
+  readThemePreference,
   recoverPersistedProgress,
+  writeThemePreference,
   type PersistedProgress,
 } from "./storage";
 import { createInitialGameState, gameReducer } from "./gameReducer";
@@ -96,6 +98,18 @@ describe("recoverPersistedProgress", () => {
     expect(readProgress("daily")).toBeNull();
   });
 
+  it("rejects malformed persisted questions at the storage boundary", () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({
+        ...baseProgress,
+        questions: [{ ...baseProgress.questions?.[0], difficulty: "impossible" }],
+      }),
+    );
+
+    expect(readProgress("daily")).toBeNull();
+  });
+
   it("restores a finished summary with its scored progress", () => {
     localStorage.setItem(
       PROGRESS_STORAGE_KEY,
@@ -114,5 +128,36 @@ describe("recoverPersistedProgress", () => {
       depthMetres: 1_450,
       lastResult: null,
     });
+  });
+
+  it("restores an arcade game-over state with its final answer result", () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({
+        ...baseProgress,
+        mode: "unlimited",
+        phase: "game-over",
+        lastResult: { ...lastResult, accepted: false, score: 0 },
+        lastOutcome: "answer",
+      }),
+    );
+
+    expect(readProgress("unlimited")).toMatchObject({
+      phase: "game-over",
+      lastResult: expect.objectContaining({ accepted: false, score: 0 }),
+      lastOutcome: "answer",
+    });
+  });
+
+  it("reads and writes a valid theme preference", () => {
+    writeThemePreference("light");
+
+    expect(readThemePreference()).toBe("light");
+  });
+
+  it("falls back to dark when the theme preference is malformed", () => {
+    localStorage.setItem("omniquiz-theme-v1", JSON.stringify("solarized"));
+
+    expect(readThemePreference()).toBe("dark");
   });
 });

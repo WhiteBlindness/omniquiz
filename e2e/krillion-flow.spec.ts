@@ -1,6 +1,25 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("OMNIQUIZ ocean loop", () => {
+  test("landing selects modes and persists the visible theme state", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("button", { name: /daily mode/i })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    await page.getByRole("button", { name: /arcade mode/i }).click();
+    await expect(page).toHaveURL(/\/unlimited\/classic$/);
+    await expect(page.getByText("THE ARCADE DIVE")).toBeVisible();
+    await expect(page.getByText(/15 rounds \/ sudden death/i)).toBeVisible();
+
+    await page.reload();
+    await expect(page.getByText("THE ARCADE DIVE")).toBeVisible();
+
+    await page.getByRole("button", { name: /switch to light theme/i }).click();
+    await expect(page.locator(".game-shell")).toHaveAttribute("data-theme", "light");
+  });
+
   test("home, tutorial, start, answer, and feedback are reachable", async ({ page }) => {
     await page.goto("/");
 
@@ -59,9 +78,60 @@ test.describe("OMNIQUIZ ocean loop", () => {
     await page.getByRole("button", { name: /^pass$/i }).click();
 
     await expect(page.getByRole("status")).toContainText(/pass logged/i);
-    await expect(page.getByRole("status")).toContainText(/no points lost/i);
+    await expect(page.getByRole("status")).toContainText(/penalty applied/i);
     await expect(page.locator("main h1")).toHaveCount(1);
     await expect(page.getByRole("button", { name: /continue descent/i })).toBeFocused();
+  });
+
+  test("arcade ends immediately on a wrong answer and offers play again", async ({ page }) => {
+    await page.route("**/api/questions**", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        headers: { "x-omniquiz-day": "001" },
+        body: JSON.stringify({
+          success: true,
+          data: [{
+            id: "general-001",
+            category: "General",
+            prompt: "Name a warm current.",
+            difficulty: "easy",
+            rarity: { tier: "rare", score: 60, depth: 0.6 },
+          }],
+          error: null,
+        }),
+      }),
+    );
+    await page.route("**/api/submit", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          success: true,
+          data: {
+            accepted: false,
+            normalizedAnswer: "mars",
+            tier: "rare",
+            score: 0,
+            depth: 0.6,
+            quip: "Not this time; keep the curiosity alive.",
+          },
+          error: null,
+        }),
+      }),
+    );
+
+    await page.goto("/unlimited/classic");
+    await page.getByRole("button", { name: /begin descent/i }).click();
+    const answer = page.getByPlaceholder(/type one answer/i);
+    await expect(answer).toBeVisible({ timeout: 5_000 });
+    await answer.fill("Mars");
+    await page.getByRole("button", { name: /^dive$/i }).click();
+
+    await expect(page.getByRole("heading", { name: "GAME OVER" })).toBeVisible();
+    await expect(page.getByText("FINAL SCORE")).toBeVisible();
+    await expect(page.getByRole("button", { name: /play again/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /continue descent/i })).toHaveCount(0);
   });
 
   test("restoring browser preferences does not create hydration errors", async ({ page }) => {

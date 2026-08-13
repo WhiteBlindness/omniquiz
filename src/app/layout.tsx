@@ -5,8 +5,8 @@ import "@fontsource-variable/pixelify-sans";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OMNIQUIZ — The Daily Dive",
-  description: "Seven prompts. One descent. Rarer answers sink deeper.",
+  title: "OMNIQUIZ — Dive Control",
+  description: "Choose a daily expedition or a 15-round sudden-death arcade dive.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
