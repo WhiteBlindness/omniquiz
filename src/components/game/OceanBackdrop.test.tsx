@@ -42,4 +42,35 @@ describe("OceanBackdrop", () => {
     expect(screen.getByLabelText("Depth scale")).toBeInTheDocument();
     expect(screen.getByText("640m current depth")).toBeInTheDocument();
   });
+
+  it("maps earned depth to a bounded camera event and streak cue", () => {
+    const { container } = render(
+      <OceanBackdrop
+        depthMetres={600}
+        mode="daily"
+        descentMetres={600}
+        descentEventKey="round-1"
+      />,
+    );
+    const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
+
+    expect(backdrop).toHaveAttribute("data-descent", "active");
+    expect(backdrop?.style.getPropertyValue("--descent-shift")).toBe("70px");
+    expect(backdrop?.style.getPropertyValue("--descent-duration")).toBe("587ms");
+    expect(container.querySelector(".ocean-world")).toHaveAttribute("data-descent", "active");
+    expect(container.querySelector(".descent-streak-field")).toBeInTheDocument();
+    expect(container.querySelector(".depth-ruler")?.closest(".ocean-world")).toBeNull();
+    expect(container.querySelector(".scanlines")?.closest(".ocean-world")).toBeNull();
+  });
+
+  it("does not expose a descent event for zero-depth feedback", () => {
+    const { container } = render(
+      <OceanBackdrop depthMetres={600} mode="daily" descentMetres={0} />,
+    );
+    const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
+
+    expect(backdrop).toHaveAttribute("data-descent", "idle");
+    expect(backdrop?.style.getPropertyValue("--descent-shift")).toBe("");
+    expect(container.querySelector(".ocean-world")).toHaveAttribute("data-descent", "idle");
+  });
 });

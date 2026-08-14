@@ -1,69 +1,78 @@
 import { describe, expect, it } from "vitest";
 
+import { QUESTION_BANK, findQuestionById } from "./catalog";
+import { answerKeys } from "./normalize";
 import { toPublicQuestion } from "./public";
-import {
-  MINIMUM_QUESTION_COUNT,
-  QuestionBankValidationError,
-  validateQuestionBank,
-} from "./validator";
+import { CATEGORIES } from "./types";
 
-const answer = (index: number, overrides: Record<string, unknown> = {}) => ({
-  label: `Answer ${index}`,
-  aliases: [`alias ${index}`],
-  share: 12.5,
-  insight: `Reveal insight ${index}`,
-  ...overrides,
-});
+const acceptedKeysFor = (family: { label: string; aliases: readonly string[] }) =>
+  new Set([family.label, ...family.aliases].flatMap((surface) => answerKeys(surface)));
 
-const record = (index: number, overrides: Record<string, unknown> = {}) => ({
-  id: `general-${String(index).padStart(3, "0")}`,
-  category: "General",
-  prompt: `Name a broad thing ${index}`,
-  answers: Array.from({ length: 8 }, (_, answerIndex) => answer(answerIndex + 1)),
-  ...overrides,
-});
+describe("production crowd atlas contract", () => {
+  it("contains 120 broad prompts balanced across all four categories", () => {
+    expect(QUESTION_BANK.length).toBeGreaterThanOrEqual(120);
 
-const catalog = () =>
-  Array.from({ length: MINIMUM_QUESTION_COUNT }, (_, index) => record(index + 1));
-
-describe("crowd atlas catalog contract", () => {
-  it("accepts enough broad prompts to supply a full unlimited run", () => {
-    const validated = validateQuestionBank(catalog());
-    expect(MINIMUM_QUESTION_COUNT).toBeGreaterThanOrEqual(15);
-    expect(validated).toHaveLength(MINIMUM_QUESTION_COUNT);
-    expect(Object.isFrozen(validated[0].answers)).toBe(true);
-    expect(Object.isFrozen(validated[0].answers[0].aliases)).toBe(true);
+    for (const category of CATEGORIES) {
+      expect(QUESTION_BANK.filter((question) => question.category === category).length).toBeGreaterThanOrEqual(30);
+    }
   });
 
-  it("rejects duplicate normalized aliases across answer families", () => {
-    const records = catalog();
-    records[0] = record(1, {
-      answers: [
-        answer(1, { aliases: ["mobile-phone"] }),
-        answer(2, { aliases: ["mobile phone"] }),
-        ...Array.from({ length: 6 }, (_, index) => answer(index + 3)),
-      ],
-    });
-    expect(() => validateQuestionBank(records)).toThrow(QuestionBankValidationError);
-    expect(() => validateQuestionBank(records)).toThrow(/duplicate.*answer|alias/i);
+  it("contains curated families, aliases, and bounded accepted keys", () => {
+    expect(QUESTION_BANK.every((question) => question.answers.length >= 16)).toBe(true);
+
+    for (const question of QUESTION_BANK) {
+      for (const family of question.answers) {
+        expect(family.aliases.length).toBeGreaterThanOrEqual(2);
+        expect(acceptedKeysFor(family).size).toBeGreaterThanOrEqual(4);
+        expect(family.aliases.every((alias) => !/(?:choice|response)$/i.test(alias.trim()))).toBe(true);
+      }
+    }
   });
 
-  it("rejects answer distributions that do not total 100 percent", () => {
-    const records = catalog();
-    records[0] = record(1, {
-      answers: Array.from({ length: 8 }, (_, index) => answer(index + 1, { share: 5 })),
-    });
-    expect(() => validateQuestionBank(records)).toThrow(/100/i);
+  it("preserves positive shares, exact totals, and every rarity band", () => {
+    const bands = new Set<string>();
+
+    for (const question of QUESTION_BANK) {
+      expect(question.answers.every((family) => family.share > 0)).toBe(true);
+      expect(question.answers.reduce((total, family) => total + family.share, 0)).toBeCloseTo(100, 6);
+
+      for (const family of question.answers) {
+        bands.add(
+          family.share >= 30
+            ? "plankton"
+            : family.share >= 18
+              ? "tooclever"
+              : family.share >= 10
+                ? "schooler"
+                : family.share >= 5
+                  ? "rare"
+                  : family.share >= 2
+                    ? "deepcut"
+                    : "krillion",
+        );
+      }
+    }
+
+    expect(bands).toEqual(new Set(["plankton", "tooclever", "schooler", "rare", "deepcut", "krillion"]));
+  });
+
+  it("keeps the rocket family safe and explicit", () => {
+    const rocket = findQuestionById("history-014")?.answers.find((family) => family.label === "A rocket");
+
+    expect(rocket).toBeDefined();
+    expect(rocket?.aliases).toContain("launch vehicle");
+    expect(rocket?.aliases).not.toContain("rock");
   });
 
   it("never exposes the answer atlas in a public question", () => {
-    const [question] = validateQuestionBank(catalog());
-    const publicQuestion = toPublicQuestion(question);
-    expect(publicQuestion).toEqual({
-      id: question.id,
-      category: question.category,
-      prompt: question.prompt,
-    });
+    const question = findQuestionById("history-014");
+    expect(question).toBeDefined();
+
+    const publicQuestion = toPublicQuestion(question!);
+    expect(Object.keys(publicQuestion).sort()).toEqual(["category", "id", "prompt"]);
     expect(publicQuestion).not.toHaveProperty("answers");
+    expect(publicQuestion).not.toHaveProperty("aliases");
+    expect(publicQuestion).not.toHaveProperty("share");
+    expect(publicQuestion).not.toHaveProperty("insight");
   });
 });

@@ -45,10 +45,11 @@ export function FeedbackPanel({
         ? "TIME EXPIRED"
         : TIER_LABELS[result.tier];
   const submittedLabel = submittedAnswer.trim() || (outcome === "pass" ? "No answer" : "No signal");
+  const hasEarnedDepth = result.recognized && result.depthMetres > 0;
 
   return (
     <section
-      className={`feedback-panel tier-${result.tier} outcome-${outcome}`}
+      className={`feedback-panel tier-${result.tier} outcome-${outcome} ${hasEarnedDepth ? "has-depth-delta" : ""}`}
       role="status"
       aria-live="polite"
       aria-atomic="true"
@@ -63,18 +64,24 @@ export function FeedbackPanel({
       <p className="feedback-quip">{result.quip}</p>
       <div className="feedback-stats">
         <span>
-          <b>{result.crowdShare === null ? "--" : `${result.crowdShare}%`}</b>
+          <b className="telemetry-data">{result.crowdShare === null ? "--" : `${result.crowdShare}%`}</b>
           {result.crowdShare === null ? "SHARE" : "OF THE CROWD"}
         </span>
-        <span><b>+{result.score}</b> POINTS</span>
-        <span><b>{score}</b> TOTAL / {depthMetres}m</span>
+        <span><b className="telemetry-data">+{result.score}</b> POINTS</span>
+        <span><b className="telemetry-data">{score}</b> TOTAL / {depthMetres}m</span>
       </div>
+      <p
+        className={`feedback-depth-delta telemetry-data ${hasEarnedDepth ? "is-earned" : ""}`}
+        aria-label={`Earned depth ${result.depthMetres} metres`}
+      >
+        <b>+{result.depthMetres}m</b> DESCENT
+      </p>
       {result.commonAnswers.length > 0 ? (
         <div className="common-answers" aria-label="Common answers from this prompt">
           <span className="common-answers-title">COMMON SIGNALS</span>
           {result.commonAnswers.map((answer) => (
             <span className="common-answer" key={answer.label}>
-              <b>{answer.label}</b><small>{answer.share}%</small>
+              <b>{answer.label}</b><small className="telemetry-data">{answer.share}%</small>
             </span>
           ))}
         </div>

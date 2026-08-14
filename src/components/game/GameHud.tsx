@@ -36,7 +36,7 @@ export function GameHud({ state, mode }: GameHudProps) {
       <div className="hud-brand" aria-label="OMNIQUIZ">OMNIQUIZ</div>
       <div className="hud-meter hud-depth" aria-label="Current depth">
         <span>DEPTH</span>
-        <strong>{state.depthMetres}m</strong>
+        <strong className="telemetry-data">{state.depthMetres}m</strong>
       </div>
       <div
         className="hud-timer"
@@ -47,12 +47,12 @@ export function GameHud({ state, mode }: GameHudProps) {
       >
         <span>TIMER</span>
         <div className="hud-timer-dial" aria-hidden="true">
-          <strong>{remainingTime}</strong>
+          <strong className="telemetry-data">{remainingTime}</strong>
         </div>
       </div>
       <div className="hud-meter hud-score" aria-label="Current score">
         <span>SCORE</span>
-        <strong>{state.score}</strong>
+        <strong className="telemetry-data">{state.score}</strong>
       </div>
       <div
         className="hud-rounds"
@@ -63,14 +63,14 @@ export function GameHud({ state, mode }: GameHudProps) {
         aria-valuenow={completedRounds}
         aria-valuetext={progressText}
       >
-        <span className="hud-rounds-label">ROUND {state.questionIndex + 1} / {roundCount}</span>
+        <span className="hud-rounds-label telemetry-data">ROUND {state.questionIndex + 1} / {roundCount}</span>
         {visibleRounds.map((index) => (
           <span
             className={`hud-round-step ${index < completedRounds ? "is-complete" : ""} ${index === state.questionIndex ? "is-current" : ""}`}
             aria-hidden="true"
             key={index}
           >
-            <b>{index + 1}</b><i />
+            <b className="telemetry-data">{index + 1}</b><i />
           </span>
         ))}
       </div>

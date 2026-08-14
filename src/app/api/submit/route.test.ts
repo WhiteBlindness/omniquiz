@@ -48,6 +48,47 @@ describe("POST /api/submit", () => {
     });
   });
 
+  it.each(["rocket", "a rocket", "the rocket", "rockets", "launch vehicle"])(
+    "recognizes %s for history-014 through the server evaluator",
+    async (answer) => {
+      const response = await POST(
+        new Request("http://localhost/api/submit", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ questionId: "history-014", answer }),
+        }),
+      );
+      const body = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(body.data).toMatchObject({
+        recognized: true,
+        answerLabel: "A rocket",
+        tier: expect.any(String),
+        score: expect.any(Number),
+      });
+    },
+  );
+
+  it("keeps bare rock uncharted through the server evaluator", async () => {
+    const response = await POST(
+      new Request("http://localhost/api/submit", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ questionId: "history-014", answer: "rock" }),
+      }),
+    );
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.data).toMatchObject({
+      recognized: false,
+      tier: "uncharted",
+      score: 0,
+      depthMetres: 0,
+    });
+  });
+
   it("returns 400 for malformed JSON and invalid fields", async () => {
     const malformed = await POST(new Request("http://localhost/api/submit", { method: "POST", body: "not-json" }));
     const invalid = await POST(

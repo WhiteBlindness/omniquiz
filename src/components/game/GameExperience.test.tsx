@@ -56,12 +56,16 @@ const unchartedResult: SubmissionResult = Object.freeze({
 
 let submissionResult: SubmissionResult = answerResult;
 let submissionShouldHang = false;
+let submissionShouldResolveLate = false;
+let resolveLateSubmission: (() => void) | null = null;
 
 describe("GameExperience", () => {
   beforeEach(() => {
     vi.useFakeTimers();
     submissionResult = answerResult;
     submissionShouldHang = false;
+    submissionShouldResolveLate = false;
+    resolveLateSubmission = null;
     replaceRoute.mockReset();
     localStorage.clear();
     vi.stubGlobal(
@@ -83,6 +87,14 @@ describe("GameExperience", () => {
             });
           });
         }
+        if (submissionShouldResolveLate) {
+          return new Promise((resolve) => {
+            resolveLateSubmission = () => resolve({
+              ok: true,
+              json: async () => ({ success: true, data: submissionResult, error: null }),
+            });
+          });
+        }
         return Promise.resolve({
           ok: true,
           json: async () => ({ success: true, data: submissionResult, error: null }),
@@ -95,16 +107,18 @@ describe("GameExperience", () => {
     cleanup();
     vi.useRealTimers();
     vi.unstubAllGlobals();
+    resolveLateSubmission = null;
   });
 
   const startAnswering = async (mode: "daily" | "unlimited" = "daily") => {
-    render(<GameExperience mode={mode} />);
+    const view = render(<GameExperience mode={mode} />);
     await act(async () => {
       fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
     });
     await act(async () => {
       await vi.advanceTimersByTimeAsync(3_000);
     });
+    return view;
   };
 
   it("keeps the ocean launch and explains crowd rarity play", () => {
@@ -128,7 +142,7 @@ describe("GameExperience", () => {
   });
 
   it("shows share, points, depth, canonical label, and common comparisons", async () => {
-    await startAnswering();
+    const { container } = await startAnswering();
     const input = screen.getByPlaceholderText(/type one answer/i);
     fireEvent.change(input, { target: { value: "Gulf Stream" } });
 
@@ -139,13 +153,74 @@ describe("GameExperience", () => {
     expect(screen.getByRole("status")).toHaveTextContent(/rare catch/i);
     expect(screen.getByRole("status")).toHaveTextContent(/7\.5%/i);
     expect(screen.getByRole("status")).toHaveTextContent(/\+60.*points/i);
+    expect(screen.getByRole("status")).toHaveTextContent(/\+600m descent/i);
     expect(screen.getByRole("status")).toHaveTextContent(/common signals/i);
     expect(screen.getByRole("button", { name: /continue descent/i })).toHaveFocus();
+    expect(container.querySelector(".ocean-backdrop")).toHaveAttribute("data-descent", "active");
+    const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
+    expect(backdrop?.style.getPropertyValue("--descent-shift")).toMatch(/px$/);
+    expect(backdrop?.style.getPropertyValue("--descent-duration")).toMatch(/ms$/);
+  });
+
+  it("keeps the answer window actionable through the real final second", async () => {
+    await startAnswering();
+    const timer = screen.getByRole("timer");
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(13_500);
+    });
+    expect(timer).toHaveAttribute("aria-label", "2 seconds remaining");
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(499);
+    });
+    expect(timer).toHaveAttribute("aria-label", "2 seconds remaining");
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1);
+    });
+    expect(timer).toHaveAttribute("aria-label", "1 seconds remaining");
+    expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
+    expect(document.querySelector(".game-shell")).toHaveAttribute("data-phase", "answering");
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(999);
+    });
+    expect(timer).toHaveAttribute("aria-label", "1 seconds remaining");
+    expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1);
+    });
+    expect(screen.getByRole("status")).toHaveTextContent(/time expired/i);
+  });
+
+  it("accepts a submission clicked before the deadline when the response crosses it", async () => {
+    submissionShouldResolveLate = true;
+    await startAnswering();
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(14_000);
+    });
+    fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+      target: { value: "Gulf Stream" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(2_000);
+    });
+    expect(screen.queryByText(/time expired/i)).not.toBeInTheDocument();
+
+    await act(async () => {
+      resolveLateSubmission?.();
+      await Promise.resolve();
+    });
+    expect(screen.getByRole("status")).toHaveTextContent(/rare catch/i);
   });
 
   it("lets unlimited runs continue after an uncharted answer", async () => {
     submissionResult = unchartedResult;
-    await startAnswering("unlimited");
+    const { container } = await startAnswering("unlimited");
     fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
       target: { value: "purple quantum walrus" },
     });
@@ -154,6 +229,9 @@ describe("GameExperience", () => {
       fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
     });
     expect(screen.getByRole("status")).toHaveTextContent(/uncharted/i);
+    expect(container.querySelector(".ocean-backdrop")).toHaveAttribute("data-descent", "idle");
+    const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
+    expect(backdrop?.style.getPropertyValue("--descent-shift")).toBe("");
     fireEvent.click(screen.getByRole("button", { name: /continue descent/i }));
     expect(screen.getByText("Name a night habit.")).toBeVisible();
   });
@@ -193,5 +271,6 @@ describe("GameExperience", () => {
 
     expect(screen.getByRole("alert")).toHaveTextContent(/timed out/i);
     expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
+    expect(screen.getByRole("timer")).not.toHaveAttribute("aria-label", "15 seconds remaining");
   });
 });

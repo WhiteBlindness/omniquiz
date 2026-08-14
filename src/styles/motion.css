@@ -46,13 +46,62 @@
   50% { box-shadow: 0 0 18px rgba(255, 102, 127, 0.42); }
 }
 
+@keyframes camera-descent {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  42%, 72% { transform: translate3d(0, calc(-1 * var(--descent-shift)), 0); }
+}
+
+@keyframes descent-streak-cue {
+  0%, 100% { opacity: 0; transform: translate3d(0, 0, 0); }
+  24% { opacity: 0.82; transform: translate3d(0, -12px, 0); }
+  68% { opacity: 0.28; transform: translate3d(0, -34px, 0); }
+}
+
+@keyframes depth-confirm {
+  0% { opacity: 0.35; color: var(--paper); }
+  45% { opacity: 1; color: var(--cyan); }
+  100% { opacity: 1; color: var(--cyan); }
+}
+
+.feedback-depth-delta.is-earned {
+  animation: depth-confirm 480ms steps(2, end) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+  html { scroll-behavior: auto !important; }
+
+  .chromatic-title,
+  .prompt-card,
+  .feedback-panel,
+  .summary-panel,
+  .tutorial-rules,
+  .fish,
+  .particle,
+  .krill-marker,
+  .hud-timer[data-urgency="critical"] .hud-timer-dial {
+    animation: none !important;
+  }
+
+  .mission-panorama,
+  .sky-layer,
+  .water-layer,
+  .current-depth-marker,
+  .answer-progress span {
+    transition: none !important;
+  }
+
+  .ocean-world[data-descent="active"] {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .descent-streak-field,
+  .ocean-world[data-descent="active"] .descent-streak-field {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .feedback-depth-delta.is-earned {
+    animation: depth-confirm 280ms steps(2, end) both;
   }
 }

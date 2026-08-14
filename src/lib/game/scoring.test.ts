@@ -4,6 +4,7 @@ import {
   evaluateSubmission,
   rarityForCrowdShare,
 } from "./scoring";
+import { findQuestionById } from "../questions/catalog";
 import type { Question } from "../questions/types";
 
 const question: Question = Object.freeze({
@@ -72,5 +73,33 @@ describe("crowd-rarity scoring", () => {
     const before = JSON.stringify(question);
     evaluateSubmission(question, "phone");
     expect(JSON.stringify(question)).toBe(before);
+  });
+
+  it.each(["rocket", "a rocket", "the rocket", "rockets", "launch vehicle"])(
+    "recognizes the bounded rocket surface %s",
+    (answer) => {
+      const rocketQuestion = findQuestionById("history-014");
+      expect(rocketQuestion).toBeDefined();
+
+      expect(evaluateSubmission(rocketQuestion!, answer)).toMatchObject({
+        recognized: true,
+        answerLabel: "A rocket",
+        crowdShare: expect.any(Number),
+        tier: expect.not.stringMatching("uncharted"),
+        score: expect.any(Number),
+      });
+    },
+  );
+
+  it("keeps bare rock uncharted for the rocket prompt", () => {
+    const rocketQuestion = findQuestionById("history-014");
+    expect(rocketQuestion).toBeDefined();
+
+    expect(evaluateSubmission(rocketQuestion!, "rock")).toMatchObject({
+      recognized: false,
+      tier: "uncharted",
+      score: 0,
+      depthMetres: 0,
+    });
   });
 });

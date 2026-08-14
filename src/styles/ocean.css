@@ -1,4 +1,5 @@
 .ocean-backdrop,
+.ocean-world,
 .mission-panorama,
 .sky-layer,
 .surface-glow,
@@ -16,6 +17,11 @@
   z-index: -1;
   overflow: hidden;
   background: #020914;
+}
+
+.ocean-world {
+  z-index: 0;
+  overflow: hidden;
   filter: saturate(calc(1 - var(--depth-factor) * 0.32));
 }
 
@@ -133,6 +139,34 @@
 .particle:nth-child(2n) {
   width: 3px;
   height: 3px;
+}
+
+.descent-streak-field {
+  z-index: 4;
+  opacity: 0;
+}
+
+.descent-streak {
+  position: absolute;
+  display: block;
+  width: 2px;
+  border-left: 1px solid rgba(143, 231, 241, 0.62);
+  background: rgba(91, 226, 239, 0.2);
+  opacity: 0;
+  transform: scaleY(0.45);
+  transform-origin: center top;
+}
+
+.ocean-world[data-descent="active"] {
+  animation: camera-descent var(--descent-duration) cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ocean-world[data-descent="active"] .descent-streak-field {
+  animation: descent-streak-cue var(--descent-duration) ease-out both;
+}
+
+.ocean-world[data-descent="active"] .descent-streak {
+  opacity: 1;
 }
 
 .krill-marker {

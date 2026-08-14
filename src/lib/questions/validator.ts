@@ -4,9 +4,12 @@ import {
   type Category,
   type Question,
 } from "./types";
-import { normalizeAnswer } from "./normalize";
+import { answerKeys, normalizeAnswer } from "./normalize";
 
-export const MINIMUM_QUESTION_COUNT = 30;
+export const MINIMUM_QUESTION_COUNT = 120;
+export const MINIMUM_FAMILY_COUNT = 16;
+export const MINIMUM_ALIAS_COUNT = 2;
+export const MINIMUM_ACCEPTED_KEY_COUNT = 4;
 const QUESTION_ID_PATTERN = /^(general|science|geography|history)-\d{3}$/;
 const SHARE_TOLERANCE = 0.000_001;
 
@@ -35,36 +38,48 @@ const freezeAnswerFamily = (
   candidate: Record<string, unknown>,
   questionId: string,
   answerIndex: number,
-  usedAnswers: Set<string>,
+  usedKeys: Map<string, number>,
 ): AnswerFamily => {
   const label = requireText(
     candidate.label,
     `record ${questionId} answer ${answerIndex} has an invalid label`,
   );
-  const normalizedLabel = normalizeAnswer(label);
-  if (usedAnswers.has(normalizedLabel)) {
-    fail(`record ${questionId} has duplicate normalized answer or alias ${label}`);
-  }
-  usedAnswers.add(normalizedLabel);
-
   const inputAliases = Array.isArray(candidate.aliases)
     ? candidate.aliases
     : fail(`record ${questionId} answer ${answerIndex} must have aliases`);
-  if (inputAliases.length === 0) {
-    fail(`record ${questionId} answer ${answerIndex} must have at least one alias`);
+  if (inputAliases.length < MINIMUM_ALIAS_COUNT) {
+    fail(
+      `record ${questionId} answer ${answerIndex} must have at least ${MINIMUM_ALIAS_COUNT} aliases`,
+    );
   }
   const aliases = inputAliases.map((alias: unknown, aliasIndex: number) => {
     const aliasText = requireText(
       alias,
       `record ${questionId} answer ${answerIndex} alias ${aliasIndex + 1} is invalid`,
     );
-    const normalizedAlias = normalizeAnswer(aliasText);
-    if (usedAnswers.has(normalizedAlias)) {
-      fail(`record ${questionId} has duplicate normalized answer or alias ${aliasText}`);
+    if (/(?:choice|response)$/i.test(aliasText.trim())) {
+      fail(`record ${questionId} answer ${answerIndex} has a synthetic alias ${aliasText}`);
     }
-    usedAnswers.add(normalizedAlias);
     return aliasText;
   });
+
+  const acceptedKeys = new Set(
+    [label, ...aliases].flatMap((surface) => answerKeys(surface)),
+  );
+  if (acceptedKeys.size < MINIMUM_ACCEPTED_KEY_COUNT) {
+    fail(
+      `record ${questionId} answer ${answerIndex} must have at least ${MINIMUM_ACCEPTED_KEY_COUNT} distinct accepted keys`,
+    );
+  }
+  for (const key of acceptedKeys) {
+    const owner = usedKeys.get(key);
+    if (owner !== undefined) {
+      fail(
+        `record ${questionId} has expanded answer-key collision for ${key} between answers ${owner} and ${answerIndex}`,
+      );
+    }
+    usedKeys.set(key, answerIndex);
+  }
 
   const share =
     typeof candidate.share === "number" &&
@@ -128,15 +143,17 @@ export const validateQuestionBank = (records: unknown): readonly Question[] => {
     const inputAnswers = Array.isArray(answers)
       ? answers
       : fail(`record ${validId} must have answer families`);
-    if (inputAnswers.length < 8) {
-      fail(`record ${validId} must have at least 8 answer families`);
+    if (inputAnswers.length < MINIMUM_FAMILY_COUNT) {
+      fail(
+        `record ${validId} must have at least ${MINIMUM_FAMILY_COUNT} answer families`,
+      );
     }
-    const usedAnswers = new Set<string>();
+    const usedKeys = new Map<string, number>();
     const frozenAnswers = inputAnswers.map((answer, answerIndex) => {
       const answerRecord = isRecord(answer)
         ? answer
         : fail(`record ${validId} answer ${answerIndex + 1} is not an object`);
-      return freezeAnswerFamily(answerRecord, validId, answerIndex + 1, usedAnswers);
+      return freezeAnswerFamily(answerRecord, validId, answerIndex + 1, usedKeys);
     });
     const totalShare = frozenAnswers.reduce(
       (total: number, answer: AnswerFamily) => total + answer.share,

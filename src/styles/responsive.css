@@ -30,7 +30,7 @@
   }
 
   .global-controls {
-    top: max(0.55rem, env(safe-area-inset-top));
+    top: max(0.45rem, env(safe-area-inset-top));
     right: max(0.5rem, env(safe-area-inset-right));
     gap: 0.3rem;
   }
@@ -89,7 +89,7 @@
     justify-content: flex-end;
     flex-direction: column;
     gap: clamp(1.25rem, 4vh, 2.5rem);
-    padding: max(4.25rem, env(safe-area-inset-top) + 3.5rem) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+    padding: max(5.5rem, env(safe-area-inset-top) + 4.5rem) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
   }
 
   .brand-stage {
@@ -159,8 +159,6 @@
 
   .tutorial-rules {
     gap: 0.42rem;
-    max-height: 24vh;
-    overflow-y: auto;
     padding-bottom: 0.75rem;
     font-size: 0.56rem;
   }
@@ -196,9 +194,10 @@
       "depth rounds timer score"
       "meta meta meta meta";
     grid-template-columns: 56px minmax(0, 1fr) 50px 56px;
-    grid-template-rows: 28px 52px 14px;
+    grid-template-rows: 44px 52px 14px;
     gap: 0.25rem;
-    padding: max(0.35rem, env(safe-area-inset-top)) 0.45rem 0.35rem;
+    min-height: calc(8rem + env(safe-area-inset-top));
+    padding: max(0.45rem, env(safe-area-inset-top)) 0.45rem 0.35rem;
     border-right: 0;
     border-bottom: 1px solid rgba(91, 226, 239, 0.28);
     background: rgba(2, 10, 21, 0.92);
@@ -214,10 +213,13 @@
 
   .hud-brand {
     align-self: center;
+    max-width: calc(100% - 6.25rem);
     padding: 0;
+    padding-right: 0.25rem;
     border: 0;
     font-size: 0.82rem;
     letter-spacing: 0.01em;
+    white-space: nowrap;
   }
 
   .hud-meter {
@@ -298,7 +300,7 @@
 
   .feed-plate,
   .timecode-plate {
-    top: 160px;
+    top: calc(8rem + env(safe-area-inset-top) + 0.35rem);
     min-height: 24px;
     padding: 0.35rem 0.45rem;
     font-size: 0.43rem;
@@ -455,19 +457,10 @@
   .chromatic-title { font-size: 2.85rem; }
   .mode-title { margin-top: 0.7rem; }
   .landing-console { padding: 0.55rem; }
-  .tutorial-rules { max-height: 20vh; }
   .prompt-zone { padding-top: 0.65rem; padding-bottom: 0.65rem; }
   .prompt-card h1, .feedback-panel h1 { font-size: 1.18rem; }
   .feedback-quip { line-height: 1.35; }
   .dive-form { grid-template-columns: minmax(0, 1fr) 45px 45px; }
   .dive-form input { font-size: 0.69rem; }
   .dive-submit, .dive-pass { font-size: 0.52rem; }
-}
-
-@media (max-height: 680px) and (max-width: 700px) {
-  .game-layer { min-height: 540px; }
-  .game-hud { padding-top: max(3rem, env(safe-area-inset-top) + 2.7rem); }
-  .prompt-zone { padding-top: 0.55rem; padding-bottom: 0.55rem; }
-  .prompt-card, .feedback-panel { padding: 0.75rem; }
-  .rarity-hint, .prompt-category { margin-top: 0.5rem; }
 }

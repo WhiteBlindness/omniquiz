@@ -27,31 +27,31 @@ export function GameSummary({
       <h1 id="summary-title">{mode === "unlimited" ? "UNLIMITED DIVE COMPLETE" : "DIVE COMPLETE"}</h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>
-        <strong>{score}</strong>
+        <strong className="telemetry-data">{score}</strong>
         <small>points earned from recognizable rarity</small>
       </div>
       <div className="summary-depth">
         <span>YOU REACHED</span>
-        <b>{depthMetres}m</b>
+        <b className="telemetry-data">{depthMetres}m</b>
       </div>
       {mode === "daily" ? (
         <div className="summary-percentile">
           <span>EST. SCORE PERCENTILE</span>
-          <b>P{String(estimatedPercentile).padStart(2, "0")}</b>
+          <b className="telemetry-data">P{String(estimatedPercentile).padStart(2, "0")}</b>
           <small>against the 700-point daily ceiling</small>
         </div>
       ) : null}
-      <p className="summary-stats">
+      <p className="summary-stats telemetry-data">
         BEST LOG {stats.bestScore} · RUNS {stats.runs} · RECOGNIZED {stats.recognized}
       </p>
       <div className="summary-log" aria-label="Dive log">
         <div className="summary-log-heading"><span>DIVE LOG</span><small>{roundLog.length} ROUNDS</small></div>
         {roundLog.map((entry, index) => (
           <div className="summary-log-entry" key={`${entry.questionId}-${index}`}>
-            <span className="summary-log-round">{String(index + 1).padStart(2, "0")}</span>
+            <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
             <div>
               <strong>{entry.answerLabel}</strong>
-              <small>
+              <small className="telemetry-data">
                 {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
               </small>
             </div>

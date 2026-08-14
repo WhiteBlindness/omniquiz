@@ -34,7 +34,7 @@ export function DiveForm({ state, onAnswer, onSubmit, onPass }: DiveFormProps) {
       aria-keyshortcuts="Enter"
     >
       {isCritical ? (
-        <p className="timer-urgency" role="status" aria-live={urgencyLiveMode} aria-atomic="true">
+        <p className="timer-urgency telemetry-data" role="status" aria-live={urgencyLiveMode} aria-atomic="true">
           {state.remainingSeconds} seconds left
         </p>
       ) : null}

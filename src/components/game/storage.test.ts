@@ -54,10 +54,29 @@ describe("crowd dive persistence", () => {
       type: "RESTORE_PROGRESS",
       progress: recovered,
     });
-    const timedOut = gameReducer(restored, { type: "ANSWER_TICK" });
+    const timedOut = gameReducer(restored, { type: "TIME_EXPIRED" });
 
     expect(recovered).toMatchObject({ phase: "answering", remainingSeconds: 1 });
     expect(timedOut).toMatchObject({ phase: "feedback", lastOutcome: "timeout", score: 30 });
+  });
+
+  it("reconstructs restored answer time from the saved absolute interval", () => {
+    const recovered = recoverPersistedProgress(baseProgress, 2_500);
+
+    expect(recovered).toMatchObject({
+      phase: "answering",
+      remainingSeconds: 3,
+      savedAt: 2_500,
+    });
+  });
+
+  it("keeps restored preview time aligned to elapsed seconds", () => {
+    const recovered = recoverPersistedProgress(
+      { ...baseProgress, phase: "preview", previewSeconds: 3, savedAt: 1_000 },
+      2_500,
+    );
+
+    expect(recovered).toMatchObject({ phase: "preview", previewSeconds: 2, savedAt: 2_500 });
   });
 
   it("preserves a live timer and resets unsafe submitting state", () => {

@@ -55,7 +55,7 @@ export type GameAction =
   | { type: "LOAD_QUESTIONS"; questions: readonly PublicQuestion[] }
   | { type: "LOAD_FAILED"; error: string }
   | { type: "PREVIEW_TICK" }
-  | { type: "ANSWER_TICK" }
+  | { type: "SYNC_REMAINING"; remainingSeconds: number }
   | { type: "SET_ANSWER"; answer: string }
   | { type: "SUBMIT_START" }
   | { type: "SUBMIT_RESOLVED"; result: SubmissionResult }
@@ -205,11 +205,16 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
           })
         : Object.freeze({ ...state, previewSeconds: state.previewSeconds - 1 });
 
-    case "ANSWER_TICK":
-      if (state.phase !== "answering") return state;
-      return state.remainingSeconds <= 1
-        ? gameReducer(state, { type: "TIME_EXPIRED" })
-        : Object.freeze({ ...state, remainingSeconds: state.remainingSeconds - 1 });
+    case "SYNC_REMAINING":
+      if (state.phase !== "answering" && state.phase !== "submitting") return state;
+      if (!Number.isFinite(action.remainingSeconds)) return state;
+      return Object.freeze({
+        ...state,
+        remainingSeconds: Math.max(
+          1,
+          Math.min(ANSWER_SECONDS, Math.ceil(action.remainingSeconds)),
+        ),
+      });
 
     case "SET_ANSWER":
       if (state.phase !== "answering") return state;
@@ -224,6 +229,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
       return completeRound(state, action.result, "answer");
 
     case "SUBMIT_FAILED":
+      if (state.phase !== "submitting") return state;
       return Object.freeze({ ...state, phase: "answering" as const, error: action.error });
 
     case "PASS_QUESTION":
@@ -272,7 +278,10 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
         score: Math.max(0, progress.score ?? 0),
         depthMetres: Math.max(0, progress.depthMetres ?? 0),
         answer: progress.answer ?? "",
-        remainingSeconds: Math.max(0, progress.remainingSeconds ?? ANSWER_SECONDS),
+        remainingSeconds:
+          phase === "answering" || phase === "submitting"
+            ? Math.max(1, Math.min(ANSWER_SECONDS, progress.remainingSeconds ?? ANSWER_SECONDS))
+            : Math.max(0, progress.remainingSeconds ?? ANSWER_SECONDS),
         previewSeconds: Math.max(0, progress.previewSeconds ?? 0),
         lastResult: phase === "feedback" ? lastResult : null,
         lastOutcome: phase === "feedback" ? progress.lastOutcome ?? "answer" : null,

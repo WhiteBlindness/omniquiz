@@ -86,9 +86,14 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   const mountedRef = useRef(true);
   const unlimitedRunRef = useRef<number | null>(null);
   const stateRef = useRef(state);
+  const statsRef = useRef(stats);
   const expireQuestionRef = useRef<() => void>(() => undefined);
+  const answerDeadlineRef = useRef<number | null>(null);
+  const answerTimerRef = useRef<number | null>(null);
+  const expirationStartedRef = useRef(false);
   const { theme, toggleTheme } = useAppState();
   const { muted, toggleMute, play, sfx } = useSoundFx();
+  const sfxRef = useRef(sfx);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -183,42 +188,112 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   );
 
   const expireQuestion = useCallback(() => {
-    if (state.phase !== "answering") return;
+    const latestState = stateRef.current;
+    if (latestState.phase !== "answering" || expirationStartedRef.current) return;
+
+    expirationStartedRef.current = true;
+    answerDeadlineRef.current = null;
 
     dispatch({ type: "TIME_EXPIRED" });
+    const statsForRun = statsRef.current;
     const nextStats = Object.freeze({
-      ...stats,
-      rounds: stats.rounds + 1,
+      ...statsForRun,
+      rounds: statsForRun.rounds + 1,
     });
-    sfx.uncharted();
+    statsRef.current = nextStats;
+    sfxRef.current.uncharted();
     setStats(nextStats);
-  }, [sfx, state.phase, stats]);
+  }, []);
 
   useEffect(() => {
     stateRef.current = state;
+    statsRef.current = stats;
+    sfxRef.current = sfx;
     expireQuestionRef.current = expireQuestion;
-  }, [expireQuestion, state]);
+  }, [expireQuestion, sfx, state, stats]);
 
   useEffect(() => {
-    if (state.phase !== "preview" && state.phase !== "answering") return undefined;
+    if (state.phase !== "preview") return undefined;
 
     const timer = window.setInterval(() => {
-      const latestState = stateRef.current;
-      if (latestState.phase === "preview") {
-        dispatch({ type: "PREVIEW_TICK" });
-      } else if (latestState.phase === "answering" && latestState.remainingSeconds <= 1) {
-        expireQuestionRef.current();
-      } else if (latestState.phase === "answering") {
-        dispatch({ type: "ANSWER_TICK" });
-      }
+      if (stateRef.current.phase === "preview") dispatch({ type: "PREVIEW_TICK" });
     }, 1_000);
 
     return () => window.clearInterval(timer);
   }, [state.phase]);
 
+  useEffect(() => {
+    if (state.phase !== "answering" && state.phase !== "submitting") {
+      if (answerTimerRef.current !== null) {
+        window.clearTimeout(answerTimerRef.current);
+        answerTimerRef.current = null;
+      }
+      answerDeadlineRef.current = null;
+      expirationStartedRef.current = false;
+      return undefined;
+    }
+
+    const now = Date.now();
+    let deadline = answerDeadlineRef.current;
+    if (deadline === null) {
+      deadline = now + Math.max(1, stateRef.current.remainingSeconds) * 1_000;
+      answerDeadlineRef.current = deadline;
+      expirationStartedRef.current = false;
+    } else if (state.phase === "answering" && deadline <= now) {
+      // A failed request can return after the original window. Preserve only
+      // the currently actionable final second; never restart a full window.
+      deadline = now + 1_000;
+      answerDeadlineRef.current = deadline;
+      expirationStartedRef.current = false;
+      if (stateRef.current.remainingSeconds !== 1) {
+        dispatch({ type: "SYNC_REMAINING", remainingSeconds: 1 });
+      }
+    }
+
+    const syncAnswerClock = () => {
+      const latestState = stateRef.current;
+      if (latestState.phase !== "answering" && latestState.phase !== "submitting") return;
+
+      const remainingMilliseconds = deadline! - Date.now();
+      if (remainingMilliseconds <= 0) {
+        answerTimerRef.current = null;
+        if (latestState.phase === "answering") {
+          expireQuestionRef.current();
+        } else if (latestState.remainingSeconds !== 1) {
+          dispatch({ type: "SYNC_REMAINING", remainingSeconds: 1 });
+        }
+        return;
+      }
+
+      const nextSeconds = Math.max(1, Math.ceil(remainingMilliseconds / 1_000));
+      if (nextSeconds !== latestState.remainingSeconds) {
+        dispatch({ type: "SYNC_REMAINING", remainingSeconds: nextSeconds });
+      }
+
+      const nextBoundary = remainingMilliseconds - Math.max(0, nextSeconds - 1) * 1_000;
+      answerTimerRef.current = window.setTimeout(
+        syncAnswerClock,
+        Math.max(1, Math.min(remainingMilliseconds, nextBoundary)),
+      );
+    };
+
+    syncAnswerClock();
+
+    return () => {
+      if (answerTimerRef.current !== null) {
+        window.clearTimeout(answerTimerRef.current);
+        answerTimerRef.current = null;
+      }
+    };
+  }, [state.phase]);
+
   const submitAnswer = useCallback(async () => {
     const question = state.questions[state.questionIndex];
     if (state.phase !== "answering" || !question || !state.answer.trim()) return;
+    if (answerDeadlineRef.current !== null && Date.now() >= answerDeadlineRef.current) {
+      expireQuestionRef.current();
+      return;
+    }
 
     dispatch({ type: "SUBMIT_START" });
     sfx.submit();
@@ -262,6 +337,10 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
   const passQuestion = useCallback(() => {
     if (state.phase !== "answering") return;
+    if (answerDeadlineRef.current !== null && Date.now() >= answerDeadlineRef.current) {
+      expireQuestionRef.current();
+      return;
+    }
 
     dispatch({ type: "PASS_QUESTION" });
     const nextStats = Object.freeze({
@@ -284,6 +363,14 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   }, [finalizeRun, state.phase, state.questionIndex, state.questions.length, state.score]);
 
   const setAnswer = useCallback((answer: string) => {
+    if (
+      stateRef.current.phase === "answering" &&
+      answerDeadlineRef.current !== null &&
+      Date.now() >= answerDeadlineRef.current
+    ) {
+      expireQuestionRef.current();
+      return;
+    }
     dispatch({ type: "SET_ANSWER", answer });
   }, []);
 

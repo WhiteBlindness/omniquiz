@@ -183,15 +183,31 @@ export const recoverPersistedProgress = (
   if (progress.phase === "submitting") {
     return Object.freeze({ ...progress, phase: "answering", savedAt: now });
   }
-  if (progress.phase === "answering" && elapsed >= progress.remainingSeconds * 1_000) {
-    return Object.freeze({ ...progress, remainingSeconds: 1, savedAt: now });
-  }
-  if (progress.phase === "preview" && elapsed >= progress.previewSeconds * 1_000) {
+  if (progress.phase === "answering") {
+    const remainingMilliseconds = progress.remainingSeconds * 1_000 - elapsed;
+    if (remainingMilliseconds <= 0) {
+      return Object.freeze({ ...progress, remainingSeconds: 1, savedAt: now });
+    }
     return Object.freeze({
       ...progress,
-      phase: "answering",
-      previewSeconds: 0,
-      remainingSeconds: Math.max(1, progress.remainingSeconds),
+      remainingSeconds: Math.max(1, Math.ceil(remainingMilliseconds / 1_000)),
+      savedAt: now,
+    });
+  }
+  if (progress.phase === "preview") {
+    const previewMilliseconds = progress.previewSeconds * 1_000 - elapsed;
+    if (previewMilliseconds <= 0) {
+      return Object.freeze({
+        ...progress,
+        phase: "answering",
+        previewSeconds: 0,
+        remainingSeconds: Math.max(1, progress.remainingSeconds),
+        savedAt: now,
+      });
+    }
+    return Object.freeze({
+      ...progress,
+      previewSeconds: Math.max(1, Math.ceil(previewMilliseconds / 1_000)),
       savedAt: now,
     });
   }

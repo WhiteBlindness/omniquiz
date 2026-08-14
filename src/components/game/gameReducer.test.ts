@@ -82,6 +82,25 @@ describe("gameReducer", () => {
     expect(answering.phase).toBe("answering");
   });
 
+  it("synchronizes displayed seconds without allowing sync to expire the round", () => {
+    const answering = toAnswering("daily");
+    const almostDone = gameReducer(answering, {
+      type: "SYNC_REMAINING",
+      remainingSeconds: 1,
+    });
+    const clamped = gameReducer(almostDone, {
+      type: "SYNC_REMAINING",
+      remainingSeconds: 0,
+    });
+
+    expect(almostDone).toMatchObject({ phase: "answering", remainingSeconds: 1 });
+    expect(clamped).toMatchObject({ phase: "answering", remainingSeconds: 1 });
+    expect(gameReducer(clamped, { type: "TIME_EXPIRED" })).toMatchObject({
+      phase: "feedback",
+      lastOutcome: "timeout",
+    });
+  });
+
   it("adds only positive score/depth and freezes an explainable round log", () => {
     const answering = toAnswering("daily");
     const withAnswer = gameReducer(answering, { type: "SET_ANSWER", answer: "Gulf Stream" });

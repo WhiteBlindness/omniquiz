@@ -904,6 +904,34 @@
   font-weight: 400;
 }
 
+.feedback-depth-delta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin: 0.9rem 0 0;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(91, 226, 239, 0.36);
+  background: rgba(8, 28, 45, 0.58);
+  color: var(--cyan);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.feedback-depth-delta b {
+  color: var(--coral);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.feedback-depth-delta:not(.is-earned) {
+  border-color: var(--line);
+  color: var(--drift);
+}
+
+.feedback-depth-delta:not(.is-earned) b {
+  color: var(--drift);
+}
+
 .common-answers {
   display: grid;
   gap: 0.42rem;

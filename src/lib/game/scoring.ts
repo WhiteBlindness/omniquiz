@@ -1,4 +1,4 @@
-import { normalizeAnswer } from "../questions/normalize";
+import { answerKeys, normalizeAnswer } from "../questions/normalize";
 import type { Question, RarityTier } from "../questions/types";
 
 export const METRES_PER_POINT = 10;
@@ -71,10 +71,11 @@ export const evaluateSubmission = (
 ): SubmissionResult => {
   const submittedAnswer = typeof answer === "string" ? answer.trim() : "";
   const normalizedAnswer = normalizeAnswer(submittedAnswer);
+  const submittedKeys = new Set(answerKeys(submittedAnswer));
   const matchedFamily = normalizedAnswer
     ? question.answers.find((family) =>
-        [family.label, ...family.aliases].some(
-          (candidate) => normalizeAnswer(candidate) === normalizedAnswer,
+        [family.label, ...family.aliases].some((candidate) =>
+          answerKeys(candidate).some((key) => submittedKeys.has(key)),
         ),
       )
     : undefined;

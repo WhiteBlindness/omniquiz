@@ -107,6 +107,16 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     : "7 prompts · 15 seconds each · rarer recognizable answers sink deeper";
   const isLastRound = state.questionIndex + 1 >= state.questions.length;
   const feedbackResult = state.phase === "feedback" ? state.lastResult : null;
+  const descentMetres =
+    feedbackResult &&
+    state.lastOutcome === "answer" &&
+    feedbackResult.recognized &&
+    feedbackResult.depthMetres > 0
+      ? feedbackResult.depthMetres
+      : 0;
+  const descentEventKey = descentMetres > 0
+    ? `${state.questionIndex}-${state.depthMetres}-${descentMetres}`
+    : undefined;
   const rules = mode === "unlimited" ? ARCADE_RULES : DAILY_RULES;
   const diveLabel = mode === "unlimited"
     ? dayLabel ? `ARCADE / UTC DAY ${dayLabel}` : "ARCADE RUN #1"
@@ -143,7 +153,12 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       data-phase={state.phase}
       data-theme={theme}
     >
-      <OceanBackdrop depthMetres={state.depthMetres} mode={mode} />
+      <OceanBackdrop
+        depthMetres={state.depthMetres}
+        mode={mode}
+        descentMetres={descentMetres}
+        descentEventKey={descentEventKey}
+      />
 
       <aside className="global-controls" aria-label="Display and sound controls">
         <ThemeControl
@@ -272,7 +287,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           aria-labelledby={feedbackResult ? "feedback-title" : "current-prompt"}
         >
           <div className="feed-plate" aria-hidden="true">CAM 01 · ROV FEED</div>
-          <div className="timecode-plate" aria-hidden="true">
+          <div className="timecode-plate telemetry-data" aria-hidden="true">
             TC 00:00:00:{String(state.remainingSeconds).padStart(2, "0")}
           </div>
           <GameHud state={state} mode={mode} />

@@ -45,11 +45,23 @@ For every broad prompt, the server compares a player's free-text answer with a c
 
 ### Implementation contract
 
-- `src/data/questions.json` is the versioned source of prompt atlases.
-- `src/lib/questions/validator.ts` rejects malformed atlases, duplicate normalized answers/aliases, invalid shares, and catalogs too small to supply a full run.
+- `scripts/atlas/` is the maintainable versioned source of prompt atlases; `src/data/questions.json` is its deterministic compiled artifact.
+- `src/lib/questions/validator.ts` rejects malformed atlases, duplicate expanded answer keys across families, invalid shares, and catalogs too small to supply a full run.
 - `src/lib/game/scoring.ts` owns the single crowd-share-to-rarity mapping and evaluates aliases without mutating catalog data.
 - `/api/questions` exposes only public prompt fields; `/api/submit` returns the matched result and post-answer comparison data.
 - The reducer records immutable round results and accumulates only positive score/depth.
+
+### Durable answer-atlas contract
+
+- The production atlas contains at least 120 broad prompts, balanced across General, Science, Geography, and History with at least 30 prompts per category.
+- Existing stable prompt IDs are preserved; new prompts use sequential IDs. Category source data lives in maintainable versioned modules and is deterministically compiled into `src/data/questions.json`.
+- Every prompt contains at least 16 genuinely reasonable answer families. Every family has at least two curated aliases and at least four distinct accepted normalized surface keys after label, aliases, article variants, and safe singular/plural variants are combined.
+- Answer matching is bounded and exact-token based: case, accents, punctuation, spacing, leading `a`/`an`/`the`, and conservative singular/plural variants may converge, but substring, edit-distance, fuzzy, semantic, and head-word matching are out of scope.
+- Expanded keys must not collide across different families within a prompt. Equivalent forms within one family may be deduplicated.
+- `history-014` keeps canonical label `A rocket`, explicitly recognizes `launch vehicle`, recognizes `rocket`, `a rocket`, `the rocket`, and `rockets`, and does not recognize bare `rock`.
+- All shares are positive and total exactly 100 per prompt; the database preserves all six rarity bands and does not claim live polling.
+- `/api/questions` remains limited to `id`, `category`, and `prompt`; labels, aliases, shares, and insights remain server-only and `/api/submit` remains the evaluation boundary.
+- Daily and unlimited selection, state, scoring, UI, storage, and the existing answer-length/API validation remain unchanged.
 
 ### Non-goals
 
