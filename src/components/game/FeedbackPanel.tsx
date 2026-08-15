@@ -50,6 +50,7 @@ export function FeedbackPanel({
   return (
     <section
       className={`feedback-panel tier-${result.tier} outcome-${outcome} ${hasEarnedDepth ? "has-depth-delta" : ""}`}
+      data-feedback-delay={hasEarnedDepth ? "180ms" : undefined}
       role="status"
       aria-live="polite"
       aria-atomic="true"

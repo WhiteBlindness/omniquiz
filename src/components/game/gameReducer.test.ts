@@ -94,7 +94,7 @@ describe("gameReducer", () => {
     });
 
     expect(almostDone).toMatchObject({ phase: "answering", remainingSeconds: 1 });
-    expect(clamped).toMatchObject({ phase: "answering", remainingSeconds: 1 });
+    expect(clamped).toMatchObject({ phase: "answering", remainingSeconds: 0 });
     expect(gameReducer(clamped, { type: "TIME_EXPIRED" })).toMatchObject({
       phase: "feedback",
       lastOutcome: "timeout",

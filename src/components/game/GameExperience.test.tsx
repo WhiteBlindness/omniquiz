@@ -6,7 +6,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import type { SubmissionResult } from "../../lib/game/scoring";
 import type { PublicQuestion } from "../../lib/questions/types";
+import { getUtcDateKey } from "../../lib/questions/date";
 import { SUBMISSION_TIMEOUT_MS } from "../../hooks/useGameLoop";
+import { PROGRESS_STORAGE_KEY } from "./storage";
 import { GameExperience } from "./GameExperience";
 
 const { replaceRoute } = vi.hoisted(() => ({ replaceRoute: vi.fn() }));
@@ -160,6 +162,38 @@ describe("GameExperience", () => {
     const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
     expect(backdrop?.style.getPropertyValue("--descent-shift")).toMatch(/px$/);
     expect(backdrop?.style.getPropertyValue("--descent-duration")).toMatch(/ms$/);
+    expect(screen.getByRole("status")).toHaveAttribute("data-feedback-delay", "180ms");
+  });
+
+  it("requests the current daily UTC identity without a browser cache", async () => {
+    await startAnswering();
+
+    const questionsRequest = vi.mocked(fetch).mock.calls.find(([input]) =>
+      String(input).includes("/api/questions"),
+    );
+    expect(questionsRequest?.[0]).toContain(`date=${getUtcDateKey()}`);
+    expect(questionsRequest?.[1]).toMatchObject({ cache: "no-store" });
+  });
+
+  it("shows a smooth 13.5-second progress value from the absolute deadline", async () => {
+    const { container } = await startAnswering();
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(13_500);
+    });
+
+    expect(container.querySelector(".hud-timer-dial")?.getAttribute("style")).toContain(
+      "--timer-progress: 0.1",
+    );
+    expect(container.querySelector(".timecode-plate")).toHaveTextContent("WINDOW T-00:01.5");
+    expect(container.querySelector(".answer-progress span")?.getAttribute("style")).toContain(
+      "scaleX(0.1)",
+    );
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(100);
+    });
+    expect(container.querySelector(".timecode-plate")).toHaveTextContent("WINDOW T-00:01.4");
   });
 
   it("keeps the answer window actionable through the real final second", async () => {
@@ -179,14 +213,14 @@ describe("GameExperience", () => {
     await act(async () => {
       await vi.advanceTimersByTimeAsync(1);
     });
-    expect(timer).toHaveAttribute("aria-label", "1 seconds remaining");
+    expect(timer).toHaveAttribute("aria-label", "1 second remaining");
     expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
     expect(document.querySelector(".game-shell")).toHaveAttribute("data-phase", "answering");
 
     await act(async () => {
       await vi.advanceTimersByTimeAsync(999);
     });
-    expect(timer).toHaveAttribute("aria-label", "1 seconds remaining");
+    expect(timer).toHaveAttribute("aria-label", "1 second remaining");
     expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
 
     await act(async () => {
@@ -272,5 +306,51 @@ describe("GameExperience", () => {
     expect(screen.getByRole("alert")).toHaveTextContent(/timed out/i);
     expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
     expect(screen.getByRole("timer")).not.toHaveAttribute("aria-label", "15 seconds remaining");
+  });
+
+  it("resyncs the absolute deadline immediately after visibility resumes", async () => {
+    const { container } = await startAnswering();
+    const suspendedAt = Date.now();
+
+    vi.setSystemTime(suspendedAt + 4_000);
+    await act(async () => {
+      document.dispatchEvent(new Event("visibilitychange"));
+    });
+
+    expect(container.querySelector(".timecode-plate")).toHaveTextContent("WINDOW T-00:11.0");
+    expect(screen.getByRole("timer")).toHaveAttribute("aria-label", "11 seconds remaining");
+  });
+
+  it("times out an expired restored answering record without showing a fresh window", async () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({
+        version: 3,
+        mode: "daily",
+        dailyDate: getUtcDateKey(),
+        phase: "answering",
+        questions: [question, secondQuestion],
+        questionIndex: 0,
+        score: 0,
+        depthMetres: 0,
+        answer: "",
+        remainingSeconds: 0,
+        previewSeconds: 0,
+        lastResult: null,
+        lastOutcome: null,
+        roundLog: [],
+        savedAt: 0,
+      }),
+    );
+
+    render(<GameExperience mode="daily" />);
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(screen.getByRole("status")).toHaveTextContent(/time expired/i);
+    expect(screen.getByRole("timer")).toHaveAttribute("aria-label", "Answer window closed");
+    expect(screen.queryByPlaceholderText(/type one answer/i)).not.toBeInTheDocument();
   });
 });

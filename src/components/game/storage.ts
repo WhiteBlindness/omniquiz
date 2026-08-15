@@ -1,9 +1,10 @@
 import type { PublicQuestion } from "../../lib/questions/types";
 import { CATEGORIES, RARITY_TIERS } from "../../lib/questions/types";
+import { getUtcDateKey, isIsoDate } from "../../lib/questions/date";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import type { GameMode, GameOutcome, GamePhase, GameState, RoundLog } from "./gameReducer";
 
-export const PROGRESS_STORAGE_KEY = "omniquiz-progress-v2";
+export const PROGRESS_STORAGE_KEY = "omniquiz-progress-v3";
 export const PREFERENCES_STORAGE_KEY = "omniquiz-preferences-v1";
 export const THEME_STORAGE_KEY = "omniquiz-theme-v1";
 export const STATS_STORAGE_KEY = "omniquiz-stats-v2";
@@ -11,8 +12,9 @@ export const STATS_STORAGE_KEY = "omniquiz-stats-v2";
 type PersistedPhase = Exclude<GamePhase, "loading" | "error">;
 
 export type PersistedProgress = Readonly<{
-  version: 2;
+  version: 3;
   mode: GameMode;
+  dailyDate: string | null;
   phase: PersistedPhase;
   questions?: readonly PublicQuestion[];
   questionIndex: number;
@@ -48,6 +50,11 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 const isMode = (value: unknown): value is GameMode =>
   value === "daily" || value === "unlimited";
+
+const isDailyDate = (value: unknown, mode: GameMode): value is string | null =>
+  mode === "daily"
+    ? typeof value === "string" && isIsoDate(value)
+    : value === null;
 
 const isPhase = (value: unknown): value is PersistedPhase =>
   value === "intro" ||
@@ -122,7 +129,8 @@ const freezeRoundLog = (entry: RoundLog): RoundLog =>
   });
 
 const parseProgress = (value: unknown): PersistedProgress | null => {
-  if (!isRecord(value) || value.version !== 2 || !isMode(value.mode)) return null;
+  if (!isRecord(value) || value.version !== 3 || !isMode(value.mode)) return null;
+  if (!isDailyDate(value.dailyDate, value.mode)) return null;
   if (!isPhase(value.phase)) return null;
   if (
     !isNumber(value.questionIndex) ||
@@ -158,8 +166,9 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
   }
 
   return Object.freeze({
-    version: 2,
+    version: 3,
     mode: value.mode,
+    dailyDate: value.dailyDate,
     phase: value.phase,
     questions,
     questionIndex: value.questionIndex,
@@ -186,11 +195,11 @@ export const recoverPersistedProgress = (
   if (progress.phase === "answering") {
     const remainingMilliseconds = progress.remainingSeconds * 1_000 - elapsed;
     if (remainingMilliseconds <= 0) {
-      return Object.freeze({ ...progress, remainingSeconds: 1, savedAt: now });
+      return Object.freeze({ ...progress, remainingSeconds: 0, savedAt: now });
     }
     return Object.freeze({
       ...progress,
-      remainingSeconds: Math.max(1, Math.ceil(remainingMilliseconds / 1_000)),
+      remainingSeconds: Math.ceil(remainingMilliseconds / 1_000),
       savedAt: now,
     });
   }
@@ -216,8 +225,11 @@ export const recoverPersistedProgress = (
 
 export const toPersistedProgress = (state: GameState, now = Date.now()): PersistedProgress =>
   Object.freeze({
-    version: 2,
+    version: 3,
     mode: state.mode,
+    dailyDate: state.mode === "daily"
+      ? state.dailyDate ?? getUtcDateKey(now)
+      : null,
     phase: state.phase === "loading" || state.phase === "error" ? "intro" : state.phase,
     questions: Object.freeze(state.questions.map((question) => Object.freeze({ ...question }))),
     questionIndex: state.questionIndex,
@@ -232,12 +244,17 @@ export const toPersistedProgress = (state: GameState, now = Date.now()): Persist
     savedAt: now,
   });
 
-export const readProgress = (mode: GameMode): PersistedProgress | null => {
+export const readProgress = (
+  mode: GameMode,
+  dailyDate = getUtcDateKey(),
+): PersistedProgress | null => {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.localStorage.getItem(PROGRESS_STORAGE_KEY);
     const parsed = parseProgress(raw ? JSON.parse(raw) : null);
-    return parsed?.mode === mode ? recoverPersistedProgress(parsed) : null;
+    if (parsed?.mode !== mode) return null;
+    if (mode === "daily" && parsed.dailyDate !== dailyDate) return null;
+    return recoverPersistedProgress(parsed);
   } catch {
     return null;
   }

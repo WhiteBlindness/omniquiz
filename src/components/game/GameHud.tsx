@@ -1,11 +1,62 @@
-import type { GameMode, GameState } from "./gameReducer";
+import type { CSSProperties } from "react";
+
+import { ANSWER_SECONDS, type GameMode, type GamePhase, type GameState } from "./gameReducer";
 
 type GameHudProps = Readonly<{
   state: GameState;
   mode: GameMode;
+  remainingMilliseconds: number;
 }>;
 
-export function GameHud({ state, mode }: GameHudProps) {
+const TIMER_DURATION_MS = ANSWER_SECONDS * 1_000;
+
+type TimerWindowState = "armed" | "open" | "closed";
+
+const getTimerWindowState = (
+  phase: GamePhase,
+  remainingMilliseconds: number,
+): TimerWindowState => {
+  if (phase === "preview") return "armed";
+  if (
+    (phase === "answering" || phase === "submitting") &&
+    remainingMilliseconds > 0
+  ) {
+    return "open";
+  }
+  return "closed";
+};
+
+const getRemainingSeconds = (remainingMilliseconds: number): number =>
+  Math.max(0, Math.ceil(Math.max(0, remainingMilliseconds) / 1_000));
+
+const getTimerProgress = (
+  timerState: TimerWindowState,
+  remainingMilliseconds: number,
+): number => {
+  if (timerState === "armed") return 1;
+  if (timerState === "closed") return 0;
+  return Math.min(1, Math.max(0, remainingMilliseconds / TIMER_DURATION_MS));
+};
+
+const formatWindowTime = (remainingMilliseconds: number): string => {
+  const tenths = Math.max(0, Math.ceil(remainingMilliseconds / 100));
+  const seconds = Math.floor(tenths / 10);
+  return `WINDOW T-00:${String(seconds).padStart(2, "0")}.${tenths % 10}`;
+};
+
+export const getWindowLabel = (
+  phase: GamePhase,
+  remainingMilliseconds: number,
+): string => {
+  const timerState = getTimerWindowState(phase, remainingMilliseconds);
+  return timerState === "armed"
+    ? "WINDOW ARMED"
+    : timerState === "closed"
+      ? "WINDOW CLOSED"
+      : formatWindowTime(remainingMilliseconds);
+};
+
+export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
   const roundCount = state.questions.length || 7;
   const label = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
   const currentQuestion = state.questions[state.questionIndex] ?? null;
@@ -28,8 +79,16 @@ export function GameHud({ state, mode }: GameHudProps) {
     (_, index) => firstVisibleRound + index,
   );
   const progressText = `${completedRounds} of ${roundCount} prompts logged`;
-  const remainingTime = String(state.remainingSeconds).padStart(2, "0");
-  const isUrgent = state.phase === "answering" && state.remainingSeconds <= 5;
+  const timerState = getTimerWindowState(state.phase, remainingMilliseconds);
+  const remainingSeconds = getRemainingSeconds(remainingMilliseconds);
+  const remainingTime = String(remainingSeconds).padStart(2, "0");
+  const timerProgress = getTimerProgress(timerState, remainingMilliseconds);
+  const timerLabel = timerState === "open"
+    ? `${remainingSeconds} ${remainingSeconds === 1 ? "second" : "seconds"} remaining`
+    : timerState === "armed"
+      ? "Answer window armed"
+      : "Answer window closed";
+  const isUrgent = timerState === "open" && remainingSeconds <= 5;
 
   return (
     <header className="game-hud" aria-label="Dive telemetry">
@@ -42,12 +101,20 @@ export function GameHud({ state, mode }: GameHudProps) {
         className="hud-timer"
         role="timer"
         aria-live="off"
-        aria-label={`${state.remainingSeconds} seconds remaining`}
+        aria-label={timerLabel}
         data-urgency={isUrgent ? "critical" : "normal"}
+        data-window-state={timerState}
       >
         <span>TIMER</span>
-        <div className="hud-timer-dial" aria-hidden="true">
-          <strong className="telemetry-data">{remainingTime}</strong>
+        <div
+          className="hud-timer-dial"
+          aria-hidden="true"
+          style={{ "--timer-progress": timerProgress } as CSSProperties}
+        >
+          <span className="hud-timer-dial-core" />
+          <strong className="telemetry-data">
+            {timerState === "open" ? remainingTime : timerState.toUpperCase()}
+          </strong>
         </div>
       </div>
       <div className="hud-meter hud-score" aria-label="Current score">

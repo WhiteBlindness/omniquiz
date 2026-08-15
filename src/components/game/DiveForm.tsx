@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { FormEvent } from "react";
+import type { CSSProperties } from "react";
 
 import { ANSWER_SECONDS, type GameState } from "./gameReducer";
 
@@ -8,9 +9,16 @@ type DiveFormProps = Readonly<{
   onAnswer: (answer: string) => void;
   onSubmit: () => void;
   onPass: () => void;
+  remainingMilliseconds: number;
 }>;
 
-export function DiveForm({ state, onAnswer, onSubmit, onPass }: DiveFormProps) {
+export function DiveForm({
+  state,
+  onAnswer,
+  onSubmit,
+  onPass,
+  remainingMilliseconds,
+}: DiveFormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -22,8 +30,10 @@ export function DiveForm({ state, onAnswer, onSubmit, onPass }: DiveFormProps) {
     onSubmit();
   };
 
-  const isCritical = state.phase === "answering" && state.remainingSeconds <= 5;
-  const urgencyLiveMode = state.remainingSeconds === 5 ? "polite" : "off";
+  const remainingSeconds = Math.max(0, Math.ceil(Math.max(0, remainingMilliseconds) / 1_000));
+  const progress = Math.min(1, Math.max(0, remainingMilliseconds / (ANSWER_SECONDS * 1_000)));
+  const isCritical = state.phase === "answering" && remainingMilliseconds > 0 && remainingSeconds <= 5;
+  const urgencyLiveMode = remainingSeconds === 5 ? "polite" : "off";
 
   return (
     <form
@@ -35,7 +45,7 @@ export function DiveForm({ state, onAnswer, onSubmit, onPass }: DiveFormProps) {
     >
       {isCritical ? (
         <p className="timer-urgency telemetry-data" role="status" aria-live={urgencyLiveMode} aria-atomic="true">
-          {state.remainingSeconds} seconds left
+          {remainingSeconds} {remainingSeconds === 1 ? "second" : "seconds"} left
         </p>
       ) : null}
       <label className="sr-only" htmlFor="answer-input">Your answer</label>
@@ -63,7 +73,12 @@ export function DiveForm({ state, onAnswer, onSubmit, onPass }: DiveFormProps) {
         PASS
       </button>
       <div className="answer-progress" aria-hidden="true">
-        <span style={{ transform: `scaleX(${Math.max(0, state.remainingSeconds / ANSWER_SECONDS)})` }} />
+        <span
+          style={{
+            transform: `scaleX(${progress})`,
+            "--timer-progress": progress,
+          } as CSSProperties}
+        />
       </div>
       {state.error ? <p className="form-error" role="alert">{state.error}</p> : null}
     </form>

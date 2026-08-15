@@ -9,10 +9,10 @@ type OceanBackdropProps = Readonly<{
 
 const DESCENT_MIN_METRES = 100;
 const DESCENT_MAX_METRES = 1_000;
-const DESCENT_MIN_SHIFT = 28;
-const DESCENT_MAX_SHIFT = 104;
-const DESCENT_MIN_DURATION = 420;
-const DESCENT_MAX_DURATION = 720;
+const DESCENT_MIN_SHIFT = 120;
+const DESCENT_MAX_SHIFT = 320;
+const DESCENT_MIN_DURATION = 850;
+const DESCENT_MAX_DURATION = 1_350;
 
 const DESCENT_STREAKS = [
   { left: "16%", top: "37%", height: "30px" },
@@ -21,6 +21,27 @@ const DESCENT_STREAKS = [
   { left: "58%", top: "64%", height: "38px" },
   { left: "72%", top: "42%", height: "52px" },
   { left: "86%", top: "69%", height: "26px" },
+] as const;
+
+const DESCENT_VELOCITY_LINES = [
+  { left: "3%", top: "-8%", height: "24vh", delay: "-80ms" },
+  { left: "9%", top: "17%", height: "16vh", delay: "-240ms" },
+  { left: "15%", top: "54%", height: "30vh", delay: "-420ms" },
+  { left: "21%", top: "-12%", height: "19vh", delay: "-140ms" },
+  { left: "27%", top: "28%", height: "26vh", delay: "-540ms" },
+  { left: "33%", top: "67%", height: "18vh", delay: "-300ms" },
+  { left: "39%", top: "-6%", height: "32vh", delay: "-680ms" },
+  { left: "45%", top: "41%", height: "21vh", delay: "-360ms" },
+  { left: "51%", top: "76%", height: "24vh", delay: "-180ms" },
+  { left: "57%", top: "9%", height: "18vh", delay: "-620ms" },
+  { left: "63%", top: "58%", height: "31vh", delay: "-260ms" },
+  { left: "69%", top: "-10%", height: "22vh", delay: "-460ms" },
+  { left: "75%", top: "34%", height: "27vh", delay: "-760ms" },
+  { left: "81%", top: "71%", height: "17vh", delay: "-100ms" },
+  { left: "87%", top: "14%", height: "29vh", delay: "-580ms" },
+  { left: "93%", top: "48%", height: "20vh", delay: "-320ms" },
+  { left: "6%", top: "83%", height: "14vh", delay: "-700ms" },
+  { left: "96%", top: "79%", height: "15vh", delay: "-200ms" },
 ] as const;
 
 const FISH = [
@@ -47,6 +68,7 @@ const PARTICLES = [
 export const getDescentMotion = (earnedDepthMetres: number): Readonly<{
   shift: number;
   duration: number;
+  intensity: number;
 }> => {
   const safeDepth = Number.isFinite(earnedDepthMetres) ? Math.max(0, earnedDepthMetres) : 0;
   const ratio = Math.min(
@@ -61,6 +83,7 @@ export const getDescentMotion = (earnedDepthMetres: number): Readonly<{
     duration: Math.round(
       DESCENT_MIN_DURATION + ratio * (DESCENT_MAX_DURATION - DESCENT_MIN_DURATION),
     ),
+    intensity: Number(ratio.toFixed(3)),
   });
 };
 
@@ -84,6 +107,7 @@ export function OceanBackdrop({
       ? {
           "--descent-shift": `${descentMotion.shift}px`,
           "--descent-duration": `${descentMotion.duration}ms`,
+          "--descent-intensity": descentMotion.intensity,
         }
       : {}),
   } as CSSProperties;
@@ -96,6 +120,23 @@ export function OceanBackdrop({
       data-descent={hasDescent ? "active" : "idle"}
       style={style}
     >
+      {hasDescent ? (
+        <div className="descent-velocity-field" aria-hidden="true">
+          {DESCENT_VELOCITY_LINES.map((line) => (
+            <span
+              className="descent-velocity"
+              key={`${line.left}-${line.top}`}
+              style={{
+                left: line.left,
+                top: line.top,
+                height: line.height,
+                animationDelay: line.delay,
+              }}
+            />
+          ))}
+        </div>
+      ) : null}
+      {hasDescent ? <div className="descent-pressure-flash" aria-hidden="true" /> : null}
       <div
         className="ocean-world"
         data-descent={hasDescent ? "active" : "idle"}

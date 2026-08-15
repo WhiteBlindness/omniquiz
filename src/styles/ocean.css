@@ -7,7 +7,9 @@
 .surface-line,
 .scanlines,
 .fish-field,
-.particle-field {
+.particle-field,
+.descent-velocity-field,
+.descent-pressure-flash {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -23,6 +25,11 @@
   z-index: 0;
   overflow: hidden;
   filter: saturate(calc(1 - var(--depth-factor) * 0.32));
+}
+
+.ocean-world[data-descent="active"] {
+  top: -320px;
+  bottom: -320px;
 }
 
 .mission-panorama {
@@ -146,6 +153,30 @@
   opacity: 0;
 }
 
+.descent-velocity-field {
+  z-index: 4;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.descent-velocity {
+  position: absolute;
+  display: block;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, transparent, rgba(194, 248, 255, 0.9) 28%, rgba(91, 226, 239, 0.18));
+  opacity: 0.84;
+  transform: translate3d(0, 0, 0) scaleY(0.72);
+  transform-origin: center center;
+}
+
+.descent-pressure-flash {
+  z-index: 5;
+  background: radial-gradient(circle at 50% 54%, rgba(91, 226, 239, 0.42), rgba(11, 54, 75, 0.1) 45%, transparent 76%);
+  opacity: 0;
+  transform: scale(1);
+}
+
 .descent-streak {
   position: absolute;
   display: block;
@@ -158,11 +189,23 @@
 }
 
 .ocean-world[data-descent="active"] {
-  animation: camera-descent var(--descent-duration) cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: camera-descent var(--descent-duration) cubic-bezier(0.77, 0, 0.175, 1) both;
 }
 
 .ocean-world[data-descent="active"] .descent-streak-field {
   animation: descent-streak-cue var(--descent-duration) ease-out both;
+}
+
+.ocean-backdrop[data-descent="active"] .descent-velocity-field {
+  animation: descent-velocity-field var(--descent-duration) cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.ocean-backdrop[data-descent="active"] .descent-velocity {
+  animation: descent-velocity-field var(--descent-duration) cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.ocean-backdrop[data-descent="active"] .descent-pressure-flash {
+  animation: descent-pressure var(--descent-duration) ease-out both;
 }
 
 .ocean-world[data-descent="active"] .descent-streak {

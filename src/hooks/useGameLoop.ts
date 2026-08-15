@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 
 import { CATEGORIES, type Category, type PublicQuestion } from "../lib/questions/types";
+import { getUtcDateKey, isIsoDate } from "../lib/questions/date";
 import {
   ARCADE_QUESTION_COUNT,
   DAILY_QUESTION_COUNT,
@@ -90,14 +91,18 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   const expireQuestionRef = useRef<() => void>(() => undefined);
   const answerDeadlineRef = useRef<number | null>(null);
   const answerTimerRef = useRef<number | null>(null);
+  const answerIntervalRef = useRef<number | null>(null);
+  const syncAnswerClockRef = useRef<() => void>(() => undefined);
   const expirationStartedRef = useRef(false);
+  const [remainingMilliseconds, setRemainingMilliseconds] = useState(0);
   const { theme, toggleTheme } = useAppState();
   const { muted, toggleMute, play, sfx } = useSoundFx();
   const sfxRef = useRef(sfx);
 
   useEffect(() => {
     mountedRef.current = true;
-    const progress = readProgress(mode);
+    const dailyDate = mode === "daily" ? getUtcDateKey() : undefined;
+    const progress = readProgress(mode, dailyDate);
     if (progress) dispatch({ type: "RESTORE_PROGRESS", progress });
     let hydrationCancelled = false;
     queueMicrotask(() => {
@@ -137,6 +142,8 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         limit: String(mode === "unlimited" ? ARCADE_QUESTION_COUNT : DAILY_QUESTION_COUNT),
         mode,
       });
+      const requestedDailyDate = mode === "daily" ? getUtcDateKey() : null;
+      if (requestedDailyDate) query.set("date", requestedDailyDate);
       if (mode === "unlimited") {
         const run = unlimitedRunRef.current ?? Math.max(1, readStats().runs + 1);
         unlimitedRunRef.current = run;
@@ -145,6 +152,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       }
       const response = await fetch(`/api/questions?${query.toString()}`, {
         headers: { Accept: "application/json" },
+        cache: "no-store",
       });
       const questions = await getApiData<unknown>(response);
       if (!Array.isArray(questions) || !questions.every(isPublicQuestion)) {
@@ -158,7 +166,19 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       if (serverDayLabel && /^\d{3}$/.test(serverDayLabel)) {
         setDayLabel(serverDayLabel);
       }
-      dispatch({ type: "LOAD_QUESTIONS", questions });
+      const serverDate =
+        typeof response.headers?.get === "function"
+          ? response.headers.get("x-omniquiz-date")
+          : null;
+      dispatch({
+        type: "LOAD_QUESTIONS",
+        questions,
+        dailyDate: mode === "daily"
+          ? serverDate && isIsoDate(serverDate)
+            ? serverDate
+            : requestedDailyDate
+          : null,
+      });
       sfx.start();
     } catch (error) {
       if (!mountedRef.current) return;
@@ -193,6 +213,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
     expirationStartedRef.current = true;
     answerDeadlineRef.current = null;
+    setRemainingMilliseconds(0);
 
     dispatch({ type: "TIME_EXPIRED" });
     const statsForRun = statsRef.current;
@@ -228,6 +249,10 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         window.clearTimeout(answerTimerRef.current);
         answerTimerRef.current = null;
       }
+      if (answerIntervalRef.current !== null) {
+        window.clearInterval(answerIntervalRef.current);
+        answerIntervalRef.current = null;
+      }
       answerDeadlineRef.current = null;
       expirationStartedRef.current = false;
       return undefined;
@@ -236,54 +261,57 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     const now = Date.now();
     let deadline = answerDeadlineRef.current;
     if (deadline === null) {
-      deadline = now + Math.max(1, stateRef.current.remainingSeconds) * 1_000;
+      deadline = now + Math.max(0, stateRef.current.remainingSeconds) * 1_000;
       answerDeadlineRef.current = deadline;
       expirationStartedRef.current = false;
-    } else if (state.phase === "answering" && deadline <= now) {
-      // A failed request can return after the original window. Preserve only
-      // the currently actionable final second; never restart a full window.
-      deadline = now + 1_000;
-      answerDeadlineRef.current = deadline;
-      expirationStartedRef.current = false;
-      if (stateRef.current.remainingSeconds !== 1) {
-        dispatch({ type: "SYNC_REMAINING", remainingSeconds: 1 });
-      }
     }
 
     const syncAnswerClock = () => {
       const latestState = stateRef.current;
       if (latestState.phase !== "answering" && latestState.phase !== "submitting") return;
 
-      const remainingMilliseconds = deadline! - Date.now();
-      if (remainingMilliseconds <= 0) {
+      const nextRemainingMilliseconds = Math.max(0, deadline! - Date.now());
+      setRemainingMilliseconds(nextRemainingMilliseconds);
+      if (nextRemainingMilliseconds <= 0) {
         answerTimerRef.current = null;
         if (latestState.phase === "answering") {
           expireQuestionRef.current();
-        } else if (latestState.remainingSeconds !== 1) {
-          dispatch({ type: "SYNC_REMAINING", remainingSeconds: 1 });
+        } else if (latestState.remainingSeconds !== 0) {
+          dispatch({ type: "SYNC_REMAINING", remainingSeconds: 0 });
         }
         return;
       }
 
-      const nextSeconds = Math.max(1, Math.ceil(remainingMilliseconds / 1_000));
+      const nextSeconds = Math.ceil(nextRemainingMilliseconds / 1_000);
       if (nextSeconds !== latestState.remainingSeconds) {
         dispatch({ type: "SYNC_REMAINING", remainingSeconds: nextSeconds });
       }
-
-      const nextBoundary = remainingMilliseconds - Math.max(0, nextSeconds - 1) * 1_000;
-      answerTimerRef.current = window.setTimeout(
-        syncAnswerClock,
-        Math.max(1, Math.min(remainingMilliseconds, nextBoundary)),
-      );
     };
 
+    syncAnswerClockRef.current = syncAnswerClock;
     syncAnswerClock();
+    answerIntervalRef.current = window.setInterval(syncAnswerClock, 100);
+    answerTimerRef.current = window.setTimeout(
+      syncAnswerClock,
+      Math.max(0, deadline - Date.now()),
+    );
+    const resyncOnResume = () => syncAnswerClockRef.current();
+    document.addEventListener("visibilitychange", resyncOnResume);
+    window.addEventListener("pageshow", resyncOnResume);
+    window.addEventListener("focus", resyncOnResume);
 
     return () => {
       if (answerTimerRef.current !== null) {
         window.clearTimeout(answerTimerRef.current);
         answerTimerRef.current = null;
       }
+      if (answerIntervalRef.current !== null) {
+        window.clearInterval(answerIntervalRef.current);
+        answerIntervalRef.current = null;
+      }
+      document.removeEventListener("visibilitychange", resyncOnResume);
+      window.removeEventListener("pageshow", resyncOnResume);
+      window.removeEventListener("focus", resyncOnResume);
     };
   }, [state.phase]);
 
@@ -397,5 +425,6 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     resetDive,
     previewSeconds: PREVIEW_SECONDS,
     answerSeconds: ANSWER_SECONDS,
+    remainingMilliseconds,
   };
 };

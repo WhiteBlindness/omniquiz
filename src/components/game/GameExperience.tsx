@@ -10,7 +10,7 @@ import { AppStateProvider } from "../../state/AppStateProvider";
 import { OceanBackdrop } from "./OceanBackdrop";
 import { DiveForm } from "./DiveForm";
 import { FeedbackPanel } from "./FeedbackPanel";
-import { GameHud } from "./GameHud";
+import { GameHud, getWindowLabel } from "./GameHud";
 import { GameSummary } from "./GameSummary";
 import {
   getCurrentQuestion,
@@ -87,6 +87,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
   const {
     state,
     stats,
+    remainingMilliseconds,
     dayLabel,
     theme,
     muted,
@@ -288,9 +289,9 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
         >
           <div className="feed-plate" aria-hidden="true">CAM 01 · ROV FEED</div>
           <div className="timecode-plate telemetry-data" aria-hidden="true">
-            TC 00:00:00:{String(state.remainingSeconds).padStart(2, "0")}
+            {getWindowLabel(state.phase, remainingMilliseconds)}
           </div>
-          <GameHud state={state} mode={mode} />
+          <GameHud state={state} mode={mode} remainingMilliseconds={remainingMilliseconds} />
           <div className="prompt-zone">
             {feedbackResult ? (
               <FeedbackPanel
@@ -318,6 +319,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 void submitAnswer();
               }}
               onPass={passQuestion}
+              remainingMilliseconds={remainingMilliseconds}
             />
           ) : null}
 

@@ -47,14 +47,34 @@
 }
 
 @keyframes camera-descent {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  42%, 72% { transform: translate3d(0, calc(-1 * var(--descent-shift)), 0); }
+  from { transform: translate3d(0, var(--descent-shift), 0); }
+  to { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes descent-streak-cue {
-  0%, 100% { opacity: 0; transform: translate3d(0, 0, 0); }
-  24% { opacity: 0.82; transform: translate3d(0, -12px, 0); }
-  68% { opacity: 0.28; transform: translate3d(0, -34px, 0); }
+  from { opacity: 0; transform: translate3d(0, 24vh, 0) scaleY(0.6); }
+  18% { opacity: 0.94; }
+  to { opacity: 0; transform: translate3d(0, -34vh, 0) scaleY(1.18); }
+}
+
+@keyframes descent-velocity-field {
+  from { opacity: 0; transform: translate3d(0, 20vh, 0); }
+  14% { opacity: calc(0.52 + var(--descent-intensity) * 0.3); }
+  68% { opacity: calc(0.34 + var(--descent-intensity) * 0.25); }
+  to { opacity: 0; transform: translate3d(0, -22vh, 0); }
+}
+
+@keyframes descent-pressure {
+  from { opacity: 0; transform: scale(1.06); }
+  12% { opacity: calc(0.2 + var(--descent-intensity) * 0.34); transform: scale(1); }
+  44% { opacity: calc(0.08 + var(--descent-intensity) * 0.12); }
+  to { opacity: 0; transform: scale(1); }
+}
+
+@keyframes descent-pressure-reduced {
+  from { opacity: 0; transform: scale(1); }
+  35% { opacity: 0.42; }
+  to { opacity: 0; transform: scale(1); }
 }
 
 @keyframes depth-confirm {
@@ -101,7 +121,18 @@
     opacity: 0 !important;
   }
 
+  .descent-velocity-field,
+  .ocean-backdrop[data-descent="active"] .descent-velocity-field {
+    animation: none !important;
+    opacity: 0 !important;
+    transform: none !important;
+  }
+
+  .ocean-backdrop[data-descent="active"] .descent-pressure-flash {
+    animation: descent-pressure-reduced 200ms ease-out both;
+  }
+
   .feedback-depth-delta.is-earned {
-    animation: depth-confirm 280ms steps(2, end) both;
+    animation: depth-confirm 200ms steps(2, end) both;
   }
 }

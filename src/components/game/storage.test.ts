@@ -3,6 +3,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { SubmissionResult } from "../../lib/game/scoring";
+import { getUtcDateKey } from "../../lib/questions/date";
 import {
   PROGRESS_STORAGE_KEY,
   readProgress,
@@ -26,8 +27,9 @@ const lastResult: SubmissionResult = Object.freeze({
 });
 
 const baseProgress: PersistedProgress = {
-  version: 2,
+  version: 3,
   mode: "daily",
+  dailyDate: "2026-08-15",
   phase: "answering",
   questionIndex: 0,
   score: 30,
@@ -48,7 +50,7 @@ const baseProgress: PersistedProgress = {
 };
 
 describe("crowd dive persistence", () => {
-  it("keeps an expired answer actionable until timeout feedback is created", () => {
+  it("preserves an expired answer at zero so restoration can time out immediately", () => {
     const recovered = recoverPersistedProgress(baseProgress, 6_500);
     const restored = gameReducer(createInitialGameState("daily"), {
       type: "RESTORE_PROGRESS",
@@ -56,7 +58,8 @@ describe("crowd dive persistence", () => {
     });
     const timedOut = gameReducer(restored, { type: "TIME_EXPIRED" });
 
-    expect(recovered).toMatchObject({ phase: "answering", remainingSeconds: 1 });
+    expect(recovered).toMatchObject({ phase: "answering", remainingSeconds: 0 });
+    expect(restored).toMatchObject({ phase: "answering", remainingSeconds: 0 });
     expect(timedOut).toMatchObject({ phase: "feedback", lastOutcome: "timeout", score: 30 });
   });
 
@@ -109,7 +112,7 @@ describe("crowd dive persistence", () => {
       }),
     );
 
-    const progress = readProgress("daily");
+    const progress = readProgress("daily", "2026-08-15");
     expect(progress).toMatchObject({ phase: "feedback", lastResult });
     expect(Object.isFrozen(progress?.roundLog)).toBe(true);
     expect(Object.isFrozen(progress?.roundLog[0])).toBe(true);
@@ -124,7 +127,7 @@ describe("crowd dive persistence", () => {
         lastResult: { ...lastResult, tier: "not-a-tier" },
       }),
     );
-    expect(readProgress("daily")).toBeNull();
+    expect(readProgress("daily", "2026-08-15")).toBeNull();
   });
 
   it("restores a finished summary with its scored progress and log", () => {
@@ -138,7 +141,35 @@ describe("crowd dive persistence", () => {
         lastResult: null,
       }),
     );
-    expect(readProgress("daily")).toMatchObject({ phase: "summary", score: 145, depthMetres: 1_450 });
+    expect(readProgress("daily", "2026-08-15")).toMatchObject({ phase: "summary", score: 145, depthMetres: 1_450 });
+  });
+
+  it("restores a same-day daily run but rejects a progress record from the next UTC day", () => {
+    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(baseProgress));
+
+    expect(readProgress("daily", "2026-08-15")).toMatchObject({ dailyDate: "2026-08-15" });
+    expect(readProgress("daily", "2026-08-16")).toBeNull();
+  });
+
+  it("rejects the old v2 schema instead of restoring date-blind daily state", () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({ ...baseProgress, version: 2 }),
+    );
+
+    expect(readProgress("daily", "2026-08-15")).toBeNull();
+  });
+
+  it("keeps unlimited progress restorable without a daily date", () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({ ...baseProgress, mode: "unlimited", dailyDate: null }),
+    );
+
+    expect(readProgress("unlimited", getUtcDateKey(Date.UTC(2040, 0, 1)))).toMatchObject({
+      mode: "unlimited",
+      dailyDate: null,
+    });
   });
 
   it("reads and writes a valid theme preference", () => {
