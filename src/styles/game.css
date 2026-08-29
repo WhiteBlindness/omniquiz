@@ -438,8 +438,15 @@
   left: calc(clamp(14.5rem, 20vw, 18.5rem) + 1.25rem);
 }
 
+/*
+ * The desktop top-right chrome carries the Theme/Audio controls (.global-controls),
+ * whose labelled width varies. Anchor the timecode telemetry on its own line beneath
+ * that cluster so clearance depends on the control height (a stable 44px target),
+ * not on the label width. The <=700px top dock re-anchors both plates in responsive.css.
+ */
 .timecode-plate {
   right: clamp(9rem, 11vw, 10rem);
+  top: calc(max(1rem, env(safe-area-inset-top)) + 3.4rem);
 }
 
 .game-hud {

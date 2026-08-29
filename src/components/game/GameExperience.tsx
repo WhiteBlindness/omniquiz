@@ -125,18 +125,43 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
   const handleShare = useCallback(async () => {
     const shareText = `OMNIQUIZ ${mode === "unlimited" ? "arcade" : "daily"} dive: ${state.score} points, ${state.depthMetres}m deep.`;
-    try {
-      if (typeof navigator !== "undefined" && navigator.share) {
+    const flash = (label: string) => {
+      setShareLabel(label);
+      window.setTimeout(() => setShareLabel("SHARE DIVE LOG"), 1_800);
+    };
+    const canShare =
+      typeof navigator !== "undefined" && typeof navigator.share === "function";
+    const canCopy =
+      typeof navigator !== "undefined" &&
+      !!navigator.clipboard &&
+      typeof navigator.clipboard.writeText === "function";
+
+    if (canShare) {
+      try {
         await navigator.share({ title: "OMNIQUIZ", text: shareText });
-      } else if (typeof navigator !== "undefined" && navigator.clipboard) {
-        await navigator.clipboard.writeText(shareText);
+        flash("LOG SHARED");
+      } catch (error) {
+        // A dismissed native share sheet is a cancellation, not a failure.
+        if (error && typeof error === "object" && (error as { name?: string }).name === "AbortError") {
+          setShareLabel("SHARE DIVE LOG");
+        } else {
+          flash("SHARE UNAVAILABLE");
+        }
       }
-      setShareLabel("LOG COPIED");
-      window.setTimeout(() => setShareLabel("SHARE DIVE LOG"), 1_800);
-    } catch {
-      setShareLabel("SHARE UNAVAILABLE");
-      window.setTimeout(() => setShareLabel("SHARE DIVE LOG"), 1_800);
+      return;
     }
+
+    if (canCopy) {
+      try {
+        await navigator.clipboard.writeText(shareText);
+        flash("LOG COPIED");
+      } catch {
+        flash("SHARE UNAVAILABLE");
+      }
+      return;
+    }
+
+    flash("SHARE UNAVAILABLE");
   }, [mode, state.depthMetres, state.score]);
 
   const handleModeChange = useCallback(

@@ -145,4 +145,27 @@ test.describe("OMNIQUIZ crowd-rarity loop", () => {
       secondBody.data.map((question: { id: string }) => question.id),
     );
   });
+
+  test("desktop timecode telemetry clears the theme/audio control cluster", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/");
+    await page.getByRole("button", { name: /begin descent/i }).click();
+    await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 5_000 });
+
+    const timecode = await page.locator(".timecode-plate").boundingBox();
+    const controls = await page.locator(".global-controls").boundingBox();
+    expect(timecode).not.toBeNull();
+    expect(controls).not.toBeNull();
+
+    const overlaps =
+      timecode!.x < controls!.x + controls!.width &&
+      controls!.x < timecode!.x + timecode!.width &&
+      timecode!.y < controls!.y + controls!.height &&
+      controls!.y < timecode!.y + timecode!.height;
+    expect(overlaps).toBe(false);
+
+    const viewport = page.viewportSize()!;
+    expect(timecode!.x).toBeGreaterThanOrEqual(0);
+    expect(timecode!.x + timecode!.width).toBeLessThanOrEqual(viewport.width);
+  });
 });

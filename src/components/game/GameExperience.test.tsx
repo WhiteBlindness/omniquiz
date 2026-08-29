@@ -9,6 +9,7 @@ import type { PublicQuestion } from "../../lib/questions/types";
 import { getUtcDateKey } from "../../lib/questions/date";
 import { SUBMISSION_TIMEOUT_MS } from "../../hooks/useGameLoop";
 import { PROGRESS_STORAGE_KEY } from "./storage";
+import { PREVIEW_SECONDS } from "./gameReducer";
 import { GameExperience } from "./GameExperience";
 
 const { replaceRoute } = vi.hoisted(() => ({ replaceRoute: vi.fn() }));
@@ -352,5 +353,116 @@ describe("GameExperience", () => {
     expect(screen.getByRole("status")).toHaveTextContent(/time expired/i);
     expect(screen.getByRole("timer")).toHaveAttribute("aria-label", "Answer window closed");
     expect(screen.queryByPlaceholderText(/type one answer/i)).not.toBeInTheDocument();
+  });
+
+  describe("dive log sharing", () => {
+    const setNavigator = (props: Record<string, unknown>) => {
+      for (const [key, value] of Object.entries(props)) {
+        Object.defineProperty(navigator, key, { value, configurable: true, writable: true });
+      }
+    };
+
+    afterEach(() => {
+      for (const key of ["share", "clipboard"]) {
+        if (key in navigator) {
+          delete (navigator as unknown as Record<string, unknown>)[key];
+        }
+      }
+    });
+
+    // Play both mocked prompts through to the surfaced dive log where the share control lives.
+    const answerRound = async () => {
+      fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+        target: { value: "Gulf Stream" },
+      });
+      await act(async () => {
+        fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+      });
+    };
+
+    const reachSummary = async () => {
+      await startAnswering("daily");
+      await answerRound();
+      await act(async () => {
+        fireEvent.click(screen.getByRole("button", { name: /continue descent/i }));
+      });
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(PREVIEW_SECONDS * 1_000);
+      });
+      await answerRound();
+      await act(async () => {
+        fireEvent.click(screen.getByRole("button", { name: /surface with log/i }));
+      });
+      return screen.getByRole("button", { name: /share dive log/i });
+    };
+
+    it("reports a successful native share as shared, not copied", async () => {
+      const share = vi.fn().mockResolvedValue(undefined);
+      setNavigator({ share, clipboard: { writeText: vi.fn() } });
+      const shareButton = await reachSummary();
+
+      await act(async () => {
+        fireEvent.click(shareButton);
+      });
+
+      expect(share).toHaveBeenCalledTimes(1);
+      expect(share).toHaveBeenCalledWith({
+        title: "OMNIQUIZ",
+        text: expect.stringContaining("OMNIQUIZ daily dive:"),
+      });
+      expect(screen.getByRole("button", { name: /log shared/i })).toBeInTheDocument();
+    });
+
+    it("copies the dive summary and reports it when only the clipboard is available", async () => {
+      const writeText = vi.fn().mockResolvedValue(undefined);
+      setNavigator({ share: undefined, clipboard: { writeText } });
+      const shareButton = await reachSummary();
+
+      await act(async () => {
+        fireEvent.click(shareButton);
+      });
+
+      expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/OMNIQUIZ daily dive:.*points.*deep\./));
+      expect(screen.getByRole("button", { name: /log copied/i })).toBeInTheDocument();
+    });
+
+    it("does not claim success when neither share nor clipboard is available", async () => {
+      setNavigator({ share: undefined, clipboard: undefined });
+      const shareButton = await reachSummary();
+
+      await act(async () => {
+        fireEvent.click(shareButton);
+      });
+
+      expect(screen.getByRole("button", { name: /share unavailable/i })).toBeInTheDocument();
+      expect(screen.queryByRole("button", { name: /log (copied|shared)/i })).not.toBeInTheDocument();
+    });
+
+    it("reports a real native share failure as unavailable", async () => {
+      const share = vi.fn().mockRejectedValue(new Error("transport lost"));
+      setNavigator({ share, clipboard: undefined });
+      const shareButton = await reachSummary();
+
+      await act(async () => {
+        fireEvent.click(shareButton);
+      });
+
+      expect(screen.getByRole("button", { name: /share unavailable/i })).toBeInTheDocument();
+    });
+
+    it("treats a cancelled native share as a dismissal, not an unavailable capability", async () => {
+      const share = vi.fn().mockRejectedValue(
+        Object.assign(new Error("The user aborted a request."), { name: "AbortError" }),
+      );
+      setNavigator({ share, clipboard: undefined });
+      const shareButton = await reachSummary();
+
+      await act(async () => {
+        fireEvent.click(shareButton);
+      });
+
+      expect(screen.getByRole("button", { name: /share dive log/i })).toBeInTheDocument();
+      expect(screen.queryByRole("button", { name: /share unavailable/i })).not.toBeInTheDocument();
+    });
   });
 });
