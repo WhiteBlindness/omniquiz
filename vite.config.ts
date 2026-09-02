@@ -8,6 +8,7 @@ export default defineConfig({
       cache: { cdn: cdnAdapter() },
     }),
     cloudflare({
+      configPath: "wrangler.build.jsonc",
       viteEnvironment: {
         name: "rsc",
         childEnvironments: ["ssr"],

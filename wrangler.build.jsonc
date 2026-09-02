@@ -5,16 +5,12 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "build": {
-    "command": "npm run build:vinext"
-  },
-  "main": "dist/server/index.js",
+  "main": "vinext/server/fetch-handler",
   "assets": {
     "directory": "dist/client",
     "not_found_handling": "none",
     "binding": "ASSETS"
   },
-  "no_bundle": true,
   "cache": {
     "enabled": true
   },
