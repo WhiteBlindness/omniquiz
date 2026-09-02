@@ -47,5 +47,8 @@
     "vitest": "^4.1.10",
     "wrangler": "^4.128.0"
   },
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
 }
