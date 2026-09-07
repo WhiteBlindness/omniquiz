@@ -309,3 +309,25 @@
 .game-shell[data-theme="light"] .mission-panorama {
   filter: brightness(calc(1.1 - var(--depth-factor) * 0.24)) saturate(calc(0.92 - var(--depth-factor) * 0.16));
 }
+
+.game-shell[data-theme="light"] .fish {
+  background: rgba(6, 37, 51, 0.42);
+}
+
+.game-shell[data-theme="light"] .fish::before {
+  border-right-color: rgba(6, 37, 51, 0.42);
+}
+
+.game-shell[data-theme="light"] .particle {
+  background: rgba(8, 127, 150, 0.48);
+}
+
+.game-shell[data-theme="light"] .surface-glow {
+  background: rgba(8, 127, 150, 0.08);
+  box-shadow: inset 0 18px 55px rgba(8, 127, 150, 0.1);
+}
+
+.game-shell[data-theme="light"] .surface-line {
+  background: rgba(8, 54, 68, 0.22);
+  box-shadow: 0 4px 0 rgba(8, 54, 68, 0.14), 0 0 20px rgba(8, 127, 150, 0.12);
+}
