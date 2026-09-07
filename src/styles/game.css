@@ -471,6 +471,59 @@
   );
 }
 
+.game-shell[data-theme="light"] .launch-rail nav a {
+  background: rgba(213, 233, 233, 0.68);
+}
+
+.game-shell[data-theme="light"] .tutorial-rules {
+  color: var(--drift);
+}
+
+.game-shell[data-theme="light"] .tutorial-console {
+  border-color: var(--line);
+}
+
+.game-shell[data-theme="light"] .answer-progress {
+  background: rgba(8, 127, 150, 0.12);
+}
+
+.game-shell[data-theme="light"] .answer-progress span {
+  background: var(--cyan);
+}
+
+.game-shell[data-theme="light"] .common-answers {
+  border-top-color: var(--line);
+}
+
+.game-shell[data-theme="light"] .common-answer b {
+  color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .feedback-stats b {
+  color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .feedback-panel h1 {
+  color: var(--cyan);
+}
+
+.game-shell[data-theme="light"] .tier-plankton h1,
+.game-shell[data-theme="light"] .tier-tooclever h1,
+.game-shell[data-theme="light"] .outcome-pass h1,
+.game-shell[data-theme="light"] .outcome-timeout h1 {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .tier-schooler h1,
+.game-shell[data-theme="light"] .tier-rare h1 {
+  color: var(--gold);
+}
+
+.game-shell[data-theme="light"] .tier-deepcut h1,
+.game-shell[data-theme="light"] .tier-krillion h1 {
+  color: var(--coral);
+}
+
 /* Active dive: broadcast spine / live mission feed. */
 .game-layer {
   display: grid;

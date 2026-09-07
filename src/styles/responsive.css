@@ -464,3 +464,21 @@
   .dive-form input { font-size: 0.69rem; }
   .dive-submit, .dive-pass { font-size: 0.52rem; }
 }
+
+@media (max-width: 700px) {
+  .game-shell[data-theme="light"] .game-hud {
+    background: rgba(237, 248, 246, 0.94);
+    border-bottom-color: rgba(8, 127, 150, 0.28);
+  }
+
+  .game-shell[data-theme="light"] .brand-stage {
+    margin-left: 0;
+    padding: 0.75rem;
+    background: rgba(237, 247, 247, 0.78);
+    backdrop-filter: blur(3px);
+  }
+
+  .game-shell[data-theme="light"] .pixel-control {
+    box-shadow: 0 2px 8px rgba(12, 54, 64, 0.16);
+  }
+}
