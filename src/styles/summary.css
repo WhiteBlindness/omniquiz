@@ -190,3 +190,23 @@
   color: var(--drift);
   transform: translateX(50%);
 }
+
+.game-shell[data-theme="light"] .summary-score small {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .summary-log {
+  border-color: var(--line);
+}
+
+.game-shell[data-theme="light"] .summary-log-entry {
+  border-top-color: rgba(8, 54, 68, 0.16);
+}
+
+.game-shell[data-theme="light"] .secondary-link {
+  background: rgba(213, 233, 233, 0.68);
+}
+
+.game-shell[data-theme="light"] .share-button {
+  background: rgba(236, 248, 246, 0.94);
+}
