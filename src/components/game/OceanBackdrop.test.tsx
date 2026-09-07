@@ -40,7 +40,7 @@ describe("OceanBackdrop", () => {
     render(<OceanBackdrop depthMetres={640} mode="unlimited" />);
 
     expect(screen.getByLabelText("Depth scale")).toBeInTheDocument();
-    expect(screen.getByText("640m current depth")).toBeInTheDocument();
+    expect(screen.getByText("640m")).toBeInTheDocument();
   });
 
   it("maps earned depth to the exact scaled camera event and full viewport cues", () => {

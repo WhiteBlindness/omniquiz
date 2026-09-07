@@ -40,6 +40,13 @@
   white-space: nowrap;
 }
 
+.game-shell[data-theme="light"] .brand-stage {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  margin-left: -1.5rem;
+  background: linear-gradient(135deg, rgba(237, 247, 247, 0.82) 0%, rgba(237, 247, 247, 0.48) 100%);
+  backdrop-filter: blur(3px);
+}
+
 .chromatic-title {
   position: relative;
   margin: 0;
@@ -287,6 +294,30 @@
 .game-shell[data-theme="light"] .landing-console,
 .game-shell[data-theme="light"] .summary-panel {
   background: var(--panel);
+  border-color: rgba(8, 54, 68, 0.28);
+  border-top-color: var(--cyan);
+}
+
+.game-shell[data-theme="light"] .chromatic-title {
+  color: var(--paper);
+  text-shadow:
+    -3px 0 var(--coral),
+    3px 0 var(--cyan),
+    0 3px 18px rgba(6, 37, 51, 0.62);
+}
+
+.game-shell[data-theme="light"] .brand-stage::before {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .mode-title {
+  color: var(--cyan);
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.6);
+}
+
+.game-shell[data-theme="light"] .mode-description {
+  color: var(--drift);
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.5);
 }
 
 .game-shell[data-theme="light"] .mode-option {
@@ -311,10 +342,45 @@
   box-shadow: 12px 0 30px rgba(12, 54, 64, 0.14);
 }
 
+.game-shell[data-theme="light"] .game-hud::before,
+.game-shell[data-theme="light"] .game-hud::after {
+  display: none;
+}
+
+.game-shell[data-theme="light"] .hud-meter {
+  background: rgba(218, 238, 238, 0.82);
+  border-color: rgba(8, 54, 68, 0.22);
+}
+
+.game-shell[data-theme="light"] .feed-plate,
+.game-shell[data-theme="light"] .timecode-plate {
+  background: rgba(236, 248, 246, 0.94);
+  border-color: rgba(8, 127, 150, 0.38);
+  color: var(--cyan);
+}
+
 .game-shell[data-theme="light"] .prompt-card,
 .game-shell[data-theme="light"] .feedback-panel,
 .game-shell[data-theme="light"] .dive-form {
   filter: brightness(1.16) saturate(0.9);
+}
+
+.game-shell[data-theme="light"] .depth-ruler {
+  background: rgba(236, 248, 246, 0.58);
+  box-shadow: 8px 0 rgba(236, 248, 246, 0.58);
+  border-left-color: rgba(8, 54, 68, 0.28);
+}
+
+.game-shell[data-theme="light"] .depth-mark {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .current-depth-marker {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"] .current-depth-marker b {
+  background: rgba(240, 249, 247, 0.92);
 }
 
 /* Active dive: broadcast spine / live mission feed. */
@@ -860,7 +926,6 @@
 }
 
 .feedback-panel {
-  border-top-color: var(--coral);
   animation-name: score-slam;
 }
 

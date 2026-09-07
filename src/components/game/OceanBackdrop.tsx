@@ -195,7 +195,9 @@ export function OceanBackdrop({
         ))}
         <span className="current-depth-marker" style={{ top: "var(--depth-marker)" }}>
           <i aria-hidden="true" />
-          <b className="telemetry-data">{Math.round(depthMetres)}m current depth</b>
+          <b className="telemetry-data">
+            {depthMetres === 0 ? "SURFACE" : `${Math.round(depthMetres)}m`}
+          </b>
         </span>
       </aside>
     </div>

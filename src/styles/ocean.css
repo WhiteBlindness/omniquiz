@@ -289,3 +289,23 @@
   background: rgba(2, 7, 17, 0.88);
   white-space: nowrap;
 }
+
+.phase-intro .depth-ruler,
+.phase-loading .depth-ruler,
+.phase-error .depth-ruler {
+  opacity: 0.38;
+}
+
+.phase-intro .current-depth-marker,
+.phase-loading .current-depth-marker,
+.phase-error .current-depth-marker {
+  opacity: 0.52;
+}
+
+.game-shell[data-theme="light"] .ocean-world {
+  filter: saturate(calc(1 - var(--depth-factor) * 0.18)) brightness(1.08);
+}
+
+.game-shell[data-theme="light"] .mission-panorama {
+  filter: brightness(calc(1.1 - var(--depth-factor) * 0.24)) saturate(calc(0.92 - var(--depth-factor) * 0.16));
+}
