@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { ThemeShell } from "../../components/ThemeShell";
+
 const PACKS = [
   {
     title: "AT THE MOVIES",
@@ -80,7 +82,7 @@ function PackCard({ pack }: Readonly<{ pack: Pack }>) {
 
 export default function PacksPage() {
   return (
-    <main className="packs-page">
+    <ThemeShell className="packs-page">
       <header className="packs-header">
         <Link className="packs-brand" href="/" aria-label="Return to today's dive">OMNIQUIZ</Link>
         <p>THEMED PACKS · BEYOND THE DAILY DIVE</p>
@@ -110,6 +112,6 @@ export default function PacksPage() {
       </section>
 
       <Link className="back-dive" href="/">TODAY&apos;S DIVE</Link>
-    </main>
+    </ThemeShell>
   );
 }
