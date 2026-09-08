@@ -56,6 +56,7 @@ export type GameAction =
   | { type: "LOAD_QUESTIONS"; questions: readonly PublicQuestion[]; dailyDate?: string | null }
   | { type: "LOAD_FAILED"; error: string }
   | { type: "PREVIEW_TICK" }
+  | { type: "SKIP_PREVIEW" }
   | { type: "SYNC_REMAINING"; remainingSeconds: number }
   | { type: "SET_ANSWER"; answer: string }
   | { type: "SUBMIT_START" }
@@ -207,6 +208,16 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
             error: null,
           })
         : Object.freeze({ ...state, previewSeconds: state.previewSeconds - 1 });
+
+    case "SKIP_PREVIEW":
+      if (state.phase !== "preview") return state;
+      return Object.freeze({
+        ...state,
+        phase: "answering" as const,
+        previewSeconds: 0,
+        remainingSeconds: ANSWER_SECONDS,
+        error: null,
+      });
 
     case "SYNC_REMAINING":
       if (state.phase !== "answering" && state.phase !== "submitting") return state;

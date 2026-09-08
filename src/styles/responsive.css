@@ -405,6 +405,12 @@
     font-size: 0.52rem;
   }
 
+  .preview-skip {
+    min-height: 28px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.46rem;
+  }
+
   .summary-layer {
     padding: 4rem 0.65rem 5.5rem;
   }

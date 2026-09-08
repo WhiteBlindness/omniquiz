@@ -98,6 +98,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     passQuestion,
     setAnswer,
     continueDive,
+    skipPreview,
     sfx,
   } = useGameLoop(mode, category);
 
@@ -114,6 +115,18 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     document.title = base + suffix;
     return () => { document.title = "OMNIQUIZ — Dive Control"; };
   }, [state.phase, state.questionIndex, state.questions.length, state.score, state.depthMetres]);
+
+  useEffect(() => {
+    if (state.phase !== "preview") return;
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === " " || event.key === "Enter" || event.key === "Escape") {
+        event.preventDefault();
+        skipPreview();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [state.phase, skipPreview]);
 
   const question = getCurrentQuestion(state);
   const title = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
@@ -363,7 +376,10 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           ) : null}
 
           {state.phase === "preview" ? (
-            <p className="preview-footer" aria-live="polite">descending · the clock starts in {state.previewSeconds}</p>
+            <p className="preview-footer" aria-live="polite">
+              descending · the clock starts in {state.previewSeconds}
+              <button className="preview-skip" type="button" onClick={skipPreview}>SKIP</button>
+            </p>
           ) : null}
 
           {question && state.phase === "answering" ? (

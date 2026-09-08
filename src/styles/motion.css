@@ -90,6 +90,11 @@
   to { opacity: 0; transform: scale(1); }
 }
 
+@keyframes value-flash {
+  from { opacity: 0.5; transform: scale(1.08); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @keyframes depth-confirm {
   0% { opacity: 0.35; color: var(--paper); }
   45% { opacity: 1; color: var(--cyan); }
@@ -114,7 +119,8 @@
   .hud-timer[data-urgency="critical"] .hud-timer-dial,
   .begin-button:disabled,
   .summary-log-entry,
-  .signal-error {
+  .signal-error,
+  .hud-value-flash {
     animation: none !important;
   }
 

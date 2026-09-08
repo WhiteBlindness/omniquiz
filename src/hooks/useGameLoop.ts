@@ -402,6 +402,11 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     dispatch({ type: "SET_ANSWER", answer });
   }, []);
 
+  const skipPreview = useCallback(() => {
+    if (stateRef.current.phase !== "preview") return;
+    dispatch({ type: "SKIP_PREVIEW" });
+  }, []);
+
   const resetDive = useCallback(() => {
     dispatch({ type: "RESET" });
   }, []);
@@ -422,6 +427,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     passQuestion,
     setAnswer,
     continueDive,
+    skipPreview,
     resetDive,
     previewSeconds: PREVIEW_SECONDS,
     answerSeconds: ANSWER_SECONDS,

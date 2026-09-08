@@ -88,21 +88,25 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
     : timerState === "armed"
       ? "Answer window armed"
       : "Answer window closed";
-  const isUrgent = timerState === "open" && remainingSeconds <= 5;
+  const urgencyLevel =
+    timerState !== "open" ? "normal"
+    : remainingSeconds <= 5 ? "critical"
+    : remainingSeconds <= 8 ? "warning"
+    : "normal";
 
   return (
     <header className="game-hud" aria-label="Dive telemetry">
       <div className="hud-brand" aria-label="OMNIQUIZ">OMNIQUIZ</div>
       <div className="hud-meter hud-depth" aria-label="Current depth">
         <span>DEPTH</span>
-        <strong className="telemetry-data">{state.depthMetres}m</strong>
+        <strong className="telemetry-data hud-value-flash" key={`d-${state.depthMetres}`}>{state.depthMetres}m</strong>
       </div>
       <div
         className="hud-timer"
         role="timer"
         aria-live="off"
         aria-label={timerLabel}
-        data-urgency={isUrgent ? "critical" : "normal"}
+        data-urgency={urgencyLevel}
         data-window-state={timerState}
       >
         <span>TIMER</span>
@@ -119,7 +123,7 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
       </div>
       <div className="hud-meter hud-score" aria-label="Current score">
         <span>SCORE</span>
-        <strong className="telemetry-data">{state.score}</strong>
+        <strong className="telemetry-data hud-value-flash" key={`s-${state.score}`}>{state.score}</strong>
       </div>
       <div
         className="hud-rounds"

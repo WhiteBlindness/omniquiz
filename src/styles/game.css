@@ -558,6 +558,16 @@
   color: var(--muted);
 }
 
+.game-shell[data-theme="light"] .preview-skip {
+  background: rgba(213, 233, 233, 0.78);
+  border-color: var(--line);
+  color: var(--cyan);
+}
+
+.game-shell[data-theme="light"] .preview-skip:hover {
+  border-color: var(--cyan);
+}
+
 .game-shell[data-theme="light"] .secondary-link:hover {
   background: rgba(193, 223, 224, 0.88);
 }
@@ -843,6 +853,14 @@
   font-variation-settings: "wght" 650;
 }
 
+.hud-timer[data-urgency="warning"] .hud-timer-dial {
+  --timer-color: var(--gold);
+}
+
+.hud-timer[data-urgency="warning"] .hud-timer-dial strong {
+  color: var(--gold);
+}
+
 .hud-timer[data-urgency="critical"] .hud-timer-dial {
   --timer-color: var(--coral);
   animation: urgency-pulse 760ms steps(2, end) infinite;
@@ -850,6 +868,10 @@
 
 .hud-timer[data-urgency="critical"] .hud-timer-dial strong {
   color: var(--coral);
+}
+
+.hud-value-flash {
+  animation: value-flash 320ms ease-out;
 }
 
 .hud-timer[data-window-state="armed"] .hud-timer-dial strong,
@@ -988,11 +1010,32 @@
 .preview-footer {
   grid-column: 2;
   grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   justify-self: center;
   margin: 0 0 max(1.5rem, env(safe-area-inset-bottom));
   color: var(--drift);
   font-size: 0.65rem;
   letter-spacing: 0.15em;
+}
+
+.preview-skip {
+  min-height: 32px;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line-hot);
+  border-radius: 0;
+  background: rgba(8, 28, 45, 0.72);
+  color: var(--cyan);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  opacity: 0.72;
+  transition: opacity 140ms ease-out, border-color 140ms ease-out;
+}
+
+.preview-skip:hover {
+  border-color: var(--cyan);
+  opacity: 1;
 }
 
 .dive-form {
