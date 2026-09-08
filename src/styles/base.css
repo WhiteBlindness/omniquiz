@@ -132,7 +132,7 @@ input:focus-visible {
   letter-spacing: 0.02em;
 }
 
-.game-shell[data-theme="light"] {
+[data-theme="light"] {
   --ink: #edf7f5;
   --abyss: #d8ebeb;
   --steel: #c3dadd;
@@ -151,18 +151,18 @@ input:focus-visible {
   color-scheme: light;
 }
 
-.game-shell[data-theme="light"] .pixel-control {
+[data-theme="light"] .pixel-control {
   background: rgba(236, 248, 246, 0.92);
   border-color: rgba(8, 54, 68, 0.28);
   box-shadow: 0 4px 12px rgba(12, 54, 64, 0.14);
 }
 
-.game-shell[data-theme="light"] .pixel-control:hover {
+[data-theme="light"] .pixel-control:hover {
   border-color: var(--cyan);
   background: rgba(220, 240, 238, 0.96);
 }
 
-.game-shell[data-theme="light"] .scanlines {
+[data-theme="light"] .scanlines {
   opacity: 0.28;
 }
 

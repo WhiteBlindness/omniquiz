@@ -1,21 +1,29 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useSyncExternalStore, type ReactNode } from "react";
 import { readThemePreference, type ThemePreference } from "./game/storage";
 
-function getInitialTheme(): ThemePreference {
-  if (typeof document !== "undefined") {
-    const stored = document.documentElement.dataset.storedTheme;
-    if (stored === "light" || stored === "dark") return stored;
-  }
+function getClientTheme(): ThemePreference {
+  const stored = document.documentElement.dataset.storedTheme;
+  if (stored === "light" || stored === "dark") return stored;
   return readThemePreference();
+}
+
+function getServerTheme(): ThemePreference {
+  return "dark";
+}
+
+const noop = () => () => {};
+
+function useTheme(): ThemePreference {
+  return useSyncExternalStore(noop, getClientTheme, getServerTheme);
 }
 
 export function ThemeShell({
   className,
   children,
 }: Readonly<{ className: string; children: ReactNode }>) {
-  const [theme] = useState<ThemePreference>(getInitialTheme);
+  const theme = useTheme();
 
   return (
     <main className={className} data-theme={theme}>

@@ -390,9 +390,17 @@
 }
 
 .game-shell[data-theme="light"] .prompt-card,
-.game-shell[data-theme="light"] .feedback-panel,
+.game-shell[data-theme="light"] .feedback-panel {
+  background: rgba(236, 248, 246, 0.96);
+}
+
+.game-shell[data-theme="light"] .prompt-card h1,
+.game-shell[data-theme="light"] .feedback-panel h1 {
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.4);
+}
+
 .game-shell[data-theme="light"] .dive-form {
-  filter: brightness(1.16) saturate(0.9);
+  background: rgba(236, 248, 246, 0.96);
 }
 
 .game-shell[data-theme="light"] .depth-ruler {
@@ -1190,6 +1198,10 @@
   background: var(--ink);
   color: #ffb9c5;
   font-size: 0.58rem;
+}
+
+.phase-submitting .prompt-card {
+  animation: phase-exit 220ms ease-in both;
 }
 
 .feedback-panel {

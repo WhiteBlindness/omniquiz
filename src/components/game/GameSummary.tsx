@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { useCountUp } from "../../hooks/useCountUp";
 import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
 import type { RoundLog } from "./gameReducer";
 import type { DiveStats } from "./storage";
@@ -26,6 +27,8 @@ export function GameSummary({
   onShare,
 }: GameSummaryProps) {
   const estimatedPercentile = getEstimatedDailyPercentile(score);
+  const animatedScore = useCountUp(score);
+  const animatedDepth = useCountUp(depthMetres);
 
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
@@ -33,12 +36,12 @@ export function GameSummary({
       <h1 id="summary-title">{mode === "unlimited" ? "UNLIMITED DIVE COMPLETE" : "DIVE COMPLETE"}</h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>
-        <strong className="telemetry-data">{score}</strong>
+        <strong className="telemetry-data" aria-label={`${score} points`}>{animatedScore}</strong>
         <small>points earned from recognizable rarity</small>
       </div>
       <div className="summary-depth">
         <span>YOU REACHED</span>
-        <b className="telemetry-data">{depthMetres}m</b>
+        <b className="telemetry-data" aria-label={`${depthMetres} metres`}>{animatedDepth}m</b>
       </div>
       {mode === "daily" ? (
         <div className="summary-percentile">

@@ -122,7 +122,8 @@
   .summary-log-entry,
   .signal-error,
   .countdown-digit,
-  .hud-value-flash {
+  .hud-value-flash,
+  .phase-submitting .prompt-card {
     animation: none !important;
   }
 
