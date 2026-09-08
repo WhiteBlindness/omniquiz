@@ -465,6 +465,37 @@
   .dive-submit, .dive-pass { font-size: 0.52rem; }
 }
 
+@media (max-width: 700px) and (max-height: 480px) and (orientation: landscape) {
+  .game-hud {
+    grid-template-rows: 36px 42px 12px;
+    min-height: calc(5.5rem + env(safe-area-inset-top));
+    padding-top: max(0.25rem, env(safe-area-inset-top));
+    padding-bottom: 0.2rem;
+  }
+
+  .hud-brand { font-size: 0.68rem; }
+  .hud-meter { min-height: 40px; padding: 0.3rem 0.42rem; }
+  .hud-meter strong { font-size: 0.78rem; }
+  .hud-timer-dial { width: 40px; }
+  .hud-timer-dial strong { font-size: 0.65rem; }
+  .hud-round-step b { height: 20px; font-size: 0.42rem; }
+
+  .prompt-zone { padding-top: 0.8rem; padding-bottom: 0.5rem; }
+  .prompt-card, .feedback-panel { padding: 0.55rem; }
+  .prompt-card h1, .feedback-panel h1 { font-size: 1rem; }
+
+  .dive-form input, .dive-submit, .dive-pass { min-height: 42px; height: 42px; }
+
+  .summary-layer { padding-top: 2rem; padding-bottom: 3rem; }
+
+  .feed-plate, .timecode-plate {
+    top: calc(5.5rem + env(safe-area-inset-top) + 0.25rem);
+    font-size: 0.38rem;
+    min-height: 20px;
+    padding: 0.25rem 0.35rem;
+  }
+}
+
 @media (max-width: 700px) {
   .game-shell[data-theme="light"] .game-hud {
     background: rgba(237, 248, 246, 0.94);

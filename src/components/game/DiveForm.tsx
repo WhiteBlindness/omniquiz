@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import type { FormEvent } from "react";
 import type { CSSProperties } from "react";
 
@@ -25,6 +25,16 @@ export function DiveForm({
     if (state.phase === "answering") inputRef.current?.focus();
   }, [state.phase]);
 
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (event.key === "Escape" && state.phase === "answering") {
+        event.preventDefault();
+        onPass();
+      }
+    },
+    [state.phase, onPass],
+  );
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit();
@@ -39,9 +49,10 @@ export function DiveForm({
     <form
       className="dive-form"
       onSubmit={handleSubmit}
+      onKeyDown={handleKeyDown}
       aria-label="Submit an answer"
       aria-busy={state.phase === "submitting"}
-      aria-keyshortcuts="Enter"
+      aria-keyshortcuts="Enter Escape"
     >
       {isCritical ? (
         <p className="timer-urgency telemetry-data" role="status" aria-live={urgencyLiveMode} aria-atomic="true">
@@ -68,6 +79,7 @@ export function DiveForm({
         type="button"
         onClick={onPass}
         disabled={state.phase === "submitting"}
+        title="Pass this prompt (Esc)"
       >
         PASS
       </button>

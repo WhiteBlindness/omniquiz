@@ -295,11 +295,25 @@
   border: 1px solid var(--coral);
   color: #ffc1cb;
   font-size: 0.65rem;
+  animation: error-shake 400ms ease-out;
 }
 
 .signal-error span {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   color: var(--coral);
   letter-spacing: 0.16em;
+}
+
+.signal-error span::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  content: "";
+  animation: loading-pulse 1.2s ease-in-out infinite;
 }
 
 .signal-error p {

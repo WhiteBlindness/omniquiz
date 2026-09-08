@@ -38,6 +38,17 @@ export function FeedbackPanel({
     continueRef.current?.focus();
   }, []);
 
+  useEffect(() => {
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onContinue();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onContinue]);
+
   const heading =
     outcome === "pass"
       ? "PASS LOGGED"

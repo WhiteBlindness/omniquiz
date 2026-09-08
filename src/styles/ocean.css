@@ -348,3 +348,15 @@
 .game-shell[data-theme="light"] .krill-marker {
   filter: drop-shadow(0 0 8px rgba(187, 62, 87, 0.34));
 }
+
+.game-shell[data-theme="light"] .ocean-backdrop {
+  background: #c3dadd;
+}
+
+.game-shell[data-theme="light"] .depth-ruler {
+  border-left-color: rgba(8, 54, 68, 0.32);
+}
+
+.game-shell[data-theme="light"] .scanlines {
+  background: repeating-linear-gradient(to bottom, rgba(8, 54, 68, 0.06) 0 1px, transparent 1px 4px);
+}
