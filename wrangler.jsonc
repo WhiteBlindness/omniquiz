@@ -15,6 +15,10 @@
     "binding": "ASSETS"
   },
   "no_bundle": true,
+  "rules": [
+    { "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }
+  ],
+  "find_additional_modules": true,
   "cache": {
     "enabled": true
   },
