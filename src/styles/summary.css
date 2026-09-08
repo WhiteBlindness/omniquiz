@@ -209,4 +209,18 @@
 
 .game-shell[data-theme="light"] .share-button {
   background: rgba(236, 248, 246, 0.94);
+  border-color: var(--line);
+}
+
+.game-shell[data-theme="light"] .share-button:hover {
+  border-color: var(--cyan);
+  color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .summary-panel h1 {
+  color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .summary-percentile b {
+  color: var(--gold);
 }

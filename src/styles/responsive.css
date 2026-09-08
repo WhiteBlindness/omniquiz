@@ -481,4 +481,13 @@
   .game-shell[data-theme="light"] .pixel-control {
     box-shadow: 0 2px 8px rgba(12, 54, 64, 0.16);
   }
+
+  .game-shell[data-theme="light"] .chromatic-title {
+    text-shadow: -3px 0 var(--coral), 3px 0 var(--cyan), 5px 5px rgba(6, 37, 51, 0.38);
+  }
+
+  .game-shell[data-theme="light"] .feed-plate,
+  .game-shell[data-theme="light"] .timecode-plate {
+    border-color: rgba(8, 127, 150, 0.32);
+  }
 }

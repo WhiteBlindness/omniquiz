@@ -529,6 +529,26 @@
   color: var(--coral);
 }
 
+.game-shell[data-theme="light"] .preview-footer {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .secondary-link:hover {
+  background: rgba(193, 223, 224, 0.88);
+}
+
+.game-shell[data-theme="light"] .summary-log-entry strong {
+  color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .feedback-quip {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .rarity-hint {
+  color: var(--muted);
+}
+
 /* Active dive: broadcast spine / live mission feed. */
 .game-layer {
   display: grid;
