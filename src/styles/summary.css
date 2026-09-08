@@ -47,6 +47,7 @@
   font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 400;
   line-height: 0.8;
+  animation: score-slam 520ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
 }
 
 .summary-score small {
@@ -65,6 +66,7 @@
   color: var(--cyan);
   font-size: 1.6rem;
   font-weight: 400;
+  animation: score-slam 520ms cubic-bezier(0.16, 1, 0.3, 1) 360ms both;
 }
 
 .summary-percentile {
@@ -166,6 +168,33 @@
   color: var(--drift);
   font-size: 0.52rem;
   letter-spacing: 0.08em;
+}
+
+.summary-log-entry[data-tier="rare"] strong,
+.summary-log-entry[data-tier="deepcut"] strong {
+  color: var(--gold);
+}
+
+.summary-log-entry[data-tier="krillion"] strong {
+  color: var(--coral);
+}
+
+.summary-log-entry[data-tier="uncharted"] strong {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.summary-log-entry[data-tier="rare"] .summary-log-round,
+.summary-log-entry[data-tier="deepcut"] .summary-log-round {
+  color: var(--gold);
+}
+
+.summary-log-entry[data-tier="krillion"] .summary-log-round {
+  color: var(--coral);
+}
+
+.summary-log-entry[data-tier="uncharted"] .summary-log-round {
+  color: var(--muted);
 }
 
 .summary-actions {

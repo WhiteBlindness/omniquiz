@@ -49,7 +49,7 @@ export function GameSummary({
       <div className="summary-log" aria-label="Dive log">
         <div className="summary-log-heading"><span>DIVE LOG</span><small>{roundLog.length} ROUNDS</small></div>
         {roundLog.map((entry, index) => (
-          <div className="summary-log-entry" key={`${entry.questionId}-${index}`}>
+          <div className="summary-log-entry" data-tier={entry.tier} key={`${entry.questionId}-${index}`}>
             <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
             <div>
               <strong>{entry.answerLabel}</strong>

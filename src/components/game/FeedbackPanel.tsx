@@ -40,7 +40,7 @@ export function FeedbackPanel({
 
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" || event.key === " " || event.key === "Enter") {
         event.preventDefault();
         onContinue();
       }

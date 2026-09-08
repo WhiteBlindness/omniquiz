@@ -525,6 +525,10 @@
   border-top-color: var(--line);
 }
 
+.game-shell[data-theme="light"] .common-answer {
+  border-left-color: var(--line);
+}
+
 .game-shell[data-theme="light"] .common-answer b {
   color: var(--paper);
 }
@@ -1275,8 +1279,11 @@
 
 .common-answer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding: 0.32rem 0.5rem;
+  border-left: 2px solid var(--line);
   color: var(--drift);
   font-size: 0.62rem;
 }
@@ -1288,6 +1295,7 @@
 
 .common-answer small {
   color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .common-answers-empty {
