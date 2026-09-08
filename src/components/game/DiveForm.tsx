@@ -53,7 +53,6 @@ export function DiveForm({
         id="answer-input"
         name="answer"
         autoComplete="off"
-        autoFocus
         ref={inputRef}
         placeholder="type one answer…"
         value={state.answer}

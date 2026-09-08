@@ -201,6 +201,11 @@
 .pixel-chevron {
   margin-right: 0.35rem;
   transform: rotate(-45deg);
+  transition: transform 180ms ease-out;
+}
+
+.is-open .pixel-chevron {
+  transform: rotate(45deg);
 }
 
 .pixel-descent-mark {

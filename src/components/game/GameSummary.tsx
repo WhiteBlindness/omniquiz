@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
 import type { RoundLog } from "./gameReducer";
 import type { DiveStats } from "./storage";
@@ -62,9 +64,9 @@ export function GameSummary({
         <button className="continue-button" type="button" onClick={onReplay}>
           DIVE AGAIN
         </button>
-        <a className="secondary-link" href={mode === "unlimited" ? "/" : "/unlimited/classic"}>
+        <Link className="secondary-link" href={mode === "unlimited" ? "/" : "/unlimited/classic"}>
           {mode === "unlimited" ? "TODAY'S DIVE" : "TRY UNLIMITED MODE"}
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -1,12 +1,26 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import "@fontsource-variable/pixelify-sans";
 import "./globals.css";
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#020711" },
+    { media: "(prefers-color-scheme: light)", color: "#edf7f5" },
+  ],
+  colorScheme: "dark light",
+};
+
 export const metadata: Metadata = {
   title: "OMNIQUIZ — Dive Control",
   description: "Explore broad prompts, crowd rarity, and a pixel-ocean descent.",
+  openGraph: {
+    title: "OMNIQUIZ",
+    description: "A cinematic 16-bit ROV mission broadcast where uncommon answers drive a visible descent.",
+    type: "website",
+    siteName: "OMNIQUIZ",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
