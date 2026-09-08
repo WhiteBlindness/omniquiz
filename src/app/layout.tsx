@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=JSON.parse(localStorage.getItem("omniquiz-theme-v1"));if(t==="light"||t==="dark")document.documentElement.dataset.storedTheme=t}catch(e){}})()`,
+            __html: `(function(){try{var t=JSON.parse(localStorage.getItem("omniquiz-theme-v1"));if(t==="light"||t==="dark"){document.documentElement.dataset.storedTheme=t;document.documentElement.dataset.theme=t}}catch(e){}})()`,
           }}
         />
         <div

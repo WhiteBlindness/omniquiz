@@ -144,6 +144,8 @@ export function AppStateProvider({ children }: Readonly<{ children: ReactNode }>
     setTheme((current) => {
       const next: Theme = current === "dark" ? "light" : "dark";
       writeThemePreference(next);
+      document.documentElement.dataset.storedTheme = next;
+      document.documentElement.dataset.theme = next;
       return next;
     });
   }, []);

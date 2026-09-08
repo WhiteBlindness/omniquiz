@@ -151,6 +151,10 @@ input:focus-visible {
   color-scheme: light;
 }
 
+[data-theme="light"] body {
+  background: var(--ink);
+}
+
 [data-theme="light"] .pixel-control {
   background: rgba(236, 248, 246, 0.92);
   border-color: rgba(8, 54, 68, 0.28);

@@ -29,6 +29,7 @@ export function toggleShellTheme(): void {
   const next: ThemePreference = current === "dark" ? "light" : "dark";
   writeThemePreference(next);
   document.documentElement.dataset.storedTheme = next;
+  document.documentElement.dataset.theme = next;
   listeners.forEach((cb) => cb());
 }
 
