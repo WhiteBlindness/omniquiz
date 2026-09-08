@@ -98,7 +98,8 @@
   .fish,
   .particle,
   .krill-marker,
-  .hud-timer[data-urgency="critical"] .hud-timer-dial {
+  .hud-timer[data-urgency="critical"] .hud-timer-dial,
+  .begin-button:disabled {
     animation: none !important;
   }
 

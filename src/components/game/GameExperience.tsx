@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useGameLoop } from "../../hooks/useGameLoop";
 import type { Category } from "../../lib/questions/types";
@@ -100,6 +100,20 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     continueDive,
     sfx,
   } = useGameLoop(mode, category);
+
+  useEffect(() => {
+    const base = "OMNIQUIZ";
+    let suffix = "";
+    if (state.phase === "answering" || state.phase === "submitting" || state.phase === "preview") {
+      suffix = ` — Round ${state.questionIndex + 1}/${state.questions.length}`;
+    } else if (state.phase === "feedback") {
+      suffix = ` — ${state.score} pts · ${state.depthMetres}m`;
+    } else if (state.phase === "summary") {
+      suffix = ` — Dive Complete`;
+    }
+    document.title = base + suffix;
+    return () => { document.title = "OMNIQUIZ — Dive Control"; };
+  }, [state.phase, state.questionIndex, state.questions.length, state.score, state.depthMetres]);
 
   const question = getCurrentQuestion(state);
   const title = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
