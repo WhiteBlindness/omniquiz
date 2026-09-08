@@ -1,8 +1,14 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import { readThemePreference, type ThemePreference } from "./game/storage";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import {
+  readMutePreference,
+  readThemePreference,
+  writeMutePreference,
+  type ThemePreference,
+} from "./game/storage";
 import { subscribeTheme, toggleShellTheme } from "./ThemeShell";
+import { SoundControl } from "./game/SoundControl";
 
 function getClientTheme(): ThemePreference {
   const stored = document.documentElement.dataset.storedTheme;
@@ -17,6 +23,17 @@ function getServerTheme(): ThemePreference {
 export function PacksControls() {
   const theme = useSyncExternalStore(subscribeTheme, getClientTheme, getServerTheme);
   const nextTheme = theme === "dark" ? "light" : "dark";
+
+  const [muted, setMuted] = useState(false);
+  useEffect(() => { setMuted(readMutePreference()); }, []);
+
+  const toggleMute = useCallback(() => {
+    setMuted((m) => {
+      const next = !m;
+      writeMutePreference(next);
+      return next;
+    });
+  }, []);
 
   return (
     <aside className="global-controls packs-controls" aria-label="Display controls">
@@ -41,6 +58,7 @@ export function PacksControls() {
           THEME / {theme === "dark" ? "DARK" : "LIGHT"}
         </span>
       </button>
+      <SoundControl muted={muted} onToggle={toggleMute} />
     </aside>
   );
 }
