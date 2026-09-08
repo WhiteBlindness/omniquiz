@@ -52,6 +52,11 @@ const CUE_PATTERNS: Readonly<Record<SoundCue, readonly Tone[]>> = {
     { frequency: 220, duration: 0.1 },
     { frequency: 164, duration: 0.18, offset: 0.1 },
   ],
+  tick: [{ frequency: 880, duration: 0.03 }],
+  warning: [
+    { frequency: 440, duration: 0.07 },
+    { frequency: 330, duration: 0.1, offset: 0.09 },
+  ],
 };
 
 type AudioWindow = Window &

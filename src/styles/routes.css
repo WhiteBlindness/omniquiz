@@ -1,4 +1,5 @@
 .packs-page {
+  position: relative;
   min-height: 100svh;
   padding: clamp(2rem, 5vw, 4.5rem) 1rem 5rem;
   background: #030914;

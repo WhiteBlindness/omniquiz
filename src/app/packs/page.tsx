@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { PacksControls } from "../../components/PacksControls";
 import { ThemeShell } from "../../components/ThemeShell";
 
 const PACKS = [
@@ -83,6 +84,7 @@ function PackCard({ pack }: Readonly<{ pack: Pack }>) {
 export default function PacksPage() {
   return (
     <ThemeShell className="packs-page">
+      <PacksControls />
       <header className="packs-header">
         <Link className="packs-brand" href="/" aria-label="Return to today's dive">OMNIQUIZ</Link>
         <p>THEMED PACKS · BEYOND THE DAILY DIVE</p>

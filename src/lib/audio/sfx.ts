@@ -3,7 +3,9 @@ export type SoundCue =
   | "start"
   | "submit"
   | "reveal"
-  | "uncharted";
+  | "uncharted"
+  | "tick"
+  | "warning";
 
 export type SoundEffects = Readonly<{
   click: () => void;
@@ -11,6 +13,8 @@ export type SoundEffects = Readonly<{
   submit: () => void;
   reveal: () => void;
   uncharted: () => void;
+  tick: () => void;
+  warning: () => void;
 }>;
 
 type SoundPlayer = (cue: SoundCue) => void;
@@ -22,4 +26,6 @@ export const createSfx = (play: SoundPlayer): SoundEffects =>
     submit: () => play("submit"),
     reveal: () => play("reveal"),
     uncharted: () => play("uncharted"),
+    tick: () => play("tick"),
+    warning: () => play("warning"),
   });

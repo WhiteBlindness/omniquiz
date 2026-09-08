@@ -139,8 +139,9 @@
 
 .summary-log-entry {
   grid-template-columns: 28px 1fr;
-  padding: 0.62rem 0;
+  padding: 0.62rem 0 0.62rem 0.5rem;
   border-top: 1px solid rgba(132, 165, 181, 0.16);
+  border-left: 2px solid transparent;
   animation: log-entry-in 280ms ease-out both;
 }
 
@@ -177,6 +178,11 @@
   font-size: 0.52rem;
   letter-spacing: 0.08em;
 }
+
+.summary-log-entry[data-tier="schooler"] { border-left-color: var(--cyan); }
+.summary-log-entry[data-tier="rare"],
+.summary-log-entry[data-tier="deepcut"] { border-left-color: var(--gold); }
+.summary-log-entry[data-tier="krillion"] { border-left-color: var(--coral); }
 
 .summary-log-entry[data-tier="rare"] strong,
 .summary-log-entry[data-tier="deepcut"] strong {

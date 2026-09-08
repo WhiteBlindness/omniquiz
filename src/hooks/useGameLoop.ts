@@ -94,6 +94,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   const answerIntervalRef = useRef<number | null>(null);
   const syncAnswerClockRef = useRef<() => void>(() => undefined);
   const expirationStartedRef = useRef(false);
+  const warningPlayedRef = useRef(false);
   const [remainingMilliseconds, setRemainingMilliseconds] = useState(0);
   const { theme, toggleTheme } = useAppState();
   const { muted, toggleMute, play, sfx } = useSoundFx();
@@ -237,7 +238,10 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     if (state.phase !== "preview") return undefined;
 
     const timer = window.setInterval(() => {
-      if (stateRef.current.phase === "preview") dispatch({ type: "PREVIEW_TICK" });
+      if (stateRef.current.phase === "preview") {
+        sfxRef.current.tick();
+        dispatch({ type: "PREVIEW_TICK" });
+      }
     }, 1_000);
 
     return () => window.clearInterval(timer);
@@ -255,6 +259,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       }
       answerDeadlineRef.current = null;
       expirationStartedRef.current = false;
+      warningPlayedRef.current = false;
       return undefined;
     }
 
@@ -264,6 +269,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       deadline = now + Math.max(0, stateRef.current.remainingSeconds) * 1_000;
       answerDeadlineRef.current = deadline;
       expirationStartedRef.current = false;
+      warningPlayedRef.current = false;
     }
 
     const syncAnswerClock = () => {
@@ -284,6 +290,10 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
       const nextSeconds = Math.ceil(nextRemainingMilliseconds / 1_000);
       if (nextSeconds !== latestState.remainingSeconds) {
+        if (nextSeconds === 5 && !warningPlayedRef.current) {
+          warningPlayedRef.current = true;
+          sfxRef.current.warning();
+        }
         dispatch({ type: "SYNC_REMAINING", remainingSeconds: nextSeconds });
       }
     };
