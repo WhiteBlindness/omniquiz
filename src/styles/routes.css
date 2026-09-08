@@ -364,7 +364,47 @@
   background: #c3dadd;
 }
 
+.packs-page[data-theme="light"] .packs-header {
+  border-bottom-color: var(--cyan);
+}
+
+.packs-page[data-theme="light"] .pack-card {
+  border-color: rgba(8, 54, 68, 0.22);
+}
+
+.packs-page[data-theme="light"] .pack-card:hover:not(.pack-disabled) {
+  border-color: var(--cyan);
+  box-shadow: 6px 7px 0 rgba(8, 127, 150, 0.14);
+}
+
+.packs-page[data-theme="light"] .pack-copy h2 {
+  color: #062533;
+}
+
+.packs-page[data-theme="light"] .pack-copy p {
+  color: #3b6575;
+}
+
+.packs-page[data-theme="light"] .pack-disabled .pack-state {
+  border-color: #9a70bd;
+  color: #7b4da3;
+}
+
+.packs-page[data-theme="light"] .logbook-copy {
+  color: #3b6575;
+}
+
+.packs-page[data-theme="light"] .logbook small {
+  color: var(--muted);
+}
+
 .packs-page[data-theme="light"] .restore-button,
 .packs-page[data-theme="light"] .back-dive {
   background: rgba(213, 233, 233, 0.78);
+  color: #3b6575;
+}
+
+.packs-page[data-theme="light"] .back-dive:hover {
+  border-color: var(--cyan);
+  color: #062533;
 }
