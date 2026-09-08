@@ -326,10 +326,6 @@
   background: radial-gradient(circle at 50% 54%, rgba(8, 127, 150, 0.28), rgba(8, 54, 68, 0.08) 45%, transparent 76%);
 }
 
-.game-shell[data-theme="light"] .krill-marker {
-  filter: drop-shadow(0 0 8px rgba(187, 62, 87, 0.34));
-}
-
 .game-shell[data-theme="light"] .ocean-backdrop {
   background: #c3dadd;
 }

@@ -24,6 +24,52 @@
   }
 }
 
+@media (max-width: 800px) {
+  .landing-layer {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vh, 3rem);
+    padding: max(5rem, env(safe-area-inset-top) + 4rem) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .brand-stage {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .landing-console {
+    max-width: 480px;
+  }
+
+  .game-layer {
+    grid-template-columns: 11.5rem minmax(0, 1fr);
+  }
+
+  .game-hud {
+    padding: clamp(0.75rem, 1.5vh, 1rem) clamp(0.65rem, 1.2vw, 1rem);
+  }
+
+  .hud-brand {
+    font-size: clamp(0.9rem, 1.8vw, 1.4rem);
+  }
+
+  .hud-meter strong {
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+  }
+
+  .hud-timer-dial {
+    width: clamp(56px, 6vw, 72px);
+  }
+
+  .prompt-zone {
+    padding: clamp(4.5rem, 9vh, 6.5rem) 2.5rem 2rem 1.5rem;
+  }
+
+  .feed-plate {
+    left: calc(11.5rem + 0.75rem);
+  }
+}
+
 @media (max-width: 700px) {
   .game-shell {
     min-height: 100dvh;
@@ -47,11 +93,6 @@
 
   .mission-panorama {
     background-position: 68% center;
-  }
-
-  .krill-marker {
-    left: 71%;
-    width: 58px;
   }
 
   .depth-ruler {
