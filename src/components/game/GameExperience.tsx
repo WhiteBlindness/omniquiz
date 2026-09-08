@@ -206,6 +206,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       data-phase={state.phase}
       data-theme={theme}
     >
+      <a className="skip-to-content sr-only" href="#main-stage">Skip to content</a>
       <OceanBackdrop
         depthMetres={state.depthMetres}
         mode={mode}
@@ -231,7 +232,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       </aside>
 
       {state.phase === "intro" || state.phase === "loading" || state.phase === "error" ? (
-        <main className="landing-layer" aria-labelledby="brand-title">
+        <main id="main-stage" className="landing-layer" aria-labelledby="brand-title">
           <div className="brand-stage">
             <h1 className="chromatic-title" id="brand-title" data-text="OMNIQUIZ">OMNIQUIZ</h1>
             <p className="mode-title">{title}</p>
@@ -311,31 +312,27 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           </div>
         </main>
       ) : state.phase === "summary" ? (
-        <main className="summary-layer" aria-live="polite">
+        <main id="main-stage" className="summary-layer" aria-live="polite">
           <GameSummary
             score={state.score}
             depthMetres={state.depthMetres}
             mode={mode}
             stats={stats}
             roundLog={state.roundLog}
+            shareLabel={shareLabel}
             onReplay={() => {
               sfx.click();
               void startDive();
             }}
-          />
-          <button
-            className="share-button pixel-control"
-            type="button"
-            onClick={() => {
+            onShare={() => {
               sfx.click();
               void handleShare();
             }}
-          >
-            {shareLabel}
-          </button>
+          />
         </main>
       ) : (
         <main
+          id="main-stage"
           className="game-layer"
           aria-labelledby={feedbackResult ? "feedback-title" : "current-prompt"}
         >

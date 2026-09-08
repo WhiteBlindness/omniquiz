@@ -91,6 +91,24 @@ input:focus-visible {
   border: 0;
 }
 
+.skip-to-content:focus {
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top));
+  left: max(0.75rem, env(safe-area-inset-left));
+  z-index: 100;
+  width: auto;
+  height: auto;
+  padding: 0.55rem 0.85rem;
+  overflow: visible;
+  clip: auto;
+  border: 2px solid var(--cyan);
+  background: var(--panel);
+  color: var(--paper);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  white-space: normal;
+}
+
 .game-shell {
   position: relative;
   isolation: isolate;

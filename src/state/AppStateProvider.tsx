@@ -16,9 +16,18 @@ import {
   readThemePreference,
   writeMutePreference,
   writeThemePreference,
+  type ThemePreference,
 } from "../components/game/storage";
 
-export type Theme = "dark" | "light";
+export type Theme = ThemePreference;
+
+function getInitialTheme(): Theme {
+  if (typeof document !== "undefined") {
+    const stored = document.documentElement.dataset.storedTheme;
+    if (stored === "light" || stored === "dark") return stored;
+  }
+  return "dark";
+}
 
 type Tone = Readonly<{
   frequency: number;
@@ -103,7 +112,7 @@ const AppStateContext = createContext<AppState | null>(null);
 
 export function AppStateProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [muted, setMuted] = useState(false);
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
     let hydrationCancelled = false;

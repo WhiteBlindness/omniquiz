@@ -44,11 +44,6 @@
   100% { opacity: 0; transform: translateY(-82px); }
 }
 
-@keyframes mascot-swim {
-  0%, 100% { margin-top: 0; transform: translate(-50%, -50%) rotate(-3deg); }
-  50% { margin-top: -6px; transform: translate(-50%, -50%) rotate(3deg); }
-}
-
 @keyframes sub-drift {
   0%, 100% { margin-top: 0; }
   50% { margin-top: -7px; }
@@ -95,6 +90,11 @@
   to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes phase-exit {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-12px); }
+}
+
 @keyframes depth-confirm {
   0% { opacity: 0.35; color: var(--paper); }
   45% { opacity: 1; color: var(--cyan); }
@@ -117,11 +117,11 @@
   .tutorial-rules,
   .fish,
   .particle,
-  .krill-marker,
   .hud-timer[data-urgency="critical"] .hud-timer-dial,
   .begin-button:disabled,
   .summary-log-entry,
   .signal-error,
+  .countdown-digit,
   .hud-value-flash {
     animation: none !important;
   }
@@ -130,7 +130,8 @@
   .sky-layer,
   .water-layer,
   .current-depth-marker,
-  .answer-progress span {
+  .answer-progress span,
+  .countdown-ring-fill {
     transition: none !important;
   }
 

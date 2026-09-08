@@ -10,7 +10,9 @@ type GameSummaryProps = Readonly<{
   mode: "daily" | "unlimited";
   stats: DiveStats;
   roundLog: readonly RoundLog[];
+  shareLabel: string;
   onReplay: () => void;
+  onShare: () => void;
 }>;
 
 export function GameSummary({
@@ -19,7 +21,9 @@ export function GameSummary({
   mode,
   stats,
   roundLog,
+  shareLabel,
   onReplay,
+  onShare,
 }: GameSummaryProps) {
   const estimatedPercentile = getEstimatedDailyPercentile(score);
 
@@ -63,6 +67,9 @@ export function GameSummary({
       <div className="summary-actions">
         <button className="continue-button" type="button" onClick={onReplay}>
           DIVE AGAIN
+        </button>
+        <button className="share-button pixel-control" type="button" onClick={onShare}>
+          {shareLabel}
         </button>
         <Link className="secondary-link" href={mode === "unlimited" ? "/" : "/unlimited/classic"}>
           {mode === "unlimited" ? "TODAY'S DIVE" : "TRY UNLIMITED MODE"}

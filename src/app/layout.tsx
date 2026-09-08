@@ -27,6 +27,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=JSON.parse(localStorage.getItem("omniquiz-theme-v1"));if(t==="light"||t==="dark")document.documentElement.dataset.storedTheme=t}catch(e){}})()`,
+          }}
+        />
         <div
           hidden
           data-direction-seed="34a6553c"

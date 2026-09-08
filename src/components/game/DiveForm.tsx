@@ -43,7 +43,7 @@ export function DiveForm({
   const remainingSeconds = Math.max(0, Math.ceil(Math.max(0, remainingMilliseconds) / 1_000));
   const progress = Math.min(1, Math.max(0, remainingMilliseconds / (ANSWER_SECONDS * 1_000)));
   const isCritical = state.phase === "answering" && remainingMilliseconds > 0 && remainingSeconds <= 5;
-  const urgencyLiveMode = remainingSeconds === 5 ? "polite" : "off";
+  const urgencyLiveMode = remainingSeconds === 5 ? "assertive" as const : "off" as const;
 
   return (
     <form

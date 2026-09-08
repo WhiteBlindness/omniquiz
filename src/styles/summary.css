@@ -102,11 +102,19 @@
 }
 
 .summary-log {
+  position: relative;
   max-height: min(34vh, 18rem);
   margin-top: 1.15rem;
   overflow-y: auto;
   border-top: var(--edge);
   border-bottom: var(--edge);
+  mask-image: linear-gradient(to bottom, black calc(100% - 2rem), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 2rem), transparent);
+}
+
+.summary-log:not(:has(.summary-log-entry:nth-child(6))) {
+  mask-image: none;
+  -webkit-mask-image: none;
 }
 
 .summary-log-heading,
@@ -219,15 +227,16 @@
 }
 
 .share-button {
-  position: absolute;
-  right: 50%;
-  bottom: max(1rem, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   min-height: 44px;
+  margin-top: 0.5rem;
   border-color: var(--line-hot);
   border-bottom-width: 1px;
   background: rgba(3, 14, 28, 0.92);
   color: var(--drift);
-  transform: translateX(50%);
 }
 
 .game-shell[data-theme="light"] .summary-score small {

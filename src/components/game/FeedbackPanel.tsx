@@ -89,13 +89,15 @@ export function FeedbackPanel({
         <b>+{result.depthMetres}m</b> DESCENT
       </p>
       {result.commonAnswers.length > 0 ? (
-        <div className="common-answers" aria-label="Common answers from this prompt">
+        <div className="common-answers">
           <span className="common-answers-title">COMMON SIGNALS</span>
-          {result.commonAnswers.map((answer) => (
-            <span className="common-answer" key={answer.label}>
-              <b>{answer.label}</b><small className="telemetry-data">{answer.share}%</small>
-            </span>
-          ))}
+          <ul aria-label="Common answers from this prompt">
+            {result.commonAnswers.map((answer) => (
+              <li className="common-answer" key={answer.label}>
+                <b>{answer.label}</b><small className="telemetry-data">{answer.share}%</small>
+              </li>
+            ))}
+          </ul>
         </div>
       ) : (
         <p className="common-answers-empty">No atlas match logged; the dive continues.</p>

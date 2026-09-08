@@ -999,16 +999,45 @@
 }
 
 .preview-countdown {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   margin: 1.25rem 0 0;
   color: var(--cyan);
   font-size: 0.7rem;
   letter-spacing: 0.15em;
 }
 
-.preview-countdown strong {
+.countdown-ring {
+  width: 40px;
+  height: 40px;
+  transform: rotate(-90deg);
+}
+
+.countdown-ring-track,
+.countdown-ring-fill {
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.countdown-ring-track {
+  stroke: var(--line);
+}
+
+.countdown-ring-fill {
+  stroke: var(--cyan);
+  stroke-dasharray: 106.81;
+  stroke-dashoffset: calc(106.81 * (1 - var(--countdown-progress, 1)));
+  stroke-linecap: square;
+  transition: stroke-dashoffset 320ms ease-out;
+}
+
+.countdown-digit {
   color: var(--paper);
+  font-family: var(--telemetry);
   font-size: 1.3rem;
   font-weight: 400;
+  animation: value-flash 320ms ease-out;
 }
 
 .preview-footer {
@@ -1264,17 +1293,25 @@
 }
 
 .common-answers {
-  display: grid;
-  gap: 0.42rem;
   margin-top: 1rem;
   padding-top: 0.85rem;
   border-top: var(--edge);
 }
 
 .common-answers-title {
+  display: block;
+  margin-bottom: 0.42rem;
   color: var(--gold);
   font-size: 0.54rem;
   letter-spacing: 0.15em;
+}
+
+.common-answers ul {
+  display: grid;
+  gap: 0.42rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .common-answer {
