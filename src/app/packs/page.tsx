@@ -35,7 +35,7 @@ const PACKS = [
 
 export const metadata = {
   title: "OMNIQUIZ — Themed Packs",
-  description: "Themed dives beyond the daily question set.",
+  description: "Themed packs with unique routes and rules.",
 };
 
 type Pack = (typeof PACKS)[number];
@@ -87,7 +87,7 @@ export default function PacksPage() {
       <PacksControls />
       <header className="packs-header">
         <Link className="packs-brand" href="/" aria-label="Return to today's dive">OMNIQUIZ</Link>
-        <p>THEMED PACKS · BEYOND THE DAILY DIVE</p>
+        <p>THEMED PACKS · PICK YOUR ROUTE</p>
       </header>
 
       <section className="pack-list" aria-labelledby="packs-heading">
@@ -95,7 +95,7 @@ export default function PacksPage() {
         {PACKS.map((pack) => <PackCard key={pack.title} pack={pack} />)}
       </section>
 
-      <p className="packs-coming">MORE PACKS ARE BEING CHARTED_</p>
+      <p className="packs-coming">MORE ROUTES COMING SOON_</p>
 
       <section className="logbook" aria-labelledby="logbook-title">
         <div>
