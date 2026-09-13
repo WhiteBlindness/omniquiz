@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { ANSWER_SECONDS, type GameMode, type GamePhase, type GameState } from "./gameReducer";
+import { answerSecondsForMode, type GameMode, type GamePhase, type GameState } from "./gameReducer";
 
 type GameHudProps = Readonly<{
   state: GameState;
@@ -8,7 +8,7 @@ type GameHudProps = Readonly<{
   remainingMilliseconds: number;
 }>;
 
-const TIMER_DURATION_MS = ANSWER_SECONDS * 1_000;
+const timerDurationMs = (mode: GameMode): number => answerSecondsForMode(mode) * 1_000;
 
 type TimerWindowState = "armed" | "open" | "closed";
 
@@ -32,10 +32,11 @@ const getRemainingSeconds = (remainingMilliseconds: number): number =>
 const getTimerProgress = (
   timerState: TimerWindowState,
   remainingMilliseconds: number,
+  mode: GameMode,
 ): number => {
   if (timerState === "armed") return 1;
   if (timerState === "closed") return 0;
-  return Math.min(1, Math.max(0, remainingMilliseconds / TIMER_DURATION_MS));
+  return Math.min(1, Math.max(0, remainingMilliseconds / timerDurationMs(mode)));
 };
 
 const formatWindowTime = (remainingMilliseconds: number): string => {
@@ -88,7 +89,7 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
   const timerState = getTimerWindowState(state.phase, remainingMilliseconds);
   const remainingSeconds = getRemainingSeconds(remainingMilliseconds);
   const remainingTime = String(remainingSeconds).padStart(2, "0");
-  const timerProgress = getTimerProgress(timerState, remainingMilliseconds);
+  const timerProgress = getTimerProgress(timerState, remainingMilliseconds, mode);
   const timerLabel = timerState === "open"
     ? `${remainingSeconds} ${remainingSeconds === 1 ? "second" : "seconds"} remaining`
     : timerState === "armed"
@@ -161,7 +162,7 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
         <span><i className="hud-legend-swatch hud-legend-common" aria-hidden="true" />PLANKTON 10</span>
         <span><i className="hud-legend-swatch hud-legend-rare" aria-hidden="true" />RARE CATCH 60</span>
         <span><i className="hud-legend-swatch hud-legend-krillion" aria-hidden="true" />KRILLION 100</span>
-        <span className="sr-only">points; every point descends 10 metres</span>
+        <span className="sr-only">points; every point adds 10 metres</span>
       </div>
     </header>
   );

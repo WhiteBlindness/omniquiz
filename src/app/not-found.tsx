@@ -15,13 +15,13 @@ export default function NotFound() {
         <p className="not-found-code">404</p>
         <h1 className="not-found-heading">SIGNAL LOST</h1>
         <p className="not-found-body">
-          The ROV cannot locate this depth coordinate.
+          This signal cannot be resolved.
           <br />
-          Return to charted waters.
+          Return to a known frequency.
         </p>
         <div className="not-found-actions">
           <Link href="/" className="not-found-primary">
-            RETURN TO DIVE CONTROL
+            RETURN TO BASE
           </Link>
           <Link href="/packs" className="back-dive not-found-secondary">
             THEMED PACKS
