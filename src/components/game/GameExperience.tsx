@@ -66,7 +66,7 @@ const SURVIVAL_RULES = [
   "15 seconds per prompt from a pool of 30 questions.",
   "Recognized answers keep you alive and add to your score.",
   "Uncharted answers, passes, and timeouts all cost a life.",
-  "How deep can you go before the signal fades?",
+  "How far can you go before the signal fades?",
 ] as const;
 
 const MODE_OPTIONS: readonly Readonly<{
@@ -204,7 +204,8 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
   const handleShare = useCallback(async () => {
     const modeNames: Record<GameMode, string> = { daily: "daily", unlimited: "arcade", speed: "speed run", survival: "survival" };
-    const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${state.depthMetres}m deep.`;
+    const depthSuffix = mode === "speed" || mode === "survival" ? `${state.depthMetres}m` : `${state.depthMetres}m deep`;
+    const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${depthSuffix}.`;
     const flash = (label: string) => {
       setShareLabel(label);
       window.setTimeout(() => setShareLabel(`SHARE ${shareLogName}`), 1_800);
@@ -368,7 +369,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
             <div className="launch-rail">
               <span>{diveLabel}</span>
-              <nav aria-label="Other dives">
+              <nav aria-label="Other modes">
                 <Link href="/packs">THEMED PACKS</Link>
                 <Link href={mode === "daily" ? "/unlimited/classic" : "/"}>
                   {mode === "daily" ? "ARCADE ∞" : "TODAY'S DIVE"}

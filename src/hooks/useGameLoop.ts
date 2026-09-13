@@ -76,7 +76,7 @@ const fetchWithDeadline = async (
 const getApiData = async <T>(response: Response): Promise<T> => {
   const payload = (await response.json()) as ApiEnvelope<T>;
   if (!response.ok || !payload.success || payload.data === null) {
-    throw new Error(payload.error ?? "The dive signal was interrupted.");
+    throw new Error(payload.error ?? "The signal was interrupted.");
   }
   return payload.data;
 };
@@ -193,7 +193,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       if (!mountedRef.current) return;
       dispatch({
         type: "LOAD_FAILED",
-        error: errorMessage(error, "The dive signal is quiet. Try again."),
+        error: errorMessage(error, "The signal is quiet. Try again."),
       });
     }
   }, [category, mode, sfx, state.phase]);

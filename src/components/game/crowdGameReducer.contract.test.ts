@@ -17,7 +17,7 @@ const uncharted: SubmissionResult = Object.freeze({
   tier: "uncharted",
   score: 0,
   depthMetres: 0,
-  quip: "That answer is outside this expedition's atlas.",
+  quip: "That answer isn't in the atlas.",
   commonAnswers: Object.freeze([{ label: "Check their phone", share: 34 }]),
 });
 

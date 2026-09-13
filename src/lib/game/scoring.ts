@@ -26,7 +26,7 @@ export type SubmissionResult = Readonly<{
   commonAnswers: readonly CommonAnswer[];
 }>;
 
-const UNCHARTED_QUIP = "That answer is outside this expedition's atlas.";
+const UNCHARTED_QUIP = "That answer isn't in the atlas.";
 
 export const rarityForCrowdShare = (share: number): RarityResult => {
   if (!Number.isFinite(share) || share <= 0 || share > 100) {
@@ -117,7 +117,7 @@ export const createZeroScoreResult = (outcome: "pass" | "timeout"): SubmissionRe
     depthMetres: 0,
     quip:
       outcome === "pass"
-        ? "Pass logged. The expedition keeps moving."
-        : "The current carried you past this prompt. Zero points, no penalty.",
+        ? "Pass logged. Moving on."
+        : "Time ran out. Zero points, no penalty.",
     commonAnswers: Object.freeze([]),
   });

@@ -212,7 +212,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
         : Object.freeze({
             ...state,
             phase: "error" as const,
-            error: "No questions are available for this dive.",
+            error: "No questions are available for this run.",
           });
 
     case "LOAD_FAILED":
