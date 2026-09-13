@@ -3,6 +3,8 @@ import { toPublicQuestions } from "../../../lib/questions/public";
 import {
   ARCADE_QUESTION_COUNT,
   DAILY_QUESTION_COUNT,
+  SPEED_QUESTION_COUNT,
+  SURVIVAL_QUESTION_COUNT,
   selectDailyQuestions,
 } from "../../../lib/questions/selection";
 import {
@@ -41,7 +43,7 @@ const isCategory = (value: string): value is Category =>
   (CATEGORIES as readonly string[]).includes(value);
 
 const isMode = (value: string): value is GameMode =>
-  value === "daily" || value === "unlimited";
+  value === "daily" || value === "unlimited" || value === "speed" || value === "survival";
 
 const getSingleQueryValue = (url: URL, name: string): string | null | undefined => {
   const values = url.searchParams.getAll(name);
@@ -71,12 +73,14 @@ export async function GET(request: Request) {
   }
 
   const mode: GameMode = modeValue ?? "daily";
-  const defaultLimit = mode === "unlimited"
-    ? ARCADE_QUESTION_COUNT
-    : DAILY_QUESTION_COUNT;
-  const maximumLimit = mode === "unlimited"
-    ? ARCADE_QUESTION_COUNT
-    : DAILY_QUESTION_COUNT;
+  const questionCountForMode: Record<GameMode, number> = {
+    daily: DAILY_QUESTION_COUNT,
+    unlimited: ARCADE_QUESTION_COUNT,
+    speed: SPEED_QUESTION_COUNT,
+    survival: SURVIVAL_QUESTION_COUNT,
+  };
+  const defaultLimit = questionCountForMode[mode];
+  const maximumLimit = questionCountForMode[mode];
   const limit =
     limitValue === null
       ? defaultLimit
@@ -101,9 +105,9 @@ export async function GET(request: Request) {
     ? QUESTION_BANK.filter((question) => question.category === categoryValue)
     : QUESTION_BANK;
   const today = getUtcDateKey();
-  const date = mode === "unlimited"
-    ? offsetIsoDate(today, run - 1)
-    : dateValue ?? today;
+  const date = mode === "daily"
+    ? dateValue ?? today
+    : offsetIsoDate(today, run - 1);
   const questions = selectDailyQuestions(candidates, date, limit);
   const dayLabel = String(getUtcDayOfYear(date)).padStart(3, "0");
 

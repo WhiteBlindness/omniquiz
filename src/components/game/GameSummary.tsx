@@ -8,12 +8,14 @@ import type { DiveStats } from "./storage";
 type GameSummaryProps = Readonly<{
   score: number;
   depthMetres: number;
-  mode: "daily" | "unlimited";
+  mode: "daily" | "unlimited" | "speed" | "survival";
   stats: DiveStats;
   roundLog: readonly RoundLog[];
   shareLabel: string;
   onReplay: () => void;
   onShare: () => void;
+  lives?: number;
+  bestStreak?: number;
 }>;
 
 export function GameSummary({
@@ -25,6 +27,8 @@ export function GameSummary({
   shareLabel,
   onReplay,
   onShare,
+  lives,
+  bestStreak,
 }: GameSummaryProps) {
   const estimatedPercentile = getEstimatedDailyPercentile(score);
   const animatedScore = useCountUp(score);
@@ -33,7 +37,12 @@ export function GameSummary({
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
       <p className="sr-only">Dive logged after the final prompt</p>
-      <h1 id="summary-title">{mode === "unlimited" ? "UNLIMITED DIVE COMPLETE" : "DIVE COMPLETE"}</h1>
+      <h1 id="summary-title">
+        {mode === "speed" ? "SPEED RUN COMPLETE"
+          : mode === "survival" ? (lives === 0 ? "SIGNAL LOST" : "SURVIVAL COMPLETE")
+          : mode === "unlimited" ? "ARCADE RUN COMPLETE"
+          : "DIVE COMPLETE"}
+      </h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>
         <strong className="telemetry-data" aria-label={`${score} points`}>{animatedScore}</strong>
@@ -48,6 +57,18 @@ export function GameSummary({
           <span>EST. SCORE PERCENTILE</span>
           <b className="telemetry-data">P{String(estimatedPercentile).padStart(2, "0")}</b>
           <small>against the 700-point daily ceiling</small>
+        </div>
+      ) : null}
+      {mode === "speed" && bestStreak !== undefined ? (
+        <div className="summary-streak">
+          <span>BEST STREAK</span>
+          <b className="telemetry-data">{bestStreak}×</b>
+        </div>
+      ) : null}
+      {mode === "survival" ? (
+        <div className="summary-lives">
+          <span>{lives === 0 ? "ALL LIVES LOST" : `${lives} ${lives === 1 ? "LIFE" : "LIVES"} REMAINING`}</span>
+          <b className="telemetry-data">{roundLog.length} ROUNDS SURVIVED</b>
         </div>
       ) : null}
       <p className="summary-stats telemetry-data">
@@ -74,8 +95,8 @@ export function GameSummary({
         <button className="share-button pixel-control" type="button" onClick={onShare}>
           {shareLabel}
         </button>
-        <Link className="secondary-link" href={mode === "unlimited" ? "/" : "/unlimited/classic"}>
-          {mode === "unlimited" ? "TODAY'S DIVE" : "TRY UNLIMITED MODE"}
+        <Link className="secondary-link" href={mode === "daily" ? "/unlimited/classic" : "/"}>
+          {mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S DIVE"}
         </Link>
       </div>
     </section>
