@@ -323,3 +323,71 @@
 .game-shell[data-theme="light"] .summary-percentile b {
   color: var(--gold);
 }
+
+/* Speed Run summary accents */
+.mode-speed .summary-panel {
+  border-top-color: #b43cff;
+}
+
+.mode-speed .summary-depth b {
+  color: #b43cff;
+}
+
+.mode-speed .summary-log-heading {
+  color: #b43cff;
+}
+
+.mode-speed .summary-log-round {
+  color: #b43cff;
+}
+
+.mode-speed .summary-streak b {
+  color: #b43cff;
+}
+
+.mode-speed .secondary-link:hover {
+  border-color: #b43cff;
+}
+
+/* Survival summary accents */
+.mode-survival .summary-panel {
+  border-top-color: var(--coral);
+}
+
+.mode-survival .summary-log-heading {
+  color: var(--coral);
+}
+
+/* Speed light theme */
+.game-shell[data-theme="light"].mode-speed .summary-panel {
+  border-top-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .summary-depth b {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .summary-log-heading {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .summary-log-round {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .summary-streak b {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .secondary-link:hover {
+  border-color: #7828b4;
+}
+
+/* Survival light theme */
+.game-shell[data-theme="light"].mode-survival .summary-panel {
+  border-top-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .summary-log-heading {
+  color: var(--coral);
+}
