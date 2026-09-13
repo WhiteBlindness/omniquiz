@@ -112,7 +112,8 @@ export function GameExperience(props: GameExperienceProps) {
 
 function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionProps) {
   const [tutorialOpen, setTutorialOpen] = useState(false);
-  const [shareLabel, setShareLabel] = useState("SHARE DIVE LOG");
+  const shareLogName = mode === "speed" ? "RACE LOG" : mode === "survival" ? "THREAT LOG" : "DIVE LOG";
+  const [shareLabel, setShareLabel] = useState(`SHARE ${shareLogName}`);
   const {
     state,
     stats,
@@ -139,10 +140,10 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     } else if (state.phase === "feedback") {
       suffix = ` — ${state.score} pts · ${state.depthMetres}m`;
     } else if (state.phase === "summary") {
-      suffix = ` — Dive Complete`;
+      suffix = mode === "speed" ? " — Race Complete" : mode === "survival" ? " — Run Over" : " — Dive Complete";
     }
     document.title = base + suffix;
-    return () => { document.title = "OMNIQUIZ — Dive Control"; };
+    return () => { document.title = mode === "speed" ? "OMNIQUIZ — Race Control" : mode === "survival" ? "OMNIQUIZ — Hazard Control" : "OMNIQUIZ — Dive Control"; };
   }, [state.phase, state.questionIndex, state.questions.length, state.score, state.depthMetres]);
 
   useEffect(() => {
@@ -206,7 +207,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${state.depthMetres}m deep.`;
     const flash = (label: string) => {
       setShareLabel(label);
-      window.setTimeout(() => setShareLabel("SHARE DIVE LOG"), 1_800);
+      window.setTimeout(() => setShareLabel(`SHARE ${shareLogName}`), 1_800);
     };
     const canShare =
       typeof navigator !== "undefined" && typeof navigator.share === "function";
@@ -222,7 +223,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       } catch (error) {
         // A dismissed native share sheet is a cancellation, not a failure.
         if (error && typeof error === "object" && (error as { name?: string }).name === "AbortError") {
-          setShareLabel("SHARE DIVE LOG");
+          setShareLabel(`SHARE ${shareLogName}`);
         } else {
           flash("SHARE UNAVAILABLE");
         }
@@ -241,7 +242,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     }
 
     flash("SHARE UNAVAILABLE");
-  }, [mode, state.depthMetres, state.score]);
+  }, [mode, state.depthMetres, state.score, shareLogName]);
 
   const handleModeChange = useCallback(
     (nextMode: GameMode) => {
@@ -439,6 +440,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 depthMetres={state.depthMetres}
                 isLastRound={isLastRound}
                 outcome={state.lastOutcome ?? "answer"}
+                mode={mode}
                 onContinue={() => {
                   sfx.click();
                   continueDive();
@@ -463,7 +465,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
           {state.phase === "preview" ? (
             <p className="preview-footer" aria-live="polite">
-              descending · the clock starts in {state.previewSeconds}
+              {mode === "speed" ? "loading" : mode === "survival" ? "entering" : "descending"} · the clock starts in {state.previewSeconds}
               <button className="preview-skip" type="button" onClick={skipPreview}>SKIP</button>
             </p>
           ) : null}

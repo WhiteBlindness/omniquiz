@@ -408,7 +408,7 @@ describe("GameExperience", () => {
       expect(share).toHaveBeenCalledTimes(1);
       expect(share).toHaveBeenCalledWith({
         title: "OMNIQUIZ",
-        text: expect.stringContaining("OMNIQUIZ daily dive:"),
+        text: expect.stringContaining("OMNIQUIZ daily:"),
       });
       expect(screen.getByRole("button", { name: /log shared/i })).toBeInTheDocument();
     });
@@ -422,7 +422,7 @@ describe("GameExperience", () => {
         fireEvent.click(shareButton);
       });
 
-      expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/OMNIQUIZ daily dive:.*points.*deep\./));
+      expect(writeText).toHaveBeenCalledWith(expect.stringMatching(/OMNIQUIZ daily:.*points.*deep\./));
       expect(screen.getByRole("button", { name: /log copied/i })).toBeInTheDocument();
     });
 

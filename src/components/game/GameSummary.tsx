@@ -36,7 +36,9 @@ export function GameSummary({
 
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
-      <p className="sr-only">Dive logged after the final prompt</p>
+      <p className="sr-only">
+        {mode === "speed" ? "Race complete" : mode === "survival" ? "Run ended" : "Dive logged after the final prompt"}
+      </p>
       <h1 id="summary-title">
         {mode === "speed" ? "SPEED RUN COMPLETE"
           : mode === "survival" ? (lives === 0 ? "SIGNAL LOST" : "SURVIVAL COMPLETE")
@@ -74,8 +76,11 @@ export function GameSummary({
       <p className="summary-stats telemetry-data">
         BEST LOG {stats.bestScore} · RUNS {stats.runs} · RECOGNIZED {stats.recognized}
       </p>
-      <div className="summary-log" aria-label="Dive log">
-        <div className="summary-log-heading"><span>DIVE LOG</span><small>{roundLog.length} ROUNDS</small></div>
+      <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
+        <div className="summary-log-heading">
+          <span>{mode === "speed" ? "RACE LOG" : mode === "survival" ? "THREAT LOG" : "DIVE LOG"}</span>
+          <small>{roundLog.length} ROUNDS</small>
+        </div>
         {roundLog.map((entry, index) => (
           <div className="summary-log-entry" data-tier={entry.tier} key={`${entry.questionId}-${index}`}>
             <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
@@ -90,7 +95,7 @@ export function GameSummary({
       </div>
       <div className="summary-actions">
         <button className="continue-button" type="button" onClick={onReplay}>
-          DIVE AGAIN
+          {mode === "speed" ? "RACE AGAIN" : mode === "survival" ? "ENTER AGAIN" : "DIVE AGAIN"}
         </button>
         <button className="share-button pixel-control" type="button" onClick={onShare}>
           {shareLabel}

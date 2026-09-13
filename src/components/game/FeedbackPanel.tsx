@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import type { SubmissionResult } from "../../lib/game/scoring";
-import type { GameOutcome } from "./gameReducer";
+import type { GameMode, GameOutcome } from "./gameReducer";
 
 type FeedbackPanelProps = Readonly<{
   result: SubmissionResult;
@@ -11,6 +11,7 @@ type FeedbackPanelProps = Readonly<{
   isLastRound: boolean;
   onContinue: () => void;
   outcome?: GameOutcome;
+  mode?: GameMode;
 }>;
 
 const TIER_LABELS: Record<SubmissionResult["tier"], string> = {
@@ -31,6 +32,7 @@ export function FeedbackPanel({
   isLastRound,
   onContinue,
   outcome = "answer",
+  mode = "daily",
 }: FeedbackPanelProps) {
   const continueRef = useRef<HTMLButtonElement>(null);
 
@@ -100,10 +102,16 @@ export function FeedbackPanel({
           </ul>
         </div>
       ) : (
-        <p className="common-answers-empty">No atlas match logged; the dive continues.</p>
+        <p className="common-answers-empty">
+          {mode === "speed" ? "No atlas match logged; the clock keeps running."
+            : mode === "survival" ? "No atlas match logged; the void deepens."
+            : "No atlas match logged; the dive continues."}
+        </p>
       )}
       <button ref={continueRef} className="continue-button" type="button" onClick={onContinue}>
-        {isLastRound ? "SURFACE WITH LOG" : "CONTINUE DESCENT"}
+        {isLastRound
+          ? (mode === "speed" ? "FINISH RUN" : mode === "survival" ? "VIEW LOG" : "SURFACE WITH LOG")
+          : (mode === "speed" ? "NEXT PROMPT" : mode === "survival" ? "NEXT PROMPT" : "CONTINUE DESCENT")}
       </button>
     </section>
   );

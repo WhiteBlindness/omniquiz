@@ -72,7 +72,7 @@ export function DiveForm({
         maxLength={120}
       />
       <button className="dive-submit" type="submit" disabled={!state.answer.trim() || state.phase === "submitting"}>
-        {state.phase === "submitting" ? "LOGGING" : "DIVE"}
+        {state.phase === "submitting" ? "LOGGING" : state.mode === "speed" || state.mode === "survival" ? "LOCK" : "DIVE"}
       </button>
       <button
         className="dive-pass"
