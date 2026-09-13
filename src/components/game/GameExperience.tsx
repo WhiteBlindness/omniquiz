@@ -407,7 +407,9 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           className="game-layer"
           aria-labelledby={feedbackResult ? "feedback-title" : "current-prompt"}
         >
-          <div className="feed-plate" aria-hidden="true">CAM 01 · ROV FEED</div>
+          <div className="feed-plate" aria-hidden="true">
+            {mode === "speed" ? "CAM 01 · GRID FEED" : mode === "survival" ? "CAM 01 · VOID FEED" : "CAM 01 · ROV FEED"}
+          </div>
           <div className="timecode-plate telemetry-data" aria-hidden="true">
             {getWindowLabel(state.phase, remainingMilliseconds)}
           </div>

@@ -58,7 +58,13 @@ export const getWindowLabel = (
 
 export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
   const roundCount = state.questions.length || 7;
-  const label = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
+  const labels: Record<GameMode, string> = {
+    daily: "THE DAILY DIVE",
+    unlimited: "THE ARCADE DIVE",
+    speed: "SPEED RUN",
+    survival: "SURVIVAL MODE",
+  };
+  const label = labels[mode];
   const currentQuestion = state.questions[state.questionIndex] ?? null;
   const completedRounds = Math.min(
     state.questionIndex + (
@@ -95,7 +101,7 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
     : "normal";
 
   return (
-    <header className="game-hud" aria-label="Dive telemetry">
+    <header className="game-hud" aria-label={mode === "speed" ? "Race telemetry" : mode === "survival" ? "Threat telemetry" : "Dive telemetry"}>
       <div className="hud-brand" aria-label="OMNIQUIZ">OMNIQUIZ</div>
       <div className="hud-meter hud-depth" aria-label="Current depth">
         <span>DEPTH</span>

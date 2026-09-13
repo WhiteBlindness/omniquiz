@@ -1439,3 +1439,140 @@
 .game-shell[data-theme="light"] .life-pip.is-alive {
   box-shadow: 0 0 6px rgba(187, 62, 87, 0.35);
 }
+
+/* --- Mode-specific thematic overrides --- */
+
+.mode-speed .brand-stage::before {
+  content: "SPEED FEED / LIVE";
+}
+
+.mode-speed .landing-console::before {
+  content: "GRID-01 / RACE CONTROL";
+}
+
+.mode-speed .game-hud::before {
+  content: "CLOCK ACTIVE";
+}
+
+.mode-speed .game-hud {
+  border-right-color: rgba(180, 60, 255, 0.28);
+}
+
+.mode-speed .hud-brand {
+  color: #b43cff;
+}
+
+.mode-speed .hud-depth {
+  border-left-color: #b43cff;
+}
+
+.mode-speed .hud-rounds-label {
+  color: #b43cff;
+}
+
+.mode-speed .hud-round-step.is-current b {
+  border-color: #b43cff;
+  box-shadow: inset 0 0 0 2px rgba(180, 60, 255, 0.12);
+}
+
+.mode-speed .feed-plate,
+.mode-speed .timecode-plate {
+  border-color: rgba(180, 60, 255, 0.38);
+  color: #b43cff;
+}
+
+.mode-survival .brand-stage::before {
+  content: "THREAT FEED / LIVE";
+}
+
+.mode-survival .landing-console::before {
+  content: "VOID-01 / HAZARD CONTROL";
+}
+
+.mode-survival .game-hud::before {
+  content: "SIGNAL FADING";
+}
+
+.mode-survival .game-hud {
+  border-right-color: rgba(255, 102, 127, 0.28);
+}
+
+.mode-survival .hud-brand {
+  color: var(--coral);
+}
+
+.mode-survival .hud-depth {
+  border-left-color: var(--coral);
+}
+
+.mode-survival .hud-score {
+  border-left-color: var(--gold);
+}
+
+.mode-survival .hud-rounds-label {
+  color: var(--coral);
+}
+
+.mode-survival .hud-round-step.is-current b {
+  border-color: var(--coral);
+  box-shadow: inset 0 0 0 2px rgba(255, 102, 127, 0.12);
+}
+
+.mode-survival .feed-plate,
+.mode-survival .timecode-plate {
+  border-color: rgba(255, 102, 127, 0.38);
+  color: var(--coral);
+}
+
+/* Light theme mode overrides */
+.game-shell[data-theme="light"].mode-speed .game-hud {
+  border-right-color: rgba(120, 40, 180, 0.22);
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-brand {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-depth {
+  border-left-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-rounds-label {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-round-step.is-current b {
+  border-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .feed-plate,
+.game-shell[data-theme="light"].mode-speed .timecode-plate {
+  border-color: rgba(120, 40, 180, 0.32);
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-survival .game-hud {
+  border-right-color: rgba(187, 62, 87, 0.22);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-brand {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-depth {
+  border-left-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-rounds-label {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-round-step.is-current b {
+  border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .feed-plate,
+.game-shell[data-theme="light"].mode-survival .timecode-plate {
+  border-color: rgba(187, 62, 87, 0.32);
+  color: var(--coral);
+}
