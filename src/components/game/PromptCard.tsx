@@ -18,7 +18,13 @@ export function PromptCard({ state, phase }: PromptCardProps) {
     <section className={`prompt-card ${preview ? "prompt-card-preview" : ""}`} aria-labelledby="current-prompt">
       <span className="sr-only">Prompt {state.questionIndex + 1} of {state.questions.length}</span>
       <h1 id="current-prompt">{question.prompt}</h1>
-      <p className="rarity-hint">Name the first honest answer that surfaces. Rarer recognizable signals sink deeper.</p>
+      <p className="rarity-hint">
+        {state.mode === "speed"
+          ? "Name the first honest answer that comes to mind. Rarer recognizable signals score higher."
+          : state.mode === "survival"
+            ? "Name the first honest answer that comes to mind. Rarer recognizable signals keep you alive."
+            : "Name the first honest answer that surfaces. Rarer recognizable signals sink deeper."}
+      </p>
       {preview ? (
         <div className="preview-countdown" aria-live="polite">
           <svg
