@@ -1,5 +1,7 @@
 @import "../styles/base.css";
 @import "../styles/ocean.css";
+@import "../styles/speed-backdrop.css";
+@import "../styles/survival-backdrop.css";
 @import "../styles/game.css";
 @import "../styles/summary.css";
 @import "../styles/routes.css";

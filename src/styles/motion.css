@@ -105,6 +105,45 @@
   animation: depth-confirm 480ms steps(2, end) both;
 }
 
+@keyframes speed-line-rush {
+  from { opacity: 0; transform: translateY(-20vh); }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  to { opacity: 0; transform: translateY(120vh); }
+}
+
+@keyframes speed-node-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes speed-boost {
+  from { opacity: 0; transform: scale(0.95); }
+  20% { opacity: 1; }
+  to { opacity: 0; transform: scale(1.05); }
+}
+
+@keyframes survival-heartbeat {
+  0%, 100% { opacity: 0.35; }
+  30% { opacity: 1; }
+  50% { opacity: 0.6; }
+  70% { opacity: 0.85; }
+}
+
+@keyframes survival-ember-rise {
+  0% { opacity: 0; transform: translateY(20px) scale(0.5); }
+  15% { opacity: 0.7; }
+  85% { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-100px) translateX(18px) scale(0.3); }
+}
+
+@keyframes survival-crack-flicker {
+  0%, 100% { opacity: 0.25; }
+  25% { opacity: 0.65; }
+  50% { opacity: 0.15; }
+  75% { opacity: 0.55; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 
@@ -160,5 +199,14 @@
 
   .feedback-depth-delta.is-earned {
     animation: depth-confirm 200ms steps(2, end) both;
+  }
+
+  .speed-line,
+  .speed-node,
+  .speed-boost-flash,
+  .survival-heartbeat,
+  .survival-ember,
+  .survival-crack {
+    animation: none !important;
   }
 }

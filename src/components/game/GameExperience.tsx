@@ -8,6 +8,8 @@ import { useGameLoop } from "../../hooks/useGameLoop";
 import type { Category } from "../../lib/questions/types";
 import { AppStateProvider } from "../../state/AppStateProvider";
 import { OceanBackdrop } from "./OceanBackdrop";
+import { SpeedBackdrop } from "./SpeedBackdrop";
+import { SurvivalBackdrop } from "./SurvivalBackdrop";
 import { DiveForm } from "./DiveForm";
 import { FeedbackPanel } from "./FeedbackPanel";
 import { GameHud, getWindowLabel } from "./GameHud";
@@ -257,12 +259,25 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       data-theme={theme}
     >
       <a className="skip-to-content sr-only" href="#main-stage">Skip to content</a>
-      <OceanBackdrop
-        depthMetres={state.depthMetres}
-        mode={mode}
-        descentMetres={descentMetres}
-        descentEventKey={descentEventKey}
-      />
+      {mode === "speed" ? (
+        <SpeedBackdrop
+          score={state.score}
+          streak={state.streak}
+          streakMultiplier={state.streakMultiplier}
+        />
+      ) : mode === "survival" ? (
+        <SurvivalBackdrop
+          lives={state.lives}
+          score={state.score}
+        />
+      ) : (
+        <OceanBackdrop
+          depthMetres={state.depthMetres}
+          mode={mode}
+          descentMetres={descentMetres}
+          descentEventKey={descentEventKey}
+        />
+      )}
 
       <aside className="global-controls" aria-label="Display and sound controls">
         <ThemeControl
