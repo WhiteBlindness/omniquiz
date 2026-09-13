@@ -7,12 +7,14 @@ import { getUtcDateKey, isIsoDate } from "../lib/questions/date";
 import {
   ARCADE_QUESTION_COUNT,
   DAILY_QUESTION_COUNT,
+  SPEED_QUESTION_COUNT,
+  SURVIVAL_QUESTION_COUNT,
 } from "../lib/questions/selection";
 import { useAppState } from "../state/AppStateProvider";
 import { useSoundFx } from "./useSoundFx";
 import {
-  ANSWER_SECONDS,
   PREVIEW_SECONDS,
+  answerSecondsForMode,
   createInitialGameState,
   gameReducer,
   type GameMode,
@@ -139,13 +141,19 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
     dispatch({ type: "LOAD_START" });
     try {
+      const questionCountForMode: Record<GameMode, number> = {
+        daily: DAILY_QUESTION_COUNT,
+        unlimited: ARCADE_QUESTION_COUNT,
+        speed: SPEED_QUESTION_COUNT,
+        survival: SURVIVAL_QUESTION_COUNT,
+      };
       const query = new URLSearchParams({
-        limit: String(mode === "unlimited" ? ARCADE_QUESTION_COUNT : DAILY_QUESTION_COUNT),
+        limit: String(questionCountForMode[mode]),
         mode,
       });
       const requestedDailyDate = mode === "daily" ? getUtcDateKey() : null;
       if (requestedDailyDate) query.set("date", requestedDailyDate);
-      if (mode === "unlimited") {
+      if (mode !== "daily") {
         const run = unlimitedRunRef.current ?? Math.max(1, readStats().runs + 1);
         unlimitedRunRef.current = run;
         query.set("run", String(run));
@@ -440,7 +448,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     skipPreview,
     resetDive,
     previewSeconds: PREVIEW_SECONDS,
-    answerSeconds: ANSWER_SECONDS,
+    answerSeconds: answerSecondsForMode(mode),
     remainingMilliseconds,
   };
 };

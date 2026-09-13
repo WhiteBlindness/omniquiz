@@ -13,6 +13,7 @@ import { FeedbackPanel } from "./FeedbackPanel";
 import { GameHud, getWindowLabel } from "./GameHud";
 import { GameSummary } from "./GameSummary";
 import {
+  answerSecondsForMode,
   getCurrentQuestion,
   type GameMode,
 } from "./gameReducer";
@@ -48,13 +49,33 @@ const ARCADE_RULES = [
   "Replay to chart a different route through the crowd.",
 ] as const;
 
+const SPEED_RULES = [
+  "Ten prompts. Eight seconds each. No room to hesitate.",
+  "Consecutive correct answers build a streak multiplier.",
+  "3 in a row = 2× points. 5 in a row = 3× points.",
+  "A miss, pass, or timeout resets your streak to zero.",
+  "The atlas still recognizes answer families. Speed rewards instinct.",
+  "Chase the highest multiplied score across runs.",
+] as const;
+
+const SURVIVAL_RULES = [
+  "You start with three lives. Every miss costs one.",
+  "When your lives run out, the run ends immediately.",
+  "15 seconds per prompt from a pool of 30 questions.",
+  "Recognized answers keep you alive and add to your score.",
+  "Uncharted answers, passes, and timeouts all cost a life.",
+  "How deep can you go before the signal fades?",
+] as const;
+
 const MODE_OPTIONS: readonly Readonly<{
   mode: GameMode;
   label: string;
   detail: string;
 }>[] = [
   { mode: "daily", label: "DAILY", detail: "7 PROMPTS / 1 RUN" },
-  { mode: "unlimited", label: "UNLIMITED", detail: "15 PROMPTS / FULL RUN" },
+  { mode: "unlimited", label: "UNLIMITED", detail: "15 PROMPTS / ∞ RUNS" },
+  { mode: "speed", label: "SPEED", detail: "10 PROMPTS / 8 SEC" },
+  { mode: "survival", label: "SURVIVAL", detail: "3 LIVES / 30 PROMPTS" },
 ];
 
 export function GameExperience(props: GameExperienceProps) {
@@ -64,7 +85,13 @@ export function GameExperience(props: GameExperienceProps) {
   const selectMode = useCallback(
     (nextMode: GameMode) => {
       setActiveMode(nextMode);
-      router.replace(nextMode === "unlimited" ? "/unlimited/classic" : "/");
+      const routes: Record<GameMode, string> = {
+        daily: "/",
+        unlimited: "/unlimited/classic",
+        speed: "/speed-run",
+        survival: "/survival",
+      };
+      router.replace(routes[nextMode]);
     },
     [router],
   );
@@ -129,11 +156,23 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
   }, [state.phase, skipPreview]);
 
   const question = getCurrentQuestion(state);
-  const title = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
-  const description = mode === "unlimited"
-    ? "15 prompts · repeatable crowd-rarity expeditions"
-    : "7 prompts · 15 seconds each · rarer recognizable answers sink deeper";
-  const isLastRound = state.questionIndex + 1 >= state.questions.length;
+  const titles: Record<GameMode, string> = {
+    daily: "THE DAILY DIVE",
+    unlimited: "THE ARCADE DIVE",
+    speed: "SPEED RUN",
+    survival: "SURVIVAL MODE",
+  };
+  const descriptions: Record<GameMode, string> = {
+    daily: "7 prompts · 15 seconds each · rarer recognizable answers sink deeper",
+    unlimited: "15 prompts · repeatable crowd-rarity expeditions",
+    speed: "10 prompts · 8 seconds each · streak multipliers reward momentum",
+    survival: "3 lives · 30 prompts · every miss brings you closer to the end",
+  };
+  const title = titles[mode];
+  const description = descriptions[mode];
+  const isLastRound = mode === "survival"
+    ? state.questionIndex + 1 >= state.questions.length || state.lives <= 0
+    : state.questionIndex + 1 >= state.questions.length;
   const feedbackResult = state.phase === "feedback" ? state.lastResult : null;
   const descentMetres =
     feedbackResult &&
@@ -145,13 +184,24 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
   const descentEventKey = descentMetres > 0
     ? `${state.questionIndex}-${state.depthMetres}-${descentMetres}`
     : undefined;
-  const rules = mode === "unlimited" ? ARCADE_RULES : DAILY_RULES;
-  const diveLabel = mode === "unlimited"
-    ? dayLabel ? `ARCADE / UTC DAY ${dayLabel}` : "ARCADE RUN #1"
-    : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
+  const rulesMap: Record<GameMode, readonly string[]> = {
+    daily: DAILY_RULES,
+    unlimited: ARCADE_RULES,
+    speed: SPEED_RULES,
+    survival: SURVIVAL_RULES,
+  };
+  const rules = rulesMap[mode];
+  const diveLabel = mode === "speed"
+    ? dayLabel ? `SPEED / UTC DAY ${dayLabel}` : "SPEED RUN #1"
+    : mode === "survival"
+      ? dayLabel ? `SURVIVAL / UTC DAY ${dayLabel}` : "SURVIVAL RUN #1"
+      : mode === "unlimited"
+        ? dayLabel ? `ARCADE / UTC DAY ${dayLabel}` : "ARCADE RUN #1"
+        : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
 
   const handleShare = useCallback(async () => {
-    const shareText = `OMNIQUIZ ${mode === "unlimited" ? "arcade" : "daily"} dive: ${state.score} points, ${state.depthMetres}m deep.`;
+    const modeNames: Record<GameMode, string> = { daily: "daily", unlimited: "arcade", speed: "speed run", survival: "survival" };
+    const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${state.depthMetres}m deep.`;
     const flash = (label: string) => {
       setShareLabel(label);
       window.setTimeout(() => setShareLabel("SHARE DIVE LOG"), 1_800);
@@ -248,7 +298,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             ) : null}
 
             <div className="mode-selector" role="group" aria-label="Select game mode">
-              <span className="mode-selector-label">SELECT A DIVE MODE</span>
+              <span className="mode-selector-label">SELECT A MODE</span>
               <div className="mode-selector-options">
                 {MODE_OPTIONS.map((option) => (
                   <button
@@ -296,7 +346,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
               disabled={state.phase === "loading"}
             >
               <span className="pixel-descent-mark" aria-hidden="true" />
-              {state.phase === "loading" ? "LOADING QUESTIONS" : state.phase === "error" ? "RETRY DESCENT" : "BEGIN DESCENT"}
+              {state.phase === "loading" ? "LOADING QUESTIONS" : state.phase === "error" ? "RETRY" : mode === "speed" ? "START THE CLOCK" : mode === "survival" ? "ENTER THE ABYSS" : "BEGIN DESCENT"}
               <span className="pixel-descent-mark" aria-hidden="true" />
             </button>
 
@@ -320,6 +370,12 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             stats={stats}
             roundLog={state.roundLog}
             shareLabel={shareLabel}
+            lives={state.lives}
+            bestStreak={Math.max(state.streak, ...state.roundLog.reduce<number[]>((acc, entry) => {
+              const last = acc.length > 0 ? acc[acc.length - 1] : 0;
+              acc.push(entry.outcome === "answer" && entry.score > 0 ? last + 1 : 0);
+              return acc;
+            }, []))}
             onReplay={() => {
               sfx.click();
               void startDive();
@@ -341,6 +397,22 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             {getWindowLabel(state.phase, remainingMilliseconds)}
           </div>
           <GameHud state={state} mode={mode} remainingMilliseconds={remainingMilliseconds} />
+          {mode === "speed" && state.streak > 0 ? (
+            <div className="streak-indicator" aria-live="polite">
+              <span className="streak-count telemetry-data">{state.streak}× STREAK</span>
+              {state.streakMultiplier > 1 ? (
+                <span className="streak-multiplier telemetry-data">{state.streakMultiplier}× POINTS</span>
+              ) : null}
+            </div>
+          ) : null}
+          {mode === "survival" ? (
+            <div className="lives-indicator" aria-live="polite" aria-label={`${state.lives} lives remaining`}>
+              {Array.from({ length: 3 }, (_, i) => (
+                <span key={i} className={`life-pip ${i < state.lives ? "is-alive" : "is-lost"}`} aria-hidden="true" />
+              ))}
+              <span className="lives-label telemetry-data">{state.lives} {state.lives === 1 ? "LIFE" : "LIVES"}</span>
+            </div>
+          ) : null}
           <div className="prompt-zone">
             {feedbackResult ? (
               <FeedbackPanel
@@ -381,7 +453,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
           {question && state.phase === "answering" ? (
             <p className="live-prompt-announcement sr-only" aria-live="polite">
-              {question.prompt}. You have 15 seconds.
+              {question.prompt}. You have {answerSecondsForMode(mode)} seconds.
             </p>
           ) : null}
         </main>

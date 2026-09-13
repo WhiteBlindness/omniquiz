@@ -8,8 +8,12 @@ export { METRES_PER_POINT } from "../../lib/game/scoring";
 
 export const PREVIEW_SECONDS = 3;
 export const ANSWER_SECONDS = 15;
+export const SPEED_ANSWER_SECONDS = 8;
+export const SURVIVAL_STARTING_LIVES = 3;
+export const SPEED_QUESTION_COUNT = 10;
+export const SURVIVAL_QUESTION_COUNT = 30;
 
-export type GameMode = "daily" | "unlimited";
+export type GameMode = "daily" | "unlimited" | "speed" | "survival";
 export type GamePhase =
   | "intro"
   | "loading"
@@ -49,6 +53,9 @@ export type GameState = Readonly<{
   lastOutcome: GameOutcome | null;
   roundLog: readonly RoundLog[];
   error: string | null;
+  lives: number;
+  streak: number;
+  streakMultiplier: number;
 }>;
 
 export type GameAction =
@@ -67,6 +74,9 @@ export type GameAction =
   | { type: "NEXT_ROUND" }
   | { type: "RESTORE_PROGRESS"; progress: Partial<GameState> }
   | { type: "RESET" };
+
+export const answerSecondsForMode = (mode: GameMode): number =>
+  mode === "speed" ? SPEED_ANSWER_SECONDS : ANSWER_SECONDS;
 
 const freezeResult = (result: SubmissionResult): SubmissionResult =>
   Object.freeze({
@@ -106,11 +116,19 @@ const completeRound = (
   outcome: GameOutcome,
 ): GameState => {
   const safeResult = freezeResult(result);
-  const scoreDelta = Math.max(0, safeResult.score);
-  const depthDelta = Math.max(0, safeResult.depthMetres);
+  const recognized = outcome === "answer" && safeResult.recognized;
+  const nextStreak = recognized ? state.streak + 1 : 0;
+  const nextMultiplier = state.mode === "speed"
+    ? (nextStreak >= 5 ? 3 : nextStreak >= 3 ? 2 : 1)
+    : 1;
+  const scoreDelta = Math.max(0, safeResult.score) * (state.mode === "speed" ? state.streakMultiplier : 1);
+  const depthDelta = Math.max(0, safeResult.depthMetres) * (state.mode === "speed" ? state.streakMultiplier : 1);
+  const lostLife = state.mode === "survival" && !recognized;
+  const nextLives = lostLife ? state.lives - 1 : state.lives;
+  const isSurvivalDead = state.mode === "survival" && nextLives <= 0;
   return Object.freeze({
     ...state,
-    phase: "feedback" as const,
+    phase: isSurvivalDead ? "summary" as const : "feedback" as const,
     score: state.score + scoreDelta,
     depthMetres: state.depthMetres + depthDelta,
     lastResult: safeResult,
@@ -119,6 +137,9 @@ const completeRound = (
     remainingSeconds: 0,
     previewSeconds: 0,
     error: null,
+    lives: nextLives,
+    streak: nextStreak,
+    streakMultiplier: nextMultiplier,
   });
 };
 
@@ -130,7 +151,7 @@ export const createInitialGameState = (mode: GameMode): GameState =>
     questions: Object.freeze([]),
     questionIndex: 0,
     answer: "",
-    remainingSeconds: ANSWER_SECONDS,
+    remainingSeconds: answerSecondsForMode(mode),
     previewSeconds: 0,
     score: 0,
     depthMetres: 0,
@@ -138,6 +159,9 @@ export const createInitialGameState = (mode: GameMode): GameState =>
     lastOutcome: null,
     roundLog: Object.freeze([]),
     error: null,
+    lives: mode === "survival" ? SURVIVAL_STARTING_LIVES : 0,
+    streak: 0,
+    streakMultiplier: 1,
   });
 
 const prepareNextQuestion = (state: GameState, questionIndex: number): GameState =>
@@ -146,7 +170,7 @@ const prepareNextQuestion = (state: GameState, questionIndex: number): GameState
     phase: "preview" as const,
     questionIndex,
     answer: "",
-    remainingSeconds: ANSWER_SECONDS,
+    remainingSeconds: answerSecondsForMode(state.mode),
     previewSeconds: PREVIEW_SECONDS,
     lastResult: null,
     lastOutcome: null,
@@ -173,7 +197,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
             questions: Object.freeze(action.questions.map((question) => Object.freeze({ ...question }))),
             questionIndex: 0,
             answer: "",
-            remainingSeconds: ANSWER_SECONDS,
+            remainingSeconds: answerSecondsForMode(state.mode),
             previewSeconds: PREVIEW_SECONDS,
             score: 0,
             depthMetres: 0,
@@ -181,6 +205,9 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
             lastOutcome: null,
             roundLog: Object.freeze([]),
             error: null,
+            lives: state.mode === "survival" ? SURVIVAL_STARTING_LIVES : 0,
+            streak: 0,
+            streakMultiplier: 1,
           })
         : Object.freeze({
             ...state,
@@ -204,7 +231,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
             ...state,
             phase: "answering" as const,
             previewSeconds: 0,
-            remainingSeconds: ANSWER_SECONDS,
+            remainingSeconds: answerSecondsForMode(state.mode),
             error: null,
           })
         : Object.freeze({ ...state, previewSeconds: state.previewSeconds - 1 });
@@ -215,7 +242,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
         ...state,
         phase: "answering" as const,
         previewSeconds: 0,
-        remainingSeconds: ANSWER_SECONDS,
+        remainingSeconds: answerSecondsForMode(state.mode),
         error: null,
       });
 
@@ -226,7 +253,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
         ...state,
         remainingSeconds: Math.max(
           0,
-          Math.min(ANSWER_SECONDS, Math.ceil(action.remainingSeconds)),
+          Math.min(answerSecondsForMode(state.mode), Math.ceil(action.remainingSeconds)),
         ),
       });
 
@@ -283,6 +310,7 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
           commonAnswers: Object.freeze(entry.commonAnswers.map((answer) => Object.freeze({ ...answer }))),
         }),
       ) ?? [];
+      const modeSeconds = answerSecondsForMode(state.mode);
       return Object.freeze({
         ...state,
         ...progress,
@@ -294,13 +322,16 @@ export const gameReducer = (state: GameState, action: GameAction): GameState => 
         answer: progress.answer ?? "",
         remainingSeconds:
           phase === "answering" || phase === "submitting"
-            ? Math.max(0, Math.min(ANSWER_SECONDS, progress.remainingSeconds ?? ANSWER_SECONDS))
-            : Math.max(0, progress.remainingSeconds ?? ANSWER_SECONDS),
+            ? Math.max(0, Math.min(modeSeconds, progress.remainingSeconds ?? modeSeconds))
+            : Math.max(0, progress.remainingSeconds ?? modeSeconds),
         previewSeconds: Math.max(0, progress.previewSeconds ?? 0),
         lastResult: phase === "feedback" ? lastResult : null,
         lastOutcome: phase === "feedback" ? progress.lastOutcome ?? "answer" : null,
         roundLog: Object.freeze(roundLog),
         error: null,
+        lives: progress.lives ?? state.lives,
+        streak: progress.streak ?? 0,
+        streakMultiplier: progress.streakMultiplier ?? 1,
       });
     }
 

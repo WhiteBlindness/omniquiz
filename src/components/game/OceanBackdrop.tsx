@@ -1,8 +1,10 @@
 import type { CSSProperties } from "react";
 
+import type { GameMode } from "./gameReducer";
+
 type OceanBackdropProps = Readonly<{
   depthMetres: number;
-  mode: "daily" | "unlimited";
+  mode: GameMode;
   descentMetres?: number;
   descentEventKey?: string;
 }>;

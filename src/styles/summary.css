@@ -94,6 +94,51 @@
   font-weight: 500;
 }
 
+.summary-streak {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: var(--edge);
+}
+
+.summary-streak span {
+  color: var(--drift);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+}
+
+.summary-streak b {
+  color: var(--gold);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.summary-lives {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: var(--edge);
+}
+
+.summary-lives span {
+  color: var(--drift);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+}
+
+.summary-lives b {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--coral);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .summary-stats {
   margin: 1rem 0 0;
   color: var(--drift);

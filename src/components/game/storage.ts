@@ -27,6 +27,9 @@ export type PersistedProgress = Readonly<{
   lastOutcome?: GameOutcome | null;
   roundLog: readonly RoundLog[];
   savedAt: number;
+  lives?: number;
+  streak?: number;
+  streakMultiplier?: number;
 }>;
 
 export type DiveStats = Readonly<{
@@ -49,12 +52,12 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
 
 const isMode = (value: unknown): value is GameMode =>
-  value === "daily" || value === "unlimited";
+  value === "daily" || value === "unlimited" || value === "speed" || value === "survival";
 
 const isDailyDate = (value: unknown, mode: GameMode): value is string | null =>
   mode === "daily"
     ? typeof value === "string" && isIsoDate(value)
-    : value === null;
+    : value === null || value === undefined;
 
 const isPhase = (value: unknown): value is PersistedPhase =>
   value === "intro" ||
@@ -242,6 +245,9 @@ export const toPersistedProgress = (state: GameState, now = Date.now()): Persist
     lastOutcome: state.lastOutcome,
     roundLog: Object.freeze(state.roundLog.map(freezeRoundLog)),
     savedAt: now,
+    lives: state.lives,
+    streak: state.streak,
+    streakMultiplier: state.streakMultiplier,
   });
 
 export const readProgress = (

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 import type { FormEvent } from "react";
 import type { CSSProperties } from "react";
 
-import { ANSWER_SECONDS, type GameState } from "./gameReducer";
+import { answerSecondsForMode, type GameState } from "./gameReducer";
 
 type DiveFormProps = Readonly<{
   state: GameState;
@@ -41,7 +41,7 @@ export function DiveForm({
   };
 
   const remainingSeconds = Math.max(0, Math.ceil(Math.max(0, remainingMilliseconds) / 1_000));
-  const progress = Math.min(1, Math.max(0, remainingMilliseconds / (ANSWER_SECONDS * 1_000)));
+  const progress = Math.min(1, Math.max(0, remainingMilliseconds / (answerSecondsForMode(state.mode) * 1_000)));
   const isCritical = state.phase === "answering" && remainingMilliseconds > 0 && remainingSeconds <= 5;
   const urgencyLiveMode = remainingSeconds === 5 ? "assertive" as const : "off" as const;
 

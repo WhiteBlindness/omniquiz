@@ -2,6 +2,8 @@ import type { Question } from "./types";
 
 export const DAILY_QUESTION_COUNT = 7;
 export const ARCADE_QUESTION_COUNT = 15;
+export const SPEED_QUESTION_COUNT = 10;
+export const SURVIVAL_QUESTION_COUNT = 30;
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 

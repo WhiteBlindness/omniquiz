@@ -102,7 +102,7 @@
 
 .mode-selector-options {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.45rem;
 }
 
@@ -1356,4 +1356,86 @@
 .continue-button {
   width: 100%;
   margin-top: 1.2rem;
+}
+
+/* --- Speed-run streak indicator --- */
+.streak-indicator {
+  position: absolute;
+  top: max(1rem, env(safe-area-inset-top));
+  left: 50%;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  transform: translateX(-50%);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--gold);
+  background: rgba(4, 15, 29, 0.88);
+  animation: card-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.streak-count {
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.streak-multiplier {
+  color: var(--coral);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.game-shell[data-theme="light"] .streak-indicator {
+  background: rgba(237, 247, 245, 0.92);
+  border-color: var(--gold);
+}
+
+/* --- Survival lives indicator --- */
+.lives-indicator {
+  position: absolute;
+  top: max(1rem, env(safe-area-inset-top));
+  left: 50%;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateX(-50%);
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--coral);
+  background: rgba(4, 15, 29, 0.88);
+  animation: card-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.life-pip {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: background-color 320ms ease, opacity 320ms ease;
+}
+
+.life-pip.is-alive {
+  background: var(--coral);
+  box-shadow: 0 0 6px rgba(255, 102, 127, 0.5);
+}
+
+.life-pip.is-lost {
+  background: var(--muted);
+  opacity: 0.4;
+}
+
+.lives-label {
+  color: var(--coral);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.game-shell[data-theme="light"] .lives-indicator {
+  background: rgba(237, 247, 245, 0.92);
+  border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"] .life-pip.is-alive {
+  box-shadow: 0 0 6px rgba(187, 62, 87, 0.35);
 }
