@@ -20,6 +20,7 @@ import {
   type GameMode,
 } from "./gameReducer";
 import { PromptCard } from "./PromptCard";
+import { LastRunBadge } from "./LastRunBadge";
 import { SoundControl } from "./SoundControl";
 import { ThemeControl } from "./ThemeControl";
 import { SiteFooter } from "../SiteFooter";
@@ -353,6 +354,8 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 </ul>
               ) : null}
             </div>
+
+            <LastRunBadge mode={mode} />
 
             <button
               className="begin-button"

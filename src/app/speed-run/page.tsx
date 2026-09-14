@@ -4,6 +4,10 @@ import { CATEGORIES, type Category } from "../../lib/questions/types";
 export const metadata = {
   title: "OMNIQUIZ — Speed Run",
   description: "Ten prompts. Eight seconds each. Streak multipliers reward momentum.",
+  openGraph: {
+    title: "OMNIQUIZ — Speed Run",
+    description: "Ten prompts. Eight seconds each. Streak multipliers reward momentum.",
+  },
 };
 
 type SpeedRunPageProps = Readonly<{

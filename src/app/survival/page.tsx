@@ -4,6 +4,10 @@ import { CATEGORIES, type Category } from "../../lib/questions/types";
 export const metadata = {
   title: "OMNIQUIZ — Survival",
   description: "Three lives. Every miss costs one. How far can you go?",
+  openGraph: {
+    title: "OMNIQUIZ — Survival",
+    description: "Three lives. Every miss costs one. How far can you go?",
+  },
 };
 
 type SurvivalPageProps = Readonly<{

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { PacksControls } from "../components/PacksControls";
+import { SiteFooter } from "../components/SiteFooter";
 import { ThemeShell } from "../components/ThemeShell";
 
 export default function NotFound() {
@@ -28,6 +29,7 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
+      <SiteFooter />
     </ThemeShell>
   );
 }

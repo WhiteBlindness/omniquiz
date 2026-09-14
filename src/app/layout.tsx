@@ -16,13 +16,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "OMNIQUIZ — Dive Control",
-  description: "Explore broad prompts, crowd rarity, and a pixel-ocean descent.",
+  description: "A free trivia game where uncommon answers score higher. Four game modes, no account required.",
   openGraph: {
     title: "OMNIQUIZ",
-    description: "A cinematic 16-bit ROV mission broadcast where uncommon answers drive a visible descent.",
+    description: "A free trivia game where uncommon answers score higher. Four game modes, no account required.",
     type: "website",
     siteName: "OMNIQUIZ",
   },
+  metadataBase: new URL("https://omniquiz.com"),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

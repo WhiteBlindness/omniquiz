@@ -223,6 +223,39 @@
   animation: rules-in 180ms ease-out both;
 }
 
+.last-run-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border: var(--edge);
+  background: rgba(3, 14, 28, 0.6);
+  animation: card-in 300ms ease-out both;
+}
+
+.last-run-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  color: var(--drift);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.last-run-stat b {
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.last-run-divider {
+  width: 1px;
+  height: 1rem;
+  background: var(--line);
+}
+
 .begin-button {
   display: flex;
   align-items: center;
@@ -356,6 +389,10 @@
 
 .game-shell[data-theme="light"] .mode-option.is-selected {
   background: rgba(181, 220, 222, 0.9);
+}
+
+.game-shell[data-theme="light"] .last-run-badge {
+  background: rgba(213, 233, 233, 0.72);
 }
 
 .game-shell[data-theme="light"] .begin-button {

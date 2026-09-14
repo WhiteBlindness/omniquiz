@@ -4,6 +4,10 @@ import { CATEGORIES, type Category } from "../../../lib/questions/types";
 export const metadata = {
   title: "OMNIQUIZ — Arcade Dive",
   description: "Fifteen prompts. Every run reaches the surface. Rarer answers sink deeper.",
+  openGraph: {
+    title: "OMNIQUIZ — Arcade Dive",
+    description: "Fifteen prompts. Every run reaches the surface. Rarer answers sink deeper.",
+  },
 };
 
 type UnlimitedClassicPageProps = Readonly<{
