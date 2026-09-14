@@ -1,4 +1,4 @@
-/* End-of-run dive log. */
+/* End-of-run summary panel. */
 .summary-layer {
   display: grid;
   place-items: center;
@@ -354,8 +354,20 @@
   border-top-color: var(--coral);
 }
 
+.mode-survival .summary-depth b {
+  color: var(--coral);
+}
+
 .mode-survival .summary-log-heading {
   color: var(--coral);
+}
+
+.mode-survival .summary-log-round {
+  color: var(--coral);
+}
+
+.mode-survival .secondary-link:hover {
+  border-color: var(--coral);
 }
 
 /* Speed light theme */
@@ -388,6 +400,18 @@
   border-top-color: var(--coral);
 }
 
+.game-shell[data-theme="light"].mode-survival .summary-depth b {
+  color: var(--coral);
+}
+
 .game-shell[data-theme="light"].mode-survival .summary-log-heading {
   color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .summary-log-round {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .secondary-link:hover {
+  border-color: var(--coral);
 }
