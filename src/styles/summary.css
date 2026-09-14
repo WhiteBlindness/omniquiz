@@ -55,6 +55,13 @@
   font-size: 0.61rem;
 }
 
+.personal-best {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  animation: score-slam 520ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both;
+}
+
 .summary-depth {
   display: flex;
   align-items: baseline;

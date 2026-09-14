@@ -48,7 +48,11 @@ export function GameSummary({
       <div className="summary-score">
         <span>FINAL SCORE</span>
         <strong className="telemetry-data" aria-label={`${score} points`}>{animatedScore}</strong>
-        <small>points earned from recognizable rarity</small>
+        {score > 0 && score >= stats.bestScore && stats.runs > 1 ? (
+          <small className="personal-best">NEW PERSONAL BEST</small>
+        ) : (
+          <small>points earned from recognizable rarity</small>
+        )}
       </div>
       <div className="summary-depth">
         <span>YOU REACHED</span>

@@ -219,9 +219,11 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       .map((r) => r.outcome === "pass" || r.outcome === "timeout" ? "⬛" : (tierSquare[r.tier] ?? "⬛"))
       .join("");
     const recognized = state.roundLog.filter((r) => r.outcome === "answer" && r.tier !== "uncharted").length;
+    const isPB = state.score > 0 && state.score >= stats.bestScore && stats.runs > 1;
+    const scoreLine = `${state.score} pts · ${state.depthMetres}m · ${recognized}/${state.roundLog.length} recognized`;
     const lines = [
       `OMNIQUIZ ${modeEmoji[mode]} ${diveLabel}`,
-      `${state.score} pts · ${state.depthMetres}m · ${recognized}/${state.roundLog.length} recognized`,
+      isPB ? `${scoreLine} \u{1f3c6} PB!` : scoreLine,
       grid,
     ];
     if (mode === "speed") {
@@ -272,7 +274,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     }
 
     flash("SHARE UNAVAILABLE");
-  }, [mode, state.depthMetres, state.score, state.roundLog, state.streak, state.lives, diveLabel, shareLogName]);
+  }, [mode, state.depthMetres, state.score, state.roundLog, state.streak, state.lives, stats, diveLabel, shareLogName]);
 
   const handleModeChange = useCallback(
     (nextMode: GameMode) => {
