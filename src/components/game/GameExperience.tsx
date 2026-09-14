@@ -22,6 +22,7 @@ import {
 import { PromptCard } from "./PromptCard";
 import { SoundControl } from "./SoundControl";
 import { ThemeControl } from "./ThemeControl";
+import { SiteFooter } from "../SiteFooter";
 
 type GameExperienceProps = Readonly<{
   mode: GameMode;
@@ -377,6 +378,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
               </nav>
             </div>
           </div>
+          <SiteFooter />
         </main>
       ) : state.phase === "summary" ? (
         <main id="main-stage" className="summary-layer" aria-live="polite">

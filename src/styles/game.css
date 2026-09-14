@@ -913,7 +913,7 @@
   align-items: center;
   gap: 0.55rem;
   min-height: 24px;
-  color: #526e7e;
+  color: var(--muted);
 }
 
 .hud-round-step b {

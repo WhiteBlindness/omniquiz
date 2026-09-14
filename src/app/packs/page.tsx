@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { PacksControls } from "../../components/PacksControls";
+import { SiteFooter } from "../../components/SiteFooter";
 import { ThemeShell } from "../../components/ThemeShell";
 
 const PACKS = [
@@ -114,6 +115,7 @@ export default function PacksPage() {
       </section>
 
       <Link className="back-dive" href="/">TODAY&apos;S DIVE</Link>
+      <SiteFooter />
     </ThemeShell>
   );
 }

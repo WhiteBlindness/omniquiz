@@ -8,7 +8,7 @@
   --line-hot: rgba(91, 226, 239, 0.72);
   --paper: #edf7f7;
   --drift: #84a5b5;
-  --muted: #526e7e;
+  --muted: #5d7d8c;
   --cyan: #5be2ef;
   --coral: #ff667f;
   --gold: #f3cd69;
@@ -142,8 +142,8 @@ input:focus-visible {
   --line-hot: rgba(5, 119, 142, 0.72);
   --paper: #062533;
   --drift: #315b68;
-  --muted: #597783;
-  --cyan: #087f96;
+  --muted: #4b6b78;
+  --cyan: #067588;
   --coral: #bb3e57;
   --gold: #8e6414;
   --green: #177b5f;

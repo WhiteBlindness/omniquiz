@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import "@fontsource-variable/pixelify-sans";
 import "./globals.css";
 
+import { StorageConsent } from "../components/StorageConsent";
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#020711" },
@@ -43,6 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           OMNIQUIZ visual direction contract
         </div>
         {children}
+        <StorageConsent />
       </body>
     </html>
   );
