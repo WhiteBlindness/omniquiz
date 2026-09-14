@@ -1579,6 +1579,30 @@
   color: #b43cff;
 }
 
+.mode-survival .continue-button {
+  border-color: var(--coral);
+  background: rgba(110, 38, 56, 0.55);
+}
+
+.mode-survival .continue-button:hover {
+  background: var(--coral);
+  color: #1a0510;
+}
+
+.mode-survival .dive-submit {
+  border-color: var(--coral);
+  background: rgba(110, 38, 56, 0.55);
+}
+
+.mode-survival .dive-submit:hover:not(:disabled) {
+  background: var(--coral);
+  color: #1a0510;
+}
+
+.mode-survival .answer-progress span {
+  background: var(--coral);
+}
+
 .mode-survival .countdown-ring-fill {
   stroke: var(--coral);
 }
@@ -1723,6 +1747,28 @@
 .game-shell[data-theme="light"].mode-survival .timecode-plate {
   border-color: rgba(187, 62, 87, 0.32);
   color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .continue-button {
+  border-color: var(--coral);
+  background: rgba(187, 62, 87, 0.12);
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .continue-button:hover {
+  background: var(--coral);
+  color: #fff;
+}
+
+.game-shell[data-theme="light"].mode-survival .dive-submit {
+  border-color: var(--coral);
+  background: rgba(187, 62, 87, 0.12);
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .dive-submit:hover:not(:disabled) {
+  background: var(--coral);
+  color: #fff;
 }
 
 /* Light theme landing console overrides */
