@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const CONSENT_KEY = "omniquiz-storage-consent-v1";
 
@@ -20,14 +20,23 @@ export function StorageConsent() {
     if (!hasConsented()) setVisible(true);
   }, []);
 
-  if (!visible) return null;
-
-  const accept = () => {
+  const accept = useCallback(() => {
     try {
       localStorage.setItem(CONSENT_KEY, "1");
     } catch { /* noop */ }
     setVisible(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") accept();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [visible, accept]);
+
+  if (!visible) return null;
 
   return (
     <div className="consent-banner" role="dialog" aria-label="Storage notice">

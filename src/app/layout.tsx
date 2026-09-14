@@ -27,9 +27,24 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "OMNIQUIZ",
+    url: "https://omniquiz.com",
+    description: "A free trivia game where uncommon answers score higher. Four game modes: daily challenge, unlimited, speed run, and survival.",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Any",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    browserRequirements: "Requires JavaScript",
+  };
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=JSON.parse(localStorage.getItem("omniquiz-theme-v1"));if(t==="light"||t==="dark"){document.documentElement.dataset.storedTheme=t;document.documentElement.dataset.theme=t}}catch(e){}})()`,

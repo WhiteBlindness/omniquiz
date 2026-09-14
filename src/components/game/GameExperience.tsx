@@ -205,9 +205,37 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
         : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
 
   const handleShare = useCallback(async () => {
-    const modeNames: Record<GameMode, string> = { daily: "daily", unlimited: "arcade", speed: "speed run", survival: "survival" };
-    const depthSuffix = mode === "speed" || mode === "survival" ? `${state.depthMetres}m` : `${state.depthMetres}m deep`;
-    const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${depthSuffix}.`;
+    const tierSquare: Record<string, string> = {
+      krillion: "\u{1f7e7}",
+      deepcut: "\u{1f7e8}",
+      rare: "\u{1f7e9}",
+      schooler: "\u{1f7e6}",
+      plankton: "⬜",
+      tooclever: "\u{1f7ea}",
+      uncharted: "⬛",
+    };
+    const modeEmoji: Record<GameMode, string> = { daily: "\u{1f30a}", unlimited: "♾️", speed: "⚡", survival: "\u{1f480}" };
+    const grid = state.roundLog
+      .map((r) => r.outcome === "pass" || r.outcome === "timeout" ? "⬛" : (tierSquare[r.tier] ?? "⬛"))
+      .join("");
+    const recognized = state.roundLog.filter((r) => r.outcome === "answer" && r.tier !== "uncharted").length;
+    const lines = [
+      `OMNIQUIZ ${modeEmoji[mode]} ${diveLabel}`,
+      `${state.score} pts · ${state.depthMetres}m · ${recognized}/${state.roundLog.length} recognized`,
+      grid,
+    ];
+    if (mode === "speed") {
+      const best = Math.max(state.streak, ...state.roundLog.reduce<number[]>((acc, entry) => {
+        const last = acc.length > 0 ? acc[acc.length - 1] : 0;
+        acc.push(entry.outcome === "answer" && entry.score > 0 ? last + 1 : 0);
+        return acc;
+      }, []));
+      if (best > 0) lines.push(`\u{1f525} Best streak: ${best}`);
+    }
+    if (mode === "survival") lines.push(`❤️ ${state.lives} lives remaining`);
+    lines.push("omniquiz.com");
+    const shareText = lines.join("\n");
+
     const flash = (label: string) => {
       setShareLabel(label);
       window.setTimeout(() => setShareLabel(`SHARE ${shareLogName}`), 1_800);
@@ -224,7 +252,6 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
         await navigator.share({ title: "OMNIQUIZ", text: shareText });
         flash("LOG SHARED");
       } catch (error) {
-        // A dismissed native share sheet is a cancellation, not a failure.
         if (error && typeof error === "object" && (error as { name?: string }).name === "AbortError") {
           setShareLabel(`SHARE ${shareLogName}`);
         } else {
@@ -245,7 +272,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     }
 
     flash("SHARE UNAVAILABLE");
-  }, [mode, state.depthMetres, state.score, shareLogName]);
+  }, [mode, state.depthMetres, state.score, state.roundLog, state.streak, state.lives, diveLabel, shareLogName]);
 
   const handleModeChange = useCallback(
     (nextMode: GameMode) => {
