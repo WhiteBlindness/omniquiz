@@ -1479,9 +1479,33 @@
   border-top-color: var(--coral);
 }
 
+.mode-survival .mode-option:hover,
+.mode-survival .mode-option:focus-visible {
+  border-color: var(--coral);
+}
+
+.mode-survival .mode-option.is-selected {
+  border-color: var(--coral);
+  border-bottom-color: var(--coral);
+  background: rgba(110, 38, 56, 0.4);
+}
+
+.mode-survival .mode-option.is-selected span::before {
+  background: var(--coral);
+}
+
 .mode-survival .begin-button {
   border-color: var(--coral);
   background: rgba(110, 38, 56, 0.75);
+}
+
+.mode-survival .begin-button:hover:not(:disabled) {
+  background: var(--coral);
+  color: #1a0510;
+}
+
+.mode-survival .launch-rail nav a:hover {
+  color: var(--coral);
 }
 
 .mode-speed .brand-stage::before {
@@ -1738,6 +1762,25 @@
 
 .game-shell[data-theme="light"].mode-survival .landing-console {
   border-top-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .mode-option:hover,
+.game-shell[data-theme="light"].mode-survival .mode-option:focus-visible {
+  border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .mode-option.is-selected {
+  border-color: var(--coral);
+  border-bottom-color: var(--coral);
+  background: rgba(187, 62, 87, 0.12);
+}
+
+.game-shell[data-theme="light"].mode-survival .mode-option.is-selected span::before {
+  background: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .launch-rail nav a:hover {
+  border-color: var(--coral);
 }
 
 .game-shell[data-theme="light"].mode-survival .begin-button {
