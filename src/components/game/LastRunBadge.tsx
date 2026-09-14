@@ -33,6 +33,14 @@ export function LastRunBadge({ mode }: LastRunBadgeProps) {
       <span className="last-run-stat">
         <b className="telemetry-data">{stats.recognized}</b> RECOGNIZED
       </span>
+      {mode === "daily" && stats.dailyStreak > 1 ? (
+        <>
+          <span className="last-run-divider" aria-hidden="true" />
+          <span className="last-run-stat last-run-streak">
+            <b className="telemetry-data">{stats.dailyStreak}</b> DAY STREAK
+          </span>
+        </>
+      ) : null}
     </div>
   );
 }

@@ -200,11 +200,29 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
   const finalizeRun = useCallback(
     (finalScore: number, statsForRun: DiveStats = stats) => {
+      let dailyStreak = statsForRun.dailyStreak;
+      let lastDailyDate = statsForRun.lastDailyDate;
+
+      if (mode === "daily") {
+        const today = getUtcDateKey();
+        if (lastDailyDate === today) {
+          // Already played today — keep streak as-is
+        } else if (lastDailyDate) {
+          const yesterday = getUtcDateKey(Date.now() - 86_400_000);
+          dailyStreak = lastDailyDate === yesterday ? dailyStreak + 1 : 1;
+        } else {
+          dailyStreak = 1;
+        }
+        lastDailyDate = today;
+      }
+
       const nextStats = Object.freeze({
         ...statsForRun,
         runs: statsForRun.runs + 1,
         bestScore: Math.max(statsForRun.bestScore, finalScore),
         lastScore: finalScore,
+        dailyStreak,
+        lastDailyDate,
       });
       setStats(nextStats);
       writeStats(nextStats);

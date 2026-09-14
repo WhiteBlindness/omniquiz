@@ -225,6 +225,7 @@
 
 .last-run-badge {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
@@ -254,6 +255,10 @@
   width: 1px;
   height: 1rem;
   background: var(--line);
+}
+
+.last-run-streak b {
+  color: var(--gold);
 }
 
 .begin-button {

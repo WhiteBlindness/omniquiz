@@ -38,6 +38,8 @@ export type DiveStats = Readonly<{
   recognized: number;
   bestScore: number;
   lastScore: number;
+  dailyStreak: number;
+  lastDailyDate: string | null;
 }>;
 
 export const DEFAULT_STATS: DiveStats = Object.freeze({
@@ -46,6 +48,8 @@ export const DEFAULT_STATS: DiveStats = Object.freeze({
   recognized: 0,
   bestScore: 0,
   lastScore: 0,
+  dailyStreak: 0,
+  lastDailyDate: null,
 });
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -329,6 +333,8 @@ export const readStats = (): DiveStats => {
       recognized: isNumber(parsed.recognized) ? Math.max(0, parsed.recognized) : 0,
       bestScore: isNumber(parsed.bestScore) ? Math.max(0, parsed.bestScore) : 0,
       lastScore: isNumber(parsed.lastScore) ? Math.max(0, parsed.lastScore) : 0,
+      dailyStreak: isNumber(parsed.dailyStreak) ? Math.max(0, parsed.dailyStreak) : 0,
+      lastDailyDate: typeof parsed.lastDailyDate === "string" ? parsed.lastDailyDate : null,
     });
   } catch {
     return DEFAULT_STATS;

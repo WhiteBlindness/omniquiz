@@ -59,11 +59,19 @@ export function GameSummary({
         <b className="telemetry-data" aria-label={`${depthMetres} metres`}>{animatedDepth}m</b>
       </div>
       {mode === "daily" ? (
-        <div className="summary-percentile">
-          <span>EST. SCORE PERCENTILE</span>
-          <b className="telemetry-data">P{String(estimatedPercentile).padStart(2, "0")}</b>
-          <small>against the 700-point daily ceiling</small>
-        </div>
+        <>
+          <div className="summary-percentile">
+            <span>EST. SCORE PERCENTILE</span>
+            <b className="telemetry-data">P{String(estimatedPercentile).padStart(2, "0")}</b>
+            <small>against the 700-point daily ceiling</small>
+          </div>
+          {stats.dailyStreak > 1 ? (
+            <div className="summary-streak">
+              <span>DAILY STREAK</span>
+              <b className="telemetry-data">{stats.dailyStreak} DAYS</b>
+            </div>
+          ) : null}
+        </>
       ) : null}
       {mode === "speed" && bestStreak !== undefined ? (
         <div className="summary-streak">

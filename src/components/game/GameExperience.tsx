@@ -226,6 +226,9 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       isPB ? `${scoreLine} \u{1f3c6} PB!` : scoreLine,
       grid,
     ];
+    if (mode === "daily" && stats.dailyStreak > 1) {
+      lines.push(`\u{1f525} ${stats.dailyStreak}-day streak`);
+    }
     if (mode === "speed") {
       const best = Math.max(state.streak, ...state.roundLog.reduce<number[]>((acc, entry) => {
         const last = acc.length > 0 ? acc[acc.length - 1] : 0;
