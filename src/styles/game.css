@@ -1874,9 +1874,33 @@
   letter-spacing: 0.06em;
 }
 
+.mode-speed .streak-indicator {
+  border-color: #b43cff;
+}
+
+.mode-speed .streak-count {
+  color: #b43cff;
+}
+
+.mode-speed .streak-multiplier {
+  color: #b43cff;
+}
+
 .game-shell[data-theme="light"] .streak-indicator {
   background: rgba(237, 247, 245, 0.92);
   border-color: var(--gold);
+}
+
+.game-shell[data-theme="light"].mode-speed .streak-indicator {
+  border-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .streak-count {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .streak-multiplier {
+  color: #7828b4;
 }
 
 /* --- Survival lives indicator --- */
@@ -2102,6 +2126,19 @@
   outline-color: #b43cff;
 }
 
+.mode-speed .dive-pass {
+  border-color: rgba(180, 60, 255, 0.38);
+  color: rgba(180, 60, 255, 0.72);
+}
+
+.mode-speed .dive-pass:hover:not(:disabled) {
+  border-color: #b43cff;
+}
+
+.mode-speed .dive-pass:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .dive-form input {
   border-color: rgba(180, 60, 255, 0.55);
 }
@@ -2125,8 +2162,47 @@
   background: #b43cff;
 }
 
+.mode-speed .preview-countdown {
+  color: #b43cff;
+}
+
+.mode-speed .preview-skip {
+  border-color: rgba(180, 60, 255, 0.55);
+  color: #b43cff;
+}
+
+.mode-speed .preview-skip:hover {
+  border-color: #b43cff;
+}
+
+.mode-speed .preview-skip:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .countdown-ring-fill {
   stroke: #b43cff;
+}
+
+.mode-speed .hud-timer-dial {
+  --timer-color: #b43cff;
+  background: conic-gradient(
+    from -90deg,
+    var(--timer-color) calc(var(--timer-progress, 1) * 1turn),
+    rgba(180, 60, 255, 0.16) 0
+  );
+}
+
+.mode-speed .hud-timer-dial::before,
+.mode-speed .hud-timer-dial::after {
+  background: #b43cff;
+}
+
+.mode-speed .hud-timer-dial-core {
+  box-shadow: inset 0 0 0 2px rgba(180, 60, 255, 0.28);
+}
+
+.mode-speed .hud-timer {
+  color: #b43cff;
 }
 
 .mode-speed .prompt-round-badge {
@@ -2172,6 +2248,19 @@
   outline-color: var(--coral);
 }
 
+.mode-survival .dive-pass {
+  border-color: rgba(255, 102, 127, 0.35);
+  color: rgba(255, 102, 127, 0.72);
+}
+
+.mode-survival .dive-pass:hover:not(:disabled) {
+  border-color: var(--coral);
+}
+
+.mode-survival .dive-pass:focus-visible {
+  outline-color: var(--coral);
+}
+
 .mode-survival .dive-form input {
   border-color: rgba(255, 102, 127, 0.45);
 }
@@ -2195,8 +2284,47 @@
   background: var(--coral);
 }
 
+.mode-survival .preview-countdown {
+  color: var(--coral);
+}
+
+.mode-survival .preview-skip {
+  border-color: rgba(255, 102, 127, 0.4);
+  color: var(--coral);
+}
+
+.mode-survival .preview-skip:hover {
+  border-color: var(--coral);
+}
+
+.mode-survival .preview-skip:focus-visible {
+  outline-color: var(--coral);
+}
+
 .mode-survival .countdown-ring-fill {
   stroke: var(--coral);
+}
+
+.mode-survival .hud-timer-dial {
+  --timer-color: var(--coral);
+  background: conic-gradient(
+    from -90deg,
+    var(--timer-color) calc(var(--timer-progress, 1) * 1turn),
+    rgba(255, 102, 127, 0.16) 0
+  );
+}
+
+.mode-survival .hud-timer-dial::before,
+.mode-survival .hud-timer-dial::after {
+  background: var(--coral);
+}
+
+.mode-survival .hud-timer-dial-core {
+  box-shadow: inset 0 0 0 2px rgba(255, 102, 127, 0.28);
+}
+
+.mode-survival .hud-timer {
+  color: var(--coral);
 }
 
 .mode-survival .prompt-round-badge {
@@ -2324,6 +2452,15 @@
   color: #fff;
 }
 
+.game-shell[data-theme="light"].mode-speed .dive-pass {
+  border-color: rgba(120, 40, 180, 0.3);
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .dive-pass:hover:not(:disabled) {
+  border-color: #7828b4;
+}
+
 .game-shell[data-theme="light"].mode-speed .answer-progress span {
   background: #7828b4;
 }
@@ -2332,12 +2469,82 @@
   stroke: #7828b4;
 }
 
+.game-shell[data-theme="light"].mode-speed .preview-countdown {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .preview-skip {
+  border-color: rgba(120, 40, 180, 0.4);
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .preview-skip:hover {
+  border-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-timer-dial {
+  --timer-color: #7828b4;
+  background: conic-gradient(
+    from -90deg,
+    var(--timer-color) calc(var(--timer-progress, 1) * 1turn),
+    rgba(120, 40, 180, 0.14) 0
+  );
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-timer-dial::before,
+.game-shell[data-theme="light"].mode-speed .hud-timer-dial::after {
+  background: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-timer {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .hud-timer-dial-core {
+  box-shadow: inset 0 0 0 2px rgba(120, 40, 180, 0.22);
+}
+
 .game-shell[data-theme="light"].mode-speed .prompt-category {
   color: #7828b4;
 }
 
 .game-shell[data-theme="light"].mode-survival .countdown-ring-fill {
   stroke: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .preview-countdown {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .preview-skip {
+  border-color: rgba(187, 62, 87, 0.35);
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .preview-skip:hover {
+  border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-timer-dial {
+  --timer-color: var(--coral);
+  background: conic-gradient(
+    from -90deg,
+    var(--timer-color) calc(var(--timer-progress, 1) * 1turn),
+    rgba(187, 62, 87, 0.14) 0
+  );
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-timer-dial::before,
+.game-shell[data-theme="light"].mode-survival .hud-timer-dial::after {
+  background: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-timer {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .hud-timer-dial-core {
+  box-shadow: inset 0 0 0 2px rgba(187, 62, 87, 0.22);
 }
 
 .game-shell[data-theme="light"].mode-survival .prompt-category {
@@ -2399,6 +2606,15 @@
 .game-shell[data-theme="light"].mode-survival .dive-submit:hover:not(:disabled) {
   background: var(--coral);
   color: #fff;
+}
+
+.game-shell[data-theme="light"].mode-survival .dive-pass {
+  border-color: rgba(187, 62, 87, 0.25);
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .dive-pass:hover:not(:disabled) {
+  border-color: var(--coral);
 }
 
 /* Light theme landing console overrides */
