@@ -196,7 +196,11 @@
   letter-spacing: 0.17em;
   text-align: left;
   cursor: pointer;
-  transition: color 140ms ease-out;
+  transition: color 140ms ease-out, background 140ms ease-out;
+}
+
+.tutorial-toggle:hover {
+  background: rgba(91, 226, 239, 0.04);
 }
 
 .tutorial-toggle span {
@@ -683,6 +687,10 @@
 
 .game-shell[data-theme="light"] .tutorial-console {
   border-color: var(--line);
+}
+
+.game-shell[data-theme="light"] .tutorial-toggle:hover {
+  background: rgba(8, 127, 150, 0.05);
 }
 
 .game-shell[data-theme="light"] .dive-form[data-urgency="warning"] input {
@@ -2007,6 +2015,10 @@
   color: #b43cff;
 }
 
+.mode-speed .tutorial-toggle:hover {
+  background: rgba(180, 60, 255, 0.04);
+}
+
 .mode-speed .tutorial-toggle:focus-visible {
   outline-color: #b43cff;
 }
@@ -2089,6 +2101,10 @@
 
 .mode-survival .launch-rail nav a:focus-visible {
   outline-color: var(--coral);
+}
+
+.mode-survival .tutorial-toggle:hover {
+  background: rgba(255, 102, 127, 0.04);
 }
 
 .mode-survival .tutorial-toggle:focus-visible {
@@ -2829,6 +2845,18 @@
   border-color: #7828b4;
 }
 
+.game-shell[data-theme="light"].mode-speed .tutorial-toggle span {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .tutorial-toggle:hover {
+  background: rgba(120, 40, 180, 0.05);
+}
+
+.game-shell[data-theme="light"].mode-speed .tutorial-toggle:focus-visible {
+  outline-color: #7828b4;
+}
+
 .game-shell[data-theme="light"].mode-survival .landing-console {
   border-top-color: var(--coral);
 }
@@ -2865,4 +2893,20 @@
 .game-shell[data-theme="light"].mode-survival .begin-button:hover:not(:disabled) {
   background: var(--coral);
   color: #fff;
+}
+
+.game-shell[data-theme="light"].mode-survival .tutorial-toggle:hover {
+  background: rgba(187, 62, 87, 0.05);
+}
+
+.game-shell[data-theme="light"].mode-survival .tutorial-toggle:focus-visible {
+  outline-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .answer-progress {
+  background: rgba(187, 62, 87, 0.1);
+}
+
+.game-shell[data-theme="light"].mode-survival .answer-progress span {
+  background: var(--coral);
 }
