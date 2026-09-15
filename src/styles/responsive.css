@@ -645,6 +645,21 @@
       );
   }
 
+  /* Speed backdrop mobile light theme: reduced density with light colors */
+  .game-shell[data-theme="light"] .speed-grid-floor::before {
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(120, 40, 180, 0.14) 0 1px,
+        transparent 1px 120px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(8, 127, 150, 0.1) 0 1px,
+        transparent 1px 60px
+      );
+  }
+
   /* Survival backdrop mobile: soften glow for smaller viewport */
   .survival-heartbeat {
     background: radial-gradient(
@@ -652,6 +667,16 @@
       transparent 40%,
       rgba(255, 40, 60, calc(0.02 + var(--danger-level) * 0.07)) 80%,
       rgba(180, 20, 40, calc(0.04 + var(--danger-level) * 0.1)) 100%
+    );
+  }
+
+  /* Survival backdrop mobile light theme: soften glow */
+  .game-shell[data-theme="light"] .survival-heartbeat {
+    background: radial-gradient(
+      ellipse 140% 120% at 50% 50%,
+      transparent 40%,
+      rgba(187, 62, 87, calc(0.01 + var(--danger-level) * 0.04)) 80%,
+      rgba(160, 30, 50, calc(0.03 + var(--danger-level) * 0.06)) 100%
     );
   }
 }
