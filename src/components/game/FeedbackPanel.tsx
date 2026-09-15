@@ -14,6 +14,9 @@ type FeedbackPanelProps = Readonly<{
   onContinue: () => void;
   outcome?: GameOutcome;
   mode?: GameMode;
+  streak?: number;
+  streakMultiplier?: number;
+  lives?: number;
 }>;
 
 const TIER_LABELS: Record<SubmissionResult["tier"], string> = {
@@ -35,6 +38,9 @@ export function FeedbackPanel({
   onContinue,
   outcome = "answer",
   mode = "daily",
+  streak = 0,
+  streakMultiplier = 1,
+  lives,
 }: FeedbackPanelProps) {
   const continueRef = useRef<HTMLButtonElement>(null);
 
@@ -101,6 +107,30 @@ export function FeedbackPanel({
       >
         <b>+{result.depthMetres}m</b> DESCENT
       </p>
+      {mode === "speed" && outcome === "answer" && streak > 0 ? (
+        <div className="feedback-streak" aria-label={`${streak} answer streak, ${streakMultiplier}x multiplier`}>
+          <span className="feedback-streak-count telemetry-data">{streak}× STREAK</span>
+          {streakMultiplier > 1 ? (
+            <span className="feedback-streak-multi telemetry-data">{streakMultiplier}× MULTIPLIER</span>
+          ) : null}
+        </div>
+      ) : mode === "speed" && outcome === "answer" && streak === 0 && result.recognized ? (
+        <div className="feedback-streak feedback-streak-broken" aria-label="Streak reset">
+          <span className="feedback-streak-count telemetry-data">STREAK RESET</span>
+        </div>
+      ) : null}
+      {mode === "survival" && lives !== undefined ? (
+        <div className={`feedback-lives ${lives === 0 ? "feedback-lives-zero" : ""}`} aria-label={`${lives} lives remaining`}>
+          {Array.from({ length: 3 }, (_, i) => (
+            <span key={i} className={`feedback-life-pip ${i < lives ? "is-alive" : "is-lost"}`} aria-hidden="true" />
+          ))}
+          <span className="feedback-lives-label telemetry-data">
+            {outcome !== "answer" || !result.recognized
+              ? lives === 0 ? "FINAL LIFE LOST" : "LIFE LOST"
+              : `${lives} ${lives === 1 ? "LIFE" : "LIVES"} REMAINING`}
+          </span>
+        </div>
+      ) : null}
       {result.commonAnswers.length > 0 ? (
         <div className="common-answers">
           <span className="common-answers-title">COMMON SIGNALS</span>

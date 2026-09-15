@@ -232,6 +232,8 @@
   .recognition-ring-fill,
   .common-answer,
   .feedback-spark,
+  .feedback-streak,
+  .feedback-lives,
   .rarity-scale {
     animation: none !important;
   }

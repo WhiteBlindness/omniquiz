@@ -400,6 +400,11 @@
 
   .feedback-stats span { font-size: 0.44rem; }
   .feedback-stats b { font-size: 0.72rem; }
+  .feedback-streak { gap: 0.45rem; padding: 0.35rem 0.5rem; }
+  .feedback-streak-count, .feedback-streak-multi { font-size: 0.52rem; }
+  .feedback-lives { gap: 0.35rem; padding: 0.35rem 0.5rem; }
+  .feedback-life-pip { width: 7px; height: 7px; }
+  .feedback-lives-label { font-size: 0.48rem; }
   .continue-button { min-height: 48px; margin-top: 0.75rem; }
 
   .dive-form {

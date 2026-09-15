@@ -491,6 +491,9 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 isLastRound={isLastRound}
                 outcome={state.lastOutcome ?? "answer"}
                 mode={mode}
+                streak={state.streak}
+                streakMultiplier={state.streakMultiplier}
+                lives={state.lives}
                 onContinue={() => {
                   sfx.click();
                   continueDive();
