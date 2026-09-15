@@ -35,6 +35,11 @@
   text-shadow: -3px 0 var(--coral), 3px 0 var(--cyan);
 }
 
+.packs-brand:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
 .packs-header p {
   margin: 0 0 0.3rem;
   color: var(--cyan);
@@ -706,6 +711,16 @@
 .not-found-primary:hover {
   background: var(--coral);
   transform: translateY(-2px);
+}
+
+.not-found-primary:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.not-found-primary:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
 }
 
 .not-found-secondary {
