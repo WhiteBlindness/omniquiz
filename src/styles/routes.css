@@ -96,6 +96,13 @@
 }
 .pack-sports:focus-visible { outline-color: #4fc29a; }
 
+.pack-music:hover:not(.pack-disabled),
+.pack-music:focus-visible {
+  border-color: #a75dda;
+  box-shadow: 6px 7px 0 rgba(0, 3, 10, 0.82), 0 0 24px rgba(167, 93, 218, 0.18);
+}
+.pack-music:focus-visible { outline-color: #a75dda; }
+
 .pack-art {
   position: relative;
   overflow: hidden;
@@ -612,6 +619,13 @@
   box-shadow: 6px 7px 0 rgba(12, 54, 64, 0.18), 0 0 24px rgba(23, 123, 95, 0.15);
 }
 .packs-page[data-theme="light"] .pack-sports:focus-visible { outline-color: #177b5f; }
+
+.packs-page[data-theme="light"] .pack-music:hover:not(.pack-disabled),
+.packs-page[data-theme="light"] .pack-music:focus-visible {
+  border-color: #874eb8;
+  box-shadow: 6px 7px 0 rgba(12, 54, 64, 0.18), 0 0 24px rgba(135, 78, 184, 0.15);
+}
+.packs-page[data-theme="light"] .pack-music:focus-visible { outline-color: #874eb8; }
 
 .packs-page[data-theme="light"] .pack-copy h2 {
   color: #062533;
