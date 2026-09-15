@@ -73,9 +73,14 @@ export function DiveForm({
   const isCritical = state.phase === "answering" && remainingMilliseconds > 0 && remainingSeconds <= 5;
   const urgencyLiveMode = remainingSeconds === 5 ? "assertive" as const : "off" as const;
 
+  const urgency = state.phase === "answering" && remainingMilliseconds > 0
+    ? remainingSeconds <= 3 ? "critical" : remainingSeconds <= 5 ? "warning" : "normal"
+    : "normal";
+
   return (
     <form
       className={`dive-form ${swipeHint ? "swipe-hint" : ""}`}
+      data-urgency={urgency}
       onSubmit={handleSubmit}
       onKeyDown={handleKeyDown}
       onTouchStart={handleTouchStart}

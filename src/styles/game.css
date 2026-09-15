@@ -655,6 +655,14 @@
   border-color: var(--line);
 }
 
+.game-shell[data-theme="light"] .dive-form[data-urgency="warning"] input {
+  border-color: var(--gold);
+}
+
+.game-shell[data-theme="light"] .dive-form[data-urgency="critical"] input {
+  border-color: var(--coral);
+}
+
 .game-shell[data-theme="light"] .answer-progress {
   background: rgba(8, 127, 150, 0.12);
 }
@@ -1423,6 +1431,23 @@
 @media (pointer: coarse) {
   .form-shortcuts-keyboard { display: none; }
   .form-shortcuts-touch { display: inline; }
+}
+
+.dive-form[data-urgency="warning"] input {
+  border-color: var(--gold);
+}
+
+.dive-form[data-urgency="critical"] input {
+  border-color: var(--coral);
+  animation: urgency-pulse 760ms steps(2, end) infinite;
+}
+
+.dive-form[data-urgency="warning"] .answer-progress span {
+  background: var(--gold);
+}
+
+.dive-form[data-urgency="critical"] .answer-progress span {
+  background: var(--coral);
 }
 
 .dive-form.swipe-hint {
