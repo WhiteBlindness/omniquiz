@@ -2617,6 +2617,10 @@
   background: rgba(120, 40, 180, 0.1);
 }
 
+.game-shell[data-theme="light"].mode-speed .common-answer-bar::after {
+  background: #7828b4;
+}
+
 .game-shell[data-theme="light"].mode-speed .countdown-ring-fill {
   stroke: #7828b4;
 }
@@ -2632,6 +2636,27 @@
 
 .game-shell[data-theme="light"].mode-speed .preview-skip:hover {
   border-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .begin-button:focus-visible {
+  outline-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .continue-button:focus-visible,
+.game-shell[data-theme="light"].mode-speed .dive-submit:focus-visible {
+  outline-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .dive-pass:focus-visible {
+  outline-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .preview-skip:focus-visible {
+  outline-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .launch-rail nav a:focus-visible {
+  outline-color: #7828b4;
 }
 
 .game-shell[data-theme="light"].mode-speed .hud-timer-dial {

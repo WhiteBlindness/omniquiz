@@ -531,7 +531,7 @@
   color: var(--drift);
   font-size: 0.61rem;
   letter-spacing: 0.12em;
-  transition: border-color 140ms ease-out, color 140ms ease-out;
+  transition: border-color 140ms ease-out, color 140ms ease-out, background 140ms ease-out;
 }
 
 .secondary-link:hover {
@@ -810,6 +810,15 @@
 
 .game-shell[data-theme="light"].mode-speed .secondary-link:hover {
   border-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .continue-button:focus-visible,
+.game-shell[data-theme="light"].mode-speed .share-button:focus-visible {
+  outline-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .secondary-link:focus-visible {
+  outline-color: #7828b4;
 }
 
 .game-shell[data-theme="light"].mode-speed .summary-log-entry:hover {
