@@ -1961,6 +1961,14 @@
   text-shadow: -4px 0 #b43cff, 4px 0 var(--cyan), 8px 8px #020713;
 }
 
+.mode-speed .tutorial-toggle span {
+  color: #b43cff;
+}
+
+.mode-speed .tutorial-toggle:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .last-run-hero-value {
   color: #b43cff;
 }
