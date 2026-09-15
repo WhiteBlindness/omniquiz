@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "OMNIQUIZ",
   },
+  twitter: {
+    card: "summary",
+    title: "OMNIQUIZ",
+    description: "A free trivia game where uncommon answers score higher. Four game modes, no account required.",
+  },
   metadataBase: new URL("https://omniquiz.com"),
 };
 

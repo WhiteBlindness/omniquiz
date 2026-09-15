@@ -33,6 +33,7 @@ export function GameSummary({
   const estimatedPercentile = getEstimatedDailyPercentile(score);
   const animatedScore = useCountUp(score);
   const animatedDepth = useCountUp(depthMetres);
+  const recognized = roundLog.filter((r) => r.tier !== "uncharted" && r.crowdShare !== null).length;
 
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
@@ -86,7 +87,7 @@ export function GameSummary({
         </div>
       ) : null}
       <p className="summary-stats telemetry-data">
-        BEST LOG {stats.bestScore} · RUNS {stats.runs} · RECOGNIZED {stats.recognized}
+        {recognized}/{roundLog.length} RECOGNIZED · BEST LOG {stats.bestScore} · RUNS {stats.runs}
       </p>
       <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
         <div className="summary-log-heading">

@@ -158,6 +158,7 @@
   .summary-panel,
   .summary-score strong,
   .summary-depth b,
+  .personal-best,
   .tutorial-rules,
   .fish,
   .particle,
@@ -167,7 +168,8 @@
   .signal-error,
   .countdown-digit,
   .hud-value-flash,
-  .phase-submitting .prompt-card {
+  .phase-submitting .prompt-card,
+  .common-answer-bar::after {
     animation: none !important;
   }
 
