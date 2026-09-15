@@ -139,8 +139,18 @@
   color: var(--paper);
 }
 
+.mode-option:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .mode-option:hover:not(.is-selected) {
   transform: translateY(-1px);
+}
+
+.mode-option:active:not(.is-selected) {
+  transform: translateY(1px);
+  transition-duration: 60ms;
 }
 
 .mode-option.is-selected {
@@ -1854,6 +1864,10 @@
   border-color: #b43cff;
 }
 
+.mode-speed .mode-option:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .mode-option.is-selected {
   border-color: #b43cff;
   border-bottom-color: #b43cff;
@@ -1889,6 +1903,10 @@
 .mode-survival .mode-option:hover,
 .mode-survival .mode-option:focus-visible {
   border-color: var(--coral);
+}
+
+.mode-survival .mode-option:focus-visible {
+  outline-color: var(--coral);
 }
 
 .mode-survival .mode-option.is-selected {

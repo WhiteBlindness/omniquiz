@@ -619,6 +619,16 @@
   color: #b43cff;
 }
 
+.mode-speed .continue-button {
+  border-color: #b43cff;
+  background: rgba(100, 30, 180, 0.55);
+}
+
+.mode-speed .continue-button:hover {
+  background: #b43cff;
+  color: #0d0318;
+}
+
 .mode-speed .secondary-link:hover {
   border-color: #b43cff;
 }
@@ -646,6 +656,16 @@
 
 .mode-survival .summary-log-round {
   color: var(--coral);
+}
+
+.mode-survival .continue-button {
+  border-color: var(--coral);
+  background: rgba(110, 38, 56, 0.55);
+}
+
+.mode-survival .continue-button:hover {
+  background: var(--coral);
+  color: #1a0510;
 }
 
 .mode-survival .secondary-link:hover {
@@ -681,6 +701,17 @@
   color: #7828b4;
 }
 
+.game-shell[data-theme="light"].mode-speed .continue-button {
+  border-color: #7828b4;
+  background: rgba(120, 40, 180, 0.15);
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .continue-button:hover {
+  background: #7828b4;
+  color: #fff;
+}
+
 .game-shell[data-theme="light"].mode-speed .secondary-link:hover {
   border-color: #7828b4;
 }
@@ -708,6 +739,17 @@
 
 .game-shell[data-theme="light"].mode-survival .summary-log-round {
   color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .continue-button {
+  border-color: var(--coral);
+  background: rgba(187, 62, 87, 0.12);
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .continue-button:hover {
+  background: var(--coral);
+  color: #fff;
 }
 
 .game-shell[data-theme="light"].mode-survival .secondary-link:hover {
