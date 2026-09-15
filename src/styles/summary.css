@@ -321,6 +321,11 @@
   border-top: 1px solid rgba(132, 165, 181, 0.16);
   border-left: 2px solid transparent;
   animation: log-entry-in 280ms ease-out both;
+  transition: background-color 120ms ease-out;
+}
+
+.summary-log-entry:hover {
+  background: rgba(91, 226, 239, 0.03);
 }
 
 .summary-log-entry:nth-child(2) { animation-delay: 60ms; }
@@ -563,6 +568,10 @@
   border-top-color: rgba(8, 54, 68, 0.16);
 }
 
+.game-shell[data-theme="light"] .summary-log-entry:hover {
+  background: rgba(6, 37, 51, 0.03);
+}
+
 .game-shell[data-theme="light"] .secondary-link {
   background: rgba(213, 233, 233, 0.68);
 }
@@ -630,6 +639,10 @@
   color: #b43cff;
 }
 
+.mode-speed .summary-log-entry:hover {
+  background: rgba(180, 60, 255, 0.04);
+}
+
 .mode-speed .summary-streak b {
   color: #b43cff;
 }
@@ -679,6 +692,10 @@
 
 .mode-survival .summary-log-round {
   color: var(--coral);
+}
+
+.mode-survival .summary-log-entry:hover {
+  background: rgba(255, 102, 127, 0.04);
 }
 
 .mode-survival .continue-button {

@@ -247,7 +247,8 @@
 
   .life-pip,
   .feedback-life-pip,
-  .common-answer {
+  .common-answer,
+  .summary-log-entry {
     transition: none !important;
   }
 }
