@@ -185,7 +185,11 @@
   .consent-banner,
   .pack-card,
   .brand-stage,
-  .landing-console {
+  .landing-console,
+  .packs-header,
+  .logbook,
+  .back-dive,
+  .not-found-content {
     animation: none !important;
   }
 
@@ -250,7 +254,8 @@
   .life-pip,
   .feedback-life-pip,
   .common-answer,
-  .summary-log-entry {
+  .summary-log-entry,
+  .pack-copy {
     transition: none !important;
   }
 }
