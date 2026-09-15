@@ -688,6 +688,10 @@
   outline-color: #b43cff;
 }
 
+.mode-speed .summary-log-toggle:focus-visible {
+  outline-color: #b43cff;
+}
+
 /* Survival summary accents */
 .mode-survival .summary-panel {
   border-top-color: var(--coral);
@@ -752,6 +756,10 @@
   outline-color: var(--coral);
 }
 
+.mode-survival .summary-log-toggle:focus-visible {
+  outline-color: var(--coral);
+}
+
 /* Speed light theme */
 .game-shell[data-theme="light"].mode-speed .summary-panel {
   border-top-color: #7828b4;
@@ -808,6 +816,10 @@
   background: rgba(120, 40, 180, 0.05);
 }
 
+.game-shell[data-theme="light"].mode-speed .summary-log-toggle:focus-visible {
+  outline-color: #7828b4;
+}
+
 /* Survival light theme */
 .game-shell[data-theme="light"].mode-survival .summary-panel {
   border-top-color: var(--coral);
@@ -858,4 +870,8 @@
 
 .game-shell[data-theme="light"].mode-survival .summary-log-entry:hover {
   background: rgba(187, 62, 87, 0.05);
+}
+
+.game-shell[data-theme="light"].mode-survival .summary-log-toggle:focus-visible {
+  outline-color: var(--coral);
 }
