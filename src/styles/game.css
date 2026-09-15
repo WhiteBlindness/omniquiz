@@ -1377,6 +1377,7 @@
   color: var(--paper);
   font-size: clamp(0.85rem, 1.3vw, 1.05rem);
   letter-spacing: 0.04em;
+  transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
 }
 
 .dive-form input::placeholder {
