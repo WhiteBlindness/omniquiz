@@ -2010,6 +2010,10 @@
   color: #b43cff;
 }
 
+.mode-speed .last-run-streak b {
+  color: #b43cff;
+}
+
 .mode-speed .begin-button {
   border-color: #b43cff;
   background: rgba(100, 30, 180, 0.55);
@@ -2074,10 +2078,15 @@
 }
 
 .mode-survival .launch-rail nav a:hover {
+  border-color: var(--coral);
   color: var(--coral);
 }
 
 .mode-survival .launch-rail nav a:focus-visible {
+  outline-color: var(--coral);
+}
+
+.mode-survival .tutorial-toggle:focus-visible {
   outline-color: var(--coral);
 }
 
@@ -2737,6 +2746,10 @@
 }
 
 .game-shell[data-theme="light"].mode-speed .last-run-hero-value {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .last-run-streak b {
   color: #7828b4;
 }
 
