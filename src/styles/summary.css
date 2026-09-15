@@ -661,6 +661,19 @@
   outline-color: #b43cff;
 }
 
+.mode-speed .share-button {
+  border-color: rgba(180, 60, 255, 0.45);
+}
+
+.mode-speed .share-button:hover {
+  border-color: #b43cff;
+  color: var(--paper);
+}
+
+.mode-speed .share-button:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .secondary-link:hover {
   border-color: #b43cff;
 }
@@ -712,6 +725,19 @@
   outline-color: var(--coral);
 }
 
+.mode-survival .share-button {
+  border-color: rgba(255, 102, 127, 0.4);
+}
+
+.mode-survival .share-button:hover {
+  border-color: var(--coral);
+  color: var(--paper);
+}
+
+.mode-survival .share-button:focus-visible {
+  outline-color: var(--coral);
+}
+
 .mode-survival .secondary-link:hover {
   border-color: var(--coral);
 }
@@ -760,6 +786,14 @@
   color: #fff;
 }
 
+.game-shell[data-theme="light"].mode-speed .share-button {
+  border-color: rgba(120, 40, 180, 0.3);
+}
+
+.game-shell[data-theme="light"].mode-speed .share-button:hover {
+  border-color: #7828b4;
+}
+
 .game-shell[data-theme="light"].mode-speed .secondary-link:hover {
   border-color: #7828b4;
 }
@@ -798,6 +832,14 @@
 .game-shell[data-theme="light"].mode-survival .continue-button:hover {
   background: var(--coral);
   color: #fff;
+}
+
+.game-shell[data-theme="light"].mode-survival .share-button {
+  border-color: rgba(187, 62, 87, 0.25);
+}
+
+.game-shell[data-theme="light"].mode-survival .share-button:hover {
+  border-color: var(--coral);
 }
 
 .game-shell[data-theme="light"].mode-survival .secondary-link:hover {
