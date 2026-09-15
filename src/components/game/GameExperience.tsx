@@ -452,7 +452,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           <div className="timecode-plate telemetry-data" aria-hidden="true">
             {getWindowLabel(state.phase, remainingMilliseconds)}
           </div>
-          <GameHud state={state} mode={mode} remainingMilliseconds={remainingMilliseconds} />
+          <GameHud state={state} mode={mode} remainingMilliseconds={remainingMilliseconds} bestScore={stats.bestScore} />
           {mode === "speed" && state.streak > 0 ? (
             <div className="streak-indicator" aria-live="polite">
               <span className="streak-count telemetry-data">{state.streak}× STREAK</span>

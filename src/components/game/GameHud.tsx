@@ -6,6 +6,7 @@ type GameHudProps = Readonly<{
   state: GameState;
   mode: GameMode;
   remainingMilliseconds: number;
+  bestScore: number;
 }>;
 
 const timerDurationMs = (mode: GameMode): number => answerSecondsForMode(mode) * 1_000;
@@ -57,7 +58,7 @@ export const getWindowLabel = (
       : formatWindowTime(remainingMilliseconds);
 };
 
-export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
+export function GameHud({ state, mode, remainingMilliseconds, bestScore }: GameHudProps) {
   const roundCount = state.questions.length || 7;
   const labels: Record<GameMode, string> = {
     daily: "THE DAILY DIVE",
@@ -128,9 +129,12 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
           </strong>
         </div>
       </div>
-      <div className="hud-meter hud-score" aria-label="Current score">
+      <div className={`hud-meter hud-score ${state.score > 0 && state.score >= bestScore && bestScore > 0 ? "hud-score-pb" : ""}`} aria-label="Current score">
         <span>SCORE</span>
         <strong className="telemetry-data hud-value-flash" key={`s-${state.score}`}>{state.score}</strong>
+        {state.score > 0 && state.score >= bestScore && bestScore > 0 ? (
+          <small className="hud-pb-tag telemetry-data">PB</small>
+        ) : null}
       </div>
       <div
         className="hud-rounds"

@@ -219,7 +219,8 @@
   .survival-heartbeat,
   .survival-ember,
   .survival-crack,
-  .tier-krillion.feedback-panel {
+  .tier-krillion.feedback-panel,
+  .hud-pb-tag {
     animation: none !important;
   }
 }
