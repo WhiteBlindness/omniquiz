@@ -381,9 +381,21 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 <span className="pixel-chevron" aria-hidden="true" /> HOW TO PLAY
               </button>
               {tutorialOpen ? (
-                <ul className="tutorial-rules" id="tutorial-rules">
-                  {rules.map((rule) => <li key={rule}>{rule}</li>)}
-                </ul>
+                <div id="tutorial-rules">
+                  <ul className="tutorial-rules">
+                    {rules.map((rule) => <li key={rule}>{rule}</li>)}
+                  </ul>
+                  <div className="rarity-scale" aria-label="Rarity tier scale">
+                    <span className="rarity-scale-label">RARITY SCALE</span>
+                    <div className="rarity-scale-tiers">
+                      <span className="rarity-tier tier-plankton"><b>PLANKTON</b><small>10 PTS</small></span>
+                      <span className="rarity-tier tier-schooler"><b>SCHOOLER</b><small>20 PTS</small></span>
+                      <span className="rarity-tier tier-rare"><b>RARE</b><small>60 PTS</small></span>
+                      <span className="rarity-tier tier-deepcut"><b>DEEP CUT</b><small>80 PTS</small></span>
+                      <span className="rarity-tier tier-krillion"><b>KRILLION</b><small>100 PTS</small></span>
+                    </div>
+                  </div>
+                </div>
               ) : null}
             </div>
 

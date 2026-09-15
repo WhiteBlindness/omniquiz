@@ -223,6 +223,55 @@
   animation: rules-in 180ms ease-out both;
 }
 
+.rarity-scale {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: var(--edge);
+  animation: rules-in 180ms ease-out 80ms both;
+}
+
+.rarity-scale-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+  font-size: 0.48rem;
+  letter-spacing: 0.14em;
+}
+
+.rarity-scale-tiers {
+  display: flex;
+  gap: 2px;
+  height: 32px;
+}
+
+.rarity-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.rarity-tier b {
+  font-size: 0.42rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.rarity-tier small {
+  font-size: 0.38rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+.rarity-tier.tier-plankton { color: var(--cyan); border-bottom-color: var(--cyan); opacity: 0.5; }
+.rarity-tier.tier-schooler { color: var(--cyan); border-bottom-color: var(--cyan); }
+.rarity-tier.tier-rare { color: var(--gold); border-bottom-color: var(--gold); }
+.rarity-tier.tier-deepcut { color: var(--coral); border-bottom-color: var(--coral); opacity: 0.8; }
+.rarity-tier.tier-krillion { color: var(--coral); border-bottom-color: var(--coral); }
+
 .last-run-badge {
   display: grid;
   gap: 0.5rem;

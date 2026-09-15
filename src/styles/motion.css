@@ -231,7 +231,8 @@
   .score-segment,
   .recognition-ring-fill,
   .common-answer,
-  .feedback-spark {
+  .feedback-spark,
+  .rarity-scale {
     animation: none !important;
   }
 }
