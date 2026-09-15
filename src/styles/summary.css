@@ -804,6 +804,10 @@
   border-color: #7828b4;
 }
 
+.game-shell[data-theme="light"].mode-speed .summary-log-entry:hover {
+  background: rgba(120, 40, 180, 0.05);
+}
+
 /* Survival light theme */
 .game-shell[data-theme="light"].mode-survival .summary-panel {
   border-top-color: var(--coral);
@@ -850,4 +854,8 @@
 
 .game-shell[data-theme="light"].mode-survival .secondary-link:hover {
   border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .summary-log-entry:hover {
+  background: rgba(187, 62, 87, 0.05);
 }
