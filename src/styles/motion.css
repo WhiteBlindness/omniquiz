@@ -144,6 +144,12 @@
   75% { opacity: 0.55; }
 }
 
+@keyframes spark-burst {
+  0% { opacity: 0; transform: scale(0) translateY(0); }
+  30% { opacity: 1; transform: scale(1.8) translateY(-8px); }
+  100% { opacity: 0; transform: scale(0.6) translateY(-28px); }
+}
+
 @keyframes bar-grow {
   from { transform: scaleX(0); transform-origin: left; }
   to { transform: scaleX(1); transform-origin: left; }
@@ -224,7 +230,8 @@
   .hud-pb-tag,
   .score-segment,
   .recognition-ring-fill,
-  .common-answer {
+  .common-answer,
+  .feedback-spark {
     animation: none !important;
   }
 }
