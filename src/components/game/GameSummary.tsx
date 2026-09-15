@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { useState } from "react";
 
 import { useCountUp } from "../../hooks/useCountUp";
 import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
@@ -126,24 +127,7 @@ export function GameSummary({
           </div>
         </div>
       ) : null}
-      <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
-        <div className="summary-log-heading">
-          <span>{mode === "speed" ? "RACE LOG" : mode === "survival" ? "THREAT LOG" : "DIVE LOG"}</span>
-          <small>{roundLog.length} ROUNDS</small>
-        </div>
-        {roundLog.map((entry, index) => (
-          <div className="summary-log-entry" data-tier={entry.tier} key={`${entry.questionId}-${index}`}>
-            <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
-            <div>
-              <strong>{entry.answerLabel}</strong>
-              <small className="telemetry-data">
-                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
-              </small>
-              <small className="summary-log-prompt">{entry.prompt}</small>
-            </div>
-          </div>
-        ))}
-      </div>
+      <SummaryLog roundLog={roundLog} mode={mode} />
       <div className="summary-actions">
         <button className="continue-button" type="button" onClick={onReplay}>
           {mode === "speed" ? "RACE AGAIN" : mode === "survival" ? "ENTER AGAIN" : "DIVE AGAIN"}
@@ -156,5 +140,57 @@ export function GameSummary({
         </Link>
       </div>
     </section>
+  );
+}
+
+function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: string }) {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  return (
+    <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
+      <div className="summary-log-heading">
+        <span>{mode === "speed" ? "RACE LOG" : mode === "survival" ? "THREAT LOG" : "DIVE LOG"}</span>
+        <small>{roundLog.length} ROUNDS</small>
+      </div>
+      {roundLog.map((entry, index) => {
+        const hasCommon = entry.commonAnswers.length > 0;
+        const isExpanded = expandedIndex === index;
+        return (
+          <div
+            className={`summary-log-entry ${isExpanded ? "is-expanded" : ""}`}
+            data-tier={entry.tier}
+            key={`${entry.questionId}-${index}`}
+          >
+            <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <button
+                className="summary-log-toggle"
+                type="button"
+                aria-expanded={isExpanded}
+                onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                disabled={!hasCommon}
+              >
+                <strong>{entry.answerLabel}</strong>
+                {hasCommon ? <span className="summary-log-chevron" aria-hidden="true" /> : null}
+              </button>
+              <small className="telemetry-data">
+                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
+              </small>
+              <small className="summary-log-prompt">{entry.prompt}</small>
+              {isExpanded ? (
+                <ul className="summary-log-common" aria-label="Common answers for this round">
+                  {entry.commonAnswers.map((a) => (
+                    <li key={a.label}>
+                      <b>{a.label}</b>
+                      <small className="telemetry-data">{a.share}%</small>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

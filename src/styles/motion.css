@@ -183,7 +183,8 @@
   .water-layer,
   .current-depth-marker,
   .answer-progress span,
-  .countdown-ring-fill {
+  .countdown-ring-fill,
+  .summary-log-chevron {
     transition: none !important;
   }
 
