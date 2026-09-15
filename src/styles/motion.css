@@ -149,6 +149,11 @@
   to { transform: scaleX(1); transform-origin: left; }
 }
 
+@keyframes tier-glow-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 
@@ -213,7 +218,8 @@
   .speed-boost-flash,
   .survival-heartbeat,
   .survival-ember,
-  .survival-crack {
+  .survival-crack,
+  .tier-krillion.feedback-panel {
     animation: none !important;
   }
 }
