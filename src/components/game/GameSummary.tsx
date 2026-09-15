@@ -173,8 +173,20 @@ function RecognitionRing({ pct }: { pct: number }) {
   );
 }
 
+const TIER_TAG: Record<string, string> = {
+  krillion: "KRILLION",
+  deepcut: "DEEP CUT",
+  rare: "RARE",
+  schooler: "SCHOOLER",
+  plankton: "PLANKTON",
+  tooclever: "TOO CLEVER",
+  uncharted: "UNCHARTED",
+};
+
 function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: string }) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const bestScore = Math.max(0, ...roundLog.map((r) => r.score));
+  const bestIndex = bestScore > 0 ? roundLog.findIndex((r) => r.score === bestScore) : -1;
 
   return (
     <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
@@ -185,9 +197,10 @@ function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: s
       {roundLog.map((entry, index) => {
         const hasCommon = entry.commonAnswers.length > 0;
         const isExpanded = expandedIndex === index;
+        const isBest = index === bestIndex;
         return (
           <div
-            className={`summary-log-entry ${isExpanded ? "is-expanded" : ""}`}
+            className={`summary-log-entry ${isExpanded ? "is-expanded" : ""} ${isBest ? "is-best" : ""}`}
             data-tier={entry.tier}
             key={`${entry.questionId}-${index}`}
           >
@@ -201,6 +214,9 @@ function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: s
                 disabled={!hasCommon}
               >
                 <strong>{entry.answerLabel}</strong>
+                <span className={`summary-log-tier tier-${entry.tier}`} aria-label={TIER_TAG[entry.tier]}>
+                  {TIER_TAG[entry.tier]}
+                </span>
                 {hasCommon ? <span className="summary-log-chevron" aria-hidden="true" /> : null}
               </button>
               {entry.submittedAnswer.toLowerCase().trim() !== entry.answerLabel.toLowerCase().trim() && entry.tier !== "uncharted" ? (
@@ -210,6 +226,7 @@ function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: s
                 {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
               </small>
               <small className="summary-log-prompt">{entry.prompt}</small>
+              {isBest ? <small className="summary-log-best">BEST SIGNAL</small> : null}
               {isExpanded ? (
                 <ul className="summary-log-common" aria-label="Common answers for this round">
                   {entry.commonAnswers.map((a) => (

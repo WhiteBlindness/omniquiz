@@ -473,6 +473,35 @@
   color: var(--muted);
 }
 
+.summary-log-tier {
+  flex-shrink: 0;
+  padding: 0.12rem 0.32rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.38rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.summary-log-tier.tier-plankton { color: var(--cyan); border-color: rgba(91, 226, 239, 0.25); }
+.summary-log-tier.tier-schooler { color: var(--cyan); border-color: rgba(91, 226, 239, 0.35); }
+.summary-log-tier.tier-rare { color: var(--gold); border-color: rgba(229, 182, 75, 0.35); }
+.summary-log-tier.tier-deepcut { color: var(--coral); border-color: rgba(255, 102, 127, 0.3); }
+.summary-log-tier.tier-krillion { color: var(--coral); border-color: rgba(255, 102, 127, 0.45); background: rgba(255, 102, 127, 0.08); }
+
+.summary-log-entry.is-best {
+  background: rgba(229, 182, 75, 0.04);
+  border-left-color: var(--gold);
+  border-left-width: 3px;
+}
+
+.summary-log-best {
+  color: var(--gold);
+  font-size: 0.42rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
 .summary-actions {
   margin-top: 1rem;
 }
