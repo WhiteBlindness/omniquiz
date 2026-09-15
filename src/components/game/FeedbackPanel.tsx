@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { useEffect, useRef } from "react";
 
+import { useCountUp } from "../../hooks/useCountUp";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import type { GameMode, GameOutcome } from "./gameReducer";
 
@@ -52,6 +53,8 @@ export function FeedbackPanel({
     return () => window.removeEventListener("keydown", handler);
   }, [onContinue]);
 
+  const animatedTotal = useCountUp(score);
+
   const heading =
     outcome === "pass"
       ? "PASS LOGGED"
@@ -83,7 +86,7 @@ export function FeedbackPanel({
           {result.crowdShare === null ? "SHARE" : "OF THE CROWD"}
         </span>
         <span><b className="telemetry-data">+{result.score}</b> POINTS</span>
-        <span><b className="telemetry-data">{score}</b> TOTAL / {depthMetres}m</span>
+        <span aria-label={`${score} total, ${depthMetres}m`}><b className="telemetry-data">{animatedTotal}</b> TOTAL / {depthMetres}m</span>
       </div>
       <p
         className={`feedback-depth-delta telemetry-data ${hasEarnedDepth ? "is-earned" : ""}`}
