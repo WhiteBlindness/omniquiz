@@ -223,7 +223,8 @@
   .tier-krillion.feedback-panel,
   .hud-pb-tag,
   .score-segment,
-  .recognition-ring-fill {
+  .recognition-ring-fill,
+  .common-answer {
     animation: none !important;
   }
 }

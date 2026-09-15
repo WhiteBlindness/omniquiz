@@ -98,8 +98,9 @@ export function FeedbackPanel({
         <div className="common-answers">
           <span className="common-answers-title">COMMON SIGNALS</span>
           <ul aria-label="Common answers from this prompt">
-            {result.commonAnswers.map((answer) => (
-              <li className="common-answer" key={answer.label}>
+            {result.commonAnswers.map((answer, i) => (
+              <li className="common-answer" key={answer.label} style={{ "--answer-index": i } as CSSProperties}>
+                <span className="common-answer-rank telemetry-data" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                 <b>{answer.label}</b>
                 <span
                   className="common-answer-bar"

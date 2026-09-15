@@ -1458,13 +1458,20 @@
 
 .common-answer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(48px, 0.4fr) 32px;
+  grid-template-columns: 22px minmax(0, 1fr) minmax(48px, 0.4fr) 32px;
   align-items: center;
   gap: 0.5rem;
   padding: 0.32rem 0.5rem;
+  animation: log-entry-in 220ms ease-out both;
+  animation-delay: calc(var(--answer-index, 0) * 60ms + 100ms);
   border-left: 2px solid var(--line);
   color: var(--drift);
   font-size: 0.62rem;
+}
+
+.common-answer-rank {
+  color: var(--drift);
+  font-size: 0.52rem;
 }
 
 .common-answer b {
