@@ -526,6 +526,7 @@
   color: var(--drift);
   font-size: 0.61rem;
   letter-spacing: 0.12em;
+  transition: border-color 140ms ease-out, color 140ms ease-out;
 }
 
 .secondary-link:hover {

@@ -16,6 +16,7 @@
   color: var(--cyan);
   font-size: 0.65rem;
   letter-spacing: 0.16em;
+  transition: color 140ms ease-out;
 }
 
 .legal-back:hover {
@@ -71,6 +72,7 @@
 
 .legal-content a {
   color: var(--cyan);
+  transition: color 140ms ease-out;
 }
 
 .legal-content a:hover {
@@ -123,6 +125,7 @@
   color: var(--drift);
   font-size: 0.56rem;
   letter-spacing: 0.12em;
+  transition: color 140ms ease-out;
 }
 
 .footer-links a:hover {
@@ -176,6 +179,7 @@
 
 .consent-banner a {
   color: var(--cyan);
+  transition: color 140ms ease-out;
 }
 
 .consent-banner a:hover {
@@ -193,6 +197,7 @@
   color: var(--cyan);
   font-size: 0.58rem;
   letter-spacing: 0.12em;
+  transition: background 140ms ease-out, color 140ms ease-out;
 }
 
 .consent-accept:hover {

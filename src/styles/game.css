@@ -195,6 +195,8 @@
   font-size: 0.7rem;
   letter-spacing: 0.17em;
   text-align: left;
+  cursor: pointer;
+  transition: color 140ms ease-out;
 }
 
 .tutorial-toggle span {
@@ -425,6 +427,7 @@
   border: var(--edge);
   color: var(--drift);
   text-align: center;
+  transition: border-color 140ms ease-out, color 140ms ease-out;
 }
 
 .launch-rail nav a:hover {
@@ -1399,6 +1402,7 @@
   color: var(--paper);
   font-size: 0.7rem;
   letter-spacing: 0.11em;
+  transition: background 140ms ease-out, color 140ms ease-out, border-color 140ms ease-out;
 }
 
 .dive-pass {
