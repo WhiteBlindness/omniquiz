@@ -2257,6 +2257,11 @@
   box-shadow: 0 0 28px rgba(180, 60, 255, 0.08);
 }
 
+.mode-speed .feedback-depth-delta {
+  border-color: rgba(180, 60, 255, 0.36);
+  color: #b43cff;
+}
+
 .mode-speed .common-answer-bar {
   background: rgba(180, 60, 255, 0.12);
 }
@@ -2272,6 +2277,11 @@
 .mode-speed .common-answer:hover {
   background: rgba(180, 60, 255, 0.05);
   border-left-color: #b43cff;
+}
+
+.mode-survival .feedback-depth-delta {
+  border-color: rgba(255, 102, 127, 0.36);
+  color: var(--coral);
 }
 
 .mode-survival .common-answer-bar {
@@ -2562,6 +2572,11 @@
   background: rgba(120, 40, 180, 0.06);
 }
 
+.game-shell[data-theme="light"].mode-speed .feedback-depth-delta {
+  border-color: rgba(120, 40, 180, 0.32);
+  color: #7828b4;
+}
+
 .game-shell[data-theme="light"].mode-speed .common-answer:hover {
   background: rgba(120, 40, 180, 0.04);
   border-left-color: #7828b4;
@@ -2740,6 +2755,11 @@
 .game-shell[data-theme="light"].mode-survival .feedback-answer {
   border-left-color: var(--coral);
   background: rgba(187, 62, 87, 0.06);
+}
+
+.game-shell[data-theme="light"].mode-survival .feedback-depth-delta {
+  border-color: rgba(187, 62, 87, 0.32);
+  color: var(--coral);
 }
 
 .game-shell[data-theme="light"].mode-survival .common-answer:hover {
