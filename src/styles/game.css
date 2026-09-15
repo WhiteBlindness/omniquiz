@@ -2092,6 +2092,7 @@
 
 .mode-speed .brand-stage::before {
   content: "SPEED FEED / LIVE";
+  background: #b43cff;
 }
 
 .mode-speed .landing-console::before {
@@ -2423,6 +2424,7 @@
 
 .mode-survival .brand-stage::before {
   content: "THREAT FEED / LIVE";
+  box-shadow: 92px 0 var(--gold);
 }
 
 .mode-survival .landing-console::before {
@@ -2483,6 +2485,14 @@
 
 .game-shell[data-theme="light"].mode-survival .chromatic-title {
   text-shadow: -4px 0 var(--coral), 4px 0 var(--gold), 8px 8px rgba(8, 54, 68, 0.12);
+}
+
+.game-shell[data-theme="light"].mode-speed .brand-stage::before {
+  background: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-survival .brand-stage::before {
+  box-shadow: 92px 0 var(--gold);
 }
 
 .game-shell[data-theme="light"].mode-speed .game-hud {
