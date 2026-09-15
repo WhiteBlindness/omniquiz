@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { CSSProperties } from "react";
 
@@ -12,6 +12,8 @@ type DiveFormProps = Readonly<{
   remainingMilliseconds: number;
 }>;
 
+const SWIPE_THRESHOLD = 60;
+
 export function DiveForm({
   state,
   onAnswer,
@@ -20,10 +22,36 @@ export function DiveForm({
   remainingMilliseconds,
 }: DiveFormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const [swipeHint, setSwipeHint] = useState(false);
 
   useEffect(() => {
     if (state.phase === "answering") inputRef.current?.focus();
   }, [state.phase]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+    setSwipeHint(false);
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!touchStartRef.current) return;
+    const dx = e.touches[0].clientX - touchStartRef.current.x;
+    setSwipeHint(dx < -30);
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    setSwipeHint(false);
+    if (!touchStartRef.current || state.phase === "submitting") return;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - touchStartRef.current.x;
+    const dy = Math.abs(touch.clientY - touchStartRef.current.y);
+    touchStartRef.current = null;
+    if (dx < -SWIPE_THRESHOLD && dy < 80) {
+      onPass();
+    }
+  }, [state.phase, onPass]);
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
@@ -47,9 +75,12 @@ export function DiveForm({
 
   return (
     <form
-      className="dive-form"
+      className={`dive-form ${swipeHint ? "swipe-hint" : ""}`}
       onSubmit={handleSubmit}
       onKeyDown={handleKeyDown}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       aria-label="Submit an answer"
       aria-busy={state.phase === "submitting"}
       aria-keyshortcuts="Enter Escape"
@@ -92,7 +123,10 @@ export function DiveForm({
         />
       </div>
       {state.error ? <p className="form-error" role="alert">{state.error}</p> : null}
-      <p className="form-shortcuts" aria-hidden="true">ENTER TO SUBMIT · ESC TO PASS</p>
+      <p className="form-shortcuts" aria-hidden="true">
+        <span className="form-shortcuts-keyboard">ENTER TO SUBMIT · ESC TO PASS</span>
+        <span className="form-shortcuts-touch">SWIPE LEFT TO PASS</span>
+      </p>
     </form>
   );
 }

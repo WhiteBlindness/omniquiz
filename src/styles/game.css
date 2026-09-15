@@ -1377,6 +1377,24 @@
   pointer-events: none;
 }
 
+.form-shortcuts-touch { display: none; }
+
+@media (pointer: coarse) {
+  .form-shortcuts-keyboard { display: none; }
+  .form-shortcuts-touch { display: inline; }
+}
+
+.dive-form.swipe-hint {
+  border-image-source: none;
+  border-color: var(--coral);
+  transition: border-color 100ms ease-out;
+}
+
+.dive-form.swipe-hint .dive-pass {
+  border-color: var(--coral);
+  color: var(--paper);
+}
+
 .phase-submitting .prompt-card {
   animation: phase-exit 220ms ease-in both;
 }
