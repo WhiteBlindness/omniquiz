@@ -92,6 +92,7 @@ export function DiveForm({
         />
       </div>
       {state.error ? <p className="form-error" role="alert">{state.error}</p> : null}
+      <p className="form-shortcuts" aria-hidden="true">ENTER TO SUBMIT · ESC TO PASS</p>
     </form>
   );
 }

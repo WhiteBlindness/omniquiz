@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { useEffect, useRef } from "react";
 
 import type { SubmissionResult } from "../../lib/game/scoring";
@@ -96,7 +97,13 @@ export function FeedbackPanel({
           <ul aria-label="Common answers from this prompt">
             {result.commonAnswers.map((answer) => (
               <li className="common-answer" key={answer.label}>
-                <b>{answer.label}</b><small className="telemetry-data">{answer.share}%</small>
+                <b>{answer.label}</b>
+                <span
+                  className="common-answer-bar"
+                  aria-hidden="true"
+                  style={{ "--bar-fill": answer.share / 100 } as CSSProperties}
+                />
+                <small className="telemetry-data">{answer.share}%</small>
               </li>
             ))}
           </ul>
