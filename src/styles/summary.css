@@ -473,6 +473,22 @@
   color: var(--gold);
 }
 
+.game-shell[data-theme="light"] .summary-log-toggle {
+  color: inherit;
+}
+
+.game-shell[data-theme="light"] .summary-log-chevron {
+  border-left-color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .summary-log-common {
+  border-top-color: rgba(8, 54, 68, 0.12);
+}
+
+.game-shell[data-theme="light"] .score-composition-bar {
+  background: rgba(8, 54, 68, 0.06);
+}
+
 /* Speed Run summary accents */
 .mode-speed .summary-panel {
   border-top-color: #b43cff;
