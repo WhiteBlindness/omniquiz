@@ -23,6 +23,7 @@
   align-self: start;
   margin-top: clamp(1rem, 8vh, 6rem);
   text-align: left;
+  animation: card-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .brand-stage::before {
@@ -86,6 +87,7 @@
   border-left: var(--edge);
   background: var(--panel);
   box-shadow: var(--shadow);
+  animation: card-in 520ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
 }
 
 .mode-selector {

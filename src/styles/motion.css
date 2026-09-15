@@ -183,7 +183,9 @@
   .phase-submitting .prompt-card,
   .common-answer-bar::after,
   .consent-banner,
-  .pack-card {
+  .pack-card,
+  .brand-stage,
+  .landing-console {
     animation: none !important;
   }
 
