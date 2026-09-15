@@ -101,6 +101,7 @@ export function GameSummary({
               <small className="telemetry-data">
                 {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
               </small>
+              <small className="summary-log-prompt">{entry.prompt}</small>
             </div>
           </div>
         ))}

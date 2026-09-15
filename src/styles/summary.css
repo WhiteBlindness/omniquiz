@@ -231,6 +231,15 @@
   letter-spacing: 0.08em;
 }
 
+.summary-log-prompt {
+  overflow: hidden;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .summary-log-entry[data-tier="schooler"] { border-left-color: var(--cyan); }
 .summary-log-entry[data-tier="rare"],
 .summary-log-entry[data-tier="deepcut"] { border-left-color: var(--gold); }
