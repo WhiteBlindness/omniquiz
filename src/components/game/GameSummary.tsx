@@ -36,6 +36,7 @@ export function GameSummary({
   const animatedScore = useCountUp(score);
   const animatedDepth = useCountUp(depthMetres);
   const recognized = roundLog.filter((r) => r.tier !== "uncharted" && r.crowdShare !== null).length;
+  const recognitionPct = roundLog.length > 0 ? Math.round((recognized / roundLog.length) * 100) : 0;
 
   const tierBuckets = roundLog.reduce<Record<string, number>>((acc, r) => {
     acc[r.tier] = (acc[r.tier] ?? 0) + r.score;
@@ -101,8 +102,16 @@ export function GameSummary({
           <b className="telemetry-data">{roundLog.length} ROUNDS SURVIVED</b>
         </div>
       ) : null}
+      <div className="summary-recognition" aria-label={`${recognitionPct}% recognition rate`}>
+        <RecognitionRing pct={recognitionPct} />
+        <div className="summary-recognition-detail">
+          <span className="summary-recognition-value telemetry-data">{recognitionPct}%</span>
+          <span className="summary-recognition-label">RECOGNITION</span>
+          <small className="telemetry-data">{recognized}/{roundLog.length} ATLAS MATCHES</small>
+        </div>
+      </div>
       <p className="summary-stats telemetry-data">
-        {recognized}/{roundLog.length} RECOGNIZED · BEST LOG {stats.bestScore} · RUNS {stats.runs}
+        BEST LOG {stats.bestScore} · RUNS {stats.runs}
       </p>
       {score > 0 && tierSegments.length > 0 ? (
         <div className="score-composition" aria-label="Score breakdown by rarity tier">
@@ -140,6 +149,27 @@ export function GameSummary({
         </Link>
       </div>
     </section>
+  );
+}
+
+function RecognitionRing({ pct }: { pct: number }) {
+  const r = 22;
+  const circumference = 2 * Math.PI * r;
+  const offset = circumference - (pct / 100) * circumference;
+
+  return (
+    <svg className="recognition-ring" viewBox="0 0 52 52" aria-hidden="true">
+      <circle className="recognition-ring-bg" cx="26" cy="26" r={r} />
+      <circle
+        className="recognition-ring-fill"
+        cx="26"
+        cy="26"
+        r={r}
+        strokeDasharray={circumference}
+        strokeDashoffset={offset}
+        style={{ "--ring-circumference": circumference, "--ring-offset": offset } as CSSProperties}
+      />
+    </svg>
   );
 }
 

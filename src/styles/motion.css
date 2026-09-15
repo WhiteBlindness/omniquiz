@@ -222,7 +222,8 @@
   .survival-crack,
   .tier-krillion.feedback-panel,
   .hud-pb-tag,
-  .score-segment {
+  .score-segment,
+  .recognition-ring-fill {
     animation: none !important;
   }
 }

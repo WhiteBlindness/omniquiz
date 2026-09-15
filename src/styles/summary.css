@@ -146,6 +146,67 @@
   font-weight: 500;
 }
 
+.summary-recognition {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.85rem 0;
+  border-top: var(--edge);
+  border-bottom: var(--edge);
+}
+
+.recognition-ring {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.recognition-ring-bg {
+  fill: none;
+  stroke: rgba(132, 165, 181, 0.12);
+  stroke-width: 3;
+}
+
+.recognition-ring-fill {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  animation: ring-draw 800ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+}
+
+@keyframes ring-draw {
+  from { stroke-dashoffset: var(--ring-circumference); }
+  to { stroke-dashoffset: var(--ring-offset); }
+}
+
+.summary-recognition-detail {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.summary-recognition-value {
+  color: var(--cyan);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.summary-recognition-label {
+  color: var(--drift);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+}
+
+.summary-recognition-detail small {
+  color: var(--muted);
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
+}
+
 .summary-stats {
   margin: 1rem 0 0;
   color: var(--drift);
@@ -489,9 +550,21 @@
   background: rgba(8, 54, 68, 0.06);
 }
 
+.game-shell[data-theme="light"] .recognition-ring-bg {
+  stroke: rgba(8, 54, 68, 0.1);
+}
+
 /* Speed Run summary accents */
 .mode-speed .summary-panel {
   border-top-color: #b43cff;
+}
+
+.mode-speed .recognition-ring-fill {
+  stroke: #b43cff;
+}
+
+.mode-speed .summary-recognition-value {
+  color: #b43cff;
 }
 
 .mode-speed .summary-depth b {
@@ -519,6 +592,14 @@
   border-top-color: var(--coral);
 }
 
+.mode-survival .recognition-ring-fill {
+  stroke: var(--coral);
+}
+
+.mode-survival .summary-recognition-value {
+  color: var(--coral);
+}
+
 .mode-survival .summary-depth b {
   color: var(--coral);
 }
@@ -538,6 +619,14 @@
 /* Speed light theme */
 .game-shell[data-theme="light"].mode-speed .summary-panel {
   border-top-color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .recognition-ring-fill {
+  stroke: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .summary-recognition-value {
+  color: #7828b4;
 }
 
 .game-shell[data-theme="light"].mode-speed .summary-depth b {
@@ -563,6 +652,14 @@
 /* Survival light theme */
 .game-shell[data-theme="light"].mode-survival .summary-panel {
   border-top-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .recognition-ring-fill {
+  stroke: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .summary-recognition-value {
+  color: var(--coral);
 }
 
 .game-shell[data-theme="light"].mode-survival .summary-depth b {
