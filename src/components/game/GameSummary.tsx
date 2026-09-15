@@ -203,6 +203,9 @@ function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: s
                 <strong>{entry.answerLabel}</strong>
                 {hasCommon ? <span className="summary-log-chevron" aria-hidden="true" /> : null}
               </button>
+              {entry.submittedAnswer.toLowerCase().trim() !== entry.answerLabel.toLowerCase().trim() && entry.tier !== "uncharted" ? (
+                <small className="summary-log-signal">YOU TYPED: {entry.submittedAnswer}</small>
+              ) : null}
               <small className="telemetry-data">
                 {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
               </small>

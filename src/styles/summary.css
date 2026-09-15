@@ -357,6 +357,13 @@
   letter-spacing: 0.08em;
 }
 
+.summary-log-signal {
+  color: var(--drift);
+  font-size: 0.46rem;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
 .summary-log-prompt {
   overflow: hidden;
   color: var(--muted);
