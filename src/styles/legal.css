@@ -22,6 +22,11 @@
   color: var(--paper);
 }
 
+.legal-back:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .legal-content h1 {
   margin: 0;
   color: var(--paper);
@@ -122,6 +127,14 @@
 
 .footer-links a:hover {
   color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.footer-links a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
 }
 
 .footer-copy {
@@ -185,6 +198,16 @@
 .consent-accept:hover {
   background: var(--cyan);
   color: var(--ink);
+}
+
+.consent-accept:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.consent-accept:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
 }
 
 @media (max-width: 500px) {

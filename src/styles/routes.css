@@ -71,10 +71,42 @@
   transform: translateY(-3px);
 }
 
+.pack-card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.pack-movies:hover:not(.pack-disabled),
+.pack-movies:focus-visible {
+  border-color: #ee9f40;
+  box-shadow: 6px 7px 0 rgba(0, 3, 10, 0.82), 0 0 24px rgba(238, 159, 64, 0.18);
+}
+.pack-movies:focus-visible { outline-color: #ee9f40; }
+
+.pack-sports:hover:not(.pack-disabled),
+.pack-sports:focus-visible {
+  border-color: #4fc29a;
+  box-shadow: 6px 7px 0 rgba(0, 3, 10, 0.82), 0 0 24px rgba(79, 194, 154, 0.18);
+}
+.pack-sports:focus-visible { outline-color: #4fc29a; }
+
 .pack-art {
   position: relative;
   overflow: hidden;
   image-rendering: pixelated;
+}
+
+.pack-beam {
+  transition: opacity 280ms ease-out;
+}
+
+.pack-card:hover:not(.pack-disabled) .pack-beam {
+  opacity: 1;
+}
+
+.pack-card:hover:not(.pack-disabled) .pack-sun {
+  transition: filter 280ms ease-out;
+  filter: brightness(1.25);
 }
 
 .pack-sun,
@@ -427,6 +459,8 @@
 }
 
 .back-dive:hover { border-color: var(--cyan); color: var(--paper); }
+.back-dive:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.back-dive:active { transform: translateY(1px); transition: transform 60ms ease-out; }
 
 .packs-page[data-theme="light"] {
   background: var(--ink);
@@ -523,6 +557,20 @@
   border-color: var(--cyan);
   box-shadow: 6px 7px 0 rgba(8, 127, 150, 0.14);
 }
+
+.packs-page[data-theme="light"] .pack-movies:hover:not(.pack-disabled),
+.packs-page[data-theme="light"] .pack-movies:focus-visible {
+  border-color: #d9953f;
+  box-shadow: 6px 7px 0 rgba(12, 54, 64, 0.18), 0 0 24px rgba(217, 149, 63, 0.15);
+}
+.packs-page[data-theme="light"] .pack-movies:focus-visible { outline-color: #d9953f; }
+
+.packs-page[data-theme="light"] .pack-sports:hover:not(.pack-disabled),
+.packs-page[data-theme="light"] .pack-sports:focus-visible {
+  border-color: #177b5f;
+  box-shadow: 6px 7px 0 rgba(12, 54, 64, 0.18), 0 0 24px rgba(23, 123, 95, 0.15);
+}
+.packs-page[data-theme="light"] .pack-sports:focus-visible { outline-color: #177b5f; }
 
 .packs-page[data-theme="light"] .pack-copy h2 {
   color: #062533;

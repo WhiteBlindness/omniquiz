@@ -181,7 +181,9 @@
   .countdown-digit,
   .hud-value-flash,
   .phase-submitting .prompt-card,
-  .common-answer-bar::after {
+  .common-answer-bar::after,
+  .consent-banner,
+  .pack-card {
     animation: none !important;
   }
 
@@ -191,7 +193,9 @@
   .current-depth-marker,
   .answer-progress span,
   .countdown-ring-fill,
-  .summary-log-chevron {
+  .summary-log-chevron,
+  .pack-beam,
+  .pack-sun {
     transition: none !important;
   }
 
