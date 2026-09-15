@@ -188,6 +188,16 @@ input:focus-visible {
   color: var(--paper);
 }
 
+.pixel-control:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.pixel-control:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
+}
+
 .global-controls {
   position: absolute;
   top: max(1rem, env(safe-area-inset-top));

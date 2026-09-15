@@ -391,6 +391,11 @@
   cursor: default;
 }
 
+.summary-log-toggle:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .summary-log-toggle strong {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -523,6 +528,16 @@
   color: var(--paper);
 }
 
+.secondary-link:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.secondary-link:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
+}
+
 .share-button {
   display: flex;
   align-items: center;
@@ -629,8 +644,16 @@
   color: #0d0318;
 }
 
+.mode-speed .continue-button:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .secondary-link:hover {
   border-color: #b43cff;
+}
+
+.mode-speed .secondary-link:focus-visible {
+  outline-color: #b43cff;
 }
 
 /* Survival summary accents */
@@ -668,8 +691,16 @@
   color: #1a0510;
 }
 
+.mode-survival .continue-button:focus-visible {
+  outline-color: var(--coral);
+}
+
 .mode-survival .secondary-link:hover {
   border-color: var(--coral);
+}
+
+.mode-survival .secondary-link:focus-visible {
+  outline-color: var(--coral);
 }
 
 /* Speed light theme */

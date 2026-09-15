@@ -199,6 +199,11 @@
   color: var(--coral);
 }
 
+.tutorial-toggle:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .pixel-chevron,
 .pixel-descent-mark {
   display: inline-block;
@@ -373,6 +378,16 @@
   transform: translateY(-2px);
 }
 
+.begin-button:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.begin-button:active:not(:disabled) {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
+}
+
 .begin-button:disabled {
   cursor: wait;
   opacity: 0.82;
@@ -413,6 +428,16 @@
 .launch-rail nav a:hover {
   border-color: var(--cyan);
   color: var(--paper);
+}
+
+.launch-rail nav a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.launch-rail nav a:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
 }
 
 .signal-error {
@@ -1381,6 +1406,25 @@
   color: var(--paper);
 }
 
+.dive-submit:focus-visible,
+.continue-button:focus-visible,
+.share-button:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.dive-pass:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.dive-submit:active:not(:disabled),
+.continue-button:active,
+.share-button:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
+}
+
 .answer-progress {
   position: absolute;
   right: calc(76px + 96px + 1.1rem);
@@ -2011,6 +2055,15 @@
   color: #0d0318;
 }
 
+.mode-speed .continue-button:focus-visible,
+.mode-speed .dive-submit:focus-visible {
+  outline-color: #b43cff;
+}
+
+.mode-speed .begin-button:focus-visible {
+  outline-color: #b43cff;
+}
+
 .mode-speed .dive-submit {
   border-color: #b43cff;
   background: rgba(100, 30, 180, 0.55);
@@ -2061,6 +2114,15 @@
 .mode-survival .continue-button:hover {
   background: var(--coral);
   color: #1a0510;
+}
+
+.mode-survival .continue-button:focus-visible,
+.mode-survival .dive-submit:focus-visible {
+  outline-color: var(--coral);
+}
+
+.mode-survival .begin-button:focus-visible {
+  outline-color: var(--coral);
 }
 
 .mode-survival .dive-submit {
