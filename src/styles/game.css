@@ -224,16 +224,39 @@
 }
 
 .last-run-badge {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
   margin-top: 0.75rem;
-  padding: 0.55rem 0.75rem;
+  padding: 0.65rem 0.85rem;
   border: var(--edge);
   background: rgba(3, 14, 28, 0.6);
   animation: card-in 300ms ease-out both;
+}
+
+.last-run-hero {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.last-run-hero-value {
+  color: var(--cyan);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.last-run-hero-label {
+  color: var(--drift);
+  font-size: 0.48rem;
+  letter-spacing: 0.14em;
+}
+
+.last-run-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .last-run-stat {
@@ -253,12 +276,18 @@
 
 .last-run-divider {
   width: 1px;
-  height: 1rem;
+  height: 0.7rem;
   background: var(--line);
 }
 
 .last-run-streak b {
   color: var(--gold);
+}
+
+.last-run-last {
+  color: var(--muted);
+  font-size: 0.46rem;
+  letter-spacing: 0.1em;
 }
 
 .begin-button {
@@ -398,6 +427,10 @@
 
 .game-shell[data-theme="light"] .last-run-badge {
   background: rgba(213, 233, 233, 0.72);
+}
+
+.game-shell[data-theme="light"] .last-run-hero-value {
+  color: var(--cyan);
 }
 
 .game-shell[data-theme="light"] .begin-button {
@@ -1577,6 +1610,10 @@
   background: #b43cff;
 }
 
+.mode-speed .last-run-hero-value {
+  color: #b43cff;
+}
+
 .mode-speed .begin-button {
   border-color: #b43cff;
   background: rgba(100, 30, 180, 0.55);
@@ -1608,6 +1645,10 @@
 
 .mode-survival .mode-option.is-selected span::before {
   background: var(--coral);
+}
+
+.mode-survival .last-run-hero-value {
+  color: var(--coral);
 }
 
 .mode-survival .begin-button {
@@ -1923,6 +1964,10 @@
   background: #7828b4;
 }
 
+.game-shell[data-theme="light"].mode-speed .last-run-hero-value {
+  color: #7828b4;
+}
+
 .game-shell[data-theme="light"].mode-speed .begin-button {
   border-color: #7828b4;
   background: rgba(120, 40, 180, 0.15);
@@ -1959,6 +2004,10 @@
 
 .game-shell[data-theme="light"].mode-survival .launch-rail nav a:hover {
   border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .last-run-hero-value {
+  color: var(--coral);
 }
 
 .game-shell[data-theme="light"].mode-survival .begin-button {
