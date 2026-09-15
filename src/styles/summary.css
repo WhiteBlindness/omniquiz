@@ -286,6 +286,8 @@
   overflow-y: auto;
   border-top: var(--edge);
   border-bottom: var(--edge);
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
   mask-image: linear-gradient(to bottom, black calc(100% - 2rem), transparent);
   -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 2rem), transparent);
 }
@@ -618,6 +620,16 @@
 
 .game-shell[data-theme="light"] .recognition-ring-bg {
   stroke: rgba(8, 54, 68, 0.1);
+}
+
+.game-shell[data-theme="light"] .summary-log-tier.tier-plankton { border-color: rgba(6, 117, 136, 0.28); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-schooler { border-color: rgba(6, 117, 136, 0.38); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-rare { border-color: rgba(142, 100, 20, 0.35); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-deepcut { border-color: rgba(187, 62, 87, 0.32); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-krillion { border-color: rgba(187, 62, 87, 0.45); background: rgba(187, 62, 87, 0.06); }
+
+.game-shell[data-theme="light"] .summary-log-entry.is-best {
+  background: rgba(142, 100, 20, 0.06);
 }
 
 /* Speed Run summary accents */

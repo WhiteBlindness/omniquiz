@@ -242,3 +242,24 @@ input:focus-visible {
     padding-left: env(safe-area-inset-left);
   }
 }
+
+@media (prefers-contrast: more) {
+  :root {
+    --line: rgba(112, 168, 192, 0.5);
+    --line-hot: rgba(91, 226, 239, 0.9);
+  }
+
+  [data-theme="light"] {
+    --line: rgba(8, 54, 68, 0.55);
+    --line-hot: rgba(5, 119, 142, 0.9);
+  }
+
+  *:focus-visible {
+    outline-width: 3px !important;
+  }
+
+  .mode-option {
+    border-width: 2px;
+    border-bottom-width: 3px;
+  }
+}
