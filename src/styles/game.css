@@ -2094,6 +2094,15 @@
   outline-color: #b43cff;
 }
 
+.mode-speed .dive-form input {
+  border-color: rgba(180, 60, 255, 0.55);
+}
+
+.mode-speed .dive-form input:focus {
+  border-color: #b43cff;
+  box-shadow: 0 0 0 2px rgba(180, 60, 255, 0.18);
+}
+
 .mode-speed .dive-submit {
   border-color: #b43cff;
   background: rgba(100, 30, 180, 0.55);
@@ -2153,6 +2162,15 @@
 
 .mode-survival .begin-button:focus-visible {
   outline-color: var(--coral);
+}
+
+.mode-survival .dive-form input {
+  border-color: rgba(255, 102, 127, 0.45);
+}
+
+.mode-survival .dive-form input:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 2px rgba(255, 102, 127, 0.18);
 }
 
 .mode-survival .dive-submit {
@@ -2278,6 +2296,15 @@
   color: #fff;
 }
 
+.game-shell[data-theme="light"].mode-speed .dive-form input {
+  border-color: rgba(120, 40, 180, 0.4);
+}
+
+.game-shell[data-theme="light"].mode-speed .dive-form input:focus {
+  border-color: #7828b4;
+  box-shadow: 0 0 0 2px rgba(120, 40, 180, 0.15);
+}
+
 .game-shell[data-theme="light"].mode-speed .dive-submit {
   border-color: #7828b4;
   background: rgba(120, 40, 180, 0.15);
@@ -2344,6 +2371,15 @@
 .game-shell[data-theme="light"].mode-survival .continue-button:hover {
   background: var(--coral);
   color: #fff;
+}
+
+.game-shell[data-theme="light"].mode-survival .dive-form input {
+  border-color: rgba(187, 62, 87, 0.35);
+}
+
+.game-shell[data-theme="light"].mode-survival .dive-form input:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 2px rgba(187, 62, 87, 0.15);
 }
 
 .game-shell[data-theme="light"].mode-survival .dive-submit {
