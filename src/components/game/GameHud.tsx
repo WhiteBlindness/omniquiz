@@ -146,15 +146,21 @@ export function GameHud({ state, mode, remainingMilliseconds, bestScore }: GameH
         aria-valuetext={progressText}
       >
         <span className="hud-rounds-label telemetry-data">ROUND {state.questionIndex + 1} / {roundCount}</span>
-        {visibleRounds.map((index) => (
-          <span
-            className={`hud-round-step ${index < completedRounds ? "is-complete" : ""} ${index === state.questionIndex ? "is-current" : ""}`}
-            aria-hidden="true"
-            key={index}
-          >
-            <b className="telemetry-data">{index + 1}</b><i />
-          </span>
-        ))}
+        {visibleRounds.map((index) => {
+          const entry = state.roundLog[index];
+          const tierClass = entry ? `step-tier-${entry.tier}` : "";
+          const isPass = entry?.outcome === "pass" || entry?.outcome === "timeout";
+          return (
+            <span
+              className={`hud-round-step ${index < completedRounds ? "is-complete" : ""} ${index === state.questionIndex ? "is-current" : ""} ${tierClass}`}
+              aria-hidden="true"
+              key={index}
+            >
+              <b className="telemetry-data">{index + 1}</b>
+              {entry && !isPass ? <i className="step-pip" /> : <i />}
+            </span>
+          );
+        })}
       </div>
       <span className="hud-title">{label}</span>
       {currentQuestion ? (

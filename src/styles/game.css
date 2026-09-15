@@ -1074,6 +1074,14 @@
   border-top: 2px dashed currentColor;
 }
 
+.hud-round-step i.step-pip {
+  width: 5px;
+  height: 5px;
+  border: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
 .hud-round-step.is-current {
   color: var(--cyan);
 }
@@ -1086,6 +1094,17 @@
 .hud-round-step.is-complete {
   color: var(--coral);
 }
+
+.hud-round-step.step-tier-plankton { color: var(--cyan); opacity: 0.55; }
+.hud-round-step.step-tier-tooclever { color: var(--muted); }
+.hud-round-step.step-tier-schooler { color: var(--cyan); }
+.hud-round-step.step-tier-rare { color: var(--gold); }
+.hud-round-step.step-tier-rare b { border-color: var(--gold); background: rgba(229, 182, 75, 0.08); }
+.hud-round-step.step-tier-deepcut { color: var(--coral); opacity: 0.8; }
+.hud-round-step.step-tier-deepcut b { border-color: var(--coral); }
+.hud-round-step.step-tier-krillion { color: var(--coral); }
+.hud-round-step.step-tier-krillion b { border-color: var(--coral); background: rgba(255, 102, 127, 0.1); box-shadow: 0 0 6px rgba(255, 102, 127, 0.3); }
+.hud-round-step.step-tier-uncharted { color: var(--muted); opacity: 0.45; }
 
 .hud-question-meta {
   grid-area: meta;
