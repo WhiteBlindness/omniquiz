@@ -220,7 +220,8 @@
   .survival-ember,
   .survival-crack,
   .tier-krillion.feedback-panel,
-  .hud-pb-tag {
+  .hud-pb-tag,
+  .score-segment {
     animation: none !important;
   }
 }

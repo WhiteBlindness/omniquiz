@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import { useCountUp } from "../../hooks/useCountUp";
 import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
@@ -34,6 +35,19 @@ export function GameSummary({
   const animatedScore = useCountUp(score);
   const animatedDepth = useCountUp(depthMetres);
   const recognized = roundLog.filter((r) => r.tier !== "uncharted" && r.crowdShare !== null).length;
+
+  const tierBuckets = roundLog.reduce<Record<string, number>>((acc, r) => {
+    acc[r.tier] = (acc[r.tier] ?? 0) + r.score;
+    return acc;
+  }, {});
+  const tierSegments = [
+    { tier: "krillion", label: "KRILLION", score: tierBuckets.krillion ?? 0 },
+    { tier: "deepcut", label: "DEEP CUT", score: tierBuckets.deepcut ?? 0 },
+    { tier: "rare", label: "RARE", score: tierBuckets.rare ?? 0 },
+    { tier: "schooler", label: "SCHOOLER", score: tierBuckets.schooler ?? 0 },
+    { tier: "plankton", label: "PLANKTON", score: tierBuckets.plankton ?? 0 },
+    { tier: "tooclever", label: "TOO CLEVER", score: tierBuckets.tooclever ?? 0 },
+  ].filter((s) => s.score > 0);
 
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
@@ -89,6 +103,29 @@ export function GameSummary({
       <p className="summary-stats telemetry-data">
         {recognized}/{roundLog.length} RECOGNIZED · BEST LOG {stats.bestScore} · RUNS {stats.runs}
       </p>
+      {score > 0 && tierSegments.length > 0 ? (
+        <div className="score-composition" aria-label="Score breakdown by rarity tier">
+          <span className="score-composition-label">SCORE COMPOSITION</span>
+          <div className="score-composition-bar" aria-hidden="true">
+            {tierSegments.map((s) => (
+              <span
+                key={s.tier}
+                className={`score-segment tier-${s.tier}`}
+                style={{ "--segment-share": s.score / score } as CSSProperties}
+                title={`${s.label}: ${s.score} pts`}
+              />
+            ))}
+          </div>
+          <div className="score-composition-legend">
+            {tierSegments.map((s) => (
+              <span key={s.tier} className={`score-legend-item tier-${s.tier}`}>
+                <i aria-hidden="true" />
+                <small className="telemetry-data">{s.label} {s.score}</small>
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
         <div className="summary-log-heading">
           <span>{mode === "speed" ? "RACE LOG" : mode === "survival" ? "THREAT LOG" : "DIVE LOG"}</span>

@@ -153,6 +153,71 @@
   letter-spacing: 0.12em;
 }
 
+.score-composition {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: var(--edge);
+}
+
+.score-composition-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--drift);
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+}
+
+.score-composition-bar {
+  display: flex;
+  height: 6px;
+  overflow: hidden;
+}
+
+.score-segment {
+  height: 100%;
+  flex: calc(var(--segment-share) * 100) 0 0;
+  animation: bar-grow 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.score-segment.tier-krillion { background: var(--coral); }
+.score-segment.tier-deepcut { background: var(--coral); opacity: 0.7; }
+.score-segment.tier-rare { background: var(--gold); }
+.score-segment.tier-schooler { background: var(--cyan); }
+.score-segment.tier-plankton { background: var(--cyan); opacity: 0.45; }
+.score-segment.tier-tooclever { background: var(--muted); }
+
+.score-composition-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.score-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.score-legend-item i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+}
+
+.score-legend-item.tier-krillion i { background: var(--coral); }
+.score-legend-item.tier-deepcut i { background: var(--coral); opacity: 0.7; }
+.score-legend-item.tier-rare i { background: var(--gold); }
+.score-legend-item.tier-schooler i { background: var(--cyan); }
+.score-legend-item.tier-plankton i { background: var(--cyan); opacity: 0.45; }
+.score-legend-item.tier-tooclever i { background: var(--muted); }
+
+.score-legend-item small {
+  color: var(--drift);
+  font-size: 0.46rem;
+  letter-spacing: 0.08em;
+}
+
 .summary-log {
   position: relative;
   max-height: min(34vh, 18rem);
