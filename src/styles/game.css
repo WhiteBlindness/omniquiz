@@ -1316,6 +1316,12 @@
   opacity: 1;
 }
 
+.preview-skip:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
 .dive-form {
   position: relative;
   grid-column: 2;
@@ -1947,6 +1953,14 @@
   background: #b43cff;
 }
 
+.mode-speed .mode-title {
+  color: #b43cff;
+}
+
+.mode-speed .chromatic-title {
+  text-shadow: -4px 0 #b43cff, 4px 0 var(--cyan), 8px 8px #020713;
+}
+
 .mode-speed .last-run-hero-value {
   color: #b43cff;
 }
@@ -1963,6 +1977,10 @@
 
 .mode-speed .launch-rail nav a:hover {
   border-color: #b43cff;
+}
+
+.mode-speed .launch-rail nav a:focus-visible {
+  outline-color: #b43cff;
 }
 
 .mode-survival .landing-console {
@@ -1988,6 +2006,14 @@
   background: var(--coral);
 }
 
+.mode-survival .mode-title {
+  color: var(--coral);
+}
+
+.mode-survival .chromatic-title {
+  text-shadow: -4px 0 var(--coral), 4px 0 var(--gold), 8px 8px #020713;
+}
+
 .mode-survival .last-run-hero-value {
   color: var(--coral);
 }
@@ -2004,6 +2030,10 @@
 
 .mode-survival .launch-rail nav a:hover {
   color: var(--coral);
+}
+
+.mode-survival .launch-rail nav a:focus-visible {
+  outline-color: var(--coral);
 }
 
 .mode-speed .brand-stage::before {
@@ -2195,6 +2225,22 @@
 }
 
 /* Light theme mode overrides */
+.game-shell[data-theme="light"].mode-speed .mode-title {
+  color: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .chromatic-title {
+  text-shadow: -4px 0 #7828b4, 4px 0 var(--cyan), 8px 8px rgba(8, 54, 68, 0.12);
+}
+
+.game-shell[data-theme="light"].mode-survival .mode-title {
+  color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .chromatic-title {
+  text-shadow: -4px 0 var(--coral), 4px 0 var(--gold), 8px 8px rgba(8, 54, 68, 0.12);
+}
+
 .game-shell[data-theme="light"].mode-speed .game-hud {
   border-right-color: rgba(120, 40, 180, 0.22);
 }
