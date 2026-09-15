@@ -390,6 +390,11 @@
   cursor: pointer;
   text-align: left;
   font: inherit;
+  transition: opacity 140ms ease-out;
+}
+
+.summary-log-toggle:not(:disabled):hover {
+  opacity: 0.82;
 }
 
 .summary-log-toggle:disabled {

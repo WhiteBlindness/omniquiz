@@ -417,6 +417,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.09em;
   text-align: right;
+  transition: color 140ms ease-out;
 }
 
 .pack-disabled .pack-action { color: var(--muted); }
@@ -465,6 +466,7 @@
   color: var(--drift);
   font-size: 0.62rem;
   letter-spacing: 0.12em;
+  transition: border-color 140ms ease-out, color 140ms ease-out, background 140ms ease-out;
 }
 
 .restore-button {
@@ -756,7 +758,7 @@
   color: var(--paper);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
-  transition: background 140ms ease-out, transform 140ms ease-out;
+  transition: background 140ms ease-out, color 140ms ease-out, transform 140ms ease-out;
 }
 
 .not-found-primary:hover {
