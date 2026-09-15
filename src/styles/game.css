@@ -704,6 +704,11 @@
   border-left-color: var(--line);
 }
 
+.game-shell[data-theme="light"] .common-answer:hover {
+  background: rgba(6, 37, 51, 0.04);
+  border-left-color: var(--cyan);
+}
+
 .game-shell[data-theme="light"] .common-answer b {
   color: var(--paper);
 }
@@ -1786,6 +1791,12 @@
   border-left: 2px solid var(--line);
   color: var(--drift);
   font-size: 0.62rem;
+  transition: background-color 120ms ease-out, border-left-color 120ms ease-out;
+}
+
+.common-answer:hover {
+  background: rgba(91, 226, 239, 0.04);
+  border-left-color: var(--cyan);
 }
 
 .common-answer-rank {
@@ -2221,12 +2232,22 @@
   color: #b43cff;
 }
 
+.mode-speed .common-answer:hover {
+  background: rgba(180, 60, 255, 0.05);
+  border-left-color: #b43cff;
+}
+
 .mode-survival .common-answer-bar::after {
   background: var(--coral);
 }
 
 .mode-survival .common-answers-title {
   color: var(--coral);
+}
+
+.mode-survival .common-answer:hover {
+  background: rgba(255, 102, 127, 0.05);
+  border-left-color: var(--coral);
 }
 
 .mode-survival .continue-button {

@@ -239,7 +239,15 @@
   .feedback-spark,
   .feedback-streak,
   .feedback-lives,
+  .streak-indicator,
+  .lives-indicator,
   .rarity-scale {
     animation: none !important;
+  }
+
+  .life-pip,
+  .feedback-life-pip,
+  .common-answer {
+    transition: none !important;
   }
 }
