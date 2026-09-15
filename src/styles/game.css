@@ -1176,6 +1176,14 @@
   line-height: 1.12;
 }
 
+.prompt-round-badge {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--muted);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+}
+
 .rarity-hint,
 .prompt-category,
 .feedback-quip {
@@ -1740,6 +1748,19 @@
   margin-top: 1.2rem;
 }
 
+.feedback-shortcuts {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.42rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  opacity: 0.55;
+}
+
+@media (pointer: coarse) {
+  .feedback-shortcuts { display: none; }
+}
+
 /* --- Speed-run streak indicator --- */
 .streak-indicator {
   position: absolute;
@@ -1965,6 +1986,10 @@
   stroke: #b43cff;
 }
 
+.mode-speed .prompt-round-badge {
+  color: rgba(180, 60, 255, 0.55);
+}
+
 .mode-speed .prompt-category {
   color: #b43cff;
 }
@@ -2011,6 +2036,10 @@
 
 .mode-survival .countdown-ring-fill {
   stroke: var(--coral);
+}
+
+.mode-survival .prompt-round-badge {
+  color: rgba(255, 102, 127, 0.5);
 }
 
 .mode-survival .prompt-category {

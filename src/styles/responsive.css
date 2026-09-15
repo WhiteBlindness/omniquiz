@@ -384,6 +384,11 @@
     line-height: 1.08;
   }
 
+  .prompt-round-badge {
+    margin-bottom: 0.35rem;
+    font-size: 0.44rem;
+  }
+
   .rarity-hint,
   .prompt-category,
   .feedback-quip,

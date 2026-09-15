@@ -17,6 +17,9 @@ export function PromptCard({ state, phase }: PromptCardProps) {
   return (
     <section className={`prompt-card ${preview ? "prompt-card-preview" : ""}`} aria-labelledby="current-prompt">
       <span className="sr-only">Prompt {state.questionIndex + 1} of {state.questions.length}</span>
+      <span className="prompt-round-badge telemetry-data" aria-hidden="true">
+        {String(state.questionIndex + 1).padStart(2, "0")} / {String(state.questions.length).padStart(2, "0")}
+      </span>
       <h1 id="current-prompt">{question.prompt}</h1>
       <p className="rarity-hint">
         {state.mode === "speed"

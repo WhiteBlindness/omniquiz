@@ -161,6 +161,7 @@ export function FeedbackPanel({
           ? (mode === "speed" ? "FINISH RUN" : mode === "survival" ? "VIEW LOG" : "SURFACE WITH LOG")
           : (mode === "speed" ? "NEXT PROMPT" : mode === "survival" ? "NEXT PROMPT" : "CONTINUE DESCENT")}
       </button>
+      <p className="feedback-shortcuts" aria-hidden="true">ENTER · SPACE · ESC TO CONTINUE</p>
     </section>
   );
 }
