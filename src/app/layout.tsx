@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "OMNIQUIZ",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "OMNIQUIZ",
     description: "A free trivia game where uncommon answers score higher. Four game modes, no account required.",
   },
