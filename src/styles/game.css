@@ -2169,8 +2169,17 @@
   color: #0d0318;
 }
 
+.mode-speed .answer-progress {
+  background: rgba(180, 60, 255, 0.12);
+}
+
 .mode-speed .answer-progress span {
   background: #b43cff;
+}
+
+.mode-speed .feedback-answer {
+  border-left-color: #b43cff;
+  background: rgba(50, 20, 80, 0.42);
 }
 
 .mode-speed .preview-countdown {
@@ -2301,8 +2310,17 @@
   color: #1a0510;
 }
 
+.mode-survival .answer-progress {
+  background: rgba(255, 102, 127, 0.12);
+}
+
 .mode-survival .answer-progress span {
   background: var(--coral);
+}
+
+.mode-survival .feedback-answer {
+  border-left-color: var(--coral);
+  background: rgba(80, 25, 35, 0.42);
 }
 
 .mode-survival .preview-countdown {
@@ -2482,8 +2500,17 @@
   border-color: #7828b4;
 }
 
+.game-shell[data-theme="light"].mode-speed .answer-progress {
+  background: rgba(120, 40, 180, 0.1);
+}
+
 .game-shell[data-theme="light"].mode-speed .answer-progress span {
   background: #7828b4;
+}
+
+.game-shell[data-theme="light"].mode-speed .feedback-answer {
+  border-left-color: #7828b4;
+  background: rgba(120, 40, 180, 0.06);
 }
 
 .game-shell[data-theme="light"].mode-speed .countdown-ring-fill {
@@ -2636,6 +2663,11 @@
 
 .game-shell[data-theme="light"].mode-survival .dive-pass:hover:not(:disabled) {
   border-color: var(--coral);
+}
+
+.game-shell[data-theme="light"].mode-survival .feedback-answer {
+  border-left-color: var(--coral);
+  background: rgba(187, 62, 87, 0.06);
 }
 
 /* Light theme landing console overrides */
