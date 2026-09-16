@@ -1365,6 +1365,11 @@
   opacity: 1;
 }
 
+.preview-skip:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
+}
+
 .dive-form {
   position: relative;
   grid-column: 2;
@@ -1470,6 +1475,7 @@
 }
 
 .dive-submit:active:not(:disabled),
+.dive-pass:active:not(:disabled),
 .continue-button:active,
 .share-button:active {
   transform: translateY(1px);
