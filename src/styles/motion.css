@@ -247,7 +247,8 @@
   .feedback-lives,
   .streak-indicator,
   .lives-indicator,
-  .rarity-scale {
+  .rarity-scale,
+  .not-found-sonar-sweep {
     animation: none !important;
   }
 

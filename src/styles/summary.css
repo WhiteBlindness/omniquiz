@@ -284,6 +284,7 @@
   max-height: min(34vh, 18rem);
   margin-top: 1.15rem;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
   border-top: var(--edge);
   border-bottom: var(--edge);
   scrollbar-width: thin;

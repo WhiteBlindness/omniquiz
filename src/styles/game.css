@@ -2952,3 +2952,36 @@
 .game-shell[data-theme="light"].mode-survival .answer-progress span {
   background: var(--coral);
 }
+
+@media (prefers-contrast: more) {
+  .dive-form input {
+    border-width: 2px;
+    border-bottom-width: 4px;
+  }
+
+  .dive-submit,
+  .dive-pass,
+  .continue-button,
+  .share-button {
+    border-width: 2px;
+    border-bottom-width: 4px;
+  }
+
+  .preview-skip {
+    border-width: 2px;
+    opacity: 1;
+  }
+
+  .hud-meter {
+    border-left-width: 4px;
+  }
+
+  .feed-plate,
+  .timecode-plate {
+    border-width: 2px;
+  }
+
+  .feedback-depth-delta {
+    border-width: 2px;
+  }
+}

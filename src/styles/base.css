@@ -247,11 +247,15 @@ input:focus-visible {
   :root {
     --line: rgba(112, 168, 192, 0.5);
     --line-hot: rgba(91, 226, 239, 0.9);
+    --drift: #c4dce5;
+    --muted: #8eaab4;
   }
 
   [data-theme="light"] {
     --line: rgba(8, 54, 68, 0.55);
     --line-hot: rgba(5, 119, 142, 0.9);
+    --drift: #1a3d4a;
+    --muted: #2e5462;
   }
 
   *:focus-visible {
@@ -261,5 +265,18 @@ input:focus-visible {
   .mode-option {
     border-width: 2px;
     border-bottom-width: 3px;
+  }
+
+  .consent-banner {
+    border-top-width: 2px;
+  }
+
+  .pixel-control {
+    border-width: 2px;
+  }
+
+  .legal-content p,
+  .legal-content ul {
+    line-height: 1.85;
   }
 }
