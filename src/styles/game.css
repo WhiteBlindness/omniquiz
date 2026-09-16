@@ -536,6 +536,7 @@
 }
 
 .game-shell[data-theme="light"] .game-hud {
+  border-right-color: rgba(8, 127, 150, 0.22);
   background: rgba(237, 248, 246, 0.94);
   box-shadow: 12px 0 30px rgba(12, 54, 64, 0.14);
 }
@@ -548,6 +549,18 @@
 .game-shell[data-theme="light"] .hud-meter {
   background: rgba(218, 238, 238, 0.82);
   border-color: rgba(8, 54, 68, 0.22);
+}
+
+.game-shell[data-theme="light"] .hud-title {
+  color: var(--drift);
+}
+
+.game-shell[data-theme="light"] .hud-question-meta {
+  color: var(--muted);
+}
+
+.game-shell[data-theme="light"] .prompt-category {
+  color: var(--cyan);
 }
 
 .game-shell[data-theme="light"] .feed-plate,
@@ -592,6 +605,10 @@
 .game-shell[data-theme="light"] .dive-form input {
   background: rgba(226, 242, 241, 0.88);
   border-color: var(--cyan);
+}
+
+.game-shell[data-theme="light"] .dive-form input:focus {
+  box-shadow: 0 0 0 2px rgba(8, 127, 150, 0.15);
 }
 
 .game-shell[data-theme="light"] .dive-form input::placeholder {
