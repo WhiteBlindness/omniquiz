@@ -248,7 +248,8 @@
   .streak-indicator,
   .lives-indicator,
   .rarity-scale,
-  .not-found-sonar-sweep {
+  .not-found-sonar-sweep,
+  .not-found-code {
     animation: none !important;
   }
 

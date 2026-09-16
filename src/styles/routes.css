@@ -867,3 +867,30 @@
   background: var(--coral);
   color: var(--ink);
 }
+
+@media (prefers-contrast: more) {
+  .pack-card {
+    border-width: 2px;
+  }
+
+  .pack-card:focus-visible {
+    outline-width: 3px;
+  }
+
+  .pack-body h2 {
+    letter-spacing: 0.02em;
+  }
+
+  .logbook {
+    border-width: 2px;
+  }
+
+  .not-found-primary {
+    border-width: 2px;
+    border-bottom-width: 3px;
+  }
+
+  .not-found-secondary {
+    border-width: 2px;
+  }
+}

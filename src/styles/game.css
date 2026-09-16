@@ -686,6 +686,10 @@
   text-shadow: 2px 2px rgba(255, 255, 255, 0.5);
 }
 
+.game-shell[data-theme="light"] .hud-legend span {
+  color: var(--muted);
+}
+
 .game-shell[data-theme="light"] .hud-timer-dial {
   background: conic-gradient(
     from -90deg,
@@ -741,6 +745,10 @@
 
 .game-shell[data-theme="light"] .common-answer b {
   color: var(--paper);
+}
+
+.game-shell[data-theme="light"] .common-answer-bar {
+  background: rgba(8, 54, 68, 0.12);
 }
 
 .game-shell[data-theme="light"] .feedback-stats b {

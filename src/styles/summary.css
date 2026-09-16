@@ -897,3 +897,38 @@
 .game-shell[data-theme="light"].mode-survival .summary-log-toggle:focus-visible {
   outline-color: var(--coral);
 }
+
+@media (prefers-contrast: more) {
+  .summary-panel {
+    border-top-width: 4px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+  }
+
+  .summary-log-entry {
+    border-left-width: 3px;
+  }
+
+  .summary-log-entry.is-best {
+    border-left-width: 4px;
+  }
+
+  .summary-log-tier {
+    border-width: 2px;
+  }
+
+  .share-button,
+  .secondary-link {
+    border-width: 2px;
+  }
+
+  .score-composition-bar {
+    height: 8px;
+  }
+
+  .recognition-ring-bg,
+  .recognition-ring-fill {
+    stroke-width: 4;
+  }
+}
