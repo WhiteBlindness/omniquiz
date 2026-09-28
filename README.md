@@ -2,7 +2,7 @@
 
 A cinematic 16-bit ocean rarity game built with Next.js. Choose a seven-prompt Daily Dive or a 15-prompt Unlimited Dive, then discover how recognizable answers distribute across a curated crowd atlas.
 
-**Estado:** *Live*. [Abrir a demonstração](https://omniquiz-nine.vercel.app).
+**Status:** Live. [Open the demo](https://omniquiz-nine.vercel.app).
 
 ## Getting started
 
@@ -35,6 +35,6 @@ Progress, statistics, theme, and audio preference are stored locally. The game u
 
 ## Routes
 
-- `/` — landing page and Daily Challenge
-- `/unlimited/classic` — Arcade Mode with optional `category` query parameter
-- `/packs` — themed category routes
+- `/`: landing page and Daily Challenge
+- `/unlimited/classic`: Arcade Mode with an optional `category` query parameter
+- `/packs`: themed category routes
