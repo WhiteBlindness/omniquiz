@@ -17,7 +17,13 @@ export function StorageConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!hasConsented()) setVisible(true);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled && !hasConsented()) setVisible(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const accept = useCallback(() => {
@@ -39,10 +45,10 @@ export function StorageConsent() {
   if (!visible) return null;
 
   return (
-    <div className="consent-banner" role="dialog" aria-label="Storage notice">
+    <div className="consent-banner" role="region" aria-label="Storage notice">
       <p>
-        This site stores your theme and sound preferences in your browser.
-        No cookies or personal data are collected.{" "}
+        OMNIQUIZ keeps your theme, sound setting, stats and current run in this
+        browser. It sets no cookies and runs no analytics.{" "}
         <Link href="/cookies">Learn more</Link>
       </p>
       <button className="consent-accept" type="button" onClick={accept}>

@@ -9,69 +9,62 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms &amp; Conditions" lastUpdated="14 September 2025">
-      <h2>Acceptance of Terms</h2>
+    <LegalPage title="Terms &amp; Conditions" lastUpdated="29 September 2026">
+      <h2>Using OMNIQUIZ</h2>
       <p>
-        By accessing and using OMNIQUIZ, you agree to be bound by these terms and
-        conditions. If you do not agree, please do not use the service.
+        OMNIQUIZ is a free, browser-based trivia game provided as is, without
+        warranties of any kind. By using it you agree to these terms.
       </p>
 
-      <h2>Description of Service</h2>
+      <h2>Fair use</h2>
       <p>
-        OMNIQUIZ is a free, browser-based trivia game. The service is provided
-        &quot;as is&quot; without warranties of any kind, either express or implied.
+        Please use OMNIQUIZ as a game. Do not interfere with the service, look for
+        vulnerabilities to exploit, or use automated tools to submit answers or to
+        bulk-copy the prompts and answer data.
       </p>
 
-      <h2>User Conduct</h2>
+      <h2>Content and names</h2>
       <p>
-        You agree to use OMNIQUIZ for its intended purpose as a trivia game. You
-        may not attempt to interfere with the service, exploit vulnerabilities,
-        or use automated tools to submit answers.
+        You are welcome to share your results. Film titles, character names,
+        personal names and other names that appear in prompts and answers belong to
+        their respective owners. They are used only to identify the works or people
+        concerned and do not imply any affiliation with or endorsement by them.
       </p>
 
-      <h2>Intellectual Property</h2>
+      <h2>Answer shares are estimates</h2>
       <p>
-        All content, design, code, and visual assets of OMNIQUIZ are protected by
-        copyright. The trivia questions and crowd atlas data are proprietary.
-        You may share your scores but may not reproduce or redistribute game content.
+        The share shown for an answer comes from a curated atlas. It is an
+        editorial estimate for gameplay, not the result of a live poll or survey.
       </p>
 
-      <h2>No Account or Payment</h2>
+      <h2>No account or payment</h2>
       <p>
-        OMNIQUIZ is entirely free to play and does not require registration. There
-        are no in-app purchases, subscriptions, or premium tiers. As no payment is
-        accepted, no refund policy is applicable.
+        OMNIQUIZ is free to play and needs no registration. It has no purchases,
+        subscriptions or premium tiers, so no refund policy applies.
       </p>
 
       <h2>Availability</h2>
       <p>
-        We aim to keep OMNIQUIZ available but do not guarantee uninterrupted access.
-        The service may be temporarily unavailable for maintenance or updates.
+        OMNIQUIZ may be unavailable at times, for example during maintenance or
+        updates, and access is not guaranteed.
       </p>
 
-      <h2>Limitation of Liability</h2>
+      <h2>Liability</h2>
       <p>
-        OMNIQUIZ and its operators shall not be liable for any indirect, incidental,
-        or consequential damages arising from the use of this service. The service
-        is a free entertainment product with no financial stakes.
+        To the extent the law allows, the operator is not liable for indirect or
+        consequential loss arising from use of this free entertainment service.
       </p>
 
-      <h2>Modifications</h2>
+      <h2>Changes</h2>
       <p>
-        We reserve the right to modify these terms at any time. Changes take effect
-        when posted on this page. Continued use constitutes acceptance.
+        These terms may change. The date at the top of this page shows when they
+        last changed.
       </p>
 
-      <h2>Governing Law</h2>
+      <h2>Operator, governing law and contact</h2>
       <p>
-        These terms are governed by applicable law. Any disputes shall be resolved
-        in accordance with the relevant jurisdiction.
-      </p>
-
-      <h2>Contact</h2>
-      <p>
-        For questions regarding these terms, please visit our website for contact
-        information.
+        The operator&apos;s identity, contact details and governing-law information
+        are not yet published on this site.
       </p>
     </LegalPage>
   );

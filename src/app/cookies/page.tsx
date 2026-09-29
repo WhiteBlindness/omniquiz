@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { LegalPage } from "../../components/LegalPage";
+import { STORAGE_REGISTRY } from "../../lib/storage/registry";
 
 export const metadata: Metadata = {
   title: "Cookie Policy — OMNIQUIZ",
@@ -9,70 +10,47 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <LegalPage title="Cookie Policy" lastUpdated="14 September 2025">
-      <h2>Does OMNIQUIZ Use Cookies?</h2>
+    <LegalPage title="Cookie Policy" lastUpdated="29 September 2026">
+      <h2>Cookies</h2>
       <p>
-        No. OMNIQUIZ does not set any HTTP cookies. We do not use session
-        cookies, authentication cookies, tracking cookies, or any other type
-        of cookie.
+        OMNIQUIZ does not set any cookies. It has no login, no advertising and no
+        analytics, and it loads no scripts, fonts or images from other websites, so
+        no other party sets cookies through it either.
       </p>
 
-      <h2>Local Storage</h2>
+      <h2>Browser storage we use</h2>
       <p>
-        Instead of cookies, OMNIQUIZ uses your browser&apos;s local storage API to
-        save two small preferences on your device:
+        To let the game remember your settings and progress, OMNIQUIZ writes a small
+        amount of data to your browser&apos;s local storage. It is stored on your
+        device and is not sent to the OMNIQUIZ server with your requests.
       </p>
       <ul>
-        <li>
-          <strong>Theme preference</strong> — whether you chose dark or light
-          mode (key: <code>omniquiz-theme-v1</code>).
-        </li>
-        <li>
-          <strong>Sound preference</strong> — whether you muted sound effects
-          (key: <code>omniquiz-mute-v1</code>).
-        </li>
-        <li>
-          <strong>Game statistics</strong> — your personal best scores and play
-          counts, stored locally to show your history
-          (key: <code>omniquiz-stats-v1</code>).
-        </li>
+        {STORAGE_REGISTRY.map((entry) => (
+          <li key={entry.key}>
+            <code>{entry.key}</code> — {entry.purpose}
+          </li>
+        ))}
       </ul>
 
-      <h2>How Local Storage Differs from Cookies</h2>
+      <h2>Why there is no consent choice</h2>
       <p>
-        Unlike cookies, local storage data is never automatically sent to a server
-        with each request. It stays entirely on your device. Only JavaScript
-        running on this site can read it. It cannot be used to track you across
-        other websites.
+        This storage exists only so the game you asked to play can remember your
+        settings and keep your run. It is not used for tracking, profiling or
+        advertising. The notice shown on your first visit is informational: it
+        tells you what is stored and links here.
       </p>
 
-      <h2>Clearing Stored Data</h2>
+      <h2>Clearing stored data</h2>
       <p>
-        You can clear all locally stored data at any time through your
-        browser&apos;s settings (usually under &quot;Site Data&quot; or
-        &quot;Storage&quot;). Clearing this data will reset your theme and sound
-        preferences to their defaults.
-      </p>
-
-      <h2>Third-Party Cookies</h2>
-      <p>
-        OMNIQUIZ does not load any third-party scripts, analytics, or advertising
-        services that would set their own cookies. Your browser will not receive
-        any cookies from visiting this site.
-      </p>
-
-      <h2>Cookie Consent</h2>
-      <p>
-        Since OMNIQUIZ does not use cookies and only stores essential preferences
-        via local storage, a cookie consent banner is not legally required under
-        most regulations. We display a brief storage notice on your first visit
-        for transparency.
+        You can remove all of this at any time from your browser&apos;s site-data
+        settings. Doing so resets your theme and sound settings, your statistics and
+        any run in progress.
       </p>
 
       <h2>Changes</h2>
       <p>
-        If we begin using cookies in the future, we will update this policy and
-        implement appropriate consent mechanisms before doing so.
+        If OMNIQUIZ ever adds cookies or non-essential storage, this page will be
+        updated and any required choice will be offered before that storage is used.
       </p>
     </LegalPage>
   );

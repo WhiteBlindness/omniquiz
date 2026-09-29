@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer" role="contentinfo">
+    <footer className="site-footer">
       <div className="footer-inner">
         <nav className="footer-links" aria-label="Legal">
           <Link href="/privacy">Privacy Policy</Link>
@@ -10,7 +10,7 @@ export function SiteFooter() {
           <Link href="/cookies">Cookie Policy</Link>
         </nav>
         <p className="footer-copy">
-          OMNIQUIZ is a free trivia game. No account required. No personal data collected.
+          OMNIQUIZ is a free trivia game. No account, ads or analytics.
         </p>
       </div>
     </footer>
