@@ -20,7 +20,14 @@ Answers are treated as discoveries with depth and rarity, so a run feels like a 
 
 ## Operating Context
 
-The experience is played in a browser on desktop or mobile. Daily Challenge uses seven prompts from the same deterministic UTC set for everyone. Unlimited Mode uses 15 prompts per dive and supports repeat runs. Both modes use the same core loop: read one vague prompt, enter one honest answer, then reveal its crowd share, rarity tier, points, and depth.
+The experience is played in a browser on desktop or mobile. Four game modes share one core loop: read one vague prompt, enter one honest answer, then reveal its crowd share, rarity tier, points, and depth.
+
+- Daily uses seven prompts from the same deterministic UTC set for everyone.
+- Unlimited (Arcade) uses 15 prompts per dive and supports repeat runs.
+- Speed Run uses 10 prompts at eight seconds each with streak multipliers.
+- Survival gives three lives across up to 30 prompts.
+
+Game modes and content packs are separate axes. A pack supplies prompts and an answer atlas; a mode supplies pacing and rules. The core pack supports every mode. At the Movies supports Unlimited, Speed Run, and Survival. Sports and Music are planned packs with no content.
 
 ## Capabilities and Constraints
 
@@ -45,8 +52,8 @@ For every broad prompt, the server compares a player's free-text answer with a c
 
 ### Implementation contract
 
-- `scripts/atlas/` is the maintainable versioned source of prompt atlases; `src/data/questions.json` is its deterministic compiled artifact.
-- `src/lib/questions/validator.ts` rejects malformed atlases, duplicate expanded answer keys across families, invalid shares, and catalogs too small to supply a full run.
+- `scripts/atlas/` is the maintainable versioned source of prompt atlases; `src/data/questions.json` (core) and `src/data/packs/*.json` are its deterministic compiled artifacts.
+- `src/lib/questions/validator.ts` rejects malformed atlases, duplicate expanded answer keys across families, invalid shares, and catalogs too small to supply a full run. It is driven by a per-pack spec (allowed topics, id prefix, minimum prompt count).
 - `src/lib/game/scoring.ts` owns the single crowd-share-to-rarity mapping and evaluates aliases without mutating catalog data.
 - `/api/questions` exposes only public prompt fields; `/api/submit` returns the matched result and post-answer comparison data.
 - The reducer records immutable round results and accumulates only positive score/depth.
@@ -62,6 +69,16 @@ For every broad prompt, the server compares a player's free-text answer with a c
 - All shares are positive and total exactly 100 per prompt; the database preserves all six rarity bands and does not claim live polling.
 - `/api/questions` remains limited to `id`, `category`, and `prompt`; labels, aliases, shares, and insights remain server-only and `/api/submit` remains the evaluation boundary.
 - Daily and unlimited selection, state, scoring, UI, storage, and the existing answer-length/API validation remain unchanged.
+
+### Content packs
+
+- A pack owns its atlas, topic labels, compatible modes, and presentation metadata (`src/lib/packs/meta.ts`). Adding a pack must not require changes to the reducer, scoring, the game loop, or `/api/submit`.
+- Pack topics are not added to the core `Category` enum. Question ids are globally unique and prefixed by pack (`general-001`, `movies-001`).
+- The public wire shape stays `{ id, category, prompt }`, where `category` is the pack-scoped topic label. Clients validate it against the active pack's topic list.
+- A pack must hold at least as many prompts as its largest supported mode needs. A `planned` pack ships no atlas and no route.
+- Progress and statistics are recorded per pack, and progress is restored only when the pack and mode match the current route.
+- Pack content must be original or have a recorded source and licence (`docs/content-sources.md`). No posters, stills, logos, album art, or audio without a documented right to use them.
+- Curated shares are editorial estimates ordered by how commonly an answer is expected to be named. They must never be described as poll results.
 
 ### Non-goals
 

@@ -1,0 +1,85 @@
+# Release readiness
+
+A practical audit of what is verified, what needs a human, and what blocks a public release. It is a product-readiness record, not legal certification or a WCAG conformance claim.
+
+Scope of this pass: the themed-pack architecture and At the Movies pack, plus a privacy, accessibility, security, licensing and claims review of the whole application.
+
+## Green: verified
+
+| Area | Evidence |
+| --- | --- |
+| Typecheck, lint | `npx tsc --noEmit` and `npm run lint` exit 0 |
+| Unit and contract tests | `npm test`: 27 files, 186 tests pass; coverage 95.8% statements, 87.4% branches, 100% functions (repository gate is 80%) |
+| End-to-end | Playwright, 15 tests on desktop and 15 on mobile Chromium (Pixel 5), against `next dev` and against the production vinext build served by `wrangler dev` (workerd): all pass. In this sandbox the pinned Playwright could not find its own browser build, so the runs used a temporary config outside the repository that added `executablePath: "/opt/pw-browsers/chromium"` and `BASE_URL`; `npm run test:e2e` itself was not run here |
+| Production builds | `npm run build` and `npm run build:vinext` succeed; `/packs/[pack]` is registered in both |
+| Answer atlas stays server-side | `/api/questions` returns only `{ id, category, prompt }` (asserted in API tests and in e2e against the real response); `clientSecrecy.test.ts` scans client code, route pages and `packs/meta.ts` and was mutation-checked to fail on a leak |
+| Pack isolation | A Movies run is never restored in a core route and stats are namespaced per pack (unit tests plus an e2e that checks the stored pack) |
+| Mode compatibility enforced server-side | `pack=movies&mode=daily`, unknown and planned packs, category filters on packs, and repeated parameters all return 400 |
+| No cookies, no third parties | A full session on desktop recorded requests to one origin only, no `Set-Cookie`, no cookies, and only `omniquiz-*` local-storage keys. Fonts are self-hosted |
+| Storage documentation cannot drift | `src/lib/storage/registry.ts` feeds the Cookie Policy; a test fails if code uses an undocumented `omniquiz-` key |
+| Security headers | CSP (same-origin, no `unsafe-eval`, `frame-ancestors 'none'`), `nosniff`, `X-Frame-Options`, referrer and permissions policies on every route, including `/` and 404s, on `next start` and on the workerd runtime. No CSP violations while loading every route and playing a round |
+| Automated accessibility | axe-core (WCAG 2.0/2.1/2.2 A and AA plus best-practice rules) reports zero violations on the landing page, packs page, Movies intro, how-to-play, answering, feedback, summary, and the privacy, terms and cookies pages in dark and light themes. Before fixes it reported 12 contrast failures, two links distinguished only by colour and a mis-scoped footer landmark on every page |
+| Target sizes | Footer links, the storage notice button and the focused skip link meet 44px; an e2e asserts all rendered controls at 320px |
+| Unsupported claims removed | The invented "estimated score percentile" is now "share of daily max"; the tutorial rarity scale matches scoring (Schooler is 30, Too Clever added); privacy statements that were not true (aggregate statistics, "no personal data", rights "inherently fulfilled") are gone; the logbook no longer advertises unlocks or a dead restore button |
+| Secrets | Repository scan found none; `.env*` is ignored |
+| Dependency advisories | The critical `next` advisory is fixed by upgrading to 16.3.7; the vulnerable `sharp`, `wrangler` and related dev tooling were updated in range |
+| Refund policy | Not applicable, see below |
+
+## Yellow: needs confirmation or human review
+
+1. **Legal wording.** The privacy, cookie and terms pages now describe only what the code does, but they have not been reviewed by a lawyer. They deliberately state that operator identity, contact details and governing law are not yet published.
+2. **Storage notice classification.** OMNIQUIZ writes only functional local storage (theme, sound, statistics, current run) and sets no cookies. The existing notice is informational and no consent choice is offered. Whether persistent preference and statistics storage falls under the "strictly necessary / service explicitly requested" exemption is an interpretation that needs human review.
+3. **Small text.** 82 font-size declarations across six stylesheets are below 0.6rem (about 9.6px); the smallest are 0.42rem (about 6.7px). They are mostly HUD telemetry labels and summary micro-labels in the 16-bit design. axe does not measure this. The tutorial scale, storage notice and footer were raised; the rest needs a design-led pass.
+4. **Accessibility beyond automation.** No manual screen-reader pass was done; core Speed and Survival phases were not axe-scanned; reduced-motion and high-contrast blocks exist in the stylesheets but were not re-tested. Automated checks find only part of real accessibility problems.
+5. **CSP strength.** The policy allows `'unsafe-inline'` for scripts and styles because the framework and React emit inline code. Nonce-based CSP is a follow-up. The app does not set HSTS; confirm it is applied at the Cloudflare edge.
+6. **Open scoring endpoint.** `/api/submit` is unauthenticated and un-rate-limited, and every response includes the top three answers for that prompt. A script can therefore read most of the atlas. That is acceptable while there is no leaderboard or prize; add attempt authority and rate limiting before adding either.
+7. **Client-side scores.** Scores, statistics and progress are computed and stored in the browser and can be edited. Shared score text is not verifiable.
+8. **Movies content.** The 36 prompts are editorial, not reviewed by anyone else. Answer order is the popularity claim (see `docs/content-sources.md`). Survival draws 30 of 36 prompts, so Movies survival runs vary less than core ones; Daily is not offered for Movies. Several prompts overlap in their answer sets (the two Genres prompts about "never gets old" and "biggest screen", and the theme-tune and famous-music prompts share about nine answers), and with 36 prompts those overlaps appear in most Survival runs. Widening the atlas is the fix, not the code.
+9. **Unused and unrecorded assets.** `public/` is 6.6 MB, including source PNGs and `tier-*.png` icons that no code references. Their origin is not recorded.
+10. **Remaining dev-tooling advisories.** Five moderate or high advisories remain in dev-dependency chains (`vitest`, `@vitest/coverage-v8`, `@vitest/mocker`, `js-yaml`, `undici`). They are not imported by application source, and `npm audit fix` could not resolve them (it errored; some need major-version upgrades). Re-run `npm audit` before release.
+11. **English only.** There is no localisation layer, so no translated legal text exists to mislead.
+
+## Red: blocks public promotion until answered
+
+**Provenance of the "Krillion" material.** The repository contains six screenshots of a product called "Krillion" (`reference/krillion-*.png`). The OMNIQUIZ landing page uses near-identical wording ("THE DAILY DIVE", "7 prompts · 15 seconds each · rarer answers sink deeper", "BEGIN DESCENT", "THEMED PACKS"), and the top rarity tier is named "One in a Krillion" (also the `krillion` tier id and an e2e file name). If Krillion is the owner's own earlier project, nothing is wrong and this can be closed with a note. If it is someone else's product, publishing their screenshots and mirroring their copy and layout is an infringement and reputation risk. Nothing was deleted or renamed in this pass, because only the owner can say which case applies. The Terms page's statement that prompts, atlases and code are original work relies on this answer.
+
+## Not applicable
+
+- **Refund policy:** OMNIQUIZ has no purchases, subscriptions or paid virtual goods. Not applicable while there are no paid transactions.
+- **Cookie consent for tracking:** there is no analytics, advertising, pixel, session replay or third-party embed.
+- **Accounts, authentication, deletion flow:** no accounts exist; nothing is held server-side about a person.
+- **Server-authoritative scoring, database writes, scheduled endpoints:** none exist.
+- **Sports and Music content:** planned, not shipped.
+
+## Legal classification (NOT a legal opinion)
+
+Sources: search-result summaries only. The primary texts could not be opened from this environment because the network proxy blocks those domains, so none of these were checked against the original wording. A reviewer can start from:
+
+- CNPD informative note on cookies, 25 June 2021: <https://www.cnpd.pt/media/x2zdus50/nota-informativa-cnpd_cookies_20210625.pdf>
+- Decreto-Lei 7/2004, consolidated text (Diário da República): <https://diariodarepublica.pt/dr/legislacao-consolidada/decreto-lei/2004-73199154>
+- Decreto-Lei 82/2022, 6 December (Diário da República): <https://files.dre.pt/1s/2022/12/23400/0010900132.pdf>
+
+| Question | Classification |
+| --- | --- |
+| Lei 41/2004 art. 5 (ePrivacy): prior consent for storing information on a user's device, with an exemption for storage needed to provide a service the user explicitly requested | LIKELY NOT REQUIRED for the current functional storage; NEEDS HUMAN/LEGAL REVIEW |
+| GDPR: request metadata such as IP address is handled by the hosting infrastructure; the application stores no answers or identifiers | CONDITIONAL; NEEDS HUMAN/LEGAL REVIEW (role of the operator versus the host) |
+| Decreto-Lei 7/2004 art. 10 ("Disponibilização permanente de informações"): permanent availability of provider identification | CONDITIONAL on whether a free game is an information-society service under the decree; NEEDS HUMAN/LEGAL REVIEW |
+| Decreto-Lei 82/2022 (transposes Directive (EU) 2019/882): accessibility requirements for certain products and services, effective 28 June 2025 | CONDITIONAL; scope for a free, non-commercial game and any microenterprise exemption NOT verified |
+| Copyright, trade marks and database rights for film, character and person names used as answers | NEEDS HUMAN/LEGAL REVIEW |
+| Consumer refund and distance-selling rules | NOT APPLICABLE |
+| Minors | No age-specific feature exists; not assessed |
+
+## Owner input required
+
+1. Is "Krillion" your own project or a third party's? (Red item above.)
+2. Operator identity and contact address to publish in the Privacy Policy and Terms, and the governing law to name.
+3. Confirm the site is served through Cloudflare (the Privacy Policy says so, based on the deployment configuration) and whether Cloudflare Web Analytics, Logpush or other dashboard-level logging is enabled.
+4. Origin and licence of the pixel art in `public/ocean/` and `public/ui/`.
+5. **Do you control `omniquiz.com`?** The domain is hardcoded in `layout.tsx` (`metadataBase` and JSON-LD), `sitemap.ts`, `robots.ts` and in the share text produced by `GameExperience.tsx`. If it is not yours, every shared score advertises someone else's site. The code was left alone because the fix depends on your answer. The actual deployment target, any other custom domain and any bindings are not recorded in the repository, and the sandbox cannot reach the domain (its egress proxy returns 403).
+6. The README names only the repository owner. Add the "what I designed and built" statement and any links you want; it was deliberately not written for you.
+
+## External verification
+
+- Whether the storage classification and provider-identification duties apply, by a Portuguese or EU lawyer.
+- Licences for the visual assets listed above.
+- Live behaviour of the deployed site (headers, HSTS, edge caching), which could not be probed from this environment.
