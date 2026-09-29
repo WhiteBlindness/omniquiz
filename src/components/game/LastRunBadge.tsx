@@ -2,19 +2,27 @@
 
 import { useEffect, useState } from "react";
 
+import type { PackId } from "../../lib/packs/meta";
 import type { GameMode } from "./gameReducer";
 import { readStats, type DiveStats, DEFAULT_STATS } from "./storage";
 
 type LastRunBadgeProps = Readonly<{
   mode: GameMode;
+  pack?: PackId;
 }>;
 
-export function LastRunBadge({ mode }: LastRunBadgeProps) {
+export function LastRunBadge({ mode, pack = "core" }: LastRunBadgeProps) {
   const [stats, setStats] = useState<DiveStats>(DEFAULT_STATS);
 
   useEffect(() => {
-    setStats(readStats());
-  }, []);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setStats(readStats(pack));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [pack]);
 
   if (stats.runs === 0) return null;
 

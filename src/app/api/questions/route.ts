@@ -1,10 +1,8 @@
-import { QUESTION_BANK } from "../../../lib/questions/catalog";
+import { questionsForPack } from "../../../lib/questions/catalog";
 import { toPublicQuestions } from "../../../lib/questions/public";
+import { isLivePackId, packSupportsMode, type PackId } from "../../../lib/packs/meta";
 import {
-  ARCADE_QUESTION_COUNT,
-  DAILY_QUESTION_COUNT,
-  SPEED_QUESTION_COUNT,
-  SURVIVAL_QUESTION_COUNT,
+  QUESTIONS_PER_MODE,
   selectDailyQuestions,
 } from "../../../lib/questions/selection";
 import {
@@ -56,6 +54,7 @@ export async function GET(request: Request) {
   const categoryValue = getSingleQueryValue(url, "category");
   const limitValue = getSingleQueryValue(url, "limit");
   const modeValue = getSingleQueryValue(url, "mode");
+  const packValue = getSingleQueryValue(url, "pack");
   const runValue = getSingleQueryValue(url, "run");
   const dateValue = getSingleQueryValue(url, "date");
 
@@ -63,6 +62,7 @@ export async function GET(request: Request) {
     categoryValue === undefined ||
     limitValue === undefined ||
     modeValue === undefined ||
+    packValue === undefined ||
     runValue === undefined ||
     dateValue === undefined ||
     (categoryValue !== null && !isCategory(categoryValue)) ||
@@ -71,16 +71,20 @@ export async function GET(request: Request) {
   ) {
     return failure("category, mode, and date must be supported values");
   }
+  if (packValue !== null && !isLivePackId(packValue)) {
+    return failure("pack must be a live content pack");
+  }
 
+  const pack: PackId = packValue ?? "core";
   const mode: GameMode = modeValue ?? "daily";
-  const questionCountForMode: Record<GameMode, number> = {
-    daily: DAILY_QUESTION_COUNT,
-    unlimited: ARCADE_QUESTION_COUNT,
-    speed: SPEED_QUESTION_COUNT,
-    survival: SURVIVAL_QUESTION_COUNT,
-  };
-  const defaultLimit = questionCountForMode[mode];
-  const maximumLimit = questionCountForMode[mode];
+  if (!packSupportsMode(pack, mode)) {
+    return failure(`mode ${mode} is not available for the ${pack} pack`);
+  }
+  if (categoryValue !== null && pack !== "core") {
+    return failure("category filtering is only available for the core pack");
+  }
+  const defaultLimit = QUESTIONS_PER_MODE[mode];
+  const maximumLimit = QUESTIONS_PER_MODE[mode];
   const limit =
     limitValue === null
       ? defaultLimit
@@ -101,9 +105,10 @@ export async function GET(request: Request) {
     return failure(`run must be an integer between 1 and ${MAX_UNLIMITED_RUN}`);
   }
 
+  const packQuestions = questionsForPack(pack);
   const candidates = categoryValue
-    ? QUESTION_BANK.filter((question) => question.category === categoryValue)
-    : QUESTION_BANK;
+    ? packQuestions.filter((question) => question.category === categoryValue)
+    : packQuestions;
   const today = getUtcDateKey();
   const date = mode === "daily"
     ? dateValue ?? today

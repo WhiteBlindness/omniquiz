@@ -5,6 +5,7 @@ import {
   MINIMUM_QUESTION_COUNT,
   QuestionBankValidationError,
   validateQuestionBank,
+  type AtlasSpec,
 } from "./validator";
 
 const FAMILY_COUNT = 16;
@@ -111,5 +112,42 @@ describe("validateQuestionBank", () => {
     });
 
     expect(() => validateQuestionBank(records)).toThrow(/100/i);
+  });
+});
+
+describe("validateQuestionBank with a pack spec", () => {
+  const packSpec: AtlasSpec = {
+    categories: ["Genres", "Craft"],
+    idPrefix: () => "movies",
+    minimumQuestionCount: 3,
+  };
+  const packRecord = (index: number, overrides: Record<string, unknown> = {}) =>
+    record(index, { id: `movies-${String(index).padStart(3, "0")}`, category: "Genres", ...overrides });
+
+  it("accepts pack-scoped ids and topics that are not core categories", () => {
+    const validated = validateQuestionBank([packRecord(1), packRecord(2), packRecord(3, { category: "Craft" })], packSpec);
+    expect(validated.map((question) => question.id)).toEqual(["movies-001", "movies-002", "movies-003"]);
+  });
+
+  it("rejects topics outside the pack spec, including core categories", () => {
+    expect(() =>
+      validateQuestionBank([packRecord(1), packRecord(2), packRecord(3, { category: "History" })], packSpec),
+    ).toThrow(/invalid category/);
+  });
+
+  it("rejects ids that do not carry the pack prefix", () => {
+    expect(() =>
+      validateQuestionBank([packRecord(1), packRecord(2), packRecord(3, { id: "general-003" })], packSpec),
+    ).toThrow(/unstable id/);
+  });
+
+  it("enforces the pack's own minimum prompt count", () => {
+    expect(() => validateQuestionBank([packRecord(1), packRecord(2)], packSpec)).toThrow(
+      /at least 3 prompts/,
+    );
+  });
+
+  it("still rejects pack ids and topics under the default core spec", () => {
+    expect(() => validateQuestionBank([packRecord(1)])).toThrow(QuestionBankValidationError);
   });
 });

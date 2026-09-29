@@ -96,7 +96,7 @@ export function FeedbackPanel({
       <div className="feedback-stats">
         <span>
           <b className="telemetry-data">{result.crowdShare === null ? "--" : `${result.crowdShare}%`}</b>
-          {result.crowdShare === null ? "SHARE" : "OF THE CROWD"}
+          ATLAS SHARE
         </span>
         <span><b className="telemetry-data">+{result.score}</b> POINTS</span>
         <span aria-label={`${score} total, ${depthMetres}m`}><b className="telemetry-data">{animatedTotal}</b> TOTAL / {depthMetres}m</span>

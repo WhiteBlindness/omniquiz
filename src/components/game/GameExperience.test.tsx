@@ -10,7 +10,8 @@ import { getUtcDateKey } from "../../lib/questions/date";
 import { SUBMISSION_TIMEOUT_MS } from "../../hooks/useGameLoop";
 import { PROGRESS_STORAGE_KEY } from "./storage";
 import { PREVIEW_SECONDS } from "./gameReducer";
-import { GameExperience } from "./GameExperience";
+import { rarityForCrowdShare } from "../../lib/game/scoring";
+import { GameExperience, RARITY_SCALE } from "./GameExperience";
 
 const { replaceRoute } = vi.hoisted(() => ({ replaceRoute: vi.fn() }));
 
@@ -133,6 +134,20 @@ describe("GameExperience", () => {
     expect(screen.getByText(/answer families, not one fixed fact/i)).toBeVisible();
     expect(screen.getByText(/pass, timeout, or an uncharted answer scores zero/i)).toBeVisible();
     expect(screen.queryByText(/penalty|sudden death/i)).not.toBeInTheDocument();
+  });
+
+  it("shows a rarity scale whose points and tiers come from the scoring function", () => {
+    render(<GameExperience mode="daily" />);
+    fireEvent.click(screen.getByRole("button", { name: /how to play/i }));
+
+    const scale = screen.getByLabelText("Rarity tier scale");
+    for (const entry of RARITY_SCALE) {
+      const expected = rarityForCrowdShare(entry.share);
+      expect(expected.tier).toBe(entry.tier);
+      expect(scale.textContent).toContain(`${entry.label}${expected.score} PTS`);
+    }
+    expect(scale.textContent).toContain("85 PTS");
+    expect(scale.textContent).not.toContain("80 PTS");
   });
 
   it("switches to unlimited mode without changing the visual launch direction", () => {
@@ -463,6 +478,87 @@ describe("GameExperience", () => {
 
       expect(screen.getByRole("button", { name: /share dive log/i })).toBeInTheDocument();
       expect(screen.queryByRole("button", { name: /share unavailable/i })).not.toBeInTheDocument();
+    });
+  });
+
+  describe("content packs", () => {
+    const moviesQuestion: PublicQuestion = Object.freeze({
+      id: "movies-001",
+      category: "Genres",
+      prompt: "Name a movie genre that never gets old.",
+    });
+
+    const stubPackFetch = (questions: readonly PublicQuestion[]) => {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn((input: RequestInfo | URL, init?: RequestInit) => {
+          if (String(input).includes("/api/questions")) {
+            return Promise.resolve({
+              ok: true,
+              headers: { get: () => null },
+              json: async () => ({ success: true, data: questions, error: null }),
+            });
+          }
+          expect(init?.method).toBe("POST");
+          return Promise.resolve({
+            ok: true,
+            json: async () => ({ success: true, data: answerResult, error: null }),
+          });
+        }),
+      );
+    };
+
+    const beginPack = async () => {
+      render(<GameExperience mode="unlimited" pack="movies" />);
+      await act(async () => {
+        fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+      });
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(3_000);
+      });
+    };
+
+    it("offers only the modes the pack supports and routes within the pack", () => {
+      render(<GameExperience mode="unlimited" pack="movies" />);
+
+      expect(screen.getByText("AT THE MOVIES / THE ARCADE DIVE")).toBeVisible();
+      expect(screen.getByText(/films, characters, stars/i)).toBeVisible();
+      expect(screen.queryByRole("button", { name: /daily mode/i })).not.toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /unlimited mode/i })).toBeVisible();
+      expect(screen.getByRole("link", { name: /all packs/i })).toHaveAttribute("href", "/packs");
+
+      fireEvent.click(screen.getByRole("button", { name: /speed mode/i }));
+      expect(replaceRoute).toHaveBeenCalledWith("/packs/movies?mode=speed");
+    });
+
+    it("requests the pack without a category filter and labels prompts with the pack atlas", async () => {
+      stubPackFetch([moviesQuestion]);
+      await beginPack();
+
+      const request = vi.mocked(fetch).mock.calls.find(([input]) => String(input).includes("/api/questions"));
+      const url = String(request?.[0]);
+      expect(url).toContain("pack=movies");
+      expect(url).toContain("mode=unlimited");
+      expect(url).not.toContain("category=");
+      expect(screen.getAllByText(/genres \/ film atlas/i).length).toBeGreaterThan(0);
+    });
+
+    it("persists progress against the pack so core routes cannot restore it", async () => {
+      stubPackFetch([moviesQuestion]);
+      await beginPack();
+
+      const stored = JSON.parse(localStorage.getItem(PROGRESS_STORAGE_KEY) ?? "{}");
+      expect(stored).toMatchObject({ pack: "movies", mode: "unlimited" });
+    });
+
+    it("rejects a payload whose topics belong to another pack", async () => {
+      stubPackFetch([question]);
+      render(<GameExperience mode="unlimited" pack="movies" />);
+      await act(async () => {
+        fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+      });
+
+      expect(screen.getByRole("alert")).toHaveTextContent(/unreadable payload/i);
     });
   });
 });

@@ -5,10 +5,16 @@ import { describe, expect, it } from "vitest";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import { getUtcDateKey } from "../../lib/questions/date";
 import {
+  DEFAULT_STATS,
   PROGRESS_STORAGE_KEY,
+  STATS_STORAGE_KEY,
   readProgress,
+  readStats,
   readThemePreference,
   recoverPersistedProgress,
+  statsStorageKey,
+  writeProgress,
+  writeStats,
   writeThemePreference,
   type PersistedProgress,
 } from "./storage";
@@ -29,6 +35,7 @@ const lastResult: SubmissionResult = Object.freeze({
 const baseProgress: PersistedProgress = {
   version: 3,
   mode: "daily",
+  pack: "core",
   dailyDate: "2026-08-15",
   phase: "answering",
   questionIndex: 0,
@@ -170,6 +177,71 @@ describe("crowd dive persistence", () => {
       mode: "unlimited",
       dailyDate: null,
     });
+  });
+
+  it("restores a legacy progress record without a pack as core progress", () => {
+    const { pack: _pack, ...legacy } = baseProgress;
+    void _pack;
+    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(legacy));
+
+    expect(readProgress("daily", "2026-08-15", "core")).toMatchObject({ pack: "core" });
+    expect(readProgress("daily", "2026-08-15", "movies")).toBeNull();
+  });
+
+  it("never restores one pack's progress inside another pack", () => {
+    const moviesProgress = {
+      ...baseProgress,
+      mode: "speed",
+      pack: "movies",
+      dailyDate: null,
+      questions: [{ id: "movies-001", category: "Genres", prompt: "Name a genre." }],
+    };
+    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(moviesProgress));
+
+    expect(readProgress("speed", undefined, "movies")).toMatchObject({ pack: "movies", mode: "speed" });
+    expect(readProgress("speed", undefined, "core")).toBeNull();
+  });
+
+  it("rejects progress whose questions use a topic outside the record's pack", () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({
+        ...baseProgress,
+        pack: "movies",
+        mode: "speed",
+        dailyDate: null,
+      }),
+    );
+    expect(readProgress("speed", undefined, "movies")).toBeNull();
+  });
+
+  it("rejects progress that names an unknown pack", () => {
+    localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify({ ...baseProgress, pack: "polka" }),
+    );
+    expect(readProgress("daily", "2026-08-15", "core")).toBeNull();
+  });
+
+  it("writes the pack into persisted progress", () => {
+    writeProgress(createInitialGameState("speed"), "movies");
+    expect(JSON.parse(localStorage.getItem(PROGRESS_STORAGE_KEY) ?? "{}")).toMatchObject({
+      pack: "movies",
+      mode: "speed",
+    });
+  });
+
+  it("keeps core stats on the original key and isolates other packs", () => {
+    localStorage.clear();
+    expect(statsStorageKey("core")).toBe(STATS_STORAGE_KEY);
+    expect(statsStorageKey("movies")).toBe(`${STATS_STORAGE_KEY}:movies`);
+
+    writeStats({ ...DEFAULT_STATS, runs: 3, bestScore: 220 });
+    writeStats({ ...DEFAULT_STATS, runs: 1, bestScore: 40 }, "movies");
+
+    expect(readStats()).toMatchObject({ runs: 3, bestScore: 220 });
+    expect(readStats("movies")).toMatchObject({ runs: 1, bestScore: 40 });
+    expect(readStats("sports")).toEqual(DEFAULT_STATS);
   });
 
   it("reads and writes a valid theme preference", () => {

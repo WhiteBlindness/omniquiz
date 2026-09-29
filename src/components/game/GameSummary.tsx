@@ -3,7 +3,8 @@ import type { CSSProperties } from "react";
 import { useState } from "react";
 
 import { useCountUp } from "../../hooks/useCountUp";
-import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
+import { getDailyScoreShare } from "../../lib/game/dailyCeiling";
+import type { PackId } from "../../lib/packs/meta";
 import type { RoundLog } from "./gameReducer";
 import type { DiveStats } from "./storage";
 
@@ -18,6 +19,7 @@ type GameSummaryProps = Readonly<{
   onShare: () => void;
   lives?: number;
   bestStreak?: number;
+  pack?: PackId;
 }>;
 
 export function GameSummary({
@@ -31,8 +33,9 @@ export function GameSummary({
   onShare,
   lives,
   bestStreak,
+  pack = "core",
 }: GameSummaryProps) {
-  const estimatedPercentile = getEstimatedDailyPercentile(score);
+  const dailyScoreShare = getDailyScoreShare(score);
   const animatedScore = useCountUp(score);
   const animatedDepth = useCountUp(depthMetres);
   const recognized = roundLog.filter((r) => r.tier !== "uncharted" && r.crowdShare !== null).length;
@@ -78,9 +81,9 @@ export function GameSummary({
       {mode === "daily" ? (
         <>
           <div className="summary-percentile">
-            <span>EST. SCORE PERCENTILE</span>
-            <b className="telemetry-data">P{String(estimatedPercentile).padStart(2, "0")}</b>
-            <small>against the 700-point daily ceiling</small>
+            <span>SHARE OF DAILY MAX</span>
+            <b className="telemetry-data">{dailyScoreShare}%</b>
+            <small>of the 700-point daily maximum</small>
           </div>
           {stats.dailyStreak > 1 ? (
             <div className="summary-streak">
@@ -144,8 +147,11 @@ export function GameSummary({
         <button className="share-button pixel-control" type="button" onClick={onShare}>
           {shareLabel}
         </button>
-        <Link className="secondary-link" href={mode === "daily" ? "/unlimited/classic" : "/"}>
-          {mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S DIVE"}
+        <Link
+          className="secondary-link"
+          href={pack !== "core" ? "/packs" : mode === "daily" ? "/unlimited/classic" : "/"}
+        >
+          {pack !== "core" ? "ALL PACKS" : mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S DIVE"}
         </Link>
       </div>
     </section>
@@ -223,7 +229,7 @@ function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: s
                 <small className="summary-log-signal">YOU TYPED: {entry.submittedAnswer}</small>
               ) : null}
               <small className="telemetry-data">
-                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
+                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% ATLAS`} · +{entry.score} PTS · {entry.depthMetres}m
               </small>
               <small className="summary-log-prompt">{entry.prompt}</small>
               {isBest ? <small className="summary-log-best">BEST SIGNAL</small> : null}

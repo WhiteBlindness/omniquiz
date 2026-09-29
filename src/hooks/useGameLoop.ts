@@ -2,14 +2,10 @@
 
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 
-import { CATEGORIES, type Category, type PublicQuestion } from "../lib/questions/types";
+import type { Category } from "../lib/questions/types";
 import { getUtcDateKey, isIsoDate } from "../lib/questions/date";
-import {
-  ARCADE_QUESTION_COUNT,
-  DAILY_QUESTION_COUNT,
-  SPEED_QUESTION_COUNT,
-  SURVIVAL_QUESTION_COUNT,
-} from "../lib/questions/selection";
+import { QUESTIONS_PER_MODE } from "../lib/questions/selection";
+import type { PackId } from "../lib/packs/meta";
 import { useAppState } from "../state/AppStateProvider";
 import { useSoundFx } from "./useSoundFx";
 import {
@@ -23,6 +19,7 @@ import {
   DEFAULT_STATS,
   readProgress,
   readStats,
+  isPublicQuestion,
   isSubmissionResult,
   writeProgress,
   writeStats,
@@ -39,19 +36,6 @@ export const SUBMISSION_TIMEOUT_MS = 8_000;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
-
-const isPublicQuestion = (value: unknown): value is PublicQuestion => {
-  if (!isRecord(value) || typeof value.id !== "string" || typeof value.prompt !== "string") {
-    return false;
-  }
-  if (
-    typeof value.category !== "string" ||
-    !(CATEGORIES as readonly string[]).includes(value.category)
-  ) {
-    return false;
-  }
-  return Object.keys(value).sort().join(",") === "category,id,prompt";
-};
 
 const errorMessage = (error: unknown, fallback: string): string =>
   error instanceof Error && error.message ? error.message : fallback;
@@ -81,7 +65,7 @@ const getApiData = async <T>(response: Response): Promise<T> => {
   return payload.data;
 };
 
-export const useGameLoop = (mode: GameMode, category?: Category) => {
+export const useGameLoop = (mode: GameMode, category?: Category, pack: PackId = "core") => {
   const [state, dispatch] = useReducer(gameReducer, mode, createInitialGameState);
   const [hydrated, setHydrated] = useState(false);
   const [stats, setStats] = useState<DiveStats>(DEFAULT_STATS);
@@ -105,12 +89,12 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   useEffect(() => {
     mountedRef.current = true;
     const dailyDate = mode === "daily" ? getUtcDateKey() : undefined;
-    const progress = readProgress(mode, dailyDate);
+    const progress = readProgress(mode, dailyDate, pack);
     if (progress) dispatch({ type: "RESTORE_PROGRESS", progress });
     let hydrationCancelled = false;
     queueMicrotask(() => {
       if (hydrationCancelled || !mountedRef.current) return;
-      setStats(readStats());
+      setStats(readStats(pack));
       setHydrated(true);
     });
 
@@ -118,7 +102,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       mountedRef.current = false;
       hydrationCancelled = true;
     };
-  }, [mode]);
+  }, [mode, pack]);
 
   useEffect(() => {
     const persistablePhase =
@@ -127,8 +111,8 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       state.phase === "feedback" ||
       state.phase === "summary";
     if (!hydrated || !persistablePhase) return;
-    writeProgress(state);
-  }, [hydrated, state]);
+    writeProgress(state, pack);
+  }, [hydrated, pack, state]);
 
   const startDive = useCallback(async () => {
     if (
@@ -141,20 +125,15 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
     dispatch({ type: "LOAD_START" });
     try {
-      const questionCountForMode: Record<GameMode, number> = {
-        daily: DAILY_QUESTION_COUNT,
-        unlimited: ARCADE_QUESTION_COUNT,
-        speed: SPEED_QUESTION_COUNT,
-        survival: SURVIVAL_QUESTION_COUNT,
-      };
       const query = new URLSearchParams({
-        limit: String(questionCountForMode[mode]),
+        limit: String(QUESTIONS_PER_MODE[mode]),
         mode,
       });
+      if (pack !== "core") query.set("pack", pack);
       const requestedDailyDate = mode === "daily" ? getUtcDateKey() : null;
       if (requestedDailyDate) query.set("date", requestedDailyDate);
       if (mode !== "daily") {
-        const run = unlimitedRunRef.current ?? Math.max(1, readStats().runs + 1);
+        const run = unlimitedRunRef.current ?? Math.max(1, readStats(pack).runs + 1);
         unlimitedRunRef.current = run;
         query.set("run", String(run));
         if (category) query.set("category", category);
@@ -164,7 +143,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         cache: "no-store",
       });
       const questions = await getApiData<unknown>(response);
-      if (!Array.isArray(questions) || !questions.every(isPublicQuestion)) {
+      if (!Array.isArray(questions) || !questions.every((question) => isPublicQuestion(question, pack))) {
         throw new Error("The question signal returned an unreadable payload.");
       }
       if (!mountedRef.current) return;
@@ -196,7 +175,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         error: errorMessage(error, "The signal is quiet. Try again."),
       });
     }
-  }, [category, mode, sfx, state.phase]);
+  }, [category, mode, pack, sfx, state.phase]);
 
   const finalizeRun = useCallback(
     (finalScore: number, statsForRun: DiveStats = stats) => {
@@ -225,13 +204,13 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         lastDailyDate,
       });
       setStats(nextStats);
-      writeStats(nextStats);
+      writeStats(nextStats, pack);
       if (mode === "unlimited") {
         const currentRun = unlimitedRunRef.current ?? nextStats.runs;
         unlimitedRunRef.current = Math.max(currentRun + 1, nextStats.runs + 1);
       }
     },
-    [mode, stats],
+    [mode, pack, stats],
   );
 
   const expireQuestion = useCallback(() => {

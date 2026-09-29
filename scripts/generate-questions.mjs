@@ -5,12 +5,15 @@ import { fileURLToPath } from "node:url";
 import { general } from "./atlas/general.mjs";
 import { geography } from "./atlas/geography.mjs";
 import { history } from "./atlas/history.mjs";
+import { movies } from "./atlas/movies.mjs";
 import { science } from "./atlas/science.mjs";
 
-const OUTPUT_PATH = resolve(dirname(fileURLToPath(import.meta.url)), "../src/data/questions.json");
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const OUTPUT_PATH = resolve(ROOT, "src/data/questions.json");
+const MOVIES_OUTPUT_PATH = resolve(ROOT, "src/data/packs/movies.json");
 const CATEGORIES = ["General", "Science", "Geography", "History"];
 const SOURCES = { General: general, Science: science, Geography: geography, History: history };
-const MINIMUM_QUESTION_COUNT = 120;
+const MOVIES_TOPICS = ["Genres", "Characters", "Stars", "Franchises", "Craft", "Movie Night"];
 const MINIMUM_FAMILY_COUNT = 16;
 const MINIMUM_ALIAS_COUNT = 2;
 const MINIMUM_ACCEPTED_KEY_COUNT = 4;
@@ -94,35 +97,57 @@ const insightFor = (label, index) => {
   return `${cues[index]} ${label} is logged in the atlas.`;
 };
 
-const buildQuestionBank = () =>
+const buildAnswers = (source, shares) =>
+  source.answers.map((answer, answerIndex) => ({
+    label: answer.label,
+    aliases: [...answer.aliases],
+    share: shares[answerIndex],
+    insight: answer.insight ?? insightFor(answer.label, answerIndex),
+  }));
+
+const buildCoreBank = () =>
   CATEGORIES.flatMap((category) =>
-    SOURCES[category].map((source, index) => {
-      const shares = SHARE_PROFILES[index % SHARE_PROFILES.length];
-      return {
-        id: `${category.toLowerCase()}-${String(index + 1).padStart(3, "0")}`,
-        category,
-        prompt: source.prompt,
-        answers: source.answers.map((answer, answerIndex) => ({
-          label: answer.label,
-          aliases: [...answer.aliases],
-          share: shares[answerIndex],
-          insight: insightFor(answer.label, answerIndex),
-        })),
-      };
-    }),
+    SOURCES[category].map((source, index) => ({
+      id: `${category.toLowerCase()}-${String(index + 1).padStart(3, "0")}`,
+      category,
+      prompt: source.prompt,
+      answers: buildAnswers(source, SHARE_PROFILES[index % SHARE_PROFILES.length]),
+    })),
   );
 
-const validateQuestionBank = (records) => {
-  if (!Array.isArray(records) || records.length < MINIMUM_QUESTION_COUNT) {
-    throw new Error(`crowd atlas needs at least ${MINIMUM_QUESTION_COUNT} prompts`);
+const buildMoviesBank = () =>
+  MOVIES_TOPICS.flatMap((topic) => movies[topic] ?? []).map((source, index) => ({
+    id: `movies-${String(index + 1).padStart(3, "0")}`,
+    category: MOVIES_TOPICS.find((topic) => (movies[topic] ?? []).includes(source)),
+    prompt: source.prompt,
+    answers: buildAnswers(source, SHARE_PROFILES[index % SHARE_PROFILES.length]),
+  }));
+
+const CORE_SPEC = {
+  name: "crowd atlas",
+  categories: CATEGORIES,
+  minimumQuestionCount: 120,
+  minimumPerCategory: 30,
+};
+
+const MOVIES_SPEC = {
+  name: "movies atlas",
+  categories: MOVIES_TOPICS,
+  minimumQuestionCount: 36,
+  minimumPerCategory: 6,
+};
+
+const validateQuestionBank = (records, spec = CORE_SPEC) => {
+  if (!Array.isArray(records) || records.length < spec.minimumQuestionCount) {
+    throw new Error(`${spec.name} needs at least ${spec.minimumQuestionCount} prompts`);
   }
 
   const ids = new Set();
   const prompts = new Set();
-  for (const category of CATEGORIES) {
+  for (const category of spec.categories) {
     const count = records.filter((record) => record.category === category).length;
-    if (count < MINIMUM_QUESTION_COUNT / CATEGORIES.length) {
-      throw new Error(`${category} needs at least 30 prompts`);
+    if (count < spec.minimumPerCategory) {
+      throw new Error(`${category} needs at least ${spec.minimumPerCategory} prompts`);
     }
   }
 
@@ -169,14 +194,21 @@ const validateQuestionBank = (records) => {
   return records;
 };
 
-export const writeQuestionBank = (outputPath = OUTPUT_PATH) => {
-  const records = validateQuestionBank(buildQuestionBank());
+const writeBank = (records, outputPath) => {
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(records, null, 2)}\n`, "utf8");
   return records;
 };
 
+export const writeQuestionBank = (outputPath = OUTPUT_PATH) =>
+  writeBank(validateQuestionBank(buildCoreBank(), CORE_SPEC), outputPath);
+
+export const writeMoviesBank = (outputPath = MOVIES_OUTPUT_PATH) =>
+  writeBank(validateQuestionBank(buildMoviesBank(), MOVIES_SPEC), outputPath);
+
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   writeQuestionBank();
   console.log(`Generated crowd atlas at ${OUTPUT_PATH}`);
+  writeMoviesBank();
+  console.log(`Generated movies atlas at ${MOVIES_OUTPUT_PATH}`);
 }

@@ -1,0 +1,6004 @@
+[
+  {
+    "id": "movies-001",
+    "category": "Genres",
+    "prompt": "Name a movie genre that never gets old.",
+    "answers": [
+      {
+        "label": "Comedy",
+        "aliases": [
+          "funny movies",
+          "comedies",
+          "stand-up comedy film"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Comedy is logged in the atlas."
+      },
+      {
+        "label": "Action",
+        "aliases": [
+          "action movies",
+          "action adventure",
+          "shoot-em-up"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Action is logged in the atlas."
+      },
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movies",
+          "horror films",
+          "creepy movies"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Horror is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "scifi",
+          "space movies"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Thriller",
+        "aliases": [
+          "suspense",
+          "edge-of-your-seat films",
+          "thrillers"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Thriller is logged in the atlas."
+      },
+      {
+        "label": "Drama",
+        "aliases": [
+          "dramas",
+          "serious films",
+          "character study"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Drama is logged in the atlas."
+      },
+      {
+        "label": "Animation",
+        "aliases": [
+          "animated films",
+          "cartoons",
+          "animated movies"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Animation is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "love stories",
+          "romantic films",
+          "romantic movies"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Romance is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "fantasy epics",
+          "swords and sorcery",
+          "magical worlds"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "Crime",
+        "aliases": [
+          "crime films",
+          "gangster movies",
+          "crime dramas"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Crime is logged in the atlas."
+      },
+      {
+        "label": "Adventure",
+        "aliases": [
+          "adventure films",
+          "quest movies",
+          "swashbuckler"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Adventure is logged in the atlas."
+      },
+      {
+        "label": "Mystery",
+        "aliases": [
+          "whodunit",
+          "detective films",
+          "murder mystery"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Mystery is logged in the atlas."
+      },
+      {
+        "label": "Musical",
+        "aliases": [
+          "musicals",
+          "song and dance films",
+          "movie musical"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Musical is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "westerns",
+          "cowboy movies",
+          "wild west films"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Western is logged in the atlas."
+      },
+      {
+        "label": "Documentary",
+        "aliases": [
+          "documentaries",
+          "nonfiction film",
+          "docs"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Documentary is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war movies",
+          "combat films",
+          "battlefield drama"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. War film is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-002",
+    "category": "Genres",
+    "prompt": "Name a movie subgenre with its own loyal fanbase.",
+    "answers": [
+      {
+        "label": "Superhero",
+        "aliases": [
+          "superhero movies",
+          "comic book movies",
+          "caped crusader films"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Superhero is logged in the atlas."
+      },
+      {
+        "label": "Slasher",
+        "aliases": [
+          "slasher films",
+          "stalk and slash",
+          "masked killer movies"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. Slasher is logged in the atlas."
+      },
+      {
+        "label": "Rom-com",
+        "aliases": [
+          "romantic comedy",
+          "romcom",
+          "romantic comedies"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Rom-com is logged in the atlas."
+      },
+      {
+        "label": "Zombie",
+        "aliases": [
+          "zombie movies",
+          "undead films",
+          "zombie apocalypse"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Zombie is logged in the atlas."
+      },
+      {
+        "label": "Heist",
+        "aliases": [
+          "heist movies",
+          "caper films",
+          "robbery movies"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Heist is logged in the atlas."
+      },
+      {
+        "label": "Film noir",
+        "aliases": [
+          "noir",
+          "classic noir",
+          "black and white crime"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Film noir is logged in the atlas."
+      },
+      {
+        "label": "Space opera",
+        "aliases": [
+          "galactic adventure",
+          "space saga",
+          "interstellar epic"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Space opera is logged in the atlas."
+      },
+      {
+        "label": "Found footage",
+        "aliases": [
+          "found-footage horror",
+          "shaky cam movies",
+          "handheld horror"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Found footage is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster films",
+          "catastrophe films",
+          "natural disaster movies"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "Kung fu",
+        "aliases": [
+          "martial arts films",
+          "kung fu movies",
+          "chop socky"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Kung fu is logged in the atlas."
+      },
+      {
+        "label": "Spaghetti western",
+        "aliases": [
+          "italian westerns",
+          "european westerns",
+          "macaroni western"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Spaghetti western is logged in the atlas."
+      },
+      {
+        "label": "Cyberpunk",
+        "aliases": [
+          "cyber punk",
+          "neon dystopia",
+          "high tech low life"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Cyberpunk is logged in the atlas."
+      },
+      {
+        "label": "Buddy cop",
+        "aliases": [
+          "buddy cop movies",
+          "odd couple cops",
+          "partner cop films"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Buddy cop is logged in the atlas."
+      },
+      {
+        "label": "Coming-of-age",
+        "aliases": [
+          "coming of age films",
+          "teen growing up movies",
+          "youth drama"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Coming-of-age is logged in the atlas."
+      },
+      {
+        "label": "Body horror",
+        "aliases": [
+          "body-horror",
+          "flesh horror",
+          "cronenberg style horror"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Body horror is logged in the atlas."
+      },
+      {
+        "label": "Mockumentary",
+        "aliases": [
+          "mock documentary",
+          "fake documentary",
+          "faux doc"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Mockumentary is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-003",
+    "category": "Genres",
+    "prompt": "Name a kind of movie worth seeing on the biggest screen you can find.",
+    "answers": [
+      {
+        "label": "Action blockbuster",
+        "aliases": [
+          "big action movie",
+          "summer blockbuster",
+          "action spectacle"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. Action blockbuster is logged in the atlas."
+      },
+      {
+        "label": "Sci-fi epic",
+        "aliases": [
+          "science fiction epic",
+          "space epic",
+          "big sci-fi"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. Sci-fi epic is logged in the atlas."
+      },
+      {
+        "label": "Fantasy epic",
+        "aliases": [
+          "big fantasy",
+          "sword and sorcery epic",
+          "high fantasy film"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Fantasy epic is logged in the atlas."
+      },
+      {
+        "label": "Superhero movie",
+        "aliases": [
+          "superhero film",
+          "comic book blockbuster",
+          "hero team-up"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Superhero movie is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster film",
+          "catastrophe epic",
+          "end of the world film"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war epic",
+          "battle movie",
+          "wartime drama"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. War film is logged in the atlas."
+      },
+      {
+        "label": "Space adventure",
+        "aliases": [
+          "space exploration film",
+          "astronaut movie",
+          "outer space movie"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Space adventure is logged in the atlas."
+      },
+      {
+        "label": "Animated feature",
+        "aliases": [
+          "animated film",
+          "big animation",
+          "pixar-style film"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Animated feature is logged in the atlas."
+      },
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movie",
+          "horror film",
+          "cinema scare"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Horror is logged in the atlas."
+      },
+      {
+        "label": "Musical",
+        "aliases": [
+          "movie musical",
+          "big musical",
+          "song and dance spectacle"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Musical is logged in the atlas."
+      },
+      {
+        "label": "Nature documentary",
+        "aliases": [
+          "wildlife film",
+          "planet documentary",
+          "ocean documentary"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Nature documentary is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "epic western",
+          "cowboy epic",
+          "frontier film"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Western is logged in the atlas."
+      },
+      {
+        "label": "Heist movie",
+        "aliases": [
+          "heist film",
+          "caper spectacle",
+          "big robbery film"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Heist movie is logged in the atlas."
+      },
+      {
+        "label": "Historical epic",
+        "aliases": [
+          "period epic",
+          "sword and sandal",
+          "ancient world epic"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Historical epic is logged in the atlas."
+      },
+      {
+        "label": "Concert film",
+        "aliases": [
+          "music film",
+          "live performance movie",
+          "gig on screen"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Concert film is logged in the atlas."
+      },
+      {
+        "label": "Racing movie",
+        "aliases": [
+          "car racing film",
+          "motorsport movie",
+          "driving film"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Racing movie is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-004",
+    "category": "Genres",
+    "prompt": "Name a genre that fits a rainy Sunday.",
+    "answers": [
+      {
+        "label": "Comedy",
+        "aliases": [
+          "comedies",
+          "light comedy",
+          "funny movie"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. Comedy is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "love story",
+          "romantic movie",
+          "romances"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Romance is logged in the atlas."
+      },
+      {
+        "label": "Drama",
+        "aliases": [
+          "dramas",
+          "slow drama",
+          "character drama"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Drama is logged in the atlas."
+      },
+      {
+        "label": "Animation",
+        "aliases": [
+          "animated movie",
+          "cartoons",
+          "animated film"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Animation is logged in the atlas."
+      },
+      {
+        "label": "Family film",
+        "aliases": [
+          "family movie",
+          "kids movie",
+          "family adventure"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Family film is logged in the atlas."
+      },
+      {
+        "label": "Mystery",
+        "aliases": [
+          "whodunit",
+          "detective story",
+          "murder mystery"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Mystery is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "cosy fantasy",
+          "magical adventure",
+          "fairy tale"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "Documentary",
+        "aliases": [
+          "documentaries",
+          "nonfiction",
+          "slow documentary"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Documentary is logged in the atlas."
+      },
+      {
+        "label": "Period drama",
+        "aliases": [
+          "costume drama",
+          "historical drama",
+          "regency drama"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Period drama is logged in the atlas."
+      },
+      {
+        "label": "Musical",
+        "aliases": [
+          "musicals",
+          "feel good musical",
+          "song film"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Musical is logged in the atlas."
+      },
+      {
+        "label": "Crime",
+        "aliases": [
+          "crime film",
+          "detective crime",
+          "crime drama"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Crime is logged in the atlas."
+      },
+      {
+        "label": "Adventure",
+        "aliases": [
+          "adventure film",
+          "quest movie",
+          "journey story"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Adventure is logged in the atlas."
+      },
+      {
+        "label": "Coming-of-age",
+        "aliases": [
+          "coming of age",
+          "growing up film",
+          "teen drama"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Coming-of-age is logged in the atlas."
+      },
+      {
+        "label": "Thriller",
+        "aliases": [
+          "suspense film",
+          "thrillers",
+          "slow burn thriller"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Thriller is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "scifi movie",
+          "space story"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Sports drama",
+        "aliases": [
+          "sports movie",
+          "underdog sports film",
+          "athlete story"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Sports drama is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-005",
+    "category": "Genres",
+    "prompt": "Name a genre that gets parodied a lot.",
+    "answers": [
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movies",
+          "horror films",
+          "slasher spoof"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Horror is logged in the atlas."
+      },
+      {
+        "label": "Superhero",
+        "aliases": [
+          "superhero movies",
+          "hero spoof",
+          "comic book movies"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Superhero is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "cowboy films",
+          "westerns",
+          "wild west spoof"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Western is logged in the atlas."
+      },
+      {
+        "label": "Spy",
+        "aliases": [
+          "spy films",
+          "secret agent movies",
+          "espionage"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Spy is logged in the atlas."
+      },
+      {
+        "label": "Action",
+        "aliases": [
+          "action movies",
+          "action spoof",
+          "big action films"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Action is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "space movies",
+          "scifi spoof"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster films",
+          "airplane-style spoof",
+          "catastrophe films"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "romantic films",
+          "love stories",
+          "rom-com spoof"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Romance is logged in the atlas."
+      },
+      {
+        "label": "Kung fu",
+        "aliases": [
+          "martial arts",
+          "kung fu movies",
+          "chop socky"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Kung fu is logged in the atlas."
+      },
+      {
+        "label": "Gangster",
+        "aliases": [
+          "mob movies",
+          "mafia films",
+          "gangster films"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Gangster is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "fantasy epics",
+          "swords and sorcery",
+          "medieval fantasy"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "Sports",
+        "aliases": [
+          "sports movies",
+          "underdog sports",
+          "sports films"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Sports is logged in the atlas."
+      },
+      {
+        "label": "Vampire",
+        "aliases": [
+          "vampire films",
+          "dracula movies",
+          "bloodsucker movies"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Vampire is logged in the atlas."
+      },
+      {
+        "label": "Zombie",
+        "aliases": [
+          "zombie movies",
+          "undead films",
+          "shaun-style zombie"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Zombie is logged in the atlas."
+      },
+      {
+        "label": "Heist",
+        "aliases": [
+          "heist films",
+          "caper movies",
+          "robbery movies"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Heist is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war movies",
+          "combat films",
+          "military movies"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. War film is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-006",
+    "category": "Genres",
+    "prompt": "Name a genre where the ending matters most.",
+    "answers": [
+      {
+        "label": "Thriller",
+        "aliases": [
+          "suspense film",
+          "thrillers",
+          "edge-of-seat film"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Thriller is logged in the atlas."
+      },
+      {
+        "label": "Mystery",
+        "aliases": [
+          "whodunit",
+          "detective story",
+          "murder mystery"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. Mystery is logged in the atlas."
+      },
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movies",
+          "horror films",
+          "final girl film"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Horror is logged in the atlas."
+      },
+      {
+        "label": "Drama",
+        "aliases": [
+          "dramas",
+          "serious film",
+          "character drama"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Drama is logged in the atlas."
+      },
+      {
+        "label": "Heist",
+        "aliases": [
+          "heist movie",
+          "caper film",
+          "robbery movie"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Heist is logged in the atlas."
+      },
+      {
+        "label": "Crime",
+        "aliases": [
+          "crime film",
+          "crime story",
+          "crime drama"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Crime is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "twist sci-fi",
+          "scifi film"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "love story",
+          "romantic film",
+          "romances"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Romance is logged in the atlas."
+      },
+      {
+        "label": "Comedy",
+        "aliases": [
+          "comedies",
+          "funny movie",
+          "punchline film"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Comedy is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "fantasy epic",
+          "magical story",
+          "quest fantasy"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war movie",
+          "battle film",
+          "wartime drama"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. War film is logged in the atlas."
+      },
+      {
+        "label": "Psychological thriller",
+        "aliases": [
+          "mind game film",
+          "head trip movie",
+          "twist thriller"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Psychological thriller is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster film",
+          "survival disaster",
+          "catastrophe film"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "Slasher",
+        "aliases": [
+          "slasher film",
+          "stalker horror",
+          "masked killer film"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Slasher is logged in the atlas."
+      },
+      {
+        "label": "Sports drama",
+        "aliases": [
+          "underdog film",
+          "sports movie",
+          "big game movie"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Sports drama is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "cowboy film",
+          "showdown western",
+          "frontier story"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Western is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-007",
+    "category": "Characters",
+    "prompt": "Name a movie villain people love to hate.",
+    "answers": [
+      {
+        "label": "Darth Vader",
+        "aliases": [
+          "vader",
+          "lord vader",
+          "anakin skywalker"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. Darth Vader is logged in the atlas."
+      },
+      {
+        "label": "The Joker",
+        "aliases": [
+          "joker",
+          "the clown prince of crime",
+          "joker from batman"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. The Joker is logged in the atlas."
+      },
+      {
+        "label": "Hannibal Lecter",
+        "aliases": [
+          "dr lecter",
+          "hannibal the cannibal",
+          "lecter"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Hannibal Lecter is logged in the atlas."
+      },
+      {
+        "label": "Voldemort",
+        "aliases": [
+          "lord voldemort",
+          "he who must not be named",
+          "tom riddle"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Voldemort is logged in the atlas."
+      },
+      {
+        "label": "Thanos",
+        "aliases": [
+          "the mad titan",
+          "mad titan",
+          "thanos from avengers"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Thanos is logged in the atlas."
+      },
+      {
+        "label": "Scar",
+        "aliases": [
+          "scar from the lion king",
+          "uncle scar",
+          "simba's uncle"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Scar is logged in the atlas."
+      },
+      {
+        "label": "Hans Gruber",
+        "aliases": [
+          "gruber",
+          "die hard villain",
+          "alan rickman in die hard"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Hans Gruber is logged in the atlas."
+      },
+      {
+        "label": "Freddy Krueger",
+        "aliases": [
+          "freddy",
+          "krueger",
+          "nightmare on elm street killer"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Freddy Krueger is logged in the atlas."
+      },
+      {
+        "label": "Michael Myers",
+        "aliases": [
+          "myers",
+          "the shape",
+          "halloween killer"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Michael Myers is logged in the atlas."
+      },
+      {
+        "label": "Norman Bates",
+        "aliases": [
+          "bates",
+          "psycho killer",
+          "bates motel owner"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Norman Bates is logged in the atlas."
+      },
+      {
+        "label": "Anton Chigurh",
+        "aliases": [
+          "chigurh",
+          "no country for old men killer",
+          "coin flip killer"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Anton Chigurh is logged in the atlas."
+      },
+      {
+        "label": "Agent Smith",
+        "aliases": [
+          "smith from the matrix",
+          "mr smith",
+          "matrix agent"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Agent Smith is logged in the atlas."
+      },
+      {
+        "label": "Cruella de Vil",
+        "aliases": [
+          "cruella",
+          "101 dalmatians villain",
+          "dalmatian villain"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Cruella de Vil is logged in the atlas."
+      },
+      {
+        "label": "Sauron",
+        "aliases": [
+          "the dark lord sauron",
+          "eye of sauron",
+          "lord of the rings dark lord"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Sauron is logged in the atlas."
+      },
+      {
+        "label": "Nurse Ratched",
+        "aliases": [
+          "ratched",
+          "mildred ratched",
+          "cuckoo's nest nurse"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Nurse Ratched is logged in the atlas."
+      },
+      {
+        "label": "Loki",
+        "aliases": [
+          "loki laufeyson",
+          "god of mischief",
+          "thor's brother"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Loki is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-008",
+    "category": "Characters",
+    "prompt": "Name a movie hero who feels like an ordinary person.",
+    "answers": [
+      {
+        "label": "John McClane",
+        "aliases": [
+          "mcclane",
+          "die hard hero",
+          "john mcclane from die hard"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. John McClane is logged in the atlas."
+      },
+      {
+        "label": "Rocky Balboa",
+        "aliases": [
+          "rocky",
+          "the italian stallion",
+          "balboa"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Rocky Balboa is logged in the atlas."
+      },
+      {
+        "label": "Marty McFly",
+        "aliases": [
+          "marty",
+          "mcfly",
+          "back to the future hero"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Marty McFly is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest",
+          "gump",
+          "run forrest run"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Peter Parker",
+        "aliases": [
+          "spider-man",
+          "spiderman",
+          "the friendly neighbourhood spider-man"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Peter Parker is logged in the atlas."
+      },
+      {
+        "label": "Frodo Baggins",
+        "aliases": [
+          "frodo",
+          "baggins",
+          "ring bearer"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Frodo Baggins is logged in the atlas."
+      },
+      {
+        "label": "Katniss Everdeen",
+        "aliases": [
+          "katniss",
+          "the girl on fire",
+          "hunger games heroine"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Katniss Everdeen is logged in the atlas."
+      },
+      {
+        "label": "Ellen Ripley",
+        "aliases": [
+          "ripley",
+          "lieutenant ripley",
+          "alien survivor"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Ellen Ripley is logged in the atlas."
+      },
+      {
+        "label": "Andy Dufresne",
+        "aliases": [
+          "dufresne",
+          "shawshank prisoner",
+          "andy from shawshank"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Andy Dufresne is logged in the atlas."
+      },
+      {
+        "label": "Sarah Connor",
+        "aliases": [
+          "connor",
+          "mother of john connor",
+          "john connor's mum"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Sarah Connor is logged in the atlas."
+      },
+      {
+        "label": "Neo",
+        "aliases": [
+          "thomas anderson",
+          "the one",
+          "matrix hero"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Neo is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "harry",
+          "the boy who lived",
+          "potter"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Luke Skywalker",
+        "aliases": [
+          "luke",
+          "skywalker",
+          "farm boy from tatooine"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Luke Skywalker is logged in the atlas."
+      },
+      {
+        "label": "Erin Brockovich",
+        "aliases": [
+          "erin",
+          "brockovich",
+          "erin brockovich the film"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Erin Brockovich is logged in the atlas."
+      },
+      {
+        "label": "Mark Watney",
+        "aliases": [
+          "watney",
+          "the martian",
+          "stranded botanist"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Mark Watney is logged in the atlas."
+      },
+      {
+        "label": "Bilbo Baggins",
+        "aliases": [
+          "bilbo",
+          "the hobbit hero",
+          "burglar"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Bilbo Baggins is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-009",
+    "category": "Characters",
+    "prompt": "Name a movie sidekick you'd want on your team.",
+    "answers": [
+      {
+        "label": "Samwise Gamgee",
+        "aliases": [
+          "sam",
+          "samwise",
+          "sam gamgee"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Samwise Gamgee is logged in the atlas."
+      },
+      {
+        "label": "Chewbacca",
+        "aliases": [
+          "chewie",
+          "wookiee",
+          "han solo's co-pilot"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Chewbacca is logged in the atlas."
+      },
+      {
+        "label": "Donkey",
+        "aliases": [
+          "donkey from shrek",
+          "shrek's donkey",
+          "talking donkey"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Donkey is logged in the atlas."
+      },
+      {
+        "label": "R2-D2",
+        "aliases": [
+          "r2d2",
+          "artoo",
+          "astromech droid"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. R2-D2 is logged in the atlas."
+      },
+      {
+        "label": "C-3PO",
+        "aliases": [
+          "c3po",
+          "threepio",
+          "protocol droid"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. C-3PO is logged in the atlas."
+      },
+      {
+        "label": "Genie",
+        "aliases": [
+          "the genie",
+          "aladdin's genie",
+          "robin williams genie"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Genie is logged in the atlas."
+      },
+      {
+        "label": "Ron Weasley",
+        "aliases": [
+          "ron",
+          "weasley",
+          "harry's best friend ron"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Ron Weasley is logged in the atlas."
+      },
+      {
+        "label": "Hermione Granger",
+        "aliases": [
+          "hermione",
+          "granger",
+          "harry's friend hermione"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Hermione Granger is logged in the atlas."
+      },
+      {
+        "label": "Dory",
+        "aliases": [
+          "dory the fish",
+          "just keep swimming fish",
+          "nemo's blue friend"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Dory is logged in the atlas."
+      },
+      {
+        "label": "Timon and Pumbaa",
+        "aliases": [
+          "timon",
+          "pumbaa",
+          "hakuna matata pair"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Timon and Pumbaa is logged in the atlas."
+      },
+      {
+        "label": "Groot",
+        "aliases": [
+          "baby groot",
+          "i am groot",
+          "guardians tree"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Groot is logged in the atlas."
+      },
+      {
+        "label": "Rocket Raccoon",
+        "aliases": [
+          "rocket",
+          "raccoon from guardians",
+          "guardians raccoon"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Rocket Raccoon is logged in the atlas."
+      },
+      {
+        "label": "Baymax",
+        "aliases": [
+          "baymax the robot",
+          "big hero 6 robot",
+          "inflatable healthcare companion"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Baymax is logged in the atlas."
+      },
+      {
+        "label": "Mushu",
+        "aliases": [
+          "mushu the dragon",
+          "mulan's dragon",
+          "eddie murphy dragon"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Mushu is logged in the atlas."
+      },
+      {
+        "label": "Robin",
+        "aliases": [
+          "batman's sidekick",
+          "boy wonder",
+          "dick grayson"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Robin is logged in the atlas."
+      },
+      {
+        "label": "Olaf",
+        "aliases": [
+          "olaf the snowman",
+          "frozen snowman",
+          "warm hugs snowman"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Olaf is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-010",
+    "category": "Characters",
+    "prompt": "Name a movie character with an unforgettable line.",
+    "answers": [
+      {
+        "label": "The Terminator",
+        "aliases": [
+          "terminator",
+          "t-800",
+          "arnold's terminator"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. The Terminator is logged in the atlas."
+      },
+      {
+        "label": "James Bond",
+        "aliases": [
+          "bond",
+          "007",
+          "agent 007"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. James Bond is logged in the atlas."
+      },
+      {
+        "label": "Buzz Lightyear",
+        "aliases": [
+          "buzz",
+          "to infinity and beyond guy",
+          "space ranger buzz"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Buzz Lightyear is logged in the atlas."
+      },
+      {
+        "label": "Gandalf",
+        "aliases": [
+          "gandalf the grey",
+          "gandalf the white",
+          "you shall not pass wizard"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Gandalf is logged in the atlas."
+      },
+      {
+        "label": "E.T.",
+        "aliases": [
+          "et",
+          "the extra-terrestrial",
+          "phone home alien"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. E.T. is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest",
+          "gump",
+          "box of chocolates guy"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Darth Vader",
+        "aliases": [
+          "vader",
+          "lord vader",
+          "i am your father"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Darth Vader is logged in the atlas."
+      },
+      {
+        "label": "Yoda",
+        "aliases": [
+          "master yoda",
+          "do or do not",
+          "small green jedi"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Yoda is logged in the atlas."
+      },
+      {
+        "label": "Gollum",
+        "aliases": [
+          "smeagol",
+          "my precious creature",
+          "sméagol"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Gollum is logged in the atlas."
+      },
+      {
+        "label": "Dirty Harry",
+        "aliases": [
+          "harry callahan",
+          "callahan",
+          "do you feel lucky punk"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Dirty Harry is logged in the atlas."
+      },
+      {
+        "label": "Don Corleone",
+        "aliases": [
+          "vito corleone",
+          "the godfather",
+          "offer he can't refuse"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Don Corleone is logged in the atlas."
+      },
+      {
+        "label": "Maximus",
+        "aliases": [
+          "maximus decimus meridius",
+          "gladiator hero",
+          "are you not entertained"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Maximus is logged in the atlas."
+      },
+      {
+        "label": "Jack Sparrow",
+        "aliases": [
+          "captain jack sparrow",
+          "captain sparrow",
+          "savvy pirate"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Jack Sparrow is logged in the atlas."
+      },
+      {
+        "label": "Dorothy Gale",
+        "aliases": [
+          "dorothy",
+          "no place like home girl",
+          "wizard of oz dorothy"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Dorothy Gale is logged in the atlas."
+      },
+      {
+        "label": "Jules Winnfield",
+        "aliases": [
+          "jules",
+          "pulp fiction hitman",
+          "ezekiel 25:17 guy"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Jules Winnfield is logged in the atlas."
+      },
+      {
+        "label": "Hal 9000",
+        "aliases": [
+          "hal",
+          "hal-9000",
+          "i'm sorry dave computer"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Hal 9000 is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-011",
+    "category": "Characters",
+    "prompt": "Name a talking animal from a movie.",
+    "answers": [
+      {
+        "label": "Simba",
+        "aliases": [
+          "simba the lion",
+          "lion king cub",
+          "young simba"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. Simba is logged in the atlas."
+      },
+      {
+        "label": "Nemo",
+        "aliases": [
+          "nemo the clownfish",
+          "finding nemo fish",
+          "marlin's son"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. Nemo is logged in the atlas."
+      },
+      {
+        "label": "Dory",
+        "aliases": [
+          "dory the fish",
+          "blue tang",
+          "forgetful fish"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Dory is logged in the atlas."
+      },
+      {
+        "label": "Donkey",
+        "aliases": [
+          "donkey from shrek",
+          "shrek's donkey",
+          "talking donkey"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Donkey is logged in the atlas."
+      },
+      {
+        "label": "Baloo",
+        "aliases": [
+          "baloo the bear",
+          "jungle book bear",
+          "bare necessities bear"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Baloo is logged in the atlas."
+      },
+      {
+        "label": "Bambi",
+        "aliases": [
+          "bambi the deer",
+          "young deer",
+          "disney fawn"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Bambi is logged in the atlas."
+      },
+      {
+        "label": "Remy",
+        "aliases": [
+          "remy the rat",
+          "ratatouille rat",
+          "chef rat"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Remy is logged in the atlas."
+      },
+      {
+        "label": "Timon",
+        "aliases": [
+          "timon the meerkat",
+          "lion king meerkat",
+          "meerkat"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Timon is logged in the atlas."
+      },
+      {
+        "label": "Pumbaa",
+        "aliases": [
+          "pumbaa the warthog",
+          "lion king warthog",
+          "warthog"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Pumbaa is logged in the atlas."
+      },
+      {
+        "label": "Babe",
+        "aliases": [
+          "babe the pig",
+          "sheep pig",
+          "talking pig"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Babe is logged in the atlas."
+      },
+      {
+        "label": "Nala",
+        "aliases": [
+          "nala the lioness",
+          "simba's friend nala",
+          "lion king lioness"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Nala is logged in the atlas."
+      },
+      {
+        "label": "Toothless",
+        "aliases": [
+          "toothless the dragon",
+          "night fury",
+          "how to train your dragon dragon"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Toothless is logged in the atlas."
+      },
+      {
+        "label": "Po",
+        "aliases": [
+          "po the panda",
+          "dragon warrior",
+          "kung fu panda"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Po is logged in the atlas."
+      },
+      {
+        "label": "Mushu",
+        "aliases": [
+          "mushu the dragon",
+          "mulan's dragon",
+          "small red dragon"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Mushu is logged in the atlas."
+      },
+      {
+        "label": "Scar",
+        "aliases": [
+          "uncle scar",
+          "scar the lion",
+          "lion king villain"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Scar is logged in the atlas."
+      },
+      {
+        "label": "Marlin",
+        "aliases": [
+          "marlin the clownfish",
+          "nemo's dad",
+          "nemo's father"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Marlin is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-012",
+    "category": "Characters",
+    "prompt": "Name a movie character who would ace a heist.",
+    "answers": [
+      {
+        "label": "Danny Ocean",
+        "aliases": [
+          "danny",
+          "ocean",
+          "george clooney's ocean"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. Danny Ocean is logged in the atlas."
+      },
+      {
+        "label": "Ethan Hunt",
+        "aliases": [
+          "hunt",
+          "mission impossible agent",
+          "imf agent hunt"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Ethan Hunt is logged in the atlas."
+      },
+      {
+        "label": "Neil McCauley",
+        "aliases": [
+          "mccauley",
+          "heat robber",
+          "robert de niro in heat"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Neil McCauley is logged in the atlas."
+      },
+      {
+        "label": "Dominic Toretto",
+        "aliases": [
+          "dom",
+          "toretto",
+          "dom toretto"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Dominic Toretto is logged in the atlas."
+      },
+      {
+        "label": "Keyser Soze",
+        "aliases": [
+          "keyser söze",
+          "soze",
+          "usual suspects mastermind"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Keyser Soze is logged in the atlas."
+      },
+      {
+        "label": "The Joker",
+        "aliases": [
+          "joker",
+          "clown prince of crime",
+          "joker from the dark knight"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. The Joker is logged in the atlas."
+      },
+      {
+        "label": "Selina Kyle",
+        "aliases": [
+          "catwoman",
+          "cat woman",
+          "the cat burglar"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Selina Kyle is logged in the atlas."
+      },
+      {
+        "label": "Han Solo",
+        "aliases": [
+          "han",
+          "solo",
+          "smuggler han"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Han Solo is logged in the atlas."
+      },
+      {
+        "label": "Jack Sparrow",
+        "aliases": [
+          "captain jack sparrow",
+          "captain sparrow",
+          "pirate jack"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Jack Sparrow is logged in the atlas."
+      },
+      {
+        "label": "Thomas Crown",
+        "aliases": [
+          "the thomas crown affair",
+          "crown",
+          "crown affair thief"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Thomas Crown is logged in the atlas."
+      },
+      {
+        "label": "Arsène Lupin",
+        "aliases": [
+          "arsene lupin",
+          "lupin",
+          "gentleman thief"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Arsène Lupin is logged in the atlas."
+      },
+      {
+        "label": "Gru",
+        "aliases": [
+          "felonius gru",
+          "gru from despicable me",
+          "the moon thief"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Gru is logged in the atlas."
+      },
+      {
+        "label": "Baby",
+        "aliases": [
+          "baby driver",
+          "the getaway driver baby",
+          "baby from baby driver"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Baby is logged in the atlas."
+      },
+      {
+        "label": "Bruce Wayne",
+        "aliases": [
+          "batman",
+          "the dark knight",
+          "bruce wayne batman"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Bruce Wayne is logged in the atlas."
+      },
+      {
+        "label": "Robin Hood",
+        "aliases": [
+          "robin of locksley",
+          "prince of thieves",
+          "outlaw of sherwood"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Robin Hood is logged in the atlas."
+      },
+      {
+        "label": "Rusty Ryan",
+        "aliases": [
+          "rusty",
+          "ryan from ocean's eleven",
+          "brad pitt's ocean's character"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Rusty Ryan is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-013",
+    "category": "Stars",
+    "prompt": "Name an actor who can carry a movie alone.",
+    "answers": [
+      {
+        "label": "Tom Hanks",
+        "aliases": [
+          "hanks",
+          "tom hanks the actor",
+          "forrest gump actor"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Tom Hanks is logged in the atlas."
+      },
+      {
+        "label": "Tom Cruise",
+        "aliases": [
+          "cruise",
+          "tom cruise the actor",
+          "mission impossible star"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Tom Cruise is logged in the atlas."
+      },
+      {
+        "label": "Leonardo DiCaprio",
+        "aliases": [
+          "dicaprio",
+          "leo dicaprio",
+          "leonardo di caprio"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Leonardo DiCaprio is logged in the atlas."
+      },
+      {
+        "label": "Denzel Washington",
+        "aliases": [
+          "denzel",
+          "washington",
+          "denzel washington the actor"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Denzel Washington is logged in the atlas."
+      },
+      {
+        "label": "Brad Pitt",
+        "aliases": [
+          "pitt",
+          "brad pitt the actor",
+          "fight club actor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Brad Pitt is logged in the atlas."
+      },
+      {
+        "label": "Will Smith",
+        "aliases": [
+          "fresh prince actor",
+          "will smith the actor",
+          "men in black star"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Will Smith is logged in the atlas."
+      },
+      {
+        "label": "Robert De Niro",
+        "aliases": [
+          "de niro",
+          "deniro",
+          "robert deniro"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Robert De Niro is logged in the atlas."
+      },
+      {
+        "label": "Keanu Reeves",
+        "aliases": [
+          "keanu",
+          "reeves",
+          "john wick actor"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Keanu Reeves is logged in the atlas."
+      },
+      {
+        "label": "Harrison Ford",
+        "aliases": [
+          "ford",
+          "han solo actor",
+          "indiana jones actor"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Harrison Ford is logged in the atlas."
+      },
+      {
+        "label": "Samuel L. Jackson",
+        "aliases": [
+          "samuel jackson",
+          "sam jackson",
+          "samuel l jackson"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Samuel L. Jackson is logged in the atlas."
+      },
+      {
+        "label": "Morgan Freeman",
+        "aliases": [
+          "freeman",
+          "morgan freeman the actor",
+          "shawshank narrator"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Morgan Freeman is logged in the atlas."
+      },
+      {
+        "label": "Al Pacino",
+        "aliases": [
+          "pacino",
+          "al pacino the actor",
+          "scarface actor"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Al Pacino is logged in the atlas."
+      },
+      {
+        "label": "Jack Nicholson",
+        "aliases": [
+          "nicholson",
+          "jack nicholson the actor",
+          "the shining actor"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Jack Nicholson is logged in the atlas."
+      },
+      {
+        "label": "Dwayne Johnson",
+        "aliases": [
+          "the rock",
+          "dwayne the rock johnson",
+          "rock johnson"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Dwayne Johnson is logged in the atlas."
+      },
+      {
+        "label": "Johnny Depp",
+        "aliases": [
+          "depp",
+          "johnny depp the actor",
+          "jack sparrow actor"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Johnny Depp is logged in the atlas."
+      },
+      {
+        "label": "Meryl Streep",
+        "aliases": [
+          "streep",
+          "meryl streep the actress",
+          "devil wears prada star"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Meryl Streep is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-014",
+    "category": "Stars",
+    "prompt": "Name a film director whose style is instantly recognizable.",
+    "answers": [
+      {
+        "label": "Quentin Tarantino",
+        "aliases": [
+          "tarantino",
+          "quentin tarantino the director",
+          "pulp fiction director"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Quentin Tarantino is logged in the atlas."
+      },
+      {
+        "label": "Christopher Nolan",
+        "aliases": [
+          "nolan",
+          "christopher nolan the director",
+          "inception director"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. Christopher Nolan is logged in the atlas."
+      },
+      {
+        "label": "Steven Spielberg",
+        "aliases": [
+          "spielberg",
+          "steven spielberg the director",
+          "jaws director"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Steven Spielberg is logged in the atlas."
+      },
+      {
+        "label": "Wes Anderson",
+        "aliases": [
+          "anderson",
+          "wes anderson the director",
+          "grand budapest director"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Wes Anderson is logged in the atlas."
+      },
+      {
+        "label": "Alfred Hitchcock",
+        "aliases": [
+          "hitchcock",
+          "hitch",
+          "master of suspense"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Alfred Hitchcock is logged in the atlas."
+      },
+      {
+        "label": "Stanley Kubrick",
+        "aliases": [
+          "kubrick",
+          "stanley kubrick the director",
+          "2001 director"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Stanley Kubrick is logged in the atlas."
+      },
+      {
+        "label": "Martin Scorsese",
+        "aliases": [
+          "scorsese",
+          "marty scorsese",
+          "goodfellas director"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Martin Scorsese is logged in the atlas."
+      },
+      {
+        "label": "Tim Burton",
+        "aliases": [
+          "burton",
+          "tim burton the director",
+          "edward scissorhands director"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Tim Burton is logged in the atlas."
+      },
+      {
+        "label": "James Cameron",
+        "aliases": [
+          "james cameron the director",
+          "titanic director"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. James Cameron is logged in the atlas."
+      },
+      {
+        "label": "David Lynch",
+        "aliases": [
+          "lynch",
+          "david lynch the director",
+          "twin peaks creator"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. David Lynch is logged in the atlas."
+      },
+      {
+        "label": "Ridley Scott",
+        "aliases": [
+          "ridley scott the director",
+          "alien director"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Ridley Scott is logged in the atlas."
+      },
+      {
+        "label": "Guillermo del Toro",
+        "aliases": [
+          "del toro",
+          "guillermo",
+          "pan's labyrinth director"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Guillermo del Toro is logged in the atlas."
+      },
+      {
+        "label": "Denis Villeneuve",
+        "aliases": [
+          "villeneuve",
+          "denis villeneuve the director",
+          "dune director"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Denis Villeneuve is logged in the atlas."
+      },
+      {
+        "label": "Hayao Miyazaki",
+        "aliases": [
+          "miyazaki",
+          "hayao",
+          "studio ghibli director"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Hayao Miyazaki is logged in the atlas."
+      },
+      {
+        "label": "The Coen Brothers",
+        "aliases": [
+          "coen brothers",
+          "joel and ethan coen",
+          "fargo directors"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. The Coen Brothers is logged in the atlas."
+      },
+      {
+        "label": "Francis Ford Coppola",
+        "aliases": [
+          "coppola",
+          "francis coppola",
+          "godfather director"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Francis Ford Coppola is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-015",
+    "category": "Stars",
+    "prompt": "Name an actor who has played a superhero.",
+    "answers": [
+      {
+        "label": "Robert Downey Jr.",
+        "aliases": [
+          "rdj",
+          "robert downey",
+          "iron man actor"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. Robert Downey Jr. is logged in the atlas."
+      },
+      {
+        "label": "Chris Hemsworth",
+        "aliases": [
+          "hemsworth",
+          "thor actor",
+          "chris hemsworth the actor"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. Chris Hemsworth is logged in the atlas."
+      },
+      {
+        "label": "Chris Evans",
+        "aliases": [
+          "captain america actor",
+          "chris evans the actor",
+          "evans"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Chris Evans is logged in the atlas."
+      },
+      {
+        "label": "Hugh Jackman",
+        "aliases": [
+          "jackman",
+          "wolverine actor",
+          "hugh jackman the actor"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Hugh Jackman is logged in the atlas."
+      },
+      {
+        "label": "Ryan Reynolds",
+        "aliases": [
+          "reynolds",
+          "deadpool actor",
+          "ryan reynolds the actor"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Ryan Reynolds is logged in the atlas."
+      },
+      {
+        "label": "Christian Bale",
+        "aliases": [
+          "bale",
+          "batman actor bale",
+          "christian bale the actor"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Christian Bale is logged in the atlas."
+      },
+      {
+        "label": "Tom Holland",
+        "aliases": [
+          "holland",
+          "spider-man actor holland",
+          "tom holland the actor"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Tom Holland is logged in the atlas."
+      },
+      {
+        "label": "Tobey Maguire",
+        "aliases": [
+          "maguire",
+          "spider-man actor maguire",
+          "tobey maguire the actor"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Tobey Maguire is logged in the atlas."
+      },
+      {
+        "label": "Scarlett Johansson",
+        "aliases": [
+          "johansson",
+          "black widow actress",
+          "scarlett johansson the actress"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Scarlett Johansson is logged in the atlas."
+      },
+      {
+        "label": "Henry Cavill",
+        "aliases": [
+          "cavill",
+          "superman actor",
+          "henry cavill the actor"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Henry Cavill is logged in the atlas."
+      },
+      {
+        "label": "Andrew Garfield",
+        "aliases": [
+          "garfield",
+          "spider-man actor garfield",
+          "andrew garfield the actor"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Andrew Garfield is logged in the atlas."
+      },
+      {
+        "label": "Ben Affleck",
+        "aliases": [
+          "affleck",
+          "batman actor affleck",
+          "ben affleck the actor"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Ben Affleck is logged in the atlas."
+      },
+      {
+        "label": "Gal Gadot",
+        "aliases": [
+          "gadot",
+          "wonder woman actress",
+          "gal gadot the actress"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Gal Gadot is logged in the atlas."
+      },
+      {
+        "label": "Chadwick Boseman",
+        "aliases": [
+          "boseman",
+          "black panther actor",
+          "chadwick boseman the actor"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Chadwick Boseman is logged in the atlas."
+      },
+      {
+        "label": "Michael Keaton",
+        "aliases": [
+          "keaton",
+          "batman actor keaton",
+          "michael keaton the actor"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Michael Keaton is logged in the atlas."
+      },
+      {
+        "label": "Mark Ruffalo",
+        "aliases": [
+          "ruffalo",
+          "hulk actor",
+          "mark ruffalo the actor"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Mark Ruffalo is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-016",
+    "category": "Stars",
+    "prompt": "Name a film composer whose music you'd know in a few notes.",
+    "answers": [
+      {
+        "label": "John Williams",
+        "aliases": [
+          "williams",
+          "star wars composer",
+          "john williams the composer"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. John Williams is logged in the atlas."
+      },
+      {
+        "label": "Hans Zimmer",
+        "aliases": [
+          "zimmer",
+          "inception composer",
+          "hans zimmer the composer"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Hans Zimmer is logged in the atlas."
+      },
+      {
+        "label": "Ennio Morricone",
+        "aliases": [
+          "morricone",
+          "ennio",
+          "spaghetti western composer"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Ennio Morricone is logged in the atlas."
+      },
+      {
+        "label": "Howard Shore",
+        "aliases": [
+          "lord of the rings composer",
+          "howard shore the composer"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Howard Shore is logged in the atlas."
+      },
+      {
+        "label": "Danny Elfman",
+        "aliases": [
+          "elfman",
+          "batman theme composer",
+          "danny elfman the composer"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Danny Elfman is logged in the atlas."
+      },
+      {
+        "label": "James Horner",
+        "aliases": [
+          "horner",
+          "titanic composer",
+          "james horner the composer"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. James Horner is logged in the atlas."
+      },
+      {
+        "label": "Alan Silvestri",
+        "aliases": [
+          "silvestri",
+          "back to the future composer",
+          "alan silvestri the composer"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Alan Silvestri is logged in the atlas."
+      },
+      {
+        "label": "Bernard Herrmann",
+        "aliases": [
+          "herrmann",
+          "psycho composer",
+          "bernard herrmann the composer"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Bernard Herrmann is logged in the atlas."
+      },
+      {
+        "label": "Vangelis",
+        "aliases": [
+          "vangelis papathanassiou",
+          "chariots of fire composer",
+          "blade runner composer"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Vangelis is logged in the atlas."
+      },
+      {
+        "label": "Jerry Goldsmith",
+        "aliases": [
+          "goldsmith",
+          "alien composer",
+          "jerry goldsmith the composer"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Jerry Goldsmith is logged in the atlas."
+      },
+      {
+        "label": "Nino Rota",
+        "aliases": [
+          "rota",
+          "godfather composer",
+          "nino rota the composer"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Nino Rota is logged in the atlas."
+      },
+      {
+        "label": "Michael Giacchino",
+        "aliases": [
+          "giacchino",
+          "up composer",
+          "michael giacchino the composer"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Michael Giacchino is logged in the atlas."
+      },
+      {
+        "label": "Ludwig Göransson",
+        "aliases": [
+          "ludwig goransson",
+          "goransson",
+          "oppenheimer composer"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Ludwig Göransson is logged in the atlas."
+      },
+      {
+        "label": "Alexandre Desplat",
+        "aliases": [
+          "desplat",
+          "grand budapest composer",
+          "alexandre desplat the composer"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Alexandre Desplat is logged in the atlas."
+      },
+      {
+        "label": "Thomas Newman",
+        "aliases": [
+          "thomas newman the composer",
+          "shawshank composer"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Thomas Newman is logged in the atlas."
+      },
+      {
+        "label": "Randy Newman",
+        "aliases": [
+          "randy newman the composer",
+          "toy story composer",
+          "you've got a friend in me composer"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Randy Newman is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-017",
+    "category": "Stars",
+    "prompt": "Name an actor known for playing tough guys.",
+    "answers": [
+      {
+        "label": "Arnold Schwarzenegger",
+        "aliases": [
+          "schwarzenegger",
+          "arnie",
+          "the terminator actor"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Arnold Schwarzenegger is logged in the atlas."
+      },
+      {
+        "label": "Sylvester Stallone",
+        "aliases": [
+          "stallone",
+          "sly stallone",
+          "rocky actor"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Sylvester Stallone is logged in the atlas."
+      },
+      {
+        "label": "Bruce Willis",
+        "aliases": [
+          "willis",
+          "die hard actor",
+          "bruce willis the actor"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Bruce Willis is logged in the atlas."
+      },
+      {
+        "label": "Jason Statham",
+        "aliases": [
+          "statham",
+          "the transporter actor",
+          "jason statham the actor"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Jason Statham is logged in the atlas."
+      },
+      {
+        "label": "Clint Eastwood",
+        "aliases": [
+          "eastwood",
+          "dirty harry actor",
+          "clint eastwood the actor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Clint Eastwood is logged in the atlas."
+      },
+      {
+        "label": "Vin Diesel",
+        "aliases": [
+          "diesel",
+          "dom toretto actor",
+          "vin diesel the actor"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Vin Diesel is logged in the atlas."
+      },
+      {
+        "label": "Jean-Claude Van Damme",
+        "aliases": [
+          "van damme",
+          "jcvd",
+          "muscles from brussels"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Jean-Claude Van Damme is logged in the atlas."
+      },
+      {
+        "label": "Dwayne Johnson",
+        "aliases": [
+          "the rock",
+          "dwayne the rock johnson",
+          "rock johnson"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Dwayne Johnson is logged in the atlas."
+      },
+      {
+        "label": "Charles Bronson",
+        "aliases": [
+          "bronson",
+          "death wish actor",
+          "charles bronson the actor"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Charles Bronson is logged in the atlas."
+      },
+      {
+        "label": "Liam Neeson",
+        "aliases": [
+          "neeson",
+          "taken actor",
+          "liam neeson the actor"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Liam Neeson is logged in the atlas."
+      },
+      {
+        "label": "Steven Seagal",
+        "aliases": [
+          "seagal",
+          "under siege actor",
+          "steven seagal the actor"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Steven Seagal is logged in the atlas."
+      },
+      {
+        "label": "Bruce Lee",
+        "aliases": [
+          "enter the dragon actor",
+          "bruce lee the actor"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Bruce Lee is logged in the atlas."
+      },
+      {
+        "label": "Chuck Norris",
+        "aliases": [
+          "norris",
+          "walker texas ranger actor",
+          "chuck norris the actor"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Chuck Norris is logged in the atlas."
+      },
+      {
+        "label": "Mel Gibson",
+        "aliases": [
+          "gibson",
+          "lethal weapon actor",
+          "mel gibson the actor"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Mel Gibson is logged in the atlas."
+      },
+      {
+        "label": "Keanu Reeves",
+        "aliases": [
+          "keanu",
+          "reeves",
+          "john wick actor"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Keanu Reeves is logged in the atlas."
+      },
+      {
+        "label": "Jackie Chan",
+        "aliases": [
+          "chan",
+          "rush hour actor",
+          "jackie chan the actor"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Jackie Chan is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-018",
+    "category": "Stars",
+    "prompt": "Name an actor famous for comedy.",
+    "answers": [
+      {
+        "label": "Jim Carrey",
+        "aliases": [
+          "carrey",
+          "ace ventura actor",
+          "jim carrey the actor"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Jim Carrey is logged in the atlas."
+      },
+      {
+        "label": "Adam Sandler",
+        "aliases": [
+          "sandler",
+          "happy gilmore actor",
+          "adam sandler the actor"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. Adam Sandler is logged in the atlas."
+      },
+      {
+        "label": "Eddie Murphy",
+        "aliases": [
+          "murphy",
+          "beverly hills cop actor",
+          "eddie murphy the actor"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Eddie Murphy is logged in the atlas."
+      },
+      {
+        "label": "Robin Williams",
+        "aliases": [
+          "williams",
+          "mrs doubtfire actor",
+          "robin williams the actor"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Robin Williams is logged in the atlas."
+      },
+      {
+        "label": "Will Ferrell",
+        "aliases": [
+          "ferrell",
+          "anchorman actor",
+          "will ferrell the actor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Will Ferrell is logged in the atlas."
+      },
+      {
+        "label": "Steve Carell",
+        "aliases": [
+          "carell",
+          "the office actor",
+          "steve carell the actor"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Steve Carell is logged in the atlas."
+      },
+      {
+        "label": "Ben Stiller",
+        "aliases": [
+          "stiller",
+          "zoolander actor",
+          "ben stiller the actor"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Ben Stiller is logged in the atlas."
+      },
+      {
+        "label": "Mike Myers",
+        "aliases": [
+          "myers",
+          "austin powers actor",
+          "mike myers the actor"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Mike Myers is logged in the atlas."
+      },
+      {
+        "label": "Kevin Hart",
+        "aliases": [
+          "kevin hart the comedian",
+          "jumanji comedian"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Kevin Hart is logged in the atlas."
+      },
+      {
+        "label": "Rowan Atkinson",
+        "aliases": [
+          "atkinson",
+          "mr bean actor",
+          "rowan atkinson the actor"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Rowan Atkinson is logged in the atlas."
+      },
+      {
+        "label": "Bill Murray",
+        "aliases": [
+          "murray",
+          "ghostbusters actor",
+          "bill murray the actor"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Bill Murray is logged in the atlas."
+      },
+      {
+        "label": "Jack Black",
+        "aliases": [
+          "school of rock actor",
+          "jack black the actor"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Jack Black is logged in the atlas."
+      },
+      {
+        "label": "Melissa McCarthy",
+        "aliases": [
+          "mccarthy",
+          "bridesmaids actress",
+          "melissa mccarthy the actress"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Melissa McCarthy is logged in the atlas."
+      },
+      {
+        "label": "Steve Martin",
+        "aliases": [
+          "the jerk actor",
+          "steve martin the actor"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Steve Martin is logged in the atlas."
+      },
+      {
+        "label": "Kristen Wiig",
+        "aliases": [
+          "wiig",
+          "bridesmaids star",
+          "kristen wiig the actress"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Kristen Wiig is logged in the atlas."
+      },
+      {
+        "label": "Chevy Chase",
+        "aliases": [
+          "vacation actor",
+          "chevy chase the actor"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Chevy Chase is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-019",
+    "category": "Franchises",
+    "prompt": "Name a movie franchise with more sequels than you can count.",
+    "answers": [
+      {
+        "label": "Fast & Furious",
+        "aliases": [
+          "fast and furious",
+          "the fast saga",
+          "fast furious"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. Fast & Furious is logged in the atlas."
+      },
+      {
+        "label": "James Bond",
+        "aliases": [
+          "bond films",
+          "007 films",
+          "the bond series"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. James Bond is logged in the atlas."
+      },
+      {
+        "label": "Marvel Cinematic Universe",
+        "aliases": [
+          "mcu",
+          "marvel movies",
+          "the avengers series"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Marvel Cinematic Universe is logged in the atlas."
+      },
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars saga",
+          "star wars films",
+          "skywalker saga"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "Halloween",
+        "aliases": [
+          "halloween films",
+          "michael myers series",
+          "halloween franchise"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Halloween is logged in the atlas."
+      },
+      {
+        "label": "Friday the 13th",
+        "aliases": [
+          "friday the thirteenth",
+          "jason series",
+          "friday 13th films"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Friday the 13th is logged in the atlas."
+      },
+      {
+        "label": "Saw",
+        "aliases": [
+          "saw films",
+          "jigsaw series",
+          "saw franchise"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Saw is logged in the atlas."
+      },
+      {
+        "label": "Godzilla",
+        "aliases": [
+          "godzilla films",
+          "monsterverse",
+          "toho godzilla"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Godzilla is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "potter films",
+          "wizarding world films",
+          "harry potter series"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible",
+        "aliases": [
+          "mission impossible",
+          "mi films",
+          "ethan hunt series"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Mission: Impossible is logged in the atlas."
+      },
+      {
+        "label": "Transformers",
+        "aliases": [
+          "transformers films",
+          "michael bay transformers",
+          "autobots series"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Transformers is logged in the atlas."
+      },
+      {
+        "label": "Pirates of the Caribbean",
+        "aliases": [
+          "pirates films",
+          "jack sparrow series",
+          "pirates franchise"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Pirates of the Caribbean is logged in the atlas."
+      },
+      {
+        "label": "Rocky",
+        "aliases": [
+          "rocky films",
+          "rocky balboa series",
+          "rocky and creed series"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Rocky is logged in the atlas."
+      },
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story films",
+          "woody and buzz series",
+          "toy story franchise"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Resident Evil",
+        "aliases": [
+          "resident evil films",
+          "milla jovovich series",
+          "resident evil franchise"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Resident Evil is logged in the atlas."
+      },
+      {
+        "label": "Carry On",
+        "aliases": [
+          "carry on films",
+          "carry on series",
+          "carry on movies"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Carry On is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-020",
+    "category": "Franchises",
+    "prompt": "Name a movie franchise you could binge in one weekend.",
+    "answers": [
+      {
+        "label": "The Lord of the Rings",
+        "aliases": [
+          "lotr",
+          "lord of the rings trilogy",
+          "middle-earth films"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. The Lord of the Rings is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "potter films",
+          "wizarding world films",
+          "harry potter series"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars saga",
+          "star wars films",
+          "skywalker saga"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "The Godfather",
+        "aliases": [
+          "godfather trilogy",
+          "corleone films",
+          "godfather films"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. The Godfather is logged in the atlas."
+      },
+      {
+        "label": "Marvel Cinematic Universe",
+        "aliases": [
+          "mcu",
+          "marvel movies",
+          "the avengers series"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Marvel Cinematic Universe is logged in the atlas."
+      },
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story films",
+          "woody and buzz series",
+          "toy story franchise"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Back to the Future",
+        "aliases": [
+          "back to the future trilogy",
+          "marty mcfly films",
+          "bttf"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Back to the Future is logged in the atlas."
+      },
+      {
+        "label": "Jurassic Park",
+        "aliases": [
+          "jurassic world",
+          "jurassic films",
+          "jurassic park series"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Jurassic Park is logged in the atlas."
+      },
+      {
+        "label": "Indiana Jones",
+        "aliases": [
+          "indy films",
+          "raiders series",
+          "indiana jones series"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Indiana Jones is logged in the atlas."
+      },
+      {
+        "label": "The Matrix",
+        "aliases": [
+          "matrix trilogy",
+          "matrix films",
+          "neo series"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. The Matrix is logged in the atlas."
+      },
+      {
+        "label": "Pirates of the Caribbean",
+        "aliases": [
+          "pirates films",
+          "jack sparrow series",
+          "pirates franchise"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Pirates of the Caribbean is logged in the atlas."
+      },
+      {
+        "label": "The Hunger Games",
+        "aliases": [
+          "hunger games films",
+          "katniss series",
+          "hunger games franchise"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. The Hunger Games is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible",
+        "aliases": [
+          "mission impossible",
+          "mi films",
+          "ethan hunt series"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Mission: Impossible is logged in the atlas."
+      },
+      {
+        "label": "John Wick",
+        "aliases": [
+          "john wick films",
+          "baba yaga series",
+          "john wick franchise"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. John Wick is logged in the atlas."
+      },
+      {
+        "label": "Rocky",
+        "aliases": [
+          "rocky films",
+          "rocky balboa series",
+          "rocky and creed series"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Rocky is logged in the atlas."
+      },
+      {
+        "label": "Twilight",
+        "aliases": [
+          "twilight saga",
+          "twilight films",
+          "bella and edward series"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Twilight is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-021",
+    "category": "Franchises",
+    "prompt": "Name an animation studio.",
+    "answers": [
+      {
+        "label": "Pixar",
+        "aliases": [
+          "pixar animation studios",
+          "pixar studios",
+          "toy story studio"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Pixar is logged in the atlas."
+      },
+      {
+        "label": "Disney",
+        "aliases": [
+          "walt disney animation studios",
+          "disney animation",
+          "walt disney animation"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Disney is logged in the atlas."
+      },
+      {
+        "label": "DreamWorks",
+        "aliases": [
+          "dreamworks animation",
+          "dream works",
+          "shrek studio"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. DreamWorks is logged in the atlas."
+      },
+      {
+        "label": "Studio Ghibli",
+        "aliases": [
+          "ghibli",
+          "miyazaki's studio",
+          "spirited away studio"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Studio Ghibli is logged in the atlas."
+      },
+      {
+        "label": "Illumination",
+        "aliases": [
+          "illumination entertainment",
+          "minions studio",
+          "despicable me studio"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Illumination is logged in the atlas."
+      },
+      {
+        "label": "Blue Sky Studios",
+        "aliases": [
+          "blue sky",
+          "ice age studio",
+          "blue sky animation"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Blue Sky Studios is logged in the atlas."
+      },
+      {
+        "label": "Aardman",
+        "aliases": [
+          "aardman animations",
+          "wallace and gromit studio",
+          "shaun the sheep studio"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Aardman is logged in the atlas."
+      },
+      {
+        "label": "Laika",
+        "aliases": [
+          "laika studios",
+          "coraline studio",
+          "kubo studio"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Laika is logged in the atlas."
+      },
+      {
+        "label": "Sony Pictures Animation",
+        "aliases": [
+          "sony animation",
+          "spider-verse studio",
+          "sony pictures animation studio"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Sony Pictures Animation is logged in the atlas."
+      },
+      {
+        "label": "Warner Bros. Animation",
+        "aliases": [
+          "warner animation",
+          "looney tunes studio",
+          "warner bros animation"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Warner Bros. Animation is logged in the atlas."
+      },
+      {
+        "label": "Cartoon Saloon",
+        "aliases": [
+          "cartoon saloon studio",
+          "song of the sea studio",
+          "wolfwalkers studio"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Cartoon Saloon is logged in the atlas."
+      },
+      {
+        "label": "Hanna-Barbera",
+        "aliases": [
+          "hanna barbera",
+          "scooby-doo studio",
+          "flintstones studio"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Hanna-Barbera is logged in the atlas."
+      },
+      {
+        "label": "Toei Animation",
+        "aliases": [
+          "toei",
+          "dragon ball studio",
+          "toei studio"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Toei Animation is logged in the atlas."
+      },
+      {
+        "label": "Madhouse",
+        "aliases": [
+          "madhouse studio",
+          "madhouse animation",
+          "paprika studio"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Madhouse is logged in the atlas."
+      },
+      {
+        "label": "Fleischer Studios",
+        "aliases": [
+          "fleischer",
+          "betty boop studio",
+          "popeye studio"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Fleischer Studios is logged in the atlas."
+      },
+      {
+        "label": "Nickelodeon Animation",
+        "aliases": [
+          "nickelodeon animation studio",
+          "spongebob studio",
+          "nickelodeon movies"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Nickelodeon Animation is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-022",
+    "category": "Franchises",
+    "prompt": "Name a film studio.",
+    "answers": [
+      {
+        "label": "Warner Bros.",
+        "aliases": [
+          "warner brothers",
+          "wb",
+          "warner bros pictures"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Warner Bros. is logged in the atlas."
+      },
+      {
+        "label": "Universal",
+        "aliases": [
+          "universal pictures",
+          "universal studios",
+          "universal films"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. Universal is logged in the atlas."
+      },
+      {
+        "label": "Paramount",
+        "aliases": [
+          "paramount pictures",
+          "paramount studios",
+          "paramount films"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Paramount is logged in the atlas."
+      },
+      {
+        "label": "Disney",
+        "aliases": [
+          "walt disney pictures",
+          "walt disney studios",
+          "disney studios"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Disney is logged in the atlas."
+      },
+      {
+        "label": "Sony Pictures",
+        "aliases": [
+          "sony",
+          "columbia pictures",
+          "sony pictures entertainment"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Sony Pictures is logged in the atlas."
+      },
+      {
+        "label": "20th Century Studios",
+        "aliases": [
+          "20th century fox",
+          "twentieth century fox",
+          "fox studios"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. 20th Century Studios is logged in the atlas."
+      },
+      {
+        "label": "MGM",
+        "aliases": [
+          "metro-goldwyn-mayer",
+          "metro goldwyn mayer",
+          "mgm studios"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. MGM is logged in the atlas."
+      },
+      {
+        "label": "Lionsgate",
+        "aliases": [
+          "lions gate",
+          "lionsgate films",
+          "lionsgate studios"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Lionsgate is logged in the atlas."
+      },
+      {
+        "label": "A24",
+        "aliases": [
+          "a24 films",
+          "a twenty four",
+          "a24 studio"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. A24 is logged in the atlas."
+      },
+      {
+        "label": "Pixar",
+        "aliases": [
+          "pixar animation studios",
+          "pixar studios",
+          "toy story studio"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Pixar is logged in the atlas."
+      },
+      {
+        "label": "Miramax",
+        "aliases": [
+          "miramax films",
+          "miramax studios",
+          "miramax pictures"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Miramax is logged in the atlas."
+      },
+      {
+        "label": "DreamWorks",
+        "aliases": [
+          "dreamworks pictures",
+          "dream works",
+          "dreamworks studios"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. DreamWorks is logged in the atlas."
+      },
+      {
+        "label": "Netflix",
+        "aliases": [
+          "netflix films",
+          "netflix studios",
+          "netflix originals"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Netflix is logged in the atlas."
+      },
+      {
+        "label": "Focus Features",
+        "aliases": [
+          "focus films",
+          "universal focus"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Focus Features is logged in the atlas."
+      },
+      {
+        "label": "Legendary",
+        "aliases": [
+          "legendary pictures",
+          "legendary entertainment",
+          "legendary studios"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Legendary is logged in the atlas."
+      },
+      {
+        "label": "Lucasfilm",
+        "aliases": [
+          "lucas film",
+          "star wars studio",
+          "lucasfilm ltd"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Lucasfilm is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-023",
+    "category": "Franchises",
+    "prompt": "Name a sequel widely rated as good as the original.",
+    "answers": [
+      {
+        "label": "The Empire Strikes Back",
+        "aliases": [
+          "empire strikes back",
+          "star wars episode v",
+          "star wars v"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. The Empire Strikes Back is logged in the atlas."
+      },
+      {
+        "label": "The Godfather Part II",
+        "aliases": [
+          "godfather part 2",
+          "godfather 2",
+          "godfather part two"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. The Godfather Part II is logged in the atlas."
+      },
+      {
+        "label": "Terminator 2",
+        "aliases": [
+          "terminator 2 judgment day",
+          "t2",
+          "terminator 2 judgement day"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Terminator 2 is logged in the atlas."
+      },
+      {
+        "label": "Aliens",
+        "aliases": [
+          "aliens 1986",
+          "alien sequel",
+          "james cameron's aliens"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Aliens is logged in the atlas."
+      },
+      {
+        "label": "The Dark Knight",
+        "aliases": [
+          "dark knight",
+          "batman the dark knight",
+          "nolan's dark knight"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. The Dark Knight is logged in the atlas."
+      },
+      {
+        "label": "Toy Story 2",
+        "aliases": [
+          "toy story two",
+          "toy story 2 film",
+          "woody's roundup film"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Toy Story 2 is logged in the atlas."
+      },
+      {
+        "label": "Toy Story 3",
+        "aliases": [
+          "toy story three",
+          "toy story 3 film",
+          "incinerator scene film"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Toy Story 3 is logged in the atlas."
+      },
+      {
+        "label": "The Road Warrior",
+        "aliases": [
+          "mad max 2",
+          "mad max two",
+          "road warrior film"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. The Road Warrior is logged in the atlas."
+      },
+      {
+        "label": "Spider-Man 2",
+        "aliases": [
+          "spiderman 2",
+          "spider man 2",
+          "spider-man two"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Spider-Man 2 is logged in the atlas."
+      },
+      {
+        "label": "Paddington 2",
+        "aliases": [
+          "paddington two",
+          "paddington 2 film",
+          "paddington 2 movie"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Paddington 2 is logged in the atlas."
+      },
+      {
+        "label": "Evil Dead II",
+        "aliases": [
+          "evil dead 2",
+          "evil dead two",
+          "evil dead ii film"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Evil Dead II is logged in the atlas."
+      },
+      {
+        "label": "The Wrath of Khan",
+        "aliases": [
+          "star trek ii",
+          "star trek 2",
+          "wrath of khan"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. The Wrath of Khan is logged in the atlas."
+      },
+      {
+        "label": "Shrek 2",
+        "aliases": [
+          "shrek two",
+          "shrek 2 film",
+          "shrek 2 movie"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Shrek 2 is logged in the atlas."
+      },
+      {
+        "label": "John Wick: Chapter 2",
+        "aliases": [
+          "john wick 2",
+          "john wick chapter two",
+          "john wick two"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. John Wick: Chapter 2 is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible – Fallout",
+        "aliases": [
+          "fallout",
+          "mission impossible fallout",
+          "mi fallout"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Mission: Impossible – Fallout is logged in the atlas."
+      },
+      {
+        "label": "Superman II",
+        "aliases": [
+          "superman 2",
+          "superman two",
+          "superman ii film"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Superman II is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-024",
+    "category": "Franchises",
+    "prompt": "Name a movie theme tune everyone recognizes.",
+    "answers": [
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars theme",
+          "star wars main title",
+          "the imperial march"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "James Bond",
+        "aliases": [
+          "james bond theme",
+          "bond theme",
+          "007 theme"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. James Bond is logged in the atlas."
+      },
+      {
+        "label": "Jaws",
+        "aliases": [
+          "jaws theme",
+          "da dum da dum",
+          "shark theme"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Jaws is logged in the atlas."
+      },
+      {
+        "label": "Indiana Jones",
+        "aliases": [
+          "raiders march",
+          "indiana jones theme",
+          "raiders of the lost ark theme"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Indiana Jones is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible",
+        "aliases": [
+          "mission impossible theme",
+          "mi theme",
+          "lalo schifrin theme"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Mission: Impossible is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "hedwig's theme",
+          "harry potter theme",
+          "hedwigs theme"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Jurassic Park",
+        "aliases": [
+          "jurassic park theme",
+          "jurassic theme",
+          "welcome to jurassic park"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Jurassic Park is logged in the atlas."
+      },
+      {
+        "label": "Pirates of the Caribbean",
+        "aliases": [
+          "he's a pirate",
+          "pirates theme",
+          "hes a pirate"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Pirates of the Caribbean is logged in the atlas."
+      },
+      {
+        "label": "Superman",
+        "aliases": [
+          "superman theme",
+          "superman march",
+          "john williams superman"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Superman is logged in the atlas."
+      },
+      {
+        "label": "The Lord of the Rings",
+        "aliases": [
+          "shire theme",
+          "lotr theme",
+          "lord of the rings theme"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. The Lord of the Rings is logged in the atlas."
+      },
+      {
+        "label": "Ghostbusters",
+        "aliases": [
+          "ghostbusters theme",
+          "who you gonna call",
+          "ray parker jr theme"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Ghostbusters is logged in the atlas."
+      },
+      {
+        "label": "Rocky",
+        "aliases": [
+          "gonna fly now",
+          "rocky theme",
+          "rocky's theme"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Rocky is logged in the atlas."
+      },
+      {
+        "label": "Star Trek",
+        "aliases": [
+          "star trek theme",
+          "star trek fanfare",
+          "space the final frontier theme"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Star Trek is logged in the atlas."
+      },
+      {
+        "label": "Back to the Future",
+        "aliases": [
+          "back to the future theme",
+          "bttf theme",
+          "power of love theme"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Back to the Future is logged in the atlas."
+      },
+      {
+        "label": "The Godfather",
+        "aliases": [
+          "godfather theme",
+          "love theme from the godfather",
+          "speak softly love"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. The Godfather is logged in the atlas."
+      },
+      {
+        "label": "Halloween",
+        "aliases": [
+          "halloween theme",
+          "michael myers theme",
+          "john carpenter halloween theme"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Halloween is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-025",
+    "category": "Craft",
+    "prompt": "Name something that makes a movie scene scary.",
+    "answers": [
+      {
+        "label": "Music",
+        "aliases": [
+          "creepy score",
+          "eerie soundtrack",
+          "tense music"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Music is logged in the atlas."
+      },
+      {
+        "label": "Darkness",
+        "aliases": [
+          "dark rooms",
+          "no lights",
+          "low lighting"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Darkness is logged in the atlas."
+      },
+      {
+        "label": "Silence",
+        "aliases": [
+          "sudden quiet",
+          "dead silence",
+          "quiet before the scare"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Silence is logged in the atlas."
+      },
+      {
+        "label": "Jump scares",
+        "aliases": [
+          "jump scare",
+          "sudden shock",
+          "something leaping out"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Jump scares is logged in the atlas."
+      },
+      {
+        "label": "Shadows",
+        "aliases": [
+          "moving shadows",
+          "shadowy figures",
+          "things in the shadows"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Shadows is logged in the atlas."
+      },
+      {
+        "label": "Sound effects",
+        "aliases": [
+          "creaking doors",
+          "strange noises",
+          "scary sound design"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Sound effects is logged in the atlas."
+      },
+      {
+        "label": "Not seeing the monster",
+        "aliases": [
+          "unseen threat",
+          "hidden monster",
+          "what you can't see"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Not seeing the monster is logged in the atlas."
+      },
+      {
+        "label": "A creepy child",
+        "aliases": [
+          "scary kids",
+          "spooky child",
+          "eerie kid"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. A creepy child is logged in the atlas."
+      },
+      {
+        "label": "Fog",
+        "aliases": [
+          "mist",
+          "thick fog",
+          "foggy woods"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Fog is logged in the atlas."
+      },
+      {
+        "label": "Isolation",
+        "aliases": [
+          "being alone",
+          "remote location",
+          "cabin in the woods"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Isolation is logged in the atlas."
+      },
+      {
+        "label": "A slow build",
+        "aliases": [
+          "slow pacing",
+          "building tension",
+          "creeping dread"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. A slow build is logged in the atlas."
+      },
+      {
+        "label": "Whispering",
+        "aliases": [
+          "whispers",
+          "hushed voices",
+          "creepy whispers"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Whispering is logged in the atlas."
+      },
+      {
+        "label": "Flickering lights",
+        "aliases": [
+          "lights going out",
+          "flashing bulbs",
+          "flickering bulbs"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Flickering lights is logged in the atlas."
+      },
+      {
+        "label": "Mirrors",
+        "aliases": [
+          "mirror reflections",
+          "reflection scares",
+          "something in the mirror"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Mirrors is logged in the atlas."
+      },
+      {
+        "label": "Masks",
+        "aliases": [
+          "scary masks",
+          "masked figure",
+          "creepy mask"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Masks is logged in the atlas."
+      },
+      {
+        "label": "Clowns",
+        "aliases": [
+          "creepy clown",
+          "scary clowns",
+          "evil clown"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Clowns is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-026",
+    "category": "Craft",
+    "prompt": "Name a job on a film set.",
+    "answers": [
+      {
+        "label": "Director",
+        "aliases": [
+          "film director",
+          "the director",
+          "movie director"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Director is logged in the atlas."
+      },
+      {
+        "label": "Actor",
+        "aliases": [
+          "actress",
+          "cast member",
+          "performer"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. Actor is logged in the atlas."
+      },
+      {
+        "label": "Producer",
+        "aliases": [
+          "film producer",
+          "movie producer",
+          "executive producer"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Producer is logged in the atlas."
+      },
+      {
+        "label": "Cinematographer",
+        "aliases": [
+          "director of photography",
+          "dp",
+          "camera operator"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Cinematographer is logged in the atlas."
+      },
+      {
+        "label": "Editor",
+        "aliases": [
+          "film editor",
+          "video editor",
+          "movie editor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Editor is logged in the atlas."
+      },
+      {
+        "label": "Screenwriter",
+        "aliases": [
+          "writer",
+          "script writer",
+          "scriptwriter"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Screenwriter is logged in the atlas."
+      },
+      {
+        "label": "Sound designer",
+        "aliases": [
+          "sound engineer",
+          "sound mixer",
+          "foley artist"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Sound designer is logged in the atlas."
+      },
+      {
+        "label": "Costume designer",
+        "aliases": [
+          "wardrobe",
+          "costume department",
+          "wardrobe designer"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Costume designer is logged in the atlas."
+      },
+      {
+        "label": "Makeup artist",
+        "aliases": [
+          "make-up artist",
+          "hair and makeup",
+          "makeup department"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Makeup artist is logged in the atlas."
+      },
+      {
+        "label": "Stunt performer",
+        "aliases": [
+          "stuntman",
+          "stunt double",
+          "stunt coordinator"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Stunt performer is logged in the atlas."
+      },
+      {
+        "label": "Gaffer",
+        "aliases": [
+          "chief lighting technician",
+          "lighting chief",
+          "head electrician"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Gaffer is logged in the atlas."
+      },
+      {
+        "label": "Set designer",
+        "aliases": [
+          "production designer",
+          "set decorator",
+          "art director"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Set designer is logged in the atlas."
+      },
+      {
+        "label": "Composer",
+        "aliases": [
+          "film composer",
+          "score composer",
+          "music composer"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Composer is logged in the atlas."
+      },
+      {
+        "label": "Best boy",
+        "aliases": [
+          "best boy electric",
+          "gaffer's assistant",
+          "assistant gaffer"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. Best boy is logged in the atlas."
+      },
+      {
+        "label": "Grip",
+        "aliases": [
+          "key grip",
+          "dolly grip",
+          "grip crew"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Grip is logged in the atlas."
+      },
+      {
+        "label": "Script supervisor",
+        "aliases": [
+          "continuity",
+          "continuity supervisor",
+          "script continuity"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Script supervisor is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-027",
+    "category": "Craft",
+    "prompt": "Name a classic movie special effects technique.",
+    "answers": [
+      {
+        "label": "CGI",
+        "aliases": [
+          "computer generated imagery",
+          "computer graphics",
+          "computer effects"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. CGI is logged in the atlas."
+      },
+      {
+        "label": "Practical effects",
+        "aliases": [
+          "practical fx",
+          "real effects",
+          "in-camera effects"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. Practical effects is logged in the atlas."
+      },
+      {
+        "label": "Green screen",
+        "aliases": [
+          "greenscreen",
+          "chroma key",
+          "blue screen"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Green screen is logged in the atlas."
+      },
+      {
+        "label": "Miniatures",
+        "aliases": [
+          "scale models",
+          "model shots",
+          "miniature effects"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Miniatures is logged in the atlas."
+      },
+      {
+        "label": "Stop motion",
+        "aliases": [
+          "stop-motion",
+          "claymation",
+          "frame by frame animation"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Stop motion is logged in the atlas."
+      },
+      {
+        "label": "Motion capture",
+        "aliases": [
+          "mocap",
+          "performance capture",
+          "mo-cap"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Motion capture is logged in the atlas."
+      },
+      {
+        "label": "Animatronics",
+        "aliases": [
+          "animatronic puppets",
+          "robotic puppets",
+          "mechanical creatures"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Animatronics is logged in the atlas."
+      },
+      {
+        "label": "Matte painting",
+        "aliases": [
+          "matte paintings",
+          "painted backdrops",
+          "painted backgrounds"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Matte painting is logged in the atlas."
+      },
+      {
+        "label": "Prosthetic makeup",
+        "aliases": [
+          "prosthetics",
+          "special makeup",
+          "creature makeup"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Prosthetic makeup is logged in the atlas."
+      },
+      {
+        "label": "Rear projection",
+        "aliases": [
+          "back projection",
+          "process shot",
+          "projected backdrops"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Rear projection is logged in the atlas."
+      },
+      {
+        "label": "Wire work",
+        "aliases": [
+          "wirework",
+          "wire fu",
+          "harness flying"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Wire work is logged in the atlas."
+      },
+      {
+        "label": "Puppetry",
+        "aliases": [
+          "puppets",
+          "muppet-style effects",
+          "puppeteering"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Puppetry is logged in the atlas."
+      },
+      {
+        "label": "Forced perspective",
+        "aliases": [
+          "perspective trick",
+          "size illusion",
+          "camera perspective trick"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Forced perspective is logged in the atlas."
+      },
+      {
+        "label": "Slow motion",
+        "aliases": [
+          "slow-mo",
+          "slo-mo",
+          "high speed photography"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Slow motion is logged in the atlas."
+      },
+      {
+        "label": "Bullet time",
+        "aliases": [
+          "bullet-time",
+          "matrix effect",
+          "frozen time shot"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Bullet time is logged in the atlas."
+      },
+      {
+        "label": "Squibs",
+        "aliases": [
+          "blood squibs",
+          "bullet hit effects",
+          "exploding blood packs"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Squibs is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-028",
+    "category": "Craft",
+    "prompt": "Name a type of camera shot or camera move.",
+    "answers": [
+      {
+        "label": "Close-up",
+        "aliases": [
+          "close up",
+          "closeup",
+          "tight shot"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. Close-up is logged in the atlas."
+      },
+      {
+        "label": "Tracking shot",
+        "aliases": [
+          "follow shot",
+          "dolly shot",
+          "tracking move"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Tracking shot is logged in the atlas."
+      },
+      {
+        "label": "Dolly zoom",
+        "aliases": [
+          "vertigo effect",
+          "zolly",
+          "contra zoom"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Dolly zoom is logged in the atlas."
+      },
+      {
+        "label": "Wide shot",
+        "aliases": [
+          "long shot",
+          "wide angle",
+          "establishing wide"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Wide shot is logged in the atlas."
+      },
+      {
+        "label": "Aerial shot",
+        "aliases": [
+          "drone shot",
+          "bird's eye shot",
+          "helicopter shot"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Aerial shot is logged in the atlas."
+      },
+      {
+        "label": "Long take",
+        "aliases": [
+          "one-shot",
+          "single take",
+          "oner"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Long take is logged in the atlas."
+      },
+      {
+        "label": "Slow motion",
+        "aliases": [
+          "slow-mo",
+          "slo-mo",
+          "slow mo shot"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Slow motion is logged in the atlas."
+      },
+      {
+        "label": "Point of view",
+        "aliases": [
+          "pov shot",
+          "pov",
+          "first person shot"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Point of view is logged in the atlas."
+      },
+      {
+        "label": "Crane shot",
+        "aliases": [
+          "crane move",
+          "jib shot",
+          "crane"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Crane shot is logged in the atlas."
+      },
+      {
+        "label": "Handheld",
+        "aliases": [
+          "shaky cam",
+          "handheld camera",
+          "handheld shot"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Handheld is logged in the atlas."
+      },
+      {
+        "label": "Pan",
+        "aliases": [
+          "panning shot",
+          "pan shot",
+          "camera pan"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Pan is logged in the atlas."
+      },
+      {
+        "label": "Over-the-shoulder",
+        "aliases": [
+          "over the shoulder",
+          "ots shot",
+          "over the shoulder shot"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Over-the-shoulder is logged in the atlas."
+      },
+      {
+        "label": "Steadicam",
+        "aliases": [
+          "steady cam",
+          "steadicam shot",
+          "gimbal shot"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Steadicam is logged in the atlas."
+      },
+      {
+        "label": "Zoom",
+        "aliases": [
+          "zoom in",
+          "zoom shot",
+          "crash zoom"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Zoom is logged in the atlas."
+      },
+      {
+        "label": "Establishing shot",
+        "aliases": [
+          "scene setter",
+          "location shot",
+          "opening wide shot"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Establishing shot is logged in the atlas."
+      },
+      {
+        "label": "Dutch angle",
+        "aliases": [
+          "dutch tilt",
+          "tilted camera",
+          "canted angle"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Dutch angle is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-029",
+    "category": "Craft",
+    "prompt": "Name something a movie trailer does to hook you.",
+    "answers": [
+      {
+        "label": "Music",
+        "aliases": [
+          "epic score",
+          "big soundtrack",
+          "dramatic music"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Music is logged in the atlas."
+      },
+      {
+        "label": "Voiceover",
+        "aliases": [
+          "narration",
+          "in a world voice",
+          "deep voice narration"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Voiceover is logged in the atlas."
+      },
+      {
+        "label": "Quick cuts",
+        "aliases": [
+          "fast editing",
+          "rapid cuts",
+          "montage"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Quick cuts is logged in the atlas."
+      },
+      {
+        "label": "Big explosion",
+        "aliases": [
+          "explosions",
+          "action shots",
+          "blowing things up"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Big explosion is logged in the atlas."
+      },
+      {
+        "label": "A famous star",
+        "aliases": [
+          "big names",
+          "star cast",
+          "famous faces"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. A famous star is logged in the atlas."
+      },
+      {
+        "label": "A twist tease",
+        "aliases": [
+          "teasing a twist",
+          "mystery hook",
+          "cliffhanger"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. A twist tease is logged in the atlas."
+      },
+      {
+        "label": "The best jokes",
+        "aliases": [
+          "comedy moments",
+          "funniest lines",
+          "big laughs"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. The best jokes is logged in the atlas."
+      },
+      {
+        "label": "A countdown",
+        "aliases": [
+          "release date",
+          "coming soon card",
+          "date reveal"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. A countdown is logged in the atlas."
+      },
+      {
+        "label": "Slow reveal",
+        "aliases": [
+          "gradual reveal",
+          "teasing the monster",
+          "hiding the creature"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Slow reveal is logged in the atlas."
+      },
+      {
+        "label": "A big bass drop",
+        "aliases": [
+          "braam",
+          "big sound hit",
+          "loud sound hit"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. A big bass drop is logged in the atlas."
+      },
+      {
+        "label": "A recognizable song",
+        "aliases": [
+          "famous song",
+          "cover song",
+          "popular track"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. A recognizable song is logged in the atlas."
+      },
+      {
+        "label": "A tagline",
+        "aliases": [
+          "catchphrase",
+          "slogan",
+          "one-liner"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. A tagline is logged in the atlas."
+      },
+      {
+        "label": "Silence then a drop",
+        "aliases": [
+          "quiet then loud",
+          "pause before the action",
+          "sudden silence"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Silence then a drop is logged in the atlas."
+      },
+      {
+        "label": "Dialogue snippets",
+        "aliases": [
+          "memorable line",
+          "quotable lines",
+          "one line of dialogue"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Dialogue snippets is logged in the atlas."
+      },
+      {
+        "label": "A shocking moment",
+        "aliases": [
+          "big surprise",
+          "gasp moment",
+          "shock scene"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. A shocking moment is logged in the atlas."
+      },
+      {
+        "label": "Sweeping landscapes",
+        "aliases": [
+          "epic scenery",
+          "aerial landscapes",
+          "beautiful vistas"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Sweeping landscapes is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-030",
+    "category": "Craft",
+    "prompt": "Name a famous piece of movie music or a movie sound.",
+    "answers": [
+      {
+        "label": "The Jaws theme",
+        "aliases": [
+          "jaws music",
+          "da dum da dum",
+          "shark theme"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. The Jaws theme is logged in the atlas."
+      },
+      {
+        "label": "The Imperial March",
+        "aliases": [
+          "darth vader's theme",
+          "vader's theme",
+          "star wars imperial march"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. The Imperial March is logged in the atlas."
+      },
+      {
+        "label": "The Wilhelm scream",
+        "aliases": [
+          "wilhelm scream sound",
+          "famous movie scream",
+          "stock scream"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. The Wilhelm scream is logged in the atlas."
+      },
+      {
+        "label": "The Star Wars main theme",
+        "aliases": [
+          "star wars fanfare",
+          "star wars opening",
+          "star wars theme music"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. The Star Wars main theme is logged in the atlas."
+      },
+      {
+        "label": "The Psycho shower strings",
+        "aliases": [
+          "psycho strings",
+          "screeching violins",
+          "psycho shower music"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. The Psycho shower strings is logged in the atlas."
+      },
+      {
+        "label": "The Inception horn",
+        "aliases": [
+          "inception braam",
+          "braaam",
+          "inception bwaaam"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. The Inception horn is logged in the atlas."
+      },
+      {
+        "label": "The James Bond theme",
+        "aliases": [
+          "bond theme",
+          "007 theme",
+          "james bond music"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. The James Bond theme is logged in the atlas."
+      },
+      {
+        "label": "The Indiana Jones theme",
+        "aliases": [
+          "raiders march",
+          "indy theme",
+          "raiders of the lost ark theme"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. The Indiana Jones theme is logged in the atlas."
+      },
+      {
+        "label": "The Jurassic Park theme",
+        "aliases": [
+          "jurassic park music",
+          "welcome to jurassic park",
+          "jurassic theme"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. The Jurassic Park theme is logged in the atlas."
+      },
+      {
+        "label": "The Mission: Impossible theme",
+        "aliases": [
+          "mission impossible theme",
+          "mi theme",
+          "lalo schifrin theme"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. The Mission: Impossible theme is logged in the atlas."
+      },
+      {
+        "label": "The Ghostbusters theme",
+        "aliases": [
+          "who you gonna call",
+          "ghostbusters song",
+          "ghostbusters music"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. The Ghostbusters theme is logged in the atlas."
+      },
+      {
+        "label": "My Heart Will Go On",
+        "aliases": [
+          "titanic song",
+          "celine dion titanic",
+          "titanic theme song"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. My Heart Will Go On is logged in the atlas."
+      },
+      {
+        "label": "Gonna Fly Now",
+        "aliases": [
+          "rocky theme",
+          "rocky music",
+          "rocky training music"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. Gonna Fly Now is logged in the atlas."
+      },
+      {
+        "label": "The THX Deep Note",
+        "aliases": [
+          "thx sound",
+          "thx logo sound",
+          "thx deep note"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. The THX Deep Note is logged in the atlas."
+      },
+      {
+        "label": "The Lightsaber hum",
+        "aliases": [
+          "lightsaber sound",
+          "lightsaber noise",
+          "saber hum"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. The Lightsaber hum is logged in the atlas."
+      },
+      {
+        "label": "The Godfather theme",
+        "aliases": [
+          "godfather music",
+          "love theme from the godfather",
+          "speak softly love"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. The Godfather theme is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-031",
+    "category": "Movie Night",
+    "prompt": "Name a snack you'd take to the cinema.",
+    "answers": [
+      {
+        "label": "Popcorn",
+        "aliases": [
+          "salted popcorn",
+          "sweet popcorn",
+          "buttered popcorn"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. Popcorn is logged in the atlas."
+      },
+      {
+        "label": "Nachos",
+        "aliases": [
+          "nacho chips",
+          "cheesy nachos",
+          "nachos and cheese"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. Nachos is logged in the atlas."
+      },
+      {
+        "label": "Candy",
+        "aliases": [
+          "sweets",
+          "movie candy",
+          "lollies"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Candy is logged in the atlas."
+      },
+      {
+        "label": "Soda",
+        "aliases": [
+          "fizzy drink",
+          "cola",
+          "soft drink"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Soda is logged in the atlas."
+      },
+      {
+        "label": "Hot dog",
+        "aliases": [
+          "hotdog",
+          "cinema hot dog",
+          "frankfurter"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. Hot dog is logged in the atlas."
+      },
+      {
+        "label": "Ice cream",
+        "aliases": [
+          "ice-cream",
+          "choc ice",
+          "cinema ice cream"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Ice cream is logged in the atlas."
+      },
+      {
+        "label": "Pretzel",
+        "aliases": [
+          "soft pretzel",
+          "pretzels",
+          "salted pretzel"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Pretzel is logged in the atlas."
+      },
+      {
+        "label": "Chocolate",
+        "aliases": [
+          "chocolate bar",
+          "chocolate bites",
+          "candy bar"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Chocolate is logged in the atlas."
+      },
+      {
+        "label": "Chips",
+        "aliases": [
+          "crisps",
+          "potato chips",
+          "tortilla chips"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Chips is logged in the atlas."
+      },
+      {
+        "label": "Slushie",
+        "aliases": [
+          "slush",
+          "frozen drink",
+          "frozen slush"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Slushie is logged in the atlas."
+      },
+      {
+        "label": "Pizza",
+        "aliases": [
+          "pizza slice",
+          "cinema pizza",
+          "slice of pizza"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Pizza is logged in the atlas."
+      },
+      {
+        "label": "Gummy bears",
+        "aliases": [
+          "gummies",
+          "gummy sweets",
+          "jelly bears"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. Gummy bears is logged in the atlas."
+      },
+      {
+        "label": "Water",
+        "aliases": [
+          "bottled water",
+          "water bottle",
+          "a bottle of water"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Water is logged in the atlas."
+      },
+      {
+        "label": "Fries",
+        "aliases": [
+          "french fries",
+          "cinema fries",
+          "hot fries"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. Fries is logged in the atlas."
+      },
+      {
+        "label": "Candy floss",
+        "aliases": [
+          "cotton candy",
+          "fairy floss",
+          "spun sugar"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Candy floss is logged in the atlas."
+      },
+      {
+        "label": "Sour sweets",
+        "aliases": [
+          "sour candy",
+          "sour belts",
+          "sour lollies"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Sour sweets is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-032",
+    "category": "Movie Night",
+    "prompt": "Name a movie you can quote from memory.",
+    "answers": [
+      {
+        "label": "The Lion King",
+        "aliases": [
+          "lion king",
+          "circle of life film",
+          "simba film"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. The Lion King is logged in the atlas."
+      },
+      {
+        "label": "Shrek",
+        "aliases": [
+          "shrek film",
+          "ogre film",
+          "shrek movie"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Shrek is logged in the atlas."
+      },
+      {
+        "label": "Monty Python and the Holy Grail",
+        "aliases": [
+          "holy grail",
+          "monty python",
+          "the holy grail"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. Monty Python and the Holy Grail is logged in the atlas."
+      },
+      {
+        "label": "The Princess Bride",
+        "aliases": [
+          "princess bride",
+          "inconceivable film",
+          "as you wish film"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. The Princess Bride is logged in the atlas."
+      },
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars film",
+          "a new hope",
+          "star wars saga"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest gump film",
+          "box of chocolates film",
+          "gump"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Mean Girls",
+        "aliases": [
+          "mean girls film",
+          "fetch film",
+          "plastics film"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Mean Girls is logged in the atlas."
+      },
+      {
+        "label": "Anchorman",
+        "aliases": [
+          "anchorman film",
+          "ron burgundy film",
+          "anchorman legend of ron burgundy"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Anchorman is logged in the atlas."
+      },
+      {
+        "label": "The Godfather",
+        "aliases": [
+          "godfather",
+          "corleone film",
+          "the godfather film"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. The Godfather is logged in the atlas."
+      },
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story film",
+          "woody and buzz film",
+          "to infinity and beyond film"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Finding Nemo",
+        "aliases": [
+          "nemo",
+          "just keep swimming film",
+          "finding nemo film"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Finding Nemo is logged in the atlas."
+      },
+      {
+        "label": "Home Alone",
+        "aliases": [
+          "home alone film",
+          "kevin mccallister film",
+          "home alone movie"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Home Alone is logged in the atlas."
+      },
+      {
+        "label": "Dumb and Dumber",
+        "aliases": [
+          "dumb and dumber film",
+          "lloyd and harry film",
+          "dumb & dumber"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Dumb and Dumber is logged in the atlas."
+      },
+      {
+        "label": "Pulp Fiction",
+        "aliases": [
+          "pulp fiction film",
+          "tarantino pulp fiction",
+          "royale with cheese film"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Pulp Fiction is logged in the atlas."
+      },
+      {
+        "label": "The Big Lebowski",
+        "aliases": [
+          "big lebowski",
+          "the dude film",
+          "lebowski"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. The Big Lebowski is logged in the atlas."
+      },
+      {
+        "label": "Frozen",
+        "aliases": [
+          "frozen film",
+          "let it go film",
+          "elsa film"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Frozen is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-033",
+    "category": "Movie Night",
+    "prompt": "Name a movie you'd watch at Christmas.",
+    "answers": [
+      {
+        "label": "Home Alone",
+        "aliases": [
+          "home alone film",
+          "kevin mccallister film",
+          "home alone movie"
+        ],
+        "share": 34,
+        "insight": "The surface crowd reaches for this first. Home Alone is logged in the atlas."
+      },
+      {
+        "label": "Elf",
+        "aliases": [
+          "elf film",
+          "buddy the elf film",
+          "will ferrell elf"
+        ],
+        "share": 19,
+        "insight": "A familiar current carries this answer. Elf is logged in the atlas."
+      },
+      {
+        "label": "Love Actually",
+        "aliases": [
+          "love actually film",
+          "richard curtis christmas film",
+          "love actually movie"
+        ],
+        "share": 14,
+        "insight": "This choice travels through the middle of the school. Love Actually is logged in the atlas."
+      },
+      {
+        "label": "Die Hard",
+        "aliases": [
+          "die hard film",
+          "john mcclane christmas film",
+          "die hard movie"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Die Hard is logged in the atlas."
+      },
+      {
+        "label": "The Grinch",
+        "aliases": [
+          "how the grinch stole christmas",
+          "grinch",
+          "the grinch film"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. The Grinch is logged in the atlas."
+      },
+      {
+        "label": "It's a Wonderful Life",
+        "aliases": [
+          "its a wonderful life",
+          "wonderful life",
+          "george bailey film"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. It's a Wonderful Life is logged in the atlas."
+      },
+      {
+        "label": "Miracle on 34th Street",
+        "aliases": [
+          "miracle on thirty-fourth street",
+          "miracle on 34th",
+          "santa in court film"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. Miracle on 34th Street is logged in the atlas."
+      },
+      {
+        "label": "The Polar Express",
+        "aliases": [
+          "polar express",
+          "polar express film",
+          "train to the north pole film"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. The Polar Express is logged in the atlas."
+      },
+      {
+        "label": "A Christmas Carol",
+        "aliases": [
+          "christmas carol",
+          "scrooge film",
+          "dickens christmas film"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. A Christmas Carol is logged in the atlas."
+      },
+      {
+        "label": "The Nightmare Before Christmas",
+        "aliases": [
+          "nightmare before christmas",
+          "jack skellington film",
+          "tim burton christmas film"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. The Nightmare Before Christmas is logged in the atlas."
+      },
+      {
+        "label": "Gremlins",
+        "aliases": [
+          "gremlins film",
+          "gizmo film",
+          "gremlins movie"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Gremlins is logged in the atlas."
+      },
+      {
+        "label": "Christmas Vacation",
+        "aliases": [
+          "national lampoon's christmas vacation",
+          "griswold christmas film",
+          "christmas vacation film"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Christmas Vacation is logged in the atlas."
+      },
+      {
+        "label": "The Santa Clause",
+        "aliases": [
+          "santa clause",
+          "tim allen santa film",
+          "the santa clause film"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. The Santa Clause is logged in the atlas."
+      },
+      {
+        "label": "Arthur Christmas",
+        "aliases": [
+          "arthur christmas film",
+          "santa's son film",
+          "aardman christmas film"
+        ],
+        "share": 0.15,
+        "insight": "A hidden answer beneath the common tide. Arthur Christmas is logged in the atlas."
+      },
+      {
+        "label": "Klaus",
+        "aliases": [
+          "klaus film",
+          "netflix klaus",
+          "animated santa origin film"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Klaus is logged in the atlas."
+      },
+      {
+        "label": "Jingle All the Way",
+        "aliases": [
+          "jingle all the way film",
+          "turbo man film",
+          "arnold christmas film"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. Jingle All the Way is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-034",
+    "category": "Movie Night",
+    "prompt": "Name a film that made you cry.",
+    "answers": [
+      {
+        "label": "Titanic",
+        "aliases": [
+          "titanic film",
+          "jack and rose film",
+          "titanic movie"
+        ],
+        "share": 31,
+        "insight": "The surface crowd reaches for this first. Titanic is logged in the atlas."
+      },
+      {
+        "label": "The Lion King",
+        "aliases": [
+          "lion king",
+          "mufasa scene film",
+          "simba film"
+        ],
+        "share": 21,
+        "insight": "A familiar current carries this answer. The Lion King is logged in the atlas."
+      },
+      {
+        "label": "Up",
+        "aliases": [
+          "up film",
+          "pixar up",
+          "carl and ellie film"
+        ],
+        "share": 16,
+        "insight": "This choice travels through the middle of the school. Up is logged in the atlas."
+      },
+      {
+        "label": "Toy Story 3",
+        "aliases": [
+          "toy story three",
+          "incinerator film",
+          "toy story 3 film"
+        ],
+        "share": 11,
+        "insight": "A measured answer with a clear signal. Toy Story 3 is logged in the atlas."
+      },
+      {
+        "label": "Marley & Me",
+        "aliases": [
+          "marley and me",
+          "marley and me film",
+          "labrador film"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Marley & Me is logged in the atlas."
+      },
+      {
+        "label": "The Notebook",
+        "aliases": [
+          "notebook",
+          "the notebook film",
+          "noah and allie film"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. The Notebook is logged in the atlas."
+      },
+      {
+        "label": "Schindler's List",
+        "aliases": [
+          "schindlers list",
+          "spielberg holocaust film",
+          "schindler's list film"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Schindler's List is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest gump film",
+          "jenny and forrest film",
+          "gump"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Coco",
+        "aliases": [
+          "coco film",
+          "pixar coco",
+          "remember me film"
+        ],
+        "share": 1,
+        "insight": "A quiet answer in the lower current. Coco is logged in the atlas."
+      },
+      {
+        "label": "Bambi",
+        "aliases": [
+          "bambi film",
+          "bambi's mother film",
+          "disney bambi"
+        ],
+        "share": 0.7,
+        "insight": "A specialist current carries this one. Bambi is logged in the atlas."
+      },
+      {
+        "label": "Hachi: A Dog's Tale",
+        "aliases": [
+          "hachi",
+          "hachiko film",
+          "hachi a dogs tale"
+        ],
+        "share": 0.5,
+        "insight": "A narrow route through the atlas. Hachi: A Dog's Tale is logged in the atlas."
+      },
+      {
+        "label": "Inside Out",
+        "aliases": [
+          "inside out film",
+          "bing bong film",
+          "pixar inside out"
+        ],
+        "share": 0.3,
+        "insight": "A deep-water answer with a distinct signal. Inside Out is logged in the atlas."
+      },
+      {
+        "label": "The Green Mile",
+        "aliases": [
+          "green mile",
+          "the green mile film",
+          "john coffey film"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew chose this route. The Green Mile is logged in the atlas."
+      },
+      {
+        "label": "The Fault in Our Stars",
+        "aliases": [
+          "fault in our stars",
+          "the fault in our stars film",
+          "hazel and gus film"
+        ],
+        "share": 0.1,
+        "insight": "A hidden answer beneath the common tide. The Fault in Our Stars is logged in the atlas."
+      },
+      {
+        "label": "Life Is Beautiful",
+        "aliases": [
+          "life is beautiful film",
+          "la vita e bella",
+          "roberto benigni film"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Life Is Beautiful is logged in the atlas."
+      },
+      {
+        "label": "Old Yeller",
+        "aliases": [
+          "old yeller film",
+          "disney dog film",
+          "old yeller movie"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Old Yeller is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-035",
+    "category": "Movie Night",
+    "prompt": "Name a movie for a first date.",
+    "answers": [
+      {
+        "label": "The Notebook",
+        "aliases": [
+          "notebook",
+          "the notebook film",
+          "noah and allie film"
+        ],
+        "share": 40.3,
+        "insight": "The surface crowd reaches for this first. The Notebook is logged in the atlas."
+      },
+      {
+        "label": "La La Land",
+        "aliases": [
+          "la la land film",
+          "la la land movie",
+          "ryan gosling musical"
+        ],
+        "share": 18,
+        "insight": "A familiar current carries this answer. La La Land is logged in the atlas."
+      },
+      {
+        "label": "Pretty Woman",
+        "aliases": [
+          "pretty woman film",
+          "julia roberts film",
+          "pretty woman movie"
+        ],
+        "share": 12,
+        "insight": "This choice travels through the middle of the school. Pretty Woman is logged in the atlas."
+      },
+      {
+        "label": "Love Actually",
+        "aliases": [
+          "love actually film",
+          "christmas romance film",
+          "love actually movie"
+        ],
+        "share": 9,
+        "insight": "A measured answer with a clear signal. Love Actually is logged in the atlas."
+      },
+      {
+        "label": "When Harry Met Sally",
+        "aliases": [
+          "when harry met sally film",
+          "harry and sally",
+          "billy crystal romance"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer route. When Harry Met Sally is logged in the atlas."
+      },
+      {
+        "label": "Notting Hill",
+        "aliases": [
+          "notting hill film",
+          "hugh grant romance",
+          "notting hill movie"
+        ],
+        "share": 5,
+        "insight": "Only a few explorers sent this one down. Notting Hill is logged in the atlas."
+      },
+      {
+        "label": "Crazy Rich Asians",
+        "aliases": [
+          "crazy rich asians film",
+          "crazy rich asians movie",
+          "singapore romcom"
+        ],
+        "share": 3,
+        "insight": "A sly side channel in the crowd map. Crazy Rich Asians is logged in the atlas."
+      },
+      {
+        "label": "Grease",
+        "aliases": [
+          "grease film",
+          "danny and sandy film",
+          "grease musical"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Grease is logged in the atlas."
+      },
+      {
+        "label": "Dirty Dancing",
+        "aliases": [
+          "dirty dancing film",
+          "baby and johnny film",
+          "dirty dancing movie"
+        ],
+        "share": 1.2,
+        "insight": "A quiet answer in the lower current. Dirty Dancing is logged in the atlas."
+      },
+      {
+        "label": "Amélie",
+        "aliases": [
+          "amelie",
+          "amélie film",
+          "amelie film"
+        ],
+        "share": 0.8,
+        "insight": "A specialist current carries this one. Amélie is logged in the atlas."
+      },
+      {
+        "label": "Before Sunrise",
+        "aliases": [
+          "before sunrise film",
+          "ethan hawke romance",
+          "vienna romance film"
+        ],
+        "share": 0.6,
+        "insight": "A narrow route through the atlas. Before Sunrise is logged in the atlas."
+      },
+      {
+        "label": "10 Things I Hate About You",
+        "aliases": [
+          "ten things i hate about you",
+          "10 things",
+          "heath ledger romcom"
+        ],
+        "share": 0.4,
+        "insight": "A deep-water answer with a distinct signal. 10 Things I Hate About You is logged in the atlas."
+      },
+      {
+        "label": "Casablanca",
+        "aliases": [
+          "casablanca film",
+          "classic bogart film",
+          "here's looking at you kid film"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Casablanca is logged in the atlas."
+      },
+      {
+        "label": "The Princess Bride",
+        "aliases": [
+          "princess bride",
+          "as you wish film",
+          "princess bride film"
+        ],
+        "share": 0.2,
+        "insight": "A hidden answer beneath the common tide. The Princess Bride is logged in the atlas."
+      },
+      {
+        "label": "Titanic",
+        "aliases": [
+          "titanic film",
+          "jack and rose film",
+          "titanic movie"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Titanic is logged in the atlas."
+      },
+      {
+        "label": "Ratatouille",
+        "aliases": [
+          "ratatouille film",
+          "pixar ratatouille",
+          "remy film"
+        ],
+        "share": 0.1,
+        "insight": "A krillion-level answer for careful explorers. Ratatouille is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-036",
+    "category": "Movie Night",
+    "prompt": "Name a movie that's perfect for a family night.",
+    "answers": [
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story film",
+          "woody and buzz film",
+          "toy story movie"
+        ],
+        "share": 30.5,
+        "insight": "The surface crowd reaches for this first. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Finding Nemo",
+        "aliases": [
+          "nemo",
+          "finding nemo film",
+          "finding nemo movie"
+        ],
+        "share": 20,
+        "insight": "A familiar current carries this answer. Finding Nemo is logged in the atlas."
+      },
+      {
+        "label": "The Lion King",
+        "aliases": [
+          "lion king",
+          "simba film",
+          "the lion king film"
+        ],
+        "share": 15,
+        "insight": "This choice travels through the middle of the school. The Lion King is logged in the atlas."
+      },
+      {
+        "label": "Shrek",
+        "aliases": [
+          "shrek film",
+          "ogre film",
+          "shrek movie"
+        ],
+        "share": 10,
+        "insight": "A measured answer with a clear signal. Shrek is logged in the atlas."
+      },
+      {
+        "label": "Frozen",
+        "aliases": [
+          "frozen film",
+          "elsa film",
+          "frozen movie"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer route. Frozen is logged in the atlas."
+      },
+      {
+        "label": "Moana",
+        "aliases": [
+          "moana film",
+          "maui film",
+          "moana movie"
+        ],
+        "share": 6,
+        "insight": "Only a few explorers sent this one down. Moana is logged in the atlas."
+      },
+      {
+        "label": "The Incredibles",
+        "aliases": [
+          "incredibles",
+          "the incredibles film",
+          "superhero family film"
+        ],
+        "share": 4,
+        "insight": "A sly side channel in the crowd map. The Incredibles is logged in the atlas."
+      },
+      {
+        "label": "Coco",
+        "aliases": [
+          "coco film",
+          "pixar coco",
+          "day of the dead film"
+        ],
+        "share": 2,
+        "insight": "A tiny crew knew to look this deep. Coco is logged in the atlas."
+      },
+      {
+        "label": "Paddington",
+        "aliases": [
+          "paddington film",
+          "paddington bear film",
+          "paddington movie"
+        ],
+        "share": 1.5,
+        "insight": "A quiet answer in the lower current. Paddington is logged in the atlas."
+      },
+      {
+        "label": "Home Alone",
+        "aliases": [
+          "home alone film",
+          "kevin mccallister film",
+          "home alone movie"
+        ],
+        "share": 1,
+        "insight": "A specialist current carries this one. Home Alone is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "harry potter film",
+          "philosopher's stone",
+          "harry potter movie"
+        ],
+        "share": 0.8,
+        "insight": "A narrow route through the atlas. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Back to the Future",
+        "aliases": [
+          "back to the future film",
+          "marty mcfly film",
+          "delorean film"
+        ],
+        "share": 0.5,
+        "insight": "A deep-water answer with a distinct signal. Back to the Future is logged in the atlas."
+      },
+      {
+        "label": "Mary Poppins",
+        "aliases": [
+          "mary poppins film",
+          "supercalifragilistic film",
+          "julie andrews film"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew chose this route. Mary Poppins is logged in the atlas."
+      },
+      {
+        "label": "Despicable Me",
+        "aliases": [
+          "despicable me film",
+          "minions film",
+          "gru film"
+        ],
+        "share": 0.25,
+        "insight": "A hidden answer beneath the common tide. Despicable Me is logged in the atlas."
+      },
+      {
+        "label": "Kung Fu Panda",
+        "aliases": [
+          "kung fu panda film",
+          "po film",
+          "kung fu panda movie"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unvisited trench in the crowd map. Kung Fu Panda is logged in the atlas."
+      },
+      {
+        "label": "WALL-E",
+        "aliases": [
+          "wall e",
+          "walle",
+          "wall-e film"
+        ],
+        "share": 0.05,
+        "insight": "A krillion-level answer for careful explorers. WALL-E is logged in the atlas."
+      }
+    ]
+  }
+]

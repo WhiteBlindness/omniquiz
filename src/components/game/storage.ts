@@ -1,5 +1,6 @@
 import type { PublicQuestion } from "../../lib/questions/types";
-import { CATEGORIES, RARITY_TIERS } from "../../lib/questions/types";
+import { RARITY_TIERS } from "../../lib/questions/types";
+import { isPackId, isPackTopic, type PackId } from "../../lib/packs/meta";
 import { getUtcDateKey, isIsoDate } from "../../lib/questions/date";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import type { GameMode, GameOutcome, GamePhase, GameState, RoundLog } from "./gameReducer";
@@ -9,11 +10,15 @@ export const PREFERENCES_STORAGE_KEY = "omniquiz-preferences-v1";
 export const THEME_STORAGE_KEY = "omniquiz-theme-v1";
 export const STATS_STORAGE_KEY = "omniquiz-stats-v2";
 
+export const statsStorageKey = (pack: PackId): string =>
+  pack === "core" ? STATS_STORAGE_KEY : `${STATS_STORAGE_KEY}:${pack}`;
+
 type PersistedPhase = Exclude<GamePhase, "loading" | "error">;
 
 export type PersistedProgress = Readonly<{
   version: 3;
   mode: GameMode;
+  pack: PackId;
   dailyDate: string | null;
   phase: PersistedPhase;
   questions?: readonly PublicQuestion[];
@@ -77,14 +82,13 @@ const isOutcome = (value: unknown): value is GameOutcome =>
 const isNumber = (value: unknown): value is number =>
   typeof value === "number" && Number.isFinite(value);
 
-const isPublicQuestion = (value: unknown): value is PublicQuestion =>
+export const isPublicQuestion = (value: unknown, pack: PackId): value is PublicQuestion =>
   isRecord(value) &&
   typeof value.id === "string" &&
   value.id.length > 0 &&
   typeof value.prompt === "string" &&
   value.prompt.length > 0 &&
-  typeof value.category === "string" &&
-  (CATEGORIES as readonly string[]).includes(value.category) &&
+  isPackTopic(pack, value.category) &&
   Object.keys(value).sort().join(",") === "category,id,prompt";
 
 const isCommonAnswer = (value: unknown): value is SubmissionResult["commonAnswers"][number] =>
@@ -137,6 +141,9 @@ const freezeRoundLog = (entry: RoundLog): RoundLog =>
 
 const parseProgress = (value: unknown): PersistedProgress | null => {
   if (!isRecord(value) || value.version !== 3 || !isMode(value.mode)) return null;
+  const pack: PackId | null =
+    value.pack === undefined ? "core" : isPackId(value.pack) ? value.pack : null;
+  if (pack === null) return null;
   if (!isDailyDate(value.dailyDate, value.mode)) return null;
   if (!isPhase(value.phase)) return null;
   if (
@@ -162,7 +169,12 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
 
   let questions: readonly PublicQuestion[] | undefined;
   if (value.questions !== undefined) {
-    if (!Array.isArray(value.questions) || !value.questions.every(isPublicQuestion)) return null;
+    if (
+      !Array.isArray(value.questions) ||
+      !value.questions.every((question) => isPublicQuestion(question, pack))
+    ) {
+      return null;
+    }
     questions = Object.freeze(value.questions.map((question) => Object.freeze({ ...question })));
   }
 
@@ -175,6 +187,7 @@ const parseProgress = (value: unknown): PersistedProgress | null => {
   return Object.freeze({
     version: 3,
     mode: value.mode,
+    pack,
     dailyDate: value.dailyDate,
     phase: value.phase,
     questions,
@@ -230,10 +243,15 @@ export const recoverPersistedProgress = (
   return Object.freeze({ ...progress, savedAt: now });
 };
 
-export const toPersistedProgress = (state: GameState, now = Date.now()): PersistedProgress =>
+export const toPersistedProgress = (
+  state: GameState,
+  now = Date.now(),
+  pack: PackId = "core",
+): PersistedProgress =>
   Object.freeze({
     version: 3,
     mode: state.mode,
+    pack,
     dailyDate: state.mode === "daily"
       ? state.dailyDate ?? getUtcDateKey(now)
       : null,
@@ -257,12 +275,13 @@ export const toPersistedProgress = (state: GameState, now = Date.now()): Persist
 export const readProgress = (
   mode: GameMode,
   dailyDate = getUtcDateKey(),
+  pack: PackId = "core",
 ): PersistedProgress | null => {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.localStorage.getItem(PROGRESS_STORAGE_KEY);
     const parsed = parseProgress(raw ? JSON.parse(raw) : null);
-    if (parsed?.mode !== mode) return null;
+    if (parsed?.mode !== mode || parsed.pack !== pack) return null;
     if (mode === "daily" && parsed.dailyDate !== dailyDate) return null;
     return recoverPersistedProgress(parsed);
   } catch {
@@ -270,10 +289,13 @@ export const readProgress = (
   }
 };
 
-export const writeProgress = (state: GameState): void => {
+export const writeProgress = (state: GameState, pack: PackId = "core"): void => {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(toPersistedProgress(state)));
+    window.localStorage.setItem(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify(toPersistedProgress(state, Date.now(), pack)),
+    );
   } catch {
     // Local persistence is an enhancement; a private browsing quota must not stop a dive.
   }
@@ -321,10 +343,10 @@ export const writeThemePreference = (theme: ThemePreference): void => {
   }
 };
 
-export const readStats = (): DiveStats => {
+export const readStats = (pack: PackId = "core"): DiveStats => {
   if (typeof window === "undefined") return DEFAULT_STATS;
   try {
-    const raw = window.localStorage.getItem(STATS_STORAGE_KEY);
+    const raw = window.localStorage.getItem(statsStorageKey(pack));
     const parsed: unknown = raw ? JSON.parse(raw) : null;
     if (!isRecord(parsed)) return DEFAULT_STATS;
     return Object.freeze({
@@ -341,10 +363,10 @@ export const readStats = (): DiveStats => {
   }
 };
 
-export const writeStats = (stats: DiveStats): void => {
+export const writeStats = (stats: DiveStats, pack: PackId = "core"): void => {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(stats));
+    window.localStorage.setItem(statsStorageKey(pack), JSON.stringify(stats));
   } catch {
     // Stats are best effort and never block gameplay.
   }

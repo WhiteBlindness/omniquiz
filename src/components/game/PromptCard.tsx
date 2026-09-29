@@ -5,9 +5,10 @@ import { PREVIEW_SECONDS, type GamePhase, type GameState } from "./gameReducer";
 type PromptCardProps = Readonly<{
   state: GameState;
   phase: GamePhase;
+  atlasLabel?: string;
 }>;
 
-export function PromptCard({ state, phase }: PromptCardProps) {
+export function PromptCard({ state, phase, atlasLabel = "CROWD ATLAS" }: PromptCardProps) {
   const question = state.questions[state.questionIndex];
   if (!question) return null;
 
@@ -42,7 +43,7 @@ export function PromptCard({ state, phase }: PromptCardProps) {
           <span className="countdown-digit" key={state.previewSeconds}>{state.previewSeconds}</span>
         </div>
       ) : (
-        <p className="prompt-category">{question.category.toUpperCase()} / CROWD ATLAS</p>
+        <p className="prompt-category">{question.category.toUpperCase()} / {atlasLabel}</p>
       )}
     </section>
   );

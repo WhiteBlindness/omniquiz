@@ -4,6 +4,7 @@ const requestedPort = process.env.OMNIQUIZ_PLAYWRIGHT_PORT ?? "3017";
 const playwrightPort = /^\d{2,5}$/.test(requestedPort) ? requestedPort : "3017";
 const localBaseUrl = `http://127.0.0.1:${playwrightPort}`;
 const configuredBaseUrl = process.env.BASE_URL;
+const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 
 export default defineConfig({
   testDir: "./e2e",
@@ -27,7 +28,7 @@ export default defineConfig({
   webServer: configuredBaseUrl
     ? undefined
     : {
-        command: `npm.cmd run dev -- --hostname 127.0.0.1 --port ${playwrightPort}`,
+        command: `${npmCommand} run dev -- --hostname 127.0.0.1 --port ${playwrightPort}`,
         url: localBaseUrl,
         reuseExistingServer: false,
         timeout: 120_000,

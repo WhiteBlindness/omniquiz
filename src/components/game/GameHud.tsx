@@ -7,6 +7,7 @@ type GameHudProps = Readonly<{
   mode: GameMode;
   remainingMilliseconds: number;
   bestScore: number;
+  atlasLabel?: string;
 }>;
 
 const timerDurationMs = (mode: GameMode): number => answerSecondsForMode(mode) * 1_000;
@@ -58,7 +59,7 @@ export const getWindowLabel = (
       : formatWindowTime(remainingMilliseconds);
 };
 
-export function GameHud({ state, mode, remainingMilliseconds, bestScore }: GameHudProps) {
+export function GameHud({ state, mode, remainingMilliseconds, bestScore, atlasLabel = "CROWD ATLAS" }: GameHudProps) {
   const roundCount = state.questions.length || 7;
   const labels: Record<GameMode, string> = {
     daily: "THE DAILY DIVE",
@@ -165,7 +166,7 @@ export function GameHud({ state, mode, remainingMilliseconds, bestScore }: GameH
       <span className="hud-title">{label}</span>
       {currentQuestion ? (
         <span className="hud-question-meta">
-          {currentQuestion.category.toUpperCase()} / CROWD ATLAS
+          {currentQuestion.category.toUpperCase()} / {atlasLabel}
         </span>
       ) : null}
       <div className="hud-legend" role="group" aria-label="Rarity legend">
