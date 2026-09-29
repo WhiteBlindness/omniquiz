@@ -420,7 +420,7 @@
   transition: color 140ms ease-out;
 }
 
-.pack-disabled .pack-action { color: var(--muted); }
+.pack-disabled .pack-action { color: #7d9bab; }
 
 .packs-coming {
   margin-top: 1.7rem;
@@ -455,7 +455,7 @@
 }
 
 .logbook-copy { margin-left: 0.6rem; color: var(--drift); }
-.logbook small { display: block; margin-top: 0.65rem; color: var(--muted); font-size: 0.59rem; }
+.logbook small { display: block; margin-top: 0.65rem; color: #7d9bab; font-size: 0.59rem; }
 
 .restore-button,
 .back-dive {
@@ -642,12 +642,20 @@
   color: #7b4da3;
 }
 
+.packs-page[data-theme="light"] .logbook-kicker {
+  color: #04586a;
+}
+
 .packs-page[data-theme="light"] .logbook-copy {
-  color: #3b6575;
+  color: #2d5567;
 }
 
 .packs-page[data-theme="light"] .logbook small {
-  color: var(--muted);
+  color: #2d5567;
+}
+
+.packs-page[data-theme="light"] .pack-disabled .pack-action {
+  color: #2d5567;
 }
 
 .packs-page[data-theme="light"] .restore-button,

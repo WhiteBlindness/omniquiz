@@ -25,7 +25,15 @@ export function PacksControls() {
   const nextTheme = theme === "dark" ? "light" : "dark";
 
   const [muted, setMuted] = useState(false);
-  useEffect(() => { setMuted(readMutePreference()); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setMuted(readMutePreference());
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const toggleMute = useCallback(() => {
     setMuted((m) => {

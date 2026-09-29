@@ -8,7 +8,7 @@ test.describe("OMNIQUIZ crowd-rarity loop", () => {
     await page.getByRole("button", { name: /unlimited mode/i }).click();
     await expect(page).toHaveURL(/\/unlimited\/classic$/);
     await expect(page.getByText("THE ARCADE DIVE")).toBeVisible();
-    await expect(page.getByText(/15 prompts \/ full run/i)).toBeVisible();
+    await expect(page.getByText(/15 prompts \/ ∞ runs/i)).toBeVisible();
 
     await page.reload();
     await expect(page.getByText("THE ARCADE DIVE")).toBeVisible();
@@ -46,7 +46,11 @@ test.describe("OMNIQUIZ crowd-rarity loop", () => {
       elements
         .filter((element) => {
           const style = getComputedStyle(element);
-          return style.display !== "none" && style.visibility !== "hidden";
+          return (
+            style.display !== "none" &&
+            style.visibility !== "hidden" &&
+            !element.classList.contains("sr-only")
+          );
         })
         .map((element) => {
           const rect = element.getBoundingClientRect();

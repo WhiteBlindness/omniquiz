@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     browserRequirements: "Requires JavaScript",
   };
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <script
           type="application/ld+json"

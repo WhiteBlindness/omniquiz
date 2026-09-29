@@ -75,6 +75,14 @@
   line-height: 1.7;
 }
 
+.pack-intro {
+  max-width: 33rem;
+  margin: 0.45rem 0 0;
+  color: var(--drift);
+  font-size: clamp(0.64rem, 0.85vw, 0.76rem);
+  line-height: 1.6;
+}
+
 .landing-console {
   grid-column: 1;
   grid-row: 1;
@@ -257,14 +265,14 @@
   display: block;
   margin-bottom: 0.45rem;
   color: var(--muted);
-  font-size: 0.48rem;
+  font-size: 0.62rem;
   letter-spacing: 0.14em;
 }
 
 .rarity-scale-tiers {
   display: flex;
   gap: 2px;
-  height: 32px;
+  min-height: 40px;
 }
 
 .rarity-tier {
@@ -278,18 +286,21 @@
 }
 
 .rarity-tier b {
-  font-size: 0.42rem;
+  font-size: 0.54rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-align: center;
 }
 
 .rarity-tier small {
-  font-size: 0.38rem;
+  font-size: 0.5rem;
   font-variant-numeric: tabular-nums;
   opacity: 0.7;
 }
 
 .rarity-tier.tier-plankton { color: var(--cyan); border-bottom-color: var(--cyan); opacity: 0.5; }
+.rarity-tier.tier-tooclever { color: var(--drift); border-bottom-color: var(--drift); }
 .rarity-tier.tier-schooler { color: var(--cyan); border-bottom-color: var(--cyan); }
 .rarity-tier.tier-rare { color: var(--gold); border-bottom-color: var(--gold); }
 .rarity-tier.tier-deepcut { color: var(--coral); border-bottom-color: var(--coral); opacity: 0.8; }
@@ -528,11 +539,12 @@
 
 .game-shell[data-theme="light"] .begin-button {
   background: #982f48;
+  color: #fff;
 }
 
 .game-shell[data-theme="light"] .begin-button:hover:not(:disabled) {
   background: var(--coral);
-  color: var(--paper);
+  color: #fff;
 }
 
 .game-shell[data-theme="light"] .game-hud {
@@ -2211,7 +2223,7 @@
 
 .mode-speed .dive-pass {
   border-color: rgba(180, 60, 255, 0.38);
-  color: rgba(180, 60, 255, 0.72);
+  color: #c58aff;
 }
 
 .mode-speed .dive-pass:hover:not(:disabled) {
