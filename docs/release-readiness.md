@@ -35,19 +35,27 @@ Scope: the themed-pack architecture and the Movies pack (Cinema Boulevard), plus
 6. **Open scoring endpoint.** `/api/submit` is unauthenticated and un-rate-limited, and every response includes the top three answers for that prompt. A script can therefore read most of the atlas. That is acceptable while there is no leaderboard or prize; add attempt authority and rate limiting before adding either.
 7. **Client-side scores.** Scores, statistics and progress are computed and stored in the browser and can be edited. Shared score text is not verifiable.
 8. **Movies content.** The 36 prompts are editorial, not reviewed by anyone else. Answer order is the popularity claim (see `docs/content-sources.md`). Survival draws 30 of 36 prompts, so Movies survival runs vary less than core ones; Daily is not offered for Movies. Several prompts overlap in their answer sets (the two Genres prompts about "never gets old" and "biggest screen", and the theme-tune and famous-music prompts share about nine answers), and with 36 prompts those overlaps appear in most Survival runs. Widening the atlas is the fix, not the code.
-9. **Unused and unrecorded assets.** `public/` is 6.6 MB, including source PNGs and `tier-*.png` icons that no code references. Their origin is not recorded.
+9. **Unused and unrecorded assets.** `public/` still ships source PNGs and `bg-top.*`, which no rendered component uses. Their origin is not recorded.
 10. **Remaining dev-tooling advisories.** Five moderate or high advisories remain in dev-dependency chains (`vitest`, `@vitest/coverage-v8`, `@vitest/mocker`, `js-yaml`, `undici`). They are not imported by application source, and `npm audit fix` could not resolve them (it errored; some need major-version upgrades). Re-run `npm audit` before release.
 11. **English only.** There is no localisation layer, so no translated legal text exists to mislead.
 
 ## Red: blocks public promotion until answered
 
-Nothing in the code or content. The owner items below decide what the legal pages can say and which domain shared scores point to.
+**Presentation still close to the inspiration.** The copied wording, names, screenshots and look-alike images are gone (see "Resolved" below), but parts of the presentation remain close to Krillion. Changing them would be a redesign, so it is left to the owner:
+
+- the pink and cyan chromatic pixel wordmark;
+- the landing launch cluster: a how-to-play toggle above a full-width start button with marks on both sides, a run counter on the left and two small navigation buttons on the right;
+- the depth ruler along the right edge;
+- the core numbers: 7 prompts, 15 seconds, 10 metres per point, a 700-point maximum;
+- a packs page with a saved-runs panel and a centred back link.
+
+Decide whether these are acceptable as genre conventions or should be redesigned before public promotion. The owner items below also decide what the legal pages can say and which domain shared scores point to.
 
 ## Resolved: third-party inspiration material
 
 OMNIQUIZ was inspired by Krillion, a third-party game. The repository used to carry six screenshots of it, and the core interface mirrored its wording and tier names. This was resolved:
 
-- The screenshots (`reference/krillion-*.png`) and two outdated OMNIQUIZ screenshots showing the mirrored copy were removed from the working tree.
+- The screenshots (`reference/krillion-*.png`) and two outdated OMNIQUIZ screenshots showing the mirrored copy were removed from the working tree, together with two unused assets that closely resembled the reference: a sky-and-boat backdrop (`public/ocean/bg-sky.*`) and the rarity icons (`public/ocean/tier-*.png`, including a pixel shrimp). All remain recoverable from Git history.
 - Landing, how-to-play, button, placeholder, log and pack-page wording was rewritten around OMNIQUIZ's own ROV expedition (for example "DAILY EXPEDITION", "LAUNCH THE ROV", "SEND", "RECOVER THE ROV").
 - Rarity tiers have neutral ids (`common`, `familiar`, `notable`, `rare`, `obscure`, `unique`). Each world names them itself: ocean Surface to The Abyss, cinema Extra to One of a Kind.
 - The Movies pack is titled Cinema Boulevard, and its card badge and rules no longer echo the reference.
@@ -83,7 +91,7 @@ Sources: search-result summaries only. The primary texts could not be opened fro
 
 ## Owner input required
 
-1. Decide whether the removed third-party screenshots must also be purged from Git history (see "Resolved" above).
+1. Decide whether the remaining presentation similarities are acceptable (Red item above), and whether the removed third-party screenshots and look-alike images must also be purged from Git history.
 2. Operator identity and contact address to publish in the Privacy Policy and Terms, and the governing law to name.
 3. **Which host serves the site?** The repository's deployment configuration targets Cloudflare Workers, but the live demo linked from `main` is on `omniquiz-nine.vercel.app`. The Privacy Policy now says only "a hosting provider". Name the host there once confirmed, and state whether any platform analytics or request logging is enabled.
 4. Origin and licence of the pixel art in `public/ocean/` and `public/ui/`.

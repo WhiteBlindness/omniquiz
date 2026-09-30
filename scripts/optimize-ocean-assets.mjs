@@ -6,7 +6,7 @@ import sharp from "sharp";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const oceanDirectory = path.join(projectRoot, "public", "ocean");
-const assets = ["bg-sky", "bg-top", "bg-mid", "bg-trench"];
+const assets = ["bg-top", "bg-mid", "bg-trench"];
 
 const optimizeAsset = async (name) => {
   const source = path.join(oceanDirectory, `${name}.png`);

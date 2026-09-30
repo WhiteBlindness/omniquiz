@@ -32,7 +32,6 @@ Answer aliases that include a person's name are neutral descriptors (for example
 | Asset | Where | Status |
 | --- | --- | --- |
 | Ocean, submersible, sky and UI-frame pixel art | `public/ocean/`, `public/ui/` | **Origin and licence not recorded in the repository.** Owner to confirm. |
-| Rarity tier icons | `public/ocean/tier-*.png` | Same as above. No code references these files; they are shipped but unused. |
 | Cinema world pixel art (skylines, lamps, marquees, drive-in, premiere cinema, cars, moon) | `public/cinema/*.svg` | Original. Generated from rectangles by `scripts/generate-cinema-art.mjs`, which is the source of truth; rerun it to rebuild the files. All signage is generic ("NOW SHOWING", "PREMIERE", "TICKETS", "DRIVE-IN"); no film title, poster, still, studio logo or real venue is depicted. |
 | World card art (Sports, Music) | CSS gradients in `src/styles/worlds.css` | Drawn in CSS; no external image. |
 | Icons | Inline SVG in components | Authored in the repository. |
@@ -41,7 +40,7 @@ Answer aliases that include a person's name are neutral descriptors (for example
 
 ## Inspiration
 
-OMNIQUIZ was inspired by a third-party browser game, Krillion. No material from it is shipped: its screenshots were removed from the repository, and the interface wording, rarity-tier names and pack names that closely mirrored it were replaced with OMNIQUIZ's own. `src/lib/packs/environment.test.ts` fails if that wording returns to either world's interface or the pack metadata. The screenshots remain in older Git history; see `docs/release-readiness.md`.
+OMNIQUIZ was inspired by a third-party browser game, Krillion. Its screenshots were removed from the repository, along with an unused sky-and-boat backdrop and unused rarity icons (including a pixel shrimp) that closely resembled it. The interface wording, rarity-tier names and pack names that mirrored it were replaced with OMNIQUIZ's own. `src/lib/packs/environment.test.ts` fails if that wording returns to either world's interface or the pack metadata. The screenshots remain in older Git history; see `docs/release-readiness.md`.
 
 ## Adding content
 
