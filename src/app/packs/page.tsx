@@ -6,7 +6,7 @@ import { SiteFooter } from "../../components/SiteFooter";
 import { ThemeShell } from "../../components/ThemeShell";
 
 export const metadata = {
-  title: "OMNIQUIZ — Themed Packs",
+  title: "OMNIQUIZ — Packs",
   description: "Themed content packs for OMNIQUIZ. Each pack has its own prompts and answer atlas.",
 };
 
@@ -28,13 +28,13 @@ export default function PacksPage() {
 
       <section className="logbook" aria-labelledby="logbook-title">
         <div>
-          <p className="logbook-kicker" id="logbook-title">THE LOGBOOK</p>
-          <p className="logbook-copy">YOUR RUNS, KEPT</p>
+          <p className="logbook-kicker" id="logbook-title">SAVED ON THIS DEVICE</p>
+          <p className="logbook-copy">RUN HISTORY</p>
           <small>Stats and your current run stay in this browser. There is no account or cloud sync.</small>
         </div>
       </section>
 
-      <Link className="back-dive" href="/">TODAY&apos;S DIVE</Link>
+      <Link className="back-dive" href="/">TODAY&apos;S EXPEDITION</Link>
       <SiteFooter />
     </ThemeShell>
   );

@@ -38,9 +38,10 @@ Answer aliases that include a person's name are neutral descriptors (for example
 | Icons | Inline SVG in components | Authored in the repository. |
 | Sound effects | Synthesized in the browser (`src/state/AppStateProvider.tsx`, `src/lib/audio/sfx.ts`) | No audio files. |
 | Pixelify Sans | `@fontsource-variable/pixelify-sans` (self-hosted) | Distributed under the SIL Open Font License by its package. |
-| Reference screenshots | `reference/krillion-*.png` | **Screenshots of a third-party product named "Krillion"**, kept as design inspiration. No permission is recorded; scheduled for removal. See `docs/release-readiness.md`. |
 
-The `reference/` screenshots are not used by the application at runtime.
+## Inspiration
+
+OMNIQUIZ was inspired by a third-party browser game, Krillion. No material from it is shipped: its screenshots were removed from the repository, and the interface wording, rarity-tier names and pack names that closely mirrored it were replaced with OMNIQUIZ's own. `src/lib/packs/environment.test.ts` fails if that wording returns to either world's interface or the pack metadata. The screenshots remain in older Git history; see `docs/release-readiness.md`.
 
 ## Adding content
 

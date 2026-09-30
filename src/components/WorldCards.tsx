@@ -11,7 +11,7 @@ const MODE_LABEL = {
 
 const EYEBROW: Readonly<Record<string, string>> = {
   core: "THE MAIN GAME",
-  movies: "NOW SHOWING",
+  movies: "OPEN LATE",
 };
 
 type WorldCardProps = Readonly<{

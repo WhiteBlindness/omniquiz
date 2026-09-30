@@ -103,7 +103,7 @@ export function DiveForm({
         name="answer"
         autoComplete="off"
         ref={inputRef}
-        placeholder="type one answer…"
+        placeholder="your answer…"
         value={state.answer}
         onChange={(event) => onAnswer(event.target.value)}
         disabled={state.phase === "submitting"}

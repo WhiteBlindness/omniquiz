@@ -25,7 +25,7 @@ export default function NotFound() {
             RETURN TO BASE
           </Link>
           <Link href="/packs" className="back-dive not-found-secondary">
-            THEMED PACKS
+            ALL PACKS
           </Link>
         </div>
       </div>

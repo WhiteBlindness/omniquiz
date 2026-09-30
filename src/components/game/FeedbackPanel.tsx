@@ -73,9 +73,9 @@ export function FeedbackPanel({
       aria-atomic="true"
     >
       <p className="sr-only">Answer reveal</p>
-      {(result.tier === "krillion" || result.tier === "deepcut" || result.tier === "rare") ? (
+      {(result.tier === "unique" || result.tier === "obscure" || result.tier === "rare") ? (
         <div className="feedback-sparkles" aria-hidden="true">
-          {Array.from({ length: result.tier === "krillion" ? 8 : 5 }, (_, i) => (
+          {Array.from({ length: result.tier === "unique" ? 8 : 5 }, (_, i) => (
             <span key={i} className="feedback-spark" style={{ "--spark-i": i } as CSSProperties} />
           ))}
         </div>

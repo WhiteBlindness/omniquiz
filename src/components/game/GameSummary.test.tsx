@@ -18,7 +18,7 @@ const baseProps = {
   depthMetres: 3_500,
   stats: DEFAULT_STATS,
   roundLog: [],
-  shareLabel: "SHARE DIVE LOG",
+  shareLabel: "SHARE EXPEDITION LOG",
   onReplay: () => undefined,
   onShare: () => undefined,
 };
@@ -40,6 +40,6 @@ describe("GameSummary", () => {
     expect(screen.getByRole("link", { name: "ALL PACKS" })).toHaveAttribute("href", "/packs");
 
     rerender(<GameSummary {...baseProps} mode="speed" />);
-    expect(screen.getByRole("link", { name: "TODAY'S DIVE" })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: "TODAY'S EXPEDITION" })).toHaveAttribute("href", "/");
   });
 });

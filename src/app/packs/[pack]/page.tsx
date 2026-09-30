@@ -12,7 +12,7 @@ type PackPageProps = Readonly<{
 export async function generateMetadata({ params }: PackPageProps): Promise<Metadata> {
   const { pack: slug } = await params;
   const pack = getLivePackBySlug(slug);
-  if (!pack) return { title: "OMNIQUIZ — Themed Packs" };
+  if (!pack) return { title: "OMNIQUIZ — Packs" };
   return {
     title: `OMNIQUIZ — ${pack.title}`,
     description: pack.intro,

@@ -91,7 +91,7 @@ const CORE_CUES = [
   "A very small crew chose this route.",
   "A hidden answer beneath the common tide.",
   "A nearly unvisited trench in the crowd map.",
-  "A krillion-level answer for careful explorers.",
+  "An abyss-level answer for careful explorers.",
 ];
 
 // Rank cues follow the pack's world: the Movies pack must not describe answers in ocean terms.

@@ -1,14 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const OCEAN_TERMS = /\b(dive|diving|depth|descent|descend|descending|surface|ocean|submarine|rov|abyss|krillion|plankton|schooler|metres|uncharted|signal)\b/i;
+const OCEAN_TERMS = /\b(dive|diving|depth|descent|descend|descending|surface|ocean|submarine|rov|abyss|shallows|open water|expedition|metres|uncharted|signal)\b/i;
 
 const beginRun = async (page: Page, label: RegExp) => {
   await page.getByRole("button", { name: label }).click();
-  await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 8_000 });
+  await expect(page.getByPlaceholder(/your answer/i)).toBeVisible({ timeout: 8_000 });
 };
 
 const passAndContinue = async (page: Page) => {
-  await page.getByPlaceholder(/type one answer/i).press("Escape");
+  await page.getByPlaceholder(/your answer/i).press("Escape");
   await expect(page.locator('[data-phase="feedback"]')).toBeVisible();
   await page.keyboard.press("Enter");
   if (await page.locator('[data-phase="preview"]').count()) await page.keyboard.press(" ");
@@ -40,8 +40,8 @@ test.describe("worlds and navigation", () => {
   test("the packs page leads with Core and Movies and marks Sports and Music as coming soon", async ({ page }) => {
     await page.goto("/packs");
 
-    await expect(page.getByRole("link", { name: /the ocean dive/i })).toHaveAttribute("href", "/");
-    await expect(page.getByRole("link", { name: /at the movies/i })).toHaveAttribute("href", "/packs/movies");
+    await expect(page.getByRole("link", { name: /deep-sea expedition/i })).toHaveAttribute("href", "/");
+    await expect(page.getByRole("link", { name: /cinema boulevard/i })).toHaveAttribute("href", "/packs/movies");
     const planned = page.locator("article.world-card");
     await expect(planned).toHaveCount(2);
     await expect(planned.nth(0)).toContainText(/sports/i);
@@ -49,11 +49,11 @@ test.describe("worlds and navigation", () => {
     await expect(page.getByRole("link", { name: /sports|music/i })).toHaveCount(0);
   });
 
-  test("the landing page offers the worlds without burying the daily dive", async ({ page }) => {
+  test("the landing page offers the worlds without burying the daily expedition", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("button", { name: /begin descent/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /launch the rov/i })).toBeVisible();
     const strip = page.locator(".worlds-strip");
-    await expect(strip.getByRole("link", { name: /at the movies/i })).toHaveAttribute("href", "/packs/movies");
+    await expect(strip.getByRole("link", { name: /cinema boulevard/i })).toHaveAttribute("href", "/packs/movies");
     await expect(strip.locator("article")).toHaveCount(2);
   });
 
@@ -78,18 +78,18 @@ test.describe("worlds and navigation", () => {
     expect(await visibleText(page)).not.toMatch(OCEAN_TERMS);
     expect(await pseudoContent(page)).not.toMatch(OCEAN_TERMS);
 
-    await page.getByPlaceholder(/type one answer/i).press("Escape");
+    await page.getByPlaceholder(/your answer/i).press("Escape");
     await expect(page.getByRole("status")).toContainText(/pass logged/i);
     expect(await visibleText(page)).not.toMatch(OCEAN_TERMS);
 
     await page.goto("/packs/movies?mode=speed");
     await beginRun(page, /start the clock/i);
     for (let round = 0; round < 10; round += 1) {
-      await page.getByPlaceholder(/type one answer/i).press("Escape");
+      await page.getByPlaceholder(/your answer/i).press("Escape");
       await expect(page.locator('[data-phase="feedback"]')).toBeVisible();
       await page.keyboard.press("Enter");
       if (round === 9) break;
-      await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 8_000 });
+      await expect(page.getByPlaceholder(/your answer/i)).toBeVisible({ timeout: 8_000 });
     }
     await expect(page.locator('[data-phase="summary"]')).toBeVisible({ timeout: 10_000 });
     expect(await visibleText(page)).not.toMatch(OCEAN_TERMS);
@@ -102,7 +102,7 @@ test.describe("worlds and navigation", () => {
 
     for (let round = 0; round < 14; round += 1) {
       await passAndContinue(page);
-      await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 8_000 });
+      await expect(page.getByPlaceholder(/your answer/i)).toBeVisible({ timeout: 8_000 });
     }
     await expect(page.locator(".game-shell")).toHaveAttribute("data-stage", "premiere-night");
     await expect(page.locator(".cinema-backdrop")).toHaveAttribute("data-stage", "4");
@@ -125,7 +125,7 @@ test.describe("worlds and navigation", () => {
     await beginRun(page, /start the show/i);
     for (let round = 0; round < 2; round += 1) {
       await passAndContinue(page);
-      await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 8_000 });
+      await expect(page.getByPlaceholder(/your answer/i)).toBeVisible({ timeout: 8_000 });
     }
     expect(await loopingAnimations()).toBe(0);
   });
@@ -140,7 +140,7 @@ test.describe("worlds and navigation", () => {
   test("exiting from feedback needs no confirmation and the run stays resumable", async ({ page }) => {
     await page.goto("/packs/movies");
     await beginRun(page, /start the show/i);
-    await page.getByPlaceholder(/type one answer/i).press("Escape");
+    await page.getByPlaceholder(/your answer/i).press("Escape");
     await expect(page.getByRole("status")).toContainText(/pass logged/i);
 
     await page.getByRole("button", { name: "Exit to home" }).click();
@@ -154,7 +154,7 @@ test.describe("worlds and navigation", () => {
 
   test("leaving during the answer clock asks first, and staying restores focus", async ({ page }) => {
     await page.goto("/");
-    await beginRun(page, /begin descent/i);
+    await beginRun(page, /launch the rov/i);
 
     const exit = page.getByRole("button", { name: "Exit to home" });
     await exit.click();
@@ -171,7 +171,7 @@ test.describe("worlds and navigation", () => {
 
   test("the logo takes the same guarded route as Exit, including on the daily route", async ({ page }) => {
     await page.goto("/");
-    await beginRun(page, /begin descent/i);
+    await beginRun(page, /launch the rov/i);
     const prompt = await page.locator("#current-prompt").innerText();
 
     await page.locator(".hud-home").click();
@@ -179,7 +179,7 @@ test.describe("worlds and navigation", () => {
     await page.getByRole("button", { name: /leave run/i }).click();
 
     await expect(page).toHaveURL(/\/$/);
-    await expect(page.getByRole("button", { name: /begin descent/i })).toBeVisible();
+    await expect(page.getByRole("button", { name: /launch the rov/i })).toBeVisible();
     const resume = page.getByRole("button", { name: /resume your saved run/i });
     await expect(resume).toBeVisible();
 
@@ -204,8 +204,8 @@ test.describe("worlds and navigation", () => {
 
   test("Escape passes the prompt without also skipping the feedback screen", async ({ page }) => {
     await page.goto("/");
-    await beginRun(page, /begin descent/i);
-    await page.getByPlaceholder(/type one answer/i).press("Escape");
+    await beginRun(page, /launch the rov/i);
+    await page.getByPlaceholder(/your answer/i).press("Escape");
 
     await expect(page.getByRole("status")).toContainText(/pass logged/i);
     await page.waitForTimeout(600);

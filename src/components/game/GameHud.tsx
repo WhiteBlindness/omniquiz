@@ -15,7 +15,7 @@ type GameHudProps = Readonly<{
   onExit?: () => void;
 }>;
 
-const LEGEND_SHARE = { plankton: 30, rare: 5, krillion: 1 } as const;
+const LEGEND_SHARE = { common: 30, rare: 5, unique: 1 } as const;
 
 const timerDurationMs = (mode: GameMode): number => answerSecondsForMode(mode) * 1_000;
 
@@ -204,7 +204,7 @@ export function GameHud({
       <div className="hud-legend" role="group" aria-label="Rarity legend">
         {lex.legend.map((entry) => (
           <span key={entry.tier}>
-            <i className={`hud-legend-swatch hud-legend-${entry.tier === "plankton" ? "common" : entry.tier}`} aria-hidden="true" />
+            <i className={`hud-legend-swatch hud-legend-${entry.tier === "common" ? "common" : entry.tier}`} aria-hidden="true" />
             {entry.label} {rarityForCrowdShare(LEGEND_SHARE[entry.tier]).score}
           </span>
         ))}

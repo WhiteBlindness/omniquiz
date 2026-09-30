@@ -51,12 +51,12 @@ const ATLAS_NOTE = "Atlas shares are curated estimates for gameplay, not live po
 
 /** One representative share per tier; points come from the scoring function, never from copy. */
 export const RARITY_SCALE = [
-  { tier: "plankton", label: "PLANKTON", share: 30 },
-  { tier: "tooclever", label: "TOO CLEVER", share: 18 },
-  { tier: "schooler", label: "SCHOOLER", share: 10 },
-  { tier: "rare", label: "RARE", share: 5 },
-  { tier: "deepcut", label: "DEEP CUT", share: 2 },
-  { tier: "krillion", label: "KRILLION", share: 1 },
+  { tier: "common", share: 30 },
+  { tier: "familiar", share: 18 },
+  { tier: "notable", share: 10 },
+  { tier: "rare", share: 5 },
+  { tier: "obscure", share: 2 },
+  { tier: "unique", share: 1 },
 ] as const;
 
 const MODE_OPTIONS: readonly Readonly<{
@@ -235,16 +235,16 @@ function GameSession({
       ? dayLabel ? `SURVIVAL / UTC DAY ${dayLabel}` : "SURVIVAL RUN #1"
       : mode === "unlimited"
         ? dayLabel ? `ARCADE / UTC DAY ${dayLabel}` : "ARCADE RUN #1"
-        : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
+        : dailyLabel ?? (dayLabel ? `EXPEDITION #${dayLabel}` : "TODAY'S EXPEDITION");
 
   const handleShare = useCallback(async () => {
     const tierSquare: Record<string, string> = {
-      krillion: "\u{1f7e7}",
-      deepcut: "\u{1f7e8}",
+      unique: "\u{1f7e7}",
+      obscure: "\u{1f7e8}",
       rare: "\u{1f7e9}",
-      schooler: "\u{1f7e6}",
-      plankton: "⬜",
-      tooclever: "\u{1f7ea}",
+      notable: "\u{1f7e6}",
+      common: "⬜",
+      familiar: "\u{1f7ea}",
       uncharted: "⬛",
     };
     const modeEmoji: Record<GameMode, string> = environment.id === "cinema"
@@ -470,9 +470,9 @@ function GameSession({
             <div className="launch-rail">
               <span>{diveLabel}</span>
               <nav aria-label="Other modes">
-                <Link href="/packs">{isPack ? "ALL PACKS" : "THEMED PACKS"}</Link>
+                <Link href="/packs">{isPack ? "ALL PACKS" : "PACKS"}</Link>
                 <Link href={!isPack && mode === "daily" ? "/unlimited/classic" : "/"}>
-                  {!isPack && mode === "daily" ? "ARCADE ∞" : isPack ? "MAIN GAME" : "TODAY'S DIVE"}
+                  {!isPack && mode === "daily" ? "ARCADE ∞" : isPack ? "MAIN GAME" : "TODAY'S EXPEDITION"}
                 </Link>
               </nav>
             </div>

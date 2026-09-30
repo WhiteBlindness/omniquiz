@@ -9,12 +9,12 @@ export type Category = (typeof CATEGORIES)[number];
 
 export const RARITY_TIERS = [
   "uncharted",
-  "plankton",
-  "tooclever",
-  "schooler",
+  "common",
+  "familiar",
+  "notable",
   "rare",
-  "deepcut",
-  "krillion",
+  "obscure",
+  "unique",
 ] as const;
 
 export type RarityTier = (typeof RARITY_TIERS)[number];

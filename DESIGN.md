@@ -241,7 +241,7 @@ The control language is square and engineered: buttons, inputs, route cards, lin
 ### Buttons
 
 - **Shape:** Square, minimum 44px touch targets; primary game actions add a four- or five-pixel lower border for tactile pressure.
-- **Primary:** Begin Descent is a full-width 62px-minimum coral-dark control with opposing descent marks and 0.8rem by 1rem padding.
+- **Primary:** Launch the ROV is a full-width 62px-minimum coral-dark control with opposing descent marks and 0.8rem by 1rem padding.
 - **Hover / Focus:** Hover fills coral and lifts the launch action by 2px; keyboard focus retains the global two-pixel Phosphor Paper outline at a four-pixel offset.
 - **Submit / Pass / Continue:** DIVE and Continue use the coral action family; PASS stays navy with a live-line border and secondary text until hover.
 
@@ -257,7 +257,7 @@ The control language is square and engineered: buttons, inputs, route cards, lin
 - **Prompt / Feedback:** A 620px-max blackwater panel is wrapped by the sliced `public/ui/prompt-hull.webp` raster; feedback inherits the same hull and swaps to the score-slam entrance.
 - **Answer Hull:** The 690px-max form uses `public/ui/answer-hull.webp` around a flexible answer field plus DIVE and PASS controls.
 - **Launch / Dive Log:** Dense Broadcast Panel surfaces use a three-pixel cyan top rail, quiet side borders, and Panel Lift.
-- **Daily Dive Log:** After seven prompts, retain final score and depth, add `EST. SCORE PERCENTILE` against the 700-point daily ceiling, and show the immutable per-round rarity log.
+- **Daily Expedition Log:** After seven prompts, retain final score and depth, add `EST. SCORE PERCENTILE` against the 700-point daily ceiling, and show the immutable per-round rarity log.
 - **Unlimited Dive Log:** Fifteen prompts always resolve to a full log; zero-score pass, timeout, and uncharted rounds never terminate the run.
 
 ### Inputs / Fields

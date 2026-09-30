@@ -19,7 +19,11 @@ const collectStrings = (value: unknown, out: string[] = []): string[] => {
   return out;
 };
 
-const OCEAN_TERMS = /\b(dive|diving|depth|descent|descend|descending|surface|ocean|submarine|rov|abyss|krillion|plankton|schooler|metres|uncharted|signal)\b/i;
+const OCEAN_TERMS = /\b(dive|diving|depth|descent|descend|descending|surface|shallows|open water|ocean|submarine|rov|abyss|expedition|metres|uncharted|signal)\b/i;
+
+// Wording and names from the third-party game that inspired OMNIQUIZ; none of it may ship.
+const INSPIRATION_WORDING =
+  /krillion|plankton|schooler|too clever|sinks? (you )?deeper|begin descent|daily dive|arcade dive|endless dive|one in a|type one answer|themed packs|logbook|now showing|at the movies|same for everyone/i;
 
 describe("pack environments", () => {
   it("gives every live pack an environment with a renderer and a lexicon", () => {
@@ -35,17 +39,27 @@ describe("pack environments", () => {
     for (const id of planned) expect(isLiveEnvironment(id)).toBe(false);
   });
 
-  it("keeps the ocean lexicon on the strings core players already know", () => {
+  it("gives the ocean world its own expedition wording", () => {
     const { lexicon } = ENVIRONMENTS.ocean;
-    expect(lexicon.begin.daily).toBe("BEGIN DESCENT");
+    expect(lexicon.begin.daily).toBe("LAUNCH THE ROV");
     expect(lexicon.begin.survival).toBe("ENTER THE ABYSS");
-    expect(lexicon.submit.unlimited).toBe("DIVE");
+    expect(lexicon.submit.unlimited).toBe("SEND");
     expect(lexicon.submit.speed).toBe("LOCK");
-    expect(lexicon.nextPrompt.unlimited).toBe("CONTINUE DESCENT");
-    expect(lexicon.lastPrompt.unlimited).toBe("SURFACE WITH LOG");
+    expect(lexicon.nextPrompt.unlimited).toBe("NEXT PROMPT");
+    expect(lexicon.lastPrompt.unlimited).toBe("RECOVER THE ROV");
     expect(lexicon.logName.survival).toBe("THREAT LOG");
-    expect(lexicon.tierHeading.krillion).toBe("ONE IN A KRILLION");
+    expect(lexicon.tierHeading.unique).toBe("THE ABYSS");
     expect(lexicon.travel?.label).toBe("DEPTH");
+  });
+
+  it("ships no wording borrowed from the game that inspired OMNIQUIZ", () => {
+    const shipped = [
+      ...collectStrings(ENVIRONMENTS.ocean.lexicon),
+      ...collectStrings(ENVIRONMENTS.cinema.lexicon),
+      ...collectStrings(ENVIRONMENTS.cinema.stages),
+      ...collectStrings(PACK_LIST),
+    ];
+    for (const text of shipped) expect(text, text).not.toMatch(INSPIRATION_WORDING);
   });
 
   it("never lets ocean vocabulary into the cinema lexicon", () => {

@@ -2,7 +2,7 @@
 
 A practical audit of what is verified, what needs a human, and what blocks a public release. It is a product-readiness record, not legal certification or a WCAG conformance claim.
 
-Scope of this pass: the themed-pack architecture and At the Movies pack, plus a privacy, accessibility, security, licensing and claims review of the whole application.
+Scope: the themed-pack architecture and the Movies pack (Cinema Boulevard), plus a privacy, accessibility, security, licensing and claims review of the whole application.
 
 ## Green: verified
 
@@ -20,7 +20,7 @@ Scope of this pass: the themed-pack architecture and At the Movies pack, plus a 
 | Security headers | CSP (same-origin, no `unsafe-eval`, `frame-ancestors 'none'`), `nosniff`, `X-Frame-Options`, referrer and permissions policies on every route, including `/` and 404s, on `next start` and on the workerd runtime. No CSP violations while loading every route and playing a round |
 | Automated accessibility | axe-core (WCAG 2.0/2.1/2.2 A and AA plus best-practice rules) reports zero violations on the landing page, packs page, Movies intro, how-to-play, answering, feedback, summary, and the privacy, terms and cookies pages in dark and light themes. Before fixes it reported 12 contrast failures, two links distinguished only by colour and a mis-scoped footer landmark on every page |
 | Target sizes | Footer links, the storage notice button and the focused skip link meet 44px; an e2e asserts all rendered controls at 320px |
-| Unsupported claims removed | The invented "estimated score percentile" is now "share of daily max"; the tutorial rarity scale matches scoring (Schooler is 30, Too Clever added); privacy statements that were not true (aggregate statistics, "no personal data", rights "inherently fulfilled") are gone; the logbook no longer advertises unlocks or a dead restore button |
+| Unsupported claims removed | The invented "estimated score percentile" is now "share of daily max"; the tutorial rarity scale is generated from the scoring function; privacy statements that were not true (aggregate statistics, "no personal data", rights "inherently fulfilled") are gone; the packs page no longer advertises unlocks or a dead restore button |
 | Secrets | Repository scan found none; `.env*` is ignored |
 | Dependency advisories | The critical `next` advisory is fixed by upgrading to 16.3.7; the vulnerable `sharp`, `wrangler` and related dev tooling were updated in range |
 | Refund policy | Not applicable, see below |
@@ -31,7 +31,7 @@ Scope of this pass: the themed-pack architecture and At the Movies pack, plus a 
 2. **Storage notice classification.** OMNIQUIZ writes only functional local storage (theme, sound, statistics, current run) and sets no cookies. The existing notice is informational and no consent choice is offered. Whether persistent preference and statistics storage falls under the "strictly necessary / service explicitly requested" exemption is an interpretation that needs human review.
 3. **Small text.** 82 font-size declarations across six stylesheets are below 0.6rem (about 9.6px); the smallest are 0.42rem (about 6.7px). They are mostly HUD telemetry labels and summary micro-labels in the 16-bit design. axe does not measure this. The tutorial scale, storage notice and footer were raised; the rest needs a design-led pass.
 4. **Accessibility beyond automation.** No manual screen-reader pass was done; core Speed and Survival phases were not axe-scanned; reduced-motion and high-contrast blocks exist in the stylesheets but were not re-tested. Automated checks find only part of real accessibility problems.
-5. **CSP strength.** The policy allows `'unsafe-inline'` for scripts and styles because the framework and React emit inline code. Nonce-based CSP is a follow-up. The app does not set HSTS; confirm it is applied at the Cloudflare edge.
+5. **CSP strength.** The policy allows `'unsafe-inline'` for scripts and styles because the framework and React emit inline code. Nonce-based CSP is a follow-up. The app does not set HSTS; confirm the hosting edge applies it.
 6. **Open scoring endpoint.** `/api/submit` is unauthenticated and un-rate-limited, and every response includes the top three answers for that prompt. A script can therefore read most of the atlas. That is acceptable while there is no leaderboard or prize; add attempt authority and rate limiting before adding either.
 7. **Client-side scores.** Scores, statistics and progress are computed and stored in the browser and can be edited. Shared score text is not verifiable.
 8. **Movies content.** The 36 prompts are editorial, not reviewed by anyone else. Answer order is the popularity claim (see `docs/content-sources.md`). Survival draws 30 of 36 prompts, so Movies survival runs vary less than core ones; Daily is not offered for Movies. Several prompts overlap in their answer sets (the two Genres prompts about "never gets old" and "biggest screen", and the theme-tune and famous-music prompts share about nine answers), and with 36 prompts those overlaps appear in most Survival runs. Widening the atlas is the fix, not the code.
@@ -41,13 +41,19 @@ Scope of this pass: the themed-pack architecture and At the Movies pack, plus a 
 
 ## Red: blocks public promotion until answered
 
-**Third-party "Krillion" material.** The owner has confirmed that Krillion is someone else's product, used as inspiration for this game. The repository still contains six screenshots of it (`reference/krillion-*.png`), and the core landing page still mirrors its wording ("THE DAILY DIVE", "7 prompts · 15 seconds each · rarer answers sink deeper", "BEGIN DESCENT", "THEMED PACKS"). The top rarity tier is named "One in a Krillion" (also the `krillion` tier id and an e2e file name). Publishing another product's screenshots and closely mirroring its copy is an infringement and reputation risk. Nothing has been removed or renamed yet. Before public promotion:
+Nothing in the code or content. The owner items below decide what the legal pages can say and which domain shared scores point to.
 
-- remove `reference/` from the repository (the files remain in Git history; decide whether that matters for a public repo),
-- rewrite the core landing copy and the rarity-tier name in the project's own words, and
-- recheck the Terms page's statement that prompts, atlases and code are original work.
+## Resolved: third-party inspiration material
 
-The Movies world's copy and art were written for this project and do not reuse the landing wording above. Two of its tier names ("Too Clever", "Deep Cut") are shared with the core tiers and should be reviewed alongside them.
+OMNIQUIZ was inspired by Krillion, a third-party game. The repository used to carry six screenshots of it, and the core interface mirrored its wording and tier names. This was resolved:
+
+- The screenshots (`reference/krillion-*.png`) and two outdated OMNIQUIZ screenshots showing the mirrored copy were removed from the working tree.
+- Landing, how-to-play, button, placeholder, log and pack-page wording was rewritten around OMNIQUIZ's own ROV expedition (for example "DAILY EXPEDITION", "LAUNCH THE ROV", "SEND", "RECOVER THE ROV").
+- Rarity tiers have neutral ids (`common`, `familiar`, `notable`, `rare`, `obscure`, `unique`). Each world names them itself: ocean Surface to The Abyss, cinema Extra to One of a Kind.
+- The Movies pack is titled Cinema Boulevard, and its card badge and rules no longer echo the reference.
+- `src/lib/packs/environment.test.ts` fails if the mirrored wording returns to either lexicon or the pack metadata.
+
+Still open, for the owner: the screenshots remain in earlier Git history. Removing them from history would mean rewriting the published branch history, which this project does not do without an explicit decision. The game concept itself (type an answer, uncommon answers score more, an ocean-depth metaphor, a movies pack) remains inspired by the reference, and the Terms page's statement that prompts, atlases and code are original work should be read with that in mind.
 
 ## Not applicable
 
@@ -77,9 +83,9 @@ Sources: search-result summaries only. The primary texts could not be opened fro
 
 ## Owner input required
 
-1. Schedule the Krillion clean-up (Red item above). Confirmed third-party; not yet done.
+1. Decide whether the removed third-party screenshots must also be purged from Git history (see "Resolved" above).
 2. Operator identity and contact address to publish in the Privacy Policy and Terms, and the governing law to name.
-3. Confirm the site is served through Cloudflare (the Privacy Policy says so, based on the deployment configuration) and whether Cloudflare Web Analytics, Logpush or other dashboard-level logging is enabled.
+3. **Which host serves the site?** The repository's deployment configuration targets Cloudflare Workers, but the live demo linked from `main` is on `omniquiz-nine.vercel.app`. The Privacy Policy now says only "a hosting provider". Name the host there once confirmed, and state whether any platform analytics or request logging is enabled.
 4. Origin and licence of the pixel art in `public/ocean/` and `public/ui/`.
 5. **Do you control `omniquiz.com`?** The domain is hardcoded in `layout.tsx` (`metadataBase` and JSON-LD), `sitemap.ts`, `robots.ts` and in the share text produced by `GameExperience.tsx`. If it is not yours, every shared score advertises someone else's site. The code was left alone because the fix depends on your answer. The actual deployment target, any other custom domain and any bindings are not recorded in the repository, and the sandbox cannot reach the domain (its egress proxy returns 403).
 6. The README names only the repository owner. Add the "what I designed and built" statement and any links you want; it was deliberately not written for you.

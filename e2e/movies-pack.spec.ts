@@ -11,7 +11,7 @@ test.describe("Movies pack", () => {
   test("the packs page offers Movies as playable and keeps Sports and Music honest", async ({ page }) => {
     await page.goto("/packs");
 
-    const movies = page.getByRole("link", { name: /at the movies/i });
+    const movies = page.getByRole("link", { name: /cinema boulevard/i });
     await expect(movies).toHaveAttribute("href", "/packs/movies");
     await expect(page.getByRole("link", { name: /sports/i })).toHaveCount(0);
     await expect(page.getByRole("link", { name: /^music/i })).toHaveCount(0);
@@ -29,7 +29,7 @@ test.describe("Movies pack", () => {
     );
 
     await page.goto("/packs/movies");
-    await expect(page.getByText("AT THE MOVIES / THE LATE SHOW")).toBeVisible();
+    await expect(page.getByText("CINEMA BOULEVARD / THE LATE SHOW")).toBeVisible();
     await expect(page.getByRole("button", { name: /daily mode/i })).toHaveCount(0);
     await expect(page.getByRole("button", { name: /speed mode/i })).toBeVisible();
 
@@ -45,7 +45,7 @@ test.describe("Movies pack", () => {
     expect(Object.keys(first).sort()).toEqual(["category", "id", "prompt"]);
     expect(JSON.stringify(payload)).not.toMatch(/answers|aliases|insight/);
 
-    const answer = page.getByPlaceholder(/type one answer/i);
+    const answer = page.getByPlaceholder(/your answer/i);
     await expect(answer).toBeVisible({ timeout: 6_000 });
     await expect(page.getByText(/film atlas/i).first()).toBeVisible();
     await expect(page.getByRole("heading", { name: first.prompt })).toBeVisible();
@@ -68,7 +68,7 @@ test.describe("Movies pack", () => {
       feedbackCopy = feedbackCopy.replaceAll(entry.label.toLowerCase(), "");
     }
     expect(feedbackCopy).not.toMatch(
-      /\b(dive|depth|descent|surface|ocean|current|tide|trench|abyss|krillion|explorers)\b/i,
+      /\b(dive|depth|descent|surface|ocean|current|tide|trench|abyss|shallows|expedition|explorers)\b/i,
     );
   });
 
@@ -76,10 +76,10 @@ test.describe("Movies pack", () => {
     await page.goto("/packs/movies");
     await page.getByRole("button", { name: /speed mode/i }).click();
     await expect(page).toHaveURL(/\/packs\/movies\?mode=speed$/);
-    await expect(page.getByText("AT THE MOVIES / SPEED RUN")).toBeVisible();
+    await expect(page.getByText("CINEMA BOULEVARD / SPEED RUN")).toBeVisible();
 
     await page.goto("/packs/movies?mode=daily");
-    await expect(page.getByText("AT THE MOVIES / THE LATE SHOW")).toBeVisible();
+    await expect(page.getByText("CINEMA BOULEVARD / THE LATE SHOW")).toBeVisible();
 
     const daily = await page.request.get("/api/questions?pack=movies&mode=daily");
     expect(daily.status()).toBe(400);
@@ -98,21 +98,21 @@ test.describe("Movies pack", () => {
   test("keeps Movies progress out of the core routes", async ({ page }) => {
     await page.goto("/packs/movies");
     await page.getByRole("button", { name: /start the show/i }).click();
-    await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 6_000 });
+    await expect(page.getByPlaceholder(/your answer/i)).toBeVisible({ timeout: 6_000 });
 
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("omniquiz-progress-v3") ?? "{}"));
     expect(stored.pack).toBe("movies");
 
     await page.goto("/unlimited/classic");
-    await expect(page.getByText("THE ARCADE DIVE")).toBeVisible();
-    await expect(page.getByRole("button", { name: /begin descent/i })).toBeVisible();
-    await expect(page.getByPlaceholder(/type one answer/i)).toHaveCount(0);
+    await expect(page.getByText("ARCADE EXPEDITION")).toBeVisible();
+    await expect(page.getByRole("button", { name: /launch the rov/i })).toBeVisible();
+    await expect(page.getByPlaceholder(/your answer/i)).toHaveCount(0);
   });
 
   test("submits an answer with the keyboard and survives a mid-round reload", async ({ page }) => {
     await page.goto("/packs/movies?mode=speed");
     await page.getByRole("button", { name: /start the clock/i }).click();
-    const answer = page.getByPlaceholder(/type one answer/i);
+    const answer = page.getByPlaceholder(/your answer/i);
     await expect(answer).toBeVisible({ timeout: 6_000 });
 
     await answer.fill("no such movie thing");

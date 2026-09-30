@@ -49,7 +49,7 @@ export function GameSummary({
     acc[r.tier] = (acc[r.tier] ?? 0) + r.score;
     return acc;
   }, {});
-  const tierSegments = (["krillion", "deepcut", "rare", "schooler", "plankton", "tooclever"] as const)
+  const tierSegments = (["unique", "obscure", "rare", "notable", "common", "familiar"] as const)
     .map((tier) => ({ tier, label: lex.tierScale[tier], score: tierBuckets[tier] ?? 0 }))
     .filter((s) => s.score > 0);
 
@@ -154,7 +154,7 @@ export function GameSummary({
           className="secondary-link"
           href={pack !== "core" ? "/packs" : mode === "daily" ? "/unlimited/classic" : "/"}
         >
-          {pack !== "core" ? "ALL PACKS" : mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S DIVE"}
+          {pack !== "core" ? "ALL PACKS" : mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S EXPEDITION"}
         </Link>
       </div>
     </section>

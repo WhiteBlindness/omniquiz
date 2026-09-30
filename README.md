@@ -2,7 +2,7 @@
 
 A pixel-art trivia game where the *uncommon* answer wins. You get a deliberately broad prompt, type one honest answer, and the game reveals how common that answer is inside a curated answer atlas. Rarer, recognizable answers score more.
 
-Each content pack is its own world. The core game is an ocean descent where good answers sink your submersible deeper; the Movies pack is a late-night drive from the city limits, past neon marquees and a drive-in, to a premiere night, with its own interface wording.
+Each content pack is its own world. The core game is a deep-sea expedition where uncommon answers send a remotely operated submersible further down; the Movies pack, Cinema Boulevard, crosses town at night from the city limits, past neon marquees and a drive-in, to a premiere, with its own interface wording.
 
 It is a free, account-free browser game with four game modes and themed content packs, built as a small full-stack TypeScript project: Next.js on Cloudflare Workers, deterministic scoring, and a server-side answer atlas that the browser never receives.
 
@@ -13,7 +13,7 @@ It is a free, account-free browser game with four game modes and themed content 
 
 ![OMNIQUIZ landing page on desktop](docs/screenshots/landing-desktop.jpg)
 
-| Choose a world | At the Movies, mid-run | At the Movies, arrival |
+| Choose a world | Cinema Boulevard, mid-run | Cinema Boulevard, arrival |
 | --- | --- | --- |
 | ![Packs page](docs/screenshots/packs-desktop.jpg) | ![Movies run on the neon boulevard](docs/screenshots/movies-boulevard-desktop.jpg) | ![Movies summary at premiere night](docs/screenshots/movies-summary-desktop.jpg) |
 
@@ -33,10 +33,10 @@ It is a free, account-free browser game with four game modes and themed content 
 | Pack | Status | Modes |
 | --- | --- | --- |
 | Core (General, Science, Geography, History) | Live | All four |
-| At the Movies | Live | Unlimited, Speed Run, Survival |
+| Cinema Boulevard (Movies) | Live | Unlimited, Speed Run, Survival |
 | Sports, Music | Planned, no content yet | None |
 
-**Scoring** is deterministic and derived only from the matched answer's crowd share: at least 30% is Plankton (10 points), 18% Too Clever (15), 10% Schooler (30), 5% Rare Catch (60), 2% Deep Cut (85), below 2% One in a Krillion (100). Passing, timing out or typing something outside the atlas scores zero with no penalty. Every point adds 10 metres of depth.
+**Scoring** is deterministic and derived only from the matched answer's crowd share: six rarity tiers score 10, 15, 30, 60, 85 and 100 points at shares of at least 30%, 18%, 10%, 5%, 2% and below 2%. Each world names the tiers in its own terms: the ocean runs from Surface to The Abyss, the cinema from Extra to One of a Kind. Passing, timing out or typing something outside the atlas scores zero with no penalty. In the ocean world every point adds 10 metres of depth.
 
 ## What is technically interesting
 
@@ -97,8 +97,8 @@ Set `BASE_URL` to point Playwright at an already-running server instead of start
 
 - `/` — Daily
 - `/unlimited/classic`, `/speed-run`, `/survival` — core modes (optional `?category=` for the core pack)
-- `/packs` — themed packs
-- `/packs/movies` — At the Movies (`?mode=speed` or `?mode=survival`)
+- `/packs` — all packs
+- `/packs/movies` — Cinema Boulevard (`?mode=speed` or `?mode=survival`)
 - `/privacy`, `/terms`, `/cookies` — plain-language policies
 - `POST /api/submit`, `GET /api/questions` — game API (same-origin only)
 

@@ -11,6 +11,7 @@ import { SUBMISSION_TIMEOUT_MS } from "../../hooks/useGameLoop";
 import { PROGRESS_STORAGE_KEY } from "./storage";
 import { PREVIEW_SECONDS } from "./gameReducer";
 import { rarityForCrowdShare } from "../../lib/game/scoring";
+import { ENVIRONMENTS } from "../../lib/packs/environment";
 import { GameExperience, RARITY_SCALE } from "./GameExperience";
 
 const { replaceRoute } = vi.hoisted(() => ({ replaceRoute: vi.fn() }));
@@ -117,7 +118,7 @@ describe("GameExperience", () => {
   const startAnswering = async (mode: "daily" | "unlimited" = "daily") => {
     const view = render(<GameExperience mode={mode} />);
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+      fireEvent.click(screen.getByRole("button", { name: /launch the rov/i }));
     });
     await act(async () => {
       await vi.advanceTimersByTimeAsync(3_000);
@@ -129,10 +130,10 @@ describe("GameExperience", () => {
     render(<GameExperience mode="daily" />);
 
     expect(screen.getByRole("heading", { name: /omniquiz/i })).toBeVisible();
-    expect(screen.getByText("THE DAILY DIVE")).toBeVisible();
+    expect(screen.getByText("DAILY EXPEDITION")).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: /how to play/i }));
-    expect(screen.getByText(/answer families, not one fixed fact/i)).toBeVisible();
-    expect(screen.getByText(/pass, timeout, or an uncharted answer scores zero/i)).toBeVisible();
+    expect(screen.getByText(/different wordings of one idea count/i)).toBeVisible();
+    expect(screen.getByText(/a pass, a timeout, or an answer outside the atlas earns nothing/i)).toBeVisible();
     expect(screen.queryByText(/penalty|sudden death/i)).not.toBeInTheDocument();
   });
 
@@ -144,7 +145,7 @@ describe("GameExperience", () => {
     for (const entry of RARITY_SCALE) {
       const expected = rarityForCrowdShare(entry.share);
       expect(expected.tier).toBe(entry.tier);
-      expect(scale.textContent).toContain(`${entry.label}${expected.score} PTS`);
+      expect(scale.textContent).toContain(`${ENVIRONMENTS.ocean.lexicon.tierScale[entry.tier]}${expected.score} PTS`);
     }
     expect(scale.textContent).toContain("85 PTS");
     expect(scale.textContent).not.toContain("80 PTS");
@@ -154,26 +155,26 @@ describe("GameExperience", () => {
     render(<GameExperience mode="daily" />);
     fireEvent.click(screen.getByRole("button", { name: /unlimited mode/i }));
 
-    expect(screen.getByText("THE ARCADE DIVE")).toBeVisible();
+    expect(screen.getByText("ARCADE EXPEDITION")).toBeVisible();
     expect(screen.getByRole("button", { name: /unlimited mode/i })).toHaveAttribute("aria-pressed", "true");
     expect(replaceRoute).toHaveBeenCalledWith("/unlimited/classic");
   });
 
   it("shows share, points, depth, canonical label, and common comparisons", async () => {
     const { container } = await startAnswering();
-    const input = screen.getByPlaceholderText(/type one answer/i);
+    const input = screen.getByPlaceholderText(/your answer/i);
     fireEvent.change(input, { target: { value: "Gulf Stream" } });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+      fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
     });
 
-    expect(screen.getByRole("status")).toHaveTextContent(/rare catch/i);
+    expect(screen.getByRole("status")).toHaveTextContent(/twilight zone/i);
     expect(screen.getByRole("status")).toHaveTextContent(/7\.5%/i);
     expect(screen.getByRole("status")).toHaveTextContent(/\+60.*points/i);
     expect(screen.getByRole("status")).toHaveTextContent(/\+600m descent/i);
     expect(screen.getByRole("status")).toHaveTextContent(/common signals/i);
-    expect(screen.getByRole("button", { name: /continue descent/i })).toHaveFocus();
+    expect(screen.getByRole("button", { name: /next prompt/i })).toHaveFocus();
     expect(container.querySelector(".ocean-backdrop")).toHaveAttribute("data-descent", "active");
     const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
     expect(backdrop?.style.getPropertyValue("--descent-shift")).toMatch(/px$/);
@@ -230,14 +231,14 @@ describe("GameExperience", () => {
       await vi.advanceTimersByTimeAsync(1);
     });
     expect(timer).toHaveAttribute("aria-label", "1 second remaining");
-    expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
+    expect(screen.getByPlaceholderText(/your answer/i)).toBeEnabled();
     expect(document.querySelector(".game-shell")).toHaveAttribute("data-phase", "answering");
 
     await act(async () => {
       await vi.advanceTimersByTimeAsync(999);
     });
     expect(timer).toHaveAttribute("aria-label", "1 second remaining");
-    expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
+    expect(screen.getByPlaceholderText(/your answer/i)).toBeEnabled();
 
     await act(async () => {
       await vi.advanceTimersByTimeAsync(1);
@@ -251,10 +252,10 @@ describe("GameExperience", () => {
     await act(async () => {
       await vi.advanceTimersByTimeAsync(14_000);
     });
-    fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+    fireEvent.change(screen.getByPlaceholderText(/your answer/i), {
       target: { value: "Gulf Stream" },
     });
-    fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
 
     await act(async () => {
       await vi.advanceTimersByTimeAsync(2_000);
@@ -265,44 +266,44 @@ describe("GameExperience", () => {
       resolveLateSubmission?.();
       await Promise.resolve();
     });
-    expect(screen.getByRole("status")).toHaveTextContent(/rare catch/i);
+    expect(screen.getByRole("status")).toHaveTextContent(/twilight zone/i);
   });
 
   it("lets unlimited runs continue after an uncharted answer", async () => {
     submissionResult = unchartedResult;
     const { container } = await startAnswering("unlimited");
-    fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+    fireEvent.change(screen.getByPlaceholderText(/your answer/i), {
       target: { value: "purple quantum walrus" },
     });
 
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+      fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
     });
     expect(screen.getByRole("status")).toHaveTextContent(/uncharted/i);
     expect(container.querySelector(".ocean-backdrop")).toHaveAttribute("data-descent", "idle");
     const backdrop = container.querySelector<HTMLElement>(".ocean-backdrop");
     expect(backdrop?.style.getPropertyValue("--descent-shift")).toBe("");
-    fireEvent.click(screen.getByRole("button", { name: /continue descent/i }));
+    fireEvent.click(screen.getByRole("button", { name: /next prompt/i }));
     expect(screen.getByText("Name a night habit.")).toBeVisible();
   });
 
   it("surfaces a full dive log after the final prompt", async () => {
     await startAnswering();
-    fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+    fireEvent.change(screen.getByPlaceholderText(/your answer/i), {
       target: { value: "Gulf Stream" },
     });
     await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+      fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
     });
-    fireEvent.click(screen.getByRole("button", { name: /continue descent/i }));
+    fireEvent.click(screen.getByRole("button", { name: /next prompt/i }));
 
     await act(async () => {
       await vi.advanceTimersByTimeAsync(3_000);
     });
     fireEvent.click(screen.getByRole("button", { name: /pass/i }));
-    fireEvent.click(screen.getByRole("button", { name: /surface with log/i }));
+    fireEvent.click(screen.getByRole("button", { name: /recover the rov/i }));
 
-    expect(screen.getByText("DIVE LOG")).toBeVisible();
+    expect(screen.getByText("EXPEDITION LOG")).toBeVisible();
     expect(screen.getByText("Gulf Stream")).toBeVisible();
     expect(screen.getByText("PASS")).toBeVisible();
   });
@@ -310,17 +311,17 @@ describe("GameExperience", () => {
   it("returns to answering when submission exceeds its deadline", async () => {
     submissionShouldHang = true;
     await startAnswering();
-    fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+    fireEvent.change(screen.getByPlaceholderText(/your answer/i), {
       target: { value: "Gulf Stream" },
     });
-    fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+    fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
 
     await act(async () => {
       await vi.advanceTimersByTimeAsync(SUBMISSION_TIMEOUT_MS);
     });
 
     expect(screen.getByRole("alert")).toHaveTextContent(/timed out/i);
-    expect(screen.getByPlaceholderText(/type one answer/i)).toBeEnabled();
+    expect(screen.getByPlaceholderText(/your answer/i)).toBeEnabled();
     expect(screen.getByRole("timer")).not.toHaveAttribute("aria-label", "15 seconds remaining");
   });
 
@@ -367,7 +368,7 @@ describe("GameExperience", () => {
 
     expect(screen.getByRole("status")).toHaveTextContent(/time expired/i);
     expect(screen.getByRole("timer")).toHaveAttribute("aria-label", "Answer window closed");
-    expect(screen.queryByPlaceholderText(/type one answer/i)).not.toBeInTheDocument();
+    expect(screen.queryByPlaceholderText(/your answer/i)).not.toBeInTheDocument();
   });
 
   describe("dive log sharing", () => {
@@ -385,13 +386,13 @@ describe("GameExperience", () => {
       }
     });
 
-    // Play both mocked prompts through to the surfaced dive log where the share control lives.
+    // Play both mocked prompts through to the expedition log where the share control lives.
     const answerRound = async () => {
-      fireEvent.change(screen.getByPlaceholderText(/type one answer/i), {
+      fireEvent.change(screen.getByPlaceholderText(/your answer/i), {
         target: { value: "Gulf Stream" },
       });
       await act(async () => {
-        fireEvent.click(screen.getByRole("button", { name: /^dive$/i }));
+        fireEvent.click(screen.getByRole("button", { name: /^send$/i }));
       });
     };
 
@@ -399,16 +400,16 @@ describe("GameExperience", () => {
       await startAnswering("daily");
       await answerRound();
       await act(async () => {
-        fireEvent.click(screen.getByRole("button", { name: /continue descent/i }));
+        fireEvent.click(screen.getByRole("button", { name: /next prompt/i }));
       });
       await act(async () => {
         await vi.advanceTimersByTimeAsync(PREVIEW_SECONDS * 1_000);
       });
       await answerRound();
       await act(async () => {
-        fireEvent.click(screen.getByRole("button", { name: /surface with log/i }));
+        fireEvent.click(screen.getByRole("button", { name: /recover the rov/i }));
       });
-      return screen.getByRole("button", { name: /share dive log/i });
+      return screen.getByRole("button", { name: /share expedition log/i });
     };
 
     it("reports a successful native share as shared, not copied", async () => {
@@ -476,7 +477,7 @@ describe("GameExperience", () => {
         fireEvent.click(shareButton);
       });
 
-      expect(screen.getByRole("button", { name: /share dive log/i })).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /share expedition log/i })).toBeInTheDocument();
       expect(screen.queryByRole("button", { name: /share unavailable/i })).not.toBeInTheDocument();
     });
   });
@@ -521,7 +522,7 @@ describe("GameExperience", () => {
     it("offers only the modes the pack supports and routes within the pack", () => {
       render(<GameExperience mode="unlimited" pack="movies" />);
 
-      expect(screen.getByText("AT THE MOVIES / THE LATE SHOW")).toBeVisible();
+      expect(screen.getByText("CINEMA BOULEVARD / THE LATE SHOW")).toBeVisible();
       expect(screen.getByText(/films, characters, stars/i)).toBeVisible();
       expect(screen.queryByRole("button", { name: /daily mode/i })).not.toBeInTheDocument();
       expect(screen.getByRole("button", { name: /unlimited mode/i })).toBeVisible();

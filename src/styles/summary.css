@@ -240,12 +240,12 @@
   animation: bar-grow 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.score-segment.tier-krillion { background: var(--coral); }
-.score-segment.tier-deepcut { background: var(--coral); opacity: 0.7; }
+.score-segment.tier-unique { background: var(--coral); }
+.score-segment.tier-obscure { background: var(--coral); opacity: 0.7; }
 .score-segment.tier-rare { background: var(--gold); }
-.score-segment.tier-schooler { background: var(--cyan); }
-.score-segment.tier-plankton { background: var(--cyan); opacity: 0.45; }
-.score-segment.tier-tooclever { background: var(--muted); }
+.score-segment.tier-notable { background: var(--cyan); }
+.score-segment.tier-common { background: var(--cyan); opacity: 0.45; }
+.score-segment.tier-familiar { background: var(--muted); }
 
 .score-composition-legend {
   display: flex;
@@ -266,12 +266,12 @@
   height: 6px;
 }
 
-.score-legend-item.tier-krillion i { background: var(--coral); }
-.score-legend-item.tier-deepcut i { background: var(--coral); opacity: 0.7; }
+.score-legend-item.tier-unique i { background: var(--coral); }
+.score-legend-item.tier-obscure i { background: var(--coral); opacity: 0.7; }
 .score-legend-item.tier-rare i { background: var(--gold); }
-.score-legend-item.tier-schooler i { background: var(--cyan); }
-.score-legend-item.tier-plankton i { background: var(--cyan); opacity: 0.45; }
-.score-legend-item.tier-tooclever i { background: var(--muted); }
+.score-legend-item.tier-notable i { background: var(--cyan); }
+.score-legend-item.tier-common i { background: var(--cyan); opacity: 0.45; }
+.score-legend-item.tier-familiar i { background: var(--muted); }
 
 .score-legend-item small {
   color: var(--drift);
@@ -459,17 +459,17 @@
   font-variant-numeric: tabular-nums;
 }
 
-.summary-log-entry[data-tier="schooler"] { border-left-color: var(--cyan); }
+.summary-log-entry[data-tier="notable"] { border-left-color: var(--cyan); }
 .summary-log-entry[data-tier="rare"],
-.summary-log-entry[data-tier="deepcut"] { border-left-color: var(--gold); }
-.summary-log-entry[data-tier="krillion"] { border-left-color: var(--coral); }
+.summary-log-entry[data-tier="obscure"] { border-left-color: var(--gold); }
+.summary-log-entry[data-tier="unique"] { border-left-color: var(--coral); }
 
 .summary-log-entry[data-tier="rare"] strong,
-.summary-log-entry[data-tier="deepcut"] strong {
+.summary-log-entry[data-tier="obscure"] strong {
   color: var(--gold);
 }
 
-.summary-log-entry[data-tier="krillion"] strong {
+.summary-log-entry[data-tier="unique"] strong {
   color: var(--coral);
 }
 
@@ -479,11 +479,11 @@
 }
 
 .summary-log-entry[data-tier="rare"] .summary-log-round,
-.summary-log-entry[data-tier="deepcut"] .summary-log-round {
+.summary-log-entry[data-tier="obscure"] .summary-log-round {
   color: var(--gold);
 }
 
-.summary-log-entry[data-tier="krillion"] .summary-log-round {
+.summary-log-entry[data-tier="unique"] .summary-log-round {
   color: var(--coral);
 }
 
@@ -501,11 +501,11 @@
   letter-spacing: 0.1em;
 }
 
-.summary-log-tier.tier-plankton { color: var(--cyan); border-color: rgba(91, 226, 239, 0.25); }
-.summary-log-tier.tier-schooler { color: var(--cyan); border-color: rgba(91, 226, 239, 0.35); }
+.summary-log-tier.tier-common { color: var(--cyan); border-color: rgba(91, 226, 239, 0.25); }
+.summary-log-tier.tier-notable { color: var(--cyan); border-color: rgba(91, 226, 239, 0.35); }
 .summary-log-tier.tier-rare { color: var(--gold); border-color: rgba(229, 182, 75, 0.35); }
-.summary-log-tier.tier-deepcut { color: var(--coral); border-color: rgba(255, 102, 127, 0.3); }
-.summary-log-tier.tier-krillion { color: var(--coral); border-color: rgba(255, 102, 127, 0.45); background: rgba(255, 102, 127, 0.08); }
+.summary-log-tier.tier-obscure { color: var(--coral); border-color: rgba(255, 102, 127, 0.3); }
+.summary-log-tier.tier-unique { color: var(--coral); border-color: rgba(255, 102, 127, 0.45); background: rgba(255, 102, 127, 0.08); }
 
 .summary-log-entry.is-best {
   background: rgba(229, 182, 75, 0.04);
@@ -623,11 +623,11 @@
   stroke: rgba(8, 54, 68, 0.1);
 }
 
-.game-shell[data-theme="light"] .summary-log-tier.tier-plankton { border-color: rgba(6, 117, 136, 0.28); }
-.game-shell[data-theme="light"] .summary-log-tier.tier-schooler { border-color: rgba(6, 117, 136, 0.38); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-common { border-color: rgba(6, 117, 136, 0.28); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-notable { border-color: rgba(6, 117, 136, 0.38); }
 .game-shell[data-theme="light"] .summary-log-tier.tier-rare { border-color: rgba(142, 100, 20, 0.35); }
-.game-shell[data-theme="light"] .summary-log-tier.tier-deepcut { border-color: rgba(187, 62, 87, 0.32); }
-.game-shell[data-theme="light"] .summary-log-tier.tier-krillion { border-color: rgba(187, 62, 87, 0.45); background: rgba(187, 62, 87, 0.06); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-obscure { border-color: rgba(187, 62, 87, 0.32); }
+.game-shell[data-theme="light"] .summary-log-tier.tier-unique { border-color: rgba(187, 62, 87, 0.45); background: rgba(187, 62, 87, 0.06); }
 
 .game-shell[data-theme="light"] .summary-log-entry.is-best {
   background: rgba(142, 100, 20, 0.06);

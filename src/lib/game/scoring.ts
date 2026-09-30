@@ -35,23 +35,23 @@ export const rarityForCrowdShare = (share: number): RarityResult => {
 
   const tier: RarityResult["tier"] =
     share >= 30
-      ? "plankton"
+      ? "common"
       : share >= 18
-        ? "tooclever"
+        ? "familiar"
         : share >= 10
-          ? "schooler"
+          ? "notable"
           : share >= 5
             ? "rare"
             : share >= 2
-              ? "deepcut"
-              : "krillion";
+              ? "obscure"
+              : "unique";
   const score = {
-    plankton: 10,
-    tooclever: 15,
-    schooler: 30,
+    common: 10,
+    familiar: 15,
+    notable: 30,
     rare: 60,
-    deepcut: 85,
-    krillion: 100,
+    obscure: 85,
+    unique: 100,
   }[tier];
 
   return Object.freeze({ tier, score, depthMetres: score * METRES_PER_POINT });

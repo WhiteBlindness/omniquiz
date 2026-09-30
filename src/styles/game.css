@@ -299,12 +299,12 @@
   opacity: 0.7;
 }
 
-.rarity-tier.tier-plankton { color: var(--cyan); border-bottom-color: var(--cyan); opacity: 0.5; }
-.rarity-tier.tier-tooclever { color: var(--drift); border-bottom-color: var(--drift); }
-.rarity-tier.tier-schooler { color: var(--cyan); border-bottom-color: var(--cyan); }
+.rarity-tier.tier-common { color: var(--cyan); border-bottom-color: var(--cyan); opacity: 0.5; }
+.rarity-tier.tier-familiar { color: var(--drift); border-bottom-color: var(--drift); }
+.rarity-tier.tier-notable { color: var(--cyan); border-bottom-color: var(--cyan); }
 .rarity-tier.tier-rare { color: var(--gold); border-bottom-color: var(--gold); }
-.rarity-tier.tier-deepcut { color: var(--coral); border-bottom-color: var(--coral); opacity: 0.8; }
-.rarity-tier.tier-krillion { color: var(--coral); border-bottom-color: var(--coral); }
+.rarity-tier.tier-obscure { color: var(--coral); border-bottom-color: var(--coral); opacity: 0.8; }
+.rarity-tier.tier-unique { color: var(--coral); border-bottom-color: var(--coral); }
 
 .last-run-badge {
   display: grid;
@@ -772,26 +772,26 @@
   color: var(--cyan);
 }
 
-.game-shell[data-theme="light"] .tier-plankton h1,
-.game-shell[data-theme="light"] .tier-tooclever h1,
+.game-shell[data-theme="light"] .tier-common h1,
+.game-shell[data-theme="light"] .tier-familiar h1,
 .game-shell[data-theme="light"] .outcome-pass h1,
 .game-shell[data-theme="light"] .outcome-timeout h1 {
   color: var(--muted);
 }
 
-.game-shell[data-theme="light"] .tier-schooler h1,
+.game-shell[data-theme="light"] .tier-notable h1,
 .game-shell[data-theme="light"] .tier-rare h1 {
   color: var(--gold);
 }
 
-.game-shell[data-theme="light"] .tier-deepcut h1,
-.game-shell[data-theme="light"] .tier-krillion h1 {
+.game-shell[data-theme="light"] .tier-obscure h1,
+.game-shell[data-theme="light"] .tier-unique h1 {
   color: var(--coral);
 }
 
 .game-shell[data-theme="light"] .tier-rare.feedback-panel { box-shadow: 0 0 22px rgba(184, 138, 42, 0.16), inset 0 0 10px rgba(184, 138, 42, 0.05); }
-.game-shell[data-theme="light"] .tier-deepcut.feedback-panel { box-shadow: 0 0 28px rgba(187, 62, 87, 0.18), inset 0 0 12px rgba(187, 62, 87, 0.05); }
-.game-shell[data-theme="light"] .tier-krillion.feedback-panel { box-shadow: 0 0 36px rgba(187, 62, 87, 0.24), 0 0 60px rgba(187, 62, 87, 0.08), inset 0 0 16px rgba(187, 62, 87, 0.06); }
+.game-shell[data-theme="light"] .tier-obscure.feedback-panel { box-shadow: 0 0 28px rgba(187, 62, 87, 0.18), inset 0 0 12px rgba(187, 62, 87, 0.05); }
+.game-shell[data-theme="light"] .tier-unique.feedback-panel { box-shadow: 0 0 36px rgba(187, 62, 87, 0.24), 0 0 60px rgba(187, 62, 87, 0.08), inset 0 0 16px rgba(187, 62, 87, 0.06); }
 
 .game-shell[data-theme="light"] .preview-footer {
   color: var(--muted);
@@ -946,7 +946,7 @@
 }
 
 .hud-legend-rare { background: var(--gold); }
-.hud-legend-krillion { background: var(--coral); }
+.hud-legend-unique { background: var(--coral); }
 
 /* Approved live-feed topology: vertical instrument spine and framed mission stage. */
 .feed-plate,
@@ -1217,15 +1217,15 @@
   color: var(--coral);
 }
 
-.hud-round-step.step-tier-plankton { color: var(--cyan); opacity: 0.55; }
-.hud-round-step.step-tier-tooclever { color: var(--muted); }
-.hud-round-step.step-tier-schooler { color: var(--cyan); }
+.hud-round-step.step-tier-common { color: var(--cyan); opacity: 0.55; }
+.hud-round-step.step-tier-familiar { color: var(--muted); }
+.hud-round-step.step-tier-notable { color: var(--cyan); }
 .hud-round-step.step-tier-rare { color: var(--gold); }
 .hud-round-step.step-tier-rare b { border-color: var(--gold); background: rgba(229, 182, 75, 0.08); }
-.hud-round-step.step-tier-deepcut { color: var(--coral); opacity: 0.8; }
-.hud-round-step.step-tier-deepcut b { border-color: var(--coral); }
-.hud-round-step.step-tier-krillion { color: var(--coral); }
-.hud-round-step.step-tier-krillion b { border-color: var(--coral); background: rgba(255, 102, 127, 0.1); box-shadow: 0 0 6px rgba(255, 102, 127, 0.3); }
+.hud-round-step.step-tier-obscure { color: var(--coral); opacity: 0.8; }
+.hud-round-step.step-tier-obscure b { border-color: var(--coral); }
+.hud-round-step.step-tier-unique { color: var(--coral); }
+.hud-round-step.step-tier-unique b { border-color: var(--coral); background: rgba(255, 102, 127, 0.1); box-shadow: 0 0 6px rgba(255, 102, 127, 0.3); }
 .hud-round-step.step-tier-uncharted { color: var(--muted); opacity: 0.45; }
 
 .hud-question-meta {
@@ -1619,26 +1619,26 @@
   letter-spacing: 0.08em;
 }
 
-.tier-plankton h1,
-.tier-tooclever h1,
+.tier-common h1,
+.tier-familiar h1,
 .outcome-pass h1,
 .outcome-timeout h1 { color: #a9bdc4; }
 .outcome-pass .feedback-stats b,
 .outcome-timeout .feedback-stats b { color: var(--muted); }
 .outcome-pass .feedback-depth-delta,
 .outcome-timeout .feedback-depth-delta { opacity: 0.4; }
-.tier-schooler h1,
+.tier-notable h1,
 .tier-rare h1 { color: var(--gold); }
-.tier-deepcut h1,
-.tier-krillion h1 { color: var(--coral); }
+.tier-obscure h1,
+.tier-unique h1 { color: var(--coral); }
 
 .tier-rare .feedback-answer,
-.tier-deepcut .feedback-answer { border-left-color: var(--gold); }
-.tier-krillion .feedback-answer { border-left-color: var(--coral); }
+.tier-obscure .feedback-answer { border-left-color: var(--gold); }
+.tier-unique .feedback-answer { border-left-color: var(--coral); }
 
 .tier-rare.feedback-panel { box-shadow: 0 0 18px rgba(229, 182, 75, 0.18), inset 0 0 12px rgba(229, 182, 75, 0.06); }
-.tier-deepcut.feedback-panel { box-shadow: 0 0 24px rgba(255, 102, 127, 0.22), inset 0 0 14px rgba(255, 102, 127, 0.06); }
-.tier-krillion.feedback-panel { box-shadow: 0 0 32px rgba(255, 102, 127, 0.32), 0 0 64px rgba(255, 102, 127, 0.12), inset 0 0 18px rgba(255, 102, 127, 0.08); animation: card-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both, tier-glow-pulse 2.4s ease-in-out 600ms infinite; }
+.tier-obscure.feedback-panel { box-shadow: 0 0 24px rgba(255, 102, 127, 0.22), inset 0 0 14px rgba(255, 102, 127, 0.06); }
+.tier-unique.feedback-panel { box-shadow: 0 0 32px rgba(255, 102, 127, 0.32), 0 0 64px rgba(255, 102, 127, 0.12), inset 0 0 18px rgba(255, 102, 127, 0.08); animation: card-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both, tier-glow-pulse 2.4s ease-in-out 600ms infinite; }
 
 .feedback-sparkles {
   position: absolute;
@@ -1657,7 +1657,7 @@
   animation-delay: calc(var(--spark-i) * 45ms + 200ms);
 }
 
-.tier-krillion .feedback-spark { background: var(--coral); }
+.tier-unique .feedback-spark { background: var(--coral); }
 
 .feedback-spark:nth-child(1) { top: 12%; left: 18%; }
 .feedback-spark:nth-child(2) { top: 8%; left: 72%; }
@@ -1692,8 +1692,8 @@
 }
 
 .tier-rare .feedback-stats b,
-.tier-deepcut .feedback-stats b { color: var(--gold); }
-.tier-krillion .feedback-stats b { color: var(--coral); }
+.tier-obscure .feedback-stats b { color: var(--gold); }
+.tier-unique .feedback-stats b { color: var(--coral); }
 
 .feedback-depth-delta {
   display: flex;
@@ -1715,11 +1715,11 @@
 }
 
 .tier-rare .feedback-depth-delta.is-earned,
-.tier-deepcut .feedback-depth-delta.is-earned {
+.tier-obscure .feedback-depth-delta.is-earned {
   border-color: rgba(229, 182, 75, 0.42);
 }
 
-.tier-krillion .feedback-depth-delta.is-earned {
+.tier-unique .feedback-depth-delta.is-earned {
   border-color: rgba(255, 102, 127, 0.52);
 }
 

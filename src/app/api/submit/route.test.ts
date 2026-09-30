@@ -18,7 +18,7 @@ describe("POST /api/submit", () => {
       recognized: true,
       answerLabel: "A shower",
       crowdShare: 19,
-      tier: "tooclever",
+      tier: "familiar",
       score: 15,
       depthMetres: 150,
       quip: expect.any(String),
@@ -122,7 +122,7 @@ describe("POST /api/submit", () => {
     const body = await response.json();
 
     expect(response.status).toBe(200);
-    expect(body.data).toMatchObject({ recognized: true, answerLabel: "Comedy", tier: "plankton" });
+    expect(body.data).toMatchObject({ recognized: true, answerLabel: "Comedy", tier: "common" });
     expect(body.data).not.toHaveProperty("answers");
     expect(body.data.commonAnswers.length).toBeLessThanOrEqual(3);
   });

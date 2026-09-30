@@ -64,12 +64,12 @@ const prompt: Question = Object.freeze({
 
 describe("crowd-rarity scoring contract", () => {
   it.each([
-    [30, "plankton", 10],
-    [18, "tooclever", 15],
-    [10, "schooler", 30],
+    [30, "common", 10],
+    [18, "familiar", 15],
+    [10, "notable", 30],
     [5, "rare", 60],
-    [2, "deepcut", 85],
-    [1.99, "krillion", 100],
+    [2, "obscure", 85],
+    [1.99, "unique", 100],
   ] as const)("derives %s%% share as %s", (share, tier, score) => {
     expect(rarityForCrowdShare(share)).toEqual({
       tier,
@@ -86,7 +86,7 @@ describe("crowd-rarity scoring contract", () => {
       normalizedAnswer: "trainnoises",
       answerLabel: "Listen to train sounds",
       crowdShare: 1,
-      tier: "krillion",
+      tier: "unique",
       score: 100,
       depthMetres: 1_000,
       quip: "A tiny crowd rides this night train.",

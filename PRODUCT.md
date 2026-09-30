@@ -27,7 +27,7 @@ The experience is played in a browser on desktop or mobile. Four game modes shar
 - Speed Run uses 10 prompts at eight seconds each with streak multipliers.
 - Survival gives three lives across up to 30 prompts.
 
-Game modes and content packs are separate axes. A pack supplies prompts and an answer atlas; a mode supplies pacing and rules. The core pack supports every mode. At the Movies supports Unlimited, Speed Run, and Survival. Sports and Music are planned packs with no content.
+Game modes and content packs are separate axes. A pack supplies prompts and an answer atlas; a mode supplies pacing and rules. The core pack supports every mode. Cinema Boulevard (Movies) supports Unlimited, Speed Run, and Survival. Sports and Music are planned packs with no content.
 
 ## Capabilities and Constraints
 
@@ -45,7 +45,7 @@ For every broad prompt, the server compares a player's free-text answer with a c
 - Each prompt owns multiple canonical answer families, aliases, a positive crowd share, and a short reveal insight.
 - Normalization may absorb case, punctuation, accents, and declared aliases, but must not map unrelated text to a reward.
 - An answer absent from the atlas is `UNCHARTED`, scores zero, and still completes the round. Arbitrary or nonsensical text must never receive a maximum-rarity reward.
-- Rarity bands are derived from crowd share: `>=30%` Plankton / 10 points, `>=18%` Too Clever / 15, `>=10%` Schooler / 30, `>=5%` Rare Catch / 60, `>=2%` Deep Cut / 85, and `<2%` One in a Krillion / 100.
+- Rarity bands are derived from crowd share: `>=30%` common / 10 points, `>=18%` familiar / 15, `>=10%` notable / 30, `>=5%` rare / 60, `>=2%` obscure / 85, and `<2%` unique / 100. These are the tier ids; each world supplies display names (ocean: Surface, Shallows, Open Water, Twilight Zone, Midnight Zone, The Abyss).
 - Passing and timing out score zero. There are no wrong-answer penalties and no sudden-death state; a complete dive always lets the player see every prompt.
 - Feedback must show the submitted/canonical answer, crowd share when recognized, awarded points, cumulative score/depth, and a small comparison with common answers from that prompt.
 - The summary must preserve a per-round dive log so the final score is explainable.
@@ -95,7 +95,7 @@ The product name is OMNIQUIZ. The interface should feel like a retro pixel ocean
 
 ## Evidence on Hand
 
-The local question catalog, scoring rules, ocean background/tier assets under `public/ocean/`, and reference screenshots under `reference/` are available.
+The local question catalog, scoring rules, and ocean background/tier assets under `public/ocean/` are available.
 
 ## Product Principles
 
