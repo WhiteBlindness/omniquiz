@@ -55,16 +55,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `(function(){try{var t=JSON.parse(localStorage.getItem("omniquiz-theme-v1"));if(t==="light"||t==="dark"){document.documentElement.dataset.storedTheme=t;document.documentElement.dataset.theme=t}}catch(e){}})()`,
           }}
         />
-        <div
-          hidden
-          data-direction-seed="34a6553c"
-          data-direction-style="cinematic 16-bit ROV mission broadcast"
-          data-direction-layout="asymmetric telemetry spine with one live mission stage"
-          data-direction-effect="depth-driven ocean layers, scanlines, deliberate score and urgency motion"
-          data-direction-finish="unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md"
-        >
-          OMNIQUIZ visual direction contract
-        </div>
         {children}
         <StorageConsent />
       </body>

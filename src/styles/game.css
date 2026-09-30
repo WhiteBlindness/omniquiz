@@ -630,6 +630,7 @@
 .game-shell[data-theme="light"] .dive-submit,
 .game-shell[data-theme="light"] .continue-button {
   background: #982f48;
+  color: #fff;
 }
 
 .game-shell[data-theme="light"] .dive-submit:hover:not(:disabled),
