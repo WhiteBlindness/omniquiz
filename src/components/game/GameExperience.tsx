@@ -200,7 +200,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
         : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
 
   const handleShare = useCallback(async () => {
-    const modeNames: Record<GameMode, string> = { daily: "daily", unlimited: "arcade", speed: "speed run", survival: "survival" };
+    const modeNames: Record<GameMode, string> = { daily: "daily dive", unlimited: "arcade dive", speed: "speed run", survival: "survival" };
     const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${state.depthMetres}m deep.`;
     const flash = (label: string) => {
       setShareLabel(label);
