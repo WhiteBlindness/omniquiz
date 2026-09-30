@@ -406,6 +406,11 @@
   .cinema-backdrop { --anchor: 50vw; --road-h: clamp(84px, 17vh, 150px); }
 }
 
+/* Short landscape phones: the ruler would sit over the set pieces. */
+@media (max-height: 500px) {
+  .route-ruler { display: none; }
+}
+
 @media (max-aspect-ratio: 1 / 1) {
   .cinema-backdrop { --anchor: 50vw; }
   .cinema-far { height: 46vh; }

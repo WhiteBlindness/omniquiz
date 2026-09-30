@@ -282,6 +282,17 @@ The desktop spine stacks brand, mode, depth, circular timer, score, and a seven-
 
 Panel arrivals use a 420ms `cubic-bezier(0.16, 1, 0.3, 1)` entrance; feedback changes that entrance to a deliberate score slam. Ocean filters and layers transition over 700ms, the depth marker over 800ms with the same expressive curve, the answer rail depletes linearly each second, and critical timer urgency pulses in 760ms stepped beats. Reduced motion collapses all animation and transition durations to 0.001ms for one iteration without hiding state.
 
+### Pack Worlds
+
+Everything above describes the Core world, the ocean descent. A pack can supply its own world through its environment (`src/lib/packs/environment.ts`); the shell exposes it as `data-environment`, and the world's stylesheet overrides tokens and chrome under that attribute. The layout rules (spine, live stage, mobile dock, prompt and answer widths) stay shared.
+
+- **Cinema (Movies):** a late-night boulevard in generated pixel art (`public/cinema/`). Marquee Magenta replaces Sonar Cyan for navigation and progress, Amber Bulb takes rarity and score, and cards wear a lit marquee frame instead of the hull. Progress reads as named stages (city limits to premiere night) on a route ruler, not metres. The light theme becomes dusk rather than daylight. Motion is parallax travel between stages plus ambient cars, neon flicker and searchlights, all off under reduced motion.
+- A world never reuses another world's vocabulary: interface wording comes from the world's lexicon.
+
+### Leaving a Run
+
+The logo is a home link everywhere. During a run the HUD also carries an Exit control. Both share one guard, which confirms only while a prompt is on screen. The confirmation is a small modal in the world's own frame, with "Keep playing" as the default focus.
+
 ## Do's and Don'ts
 
 ### Do:

@@ -77,6 +77,7 @@ For every broad prompt, the server compares a player's free-text answer with a c
 - The public wire shape stays `{ id, category, prompt }`, where `category` is the pack-scoped topic label. Clients validate it against the active pack's topic list.
 - A pack must hold at least as many prompts as its largest supported mode needs. A `planned` pack ships no atlas and no route.
 - Progress and statistics are recorded per pack, and progress is restored only when the pack and mode match the current route.
+- A pack may bring its own world (backdrop, progression stages, interface wording) through `src/lib/packs/environment.ts`. Core keeps the ocean descent; Movies is a late-night cinema boulevard. A world must not show another world's vocabulary.
 - Pack content must be original or have a recorded source and licence (`docs/content-sources.md`). No posters, stills, logos, album art, or audio without a documented right to use them.
 - Curated shares are editorial estimates ordered by how commonly an answer is expected to be named. They must never be described as poll results.
 

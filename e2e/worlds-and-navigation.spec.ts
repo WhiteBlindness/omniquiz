@@ -108,6 +108,28 @@ test.describe("worlds and navigation", () => {
     await expect(page.locator(".cinema-backdrop")).toHaveAttribute("data-stage", "4");
   });
 
+  test("the Movies world stops its ambient motion when reduced motion is requested", async ({ page }) => {
+    const loopingAnimations = () =>
+      page.evaluate(() =>
+        document
+          .querySelector(".cinema-backdrop")!
+          .getAnimations({ subtree: true })
+          .filter((animation) => animation.effect?.getComputedTiming().iterations === Infinity).length,
+      );
+
+    await page.goto("/packs/movies");
+    await expect(page.locator(".cinema-backdrop")).toBeVisible();
+    expect(await loopingAnimations()).toBeGreaterThan(0);
+
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await beginRun(page, /start the show/i);
+    for (let round = 0; round < 2; round += 1) {
+      await passAndContinue(page);
+      await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 8_000 });
+    }
+    expect(await loopingAnimations()).toBe(0);
+  });
+
   test("the logo returns home from a Movies pack page", async ({ page }) => {
     await page.goto("/packs/movies");
     await page.getByRole("link", { name: "OMNIQUIZ home" }).first().click();
