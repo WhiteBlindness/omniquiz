@@ -184,8 +184,8 @@ const OCEAN_LEXICON: Lexicon = Object.freeze({
   promptHint: {
     daily: "Type the first genuine answer you think of. Uncommon answers in the atlas take the ROV deeper.",
     unlimited: "Type the first genuine answer you think of. Uncommon answers in the atlas take the ROV deeper.",
-    speed: "Name the first honest answer that comes to mind. Rarer recognizable signals score higher.",
-    survival: "Name the first honest answer that comes to mind. Rarer recognizable signals keep you alive.",
+    speed: "Type the first genuine answer you think of. Uncommon answers in the atlas score higher.",
+    survival: "Type the first genuine answer you think of. Any answer in the atlas keeps you alive.",
   },
   noMatchNote: {
     daily: "No atlas match logged; the expedition continues.",
@@ -254,8 +254,8 @@ const CINEMA_LEXICON: Lexicon = Object.freeze({
     survival: "SURVIVAL RUN",
   },
   modeDescription: {
-    daily: "7 prompts · 15 seconds each · rarer answers score higher",
-    unlimited: "15 prompts · repeatable screenings · rarer answers score higher",
+    daily: "7 prompts · 15 seconds each · uncommon answers score higher",
+    unlimited: "15 prompts · repeatable screenings · uncommon answers score higher",
     speed: "10 prompts · 8 seconds each · streak multipliers reward momentum",
     survival: "3 lives · 30 prompts · every miss costs a life",
   },
@@ -328,10 +328,10 @@ const CINEMA_LEXICON: Lexicon = Object.freeze({
     survival: "RUN IT AGAIN",
   },
   promptHint: {
-    daily: "Name the first honest answer that comes to mind. Rarer recognizable answers score higher.",
-    unlimited: "Name the first honest answer that comes to mind. Rarer recognizable answers score higher.",
-    speed: "Name the first honest answer that comes to mind. Rarer recognizable answers score higher.",
-    survival: "Name the first honest answer that comes to mind. Rarer recognizable answers keep you alive.",
+    daily: "Type the first genuine answer you think of. Uncommon answers in the atlas score higher.",
+    unlimited: "Type the first genuine answer you think of. Uncommon answers in the atlas score higher.",
+    speed: "Type the first genuine answer you think of. Uncommon answers in the atlas score higher.",
+    survival: "Type the first genuine answer you think of. Any answer in the atlas keeps you alive.",
   },
   noMatchNote: {
     daily: "No atlas match logged; the show goes on.",
