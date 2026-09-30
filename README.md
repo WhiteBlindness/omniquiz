@@ -7,7 +7,8 @@ Each content pack is its own world. The core game is an ocean descent where good
 It is a free, account-free browser game with four game modes and themed content packs, built as a small full-stack TypeScript project: Next.js on Cloudflare Workers, deterministic scoring, and a server-side answer atlas that the browser never receives.
 
 - **Play it locally:** see [Getting started](#getting-started).
-- **Deployment:** configured for Cloudflare Workers (`npm run deploy`). See [Current status](#current-status).
+- **Live demo:** [omniquiz-nine.vercel.app](https://omniquiz-nine.vercel.app), a deployment of the `main` branch.
+- **Deployment:** the repository is configured for Cloudflare Workers (`npm run deploy`). See [Current status](#current-status).
 - **Repository owner:** [@WhiteBlindness](https://github.com/WhiteBlindness).
 
 ![OMNIQUIZ landing page on desktop](docs/screenshots/landing-desktop.jpg)
@@ -104,7 +105,7 @@ Set `BASE_URL` to point Playwright at an already-running server instead of start
 ## Current status
 
 - All four modes and the Movies pack are implemented and covered by unit, contract and end-to-end tests.
-- Deployment is configured for Cloudflare Workers; the production URL, custom domain and hosting configuration are not recorded in this repository.
+- A live demo of the `main` branch is linked above. The repository's deployment configuration targets Cloudflare Workers; which host serves the demo, and any custom domain, are not recorded here.
 - Operator identity and contact details are not published in the Privacy Policy or Terms yet.
 
 ## Limitations
