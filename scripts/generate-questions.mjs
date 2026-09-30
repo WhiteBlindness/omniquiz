@@ -75,34 +75,53 @@ const answerKeys = (value) => {
   return keys;
 };
 
-const insightFor = (label, index) => {
-  const cues = [
-    "The surface crowd reaches for this first.",
-    "A familiar current carries this answer.",
-    "This choice travels through the middle of the school.",
-    "A measured answer with a clear signal.",
-    "The atlas marks this as a rarer route.",
-    "Only a few explorers sent this one down.",
-    "A sly side channel in the crowd map.",
-    "A tiny crew knew to look this deep.",
-    "A quiet answer in the lower current.",
-    "A specialist current carries this one.",
-    "A narrow route through the atlas.",
-    "A deep-water answer with a distinct signal.",
-    "A very small crew chose this route.",
-    "A hidden answer beneath the common tide.",
-    "A nearly unvisited trench in the crowd map.",
-    "A krillion-level answer for careful explorers.",
-  ];
-  return `${cues[index]} ${label} is logged in the atlas.`;
-};
+const CORE_CUES = [
+  "The surface crowd reaches for this first.",
+  "A familiar current carries this answer.",
+  "This choice travels through the middle of the school.",
+  "A measured answer with a clear signal.",
+  "The atlas marks this as a rarer route.",
+  "Only a few explorers sent this one down.",
+  "A sly side channel in the crowd map.",
+  "A tiny crew knew to look this deep.",
+  "A quiet answer in the lower current.",
+  "A specialist current carries this one.",
+  "A narrow route through the atlas.",
+  "A deep-water answer with a distinct signal.",
+  "A very small crew chose this route.",
+  "A hidden answer beneath the common tide.",
+  "A nearly unvisited trench in the crowd map.",
+  "A krillion-level answer for careful explorers.",
+];
 
-const buildAnswers = (source, shares) =>
+// Rank cues follow the pack's world: the Movies pack must not describe answers in ocean terms.
+const MOVIES_CUES = [
+  "The whole audience shouts this one first.",
+  "A crowd favourite from the front rows.",
+  "A popular pick from the middle of the house.",
+  "A solid answer with plenty of fans.",
+  "The atlas marks this as a rarer pick.",
+  "Only a few film buffs called this one.",
+  "A sly pick from the back of the theatre.",
+  "A small club of regulars knew this one.",
+  "A quiet cult favourite.",
+  "A specialist's pick from the repertory list.",
+  "A narrow cut from the atlas.",
+  "A late-show answer with a loyal following.",
+  "A very small crew picked this.",
+  "A hidden gem behind the headline titles.",
+  "A nearly unseen reel in the atlas.",
+  "A deep-cut answer for dedicated film fans.",
+];
+
+const insightFor = (label, index, cues = CORE_CUES) => `${cues[index]} ${label} is logged in the atlas.`;
+
+const buildAnswers = (source, shares, cues) =>
   source.answers.map((answer, answerIndex) => ({
     label: answer.label,
     aliases: [...answer.aliases],
     share: shares[answerIndex],
-    insight: answer.insight ?? insightFor(answer.label, answerIndex),
+    insight: answer.insight ?? insightFor(answer.label, answerIndex, cues),
   }));
 
 const buildCoreBank = () =>
@@ -120,7 +139,7 @@ const buildMoviesBank = () =>
     id: `movies-${String(index + 1).padStart(3, "0")}`,
     category: MOVIES_TOPICS.find((topic) => (movies[topic] ?? []).includes(source)),
     prompt: source.prompt,
-    answers: buildAnswers(source, SHARE_PROFILES[index % SHARE_PROFILES.length]),
+    answers: buildAnswers(source, SHARE_PROFILES[index % SHARE_PROFILES.length], MOVIES_CUES),
   }));
 
 const CORE_SPEC = {

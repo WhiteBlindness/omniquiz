@@ -12,7 +12,7 @@
           "stand-up comedy film"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Comedy is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Comedy is logged in the atlas."
       },
       {
         "label": "Action",
@@ -22,7 +22,7 @@
           "shoot-em-up"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Action is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Action is logged in the atlas."
       },
       {
         "label": "Horror",
@@ -32,7 +32,7 @@
           "creepy movies"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Horror is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Horror is logged in the atlas."
       },
       {
         "label": "Science fiction",
@@ -42,7 +42,7 @@
           "space movies"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Science fiction is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Science fiction is logged in the atlas."
       },
       {
         "label": "Thriller",
@@ -52,7 +52,7 @@
           "thrillers"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Thriller is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Thriller is logged in the atlas."
       },
       {
         "label": "Drama",
@@ -62,7 +62,7 @@
           "character study"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Drama is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Drama is logged in the atlas."
       },
       {
         "label": "Animation",
@@ -72,7 +72,7 @@
           "animated movies"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Animation is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Animation is logged in the atlas."
       },
       {
         "label": "Romance",
@@ -82,7 +82,7 @@
           "romantic movies"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Romance is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Romance is logged in the atlas."
       },
       {
         "label": "Fantasy",
@@ -92,7 +92,7 @@
           "magical worlds"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Fantasy is logged in the atlas."
+        "insight": "A quiet cult favourite. Fantasy is logged in the atlas."
       },
       {
         "label": "Crime",
@@ -102,7 +102,7 @@
           "crime dramas"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Crime is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Crime is logged in the atlas."
       },
       {
         "label": "Adventure",
@@ -112,7 +112,7 @@
           "swashbuckler"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Adventure is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Adventure is logged in the atlas."
       },
       {
         "label": "Mystery",
@@ -122,7 +122,7 @@
           "murder mystery"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Mystery is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Mystery is logged in the atlas."
       },
       {
         "label": "Musical",
@@ -132,7 +132,7 @@
           "movie musical"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Musical is logged in the atlas."
+        "insight": "A very small crew picked this. Musical is logged in the atlas."
       },
       {
         "label": "Western",
@@ -142,7 +142,7 @@
           "wild west films"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Western is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Western is logged in the atlas."
       },
       {
         "label": "Documentary",
@@ -152,7 +152,7 @@
           "docs"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Documentary is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Documentary is logged in the atlas."
       },
       {
         "label": "War film",
@@ -162,7 +162,7 @@
           "battlefield drama"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. War film is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. War film is logged in the atlas."
       }
     ]
   },
@@ -179,7 +179,7 @@
           "caped crusader films"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Superhero is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Superhero is logged in the atlas."
       },
       {
         "label": "Slasher",
@@ -189,7 +189,7 @@
           "masked killer movies"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. Slasher is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Slasher is logged in the atlas."
       },
       {
         "label": "Rom-com",
@@ -199,7 +199,7 @@
           "romantic comedies"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Rom-com is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Rom-com is logged in the atlas."
       },
       {
         "label": "Zombie",
@@ -209,7 +209,7 @@
           "zombie apocalypse"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Zombie is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Zombie is logged in the atlas."
       },
       {
         "label": "Heist",
@@ -219,7 +219,7 @@
           "robbery movies"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Heist is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Heist is logged in the atlas."
       },
       {
         "label": "Film noir",
@@ -229,7 +229,7 @@
           "black and white crime"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Film noir is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Film noir is logged in the atlas."
       },
       {
         "label": "Space opera",
@@ -239,7 +239,7 @@
           "interstellar epic"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Space opera is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Space opera is logged in the atlas."
       },
       {
         "label": "Found footage",
@@ -249,7 +249,7 @@
           "handheld horror"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Found footage is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Found footage is logged in the atlas."
       },
       {
         "label": "Disaster movie",
@@ -259,7 +259,7 @@
           "natural disaster movies"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Disaster movie is logged in the atlas."
+        "insight": "A quiet cult favourite. Disaster movie is logged in the atlas."
       },
       {
         "label": "Kung fu",
@@ -269,7 +269,7 @@
           "chop socky"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Kung fu is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Kung fu is logged in the atlas."
       },
       {
         "label": "Spaghetti western",
@@ -279,7 +279,7 @@
           "macaroni western"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Spaghetti western is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Spaghetti western is logged in the atlas."
       },
       {
         "label": "Cyberpunk",
@@ -289,7 +289,7 @@
           "high tech low life"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Cyberpunk is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Cyberpunk is logged in the atlas."
       },
       {
         "label": "Buddy cop",
@@ -299,7 +299,7 @@
           "partner cop films"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Buddy cop is logged in the atlas."
+        "insight": "A very small crew picked this. Buddy cop is logged in the atlas."
       },
       {
         "label": "Coming-of-age",
@@ -309,7 +309,7 @@
           "youth drama"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Coming-of-age is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Coming-of-age is logged in the atlas."
       },
       {
         "label": "Body horror",
@@ -319,7 +319,7 @@
           "cronenberg style horror"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Body horror is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Body horror is logged in the atlas."
       },
       {
         "label": "Mockumentary",
@@ -329,7 +329,7 @@
           "faux doc"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Mockumentary is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Mockumentary is logged in the atlas."
       }
     ]
   },
@@ -346,7 +346,7 @@
           "action spectacle"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. Action blockbuster is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Action blockbuster is logged in the atlas."
       },
       {
         "label": "Sci-fi epic",
@@ -356,7 +356,7 @@
           "big sci-fi"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. Sci-fi epic is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Sci-fi epic is logged in the atlas."
       },
       {
         "label": "Fantasy epic",
@@ -366,7 +366,7 @@
           "high fantasy film"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Fantasy epic is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Fantasy epic is logged in the atlas."
       },
       {
         "label": "Superhero movie",
@@ -376,7 +376,7 @@
           "hero team-up"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Superhero movie is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Superhero movie is logged in the atlas."
       },
       {
         "label": "Disaster movie",
@@ -386,7 +386,7 @@
           "end of the world film"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Disaster movie is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Disaster movie is logged in the atlas."
       },
       {
         "label": "War film",
@@ -396,7 +396,7 @@
           "wartime drama"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. War film is logged in the atlas."
+        "insight": "Only a few film buffs called this one. War film is logged in the atlas."
       },
       {
         "label": "Space adventure",
@@ -406,7 +406,7 @@
           "outer space movie"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Space adventure is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Space adventure is logged in the atlas."
       },
       {
         "label": "Animated feature",
@@ -416,7 +416,7 @@
           "pixar-style film"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Animated feature is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Animated feature is logged in the atlas."
       },
       {
         "label": "Horror",
@@ -426,7 +426,7 @@
           "cinema scare"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Horror is logged in the atlas."
+        "insight": "A quiet cult favourite. Horror is logged in the atlas."
       },
       {
         "label": "Musical",
@@ -436,7 +436,7 @@
           "song and dance spectacle"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Musical is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Musical is logged in the atlas."
       },
       {
         "label": "Nature documentary",
@@ -446,7 +446,7 @@
           "ocean documentary"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Nature documentary is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Nature documentary is logged in the atlas."
       },
       {
         "label": "Western",
@@ -456,7 +456,7 @@
           "frontier film"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Western is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Western is logged in the atlas."
       },
       {
         "label": "Heist movie",
@@ -466,7 +466,7 @@
           "big robbery film"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Heist movie is logged in the atlas."
+        "insight": "A very small crew picked this. Heist movie is logged in the atlas."
       },
       {
         "label": "Historical epic",
@@ -476,7 +476,7 @@
           "ancient world epic"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Historical epic is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Historical epic is logged in the atlas."
       },
       {
         "label": "Concert film",
@@ -486,7 +486,7 @@
           "gig on screen"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Concert film is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Concert film is logged in the atlas."
       },
       {
         "label": "Racing movie",
@@ -496,7 +496,7 @@
           "driving film"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Racing movie is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Racing movie is logged in the atlas."
       }
     ]
   },
@@ -513,7 +513,7 @@
           "funny movie"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. Comedy is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Comedy is logged in the atlas."
       },
       {
         "label": "Romance",
@@ -523,7 +523,7 @@
           "romances"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Romance is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Romance is logged in the atlas."
       },
       {
         "label": "Drama",
@@ -533,7 +533,7 @@
           "character drama"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Drama is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Drama is logged in the atlas."
       },
       {
         "label": "Animation",
@@ -543,7 +543,7 @@
           "animated film"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Animation is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Animation is logged in the atlas."
       },
       {
         "label": "Family film",
@@ -553,7 +553,7 @@
           "family adventure"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Family film is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Family film is logged in the atlas."
       },
       {
         "label": "Mystery",
@@ -563,7 +563,7 @@
           "murder mystery"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Mystery is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Mystery is logged in the atlas."
       },
       {
         "label": "Fantasy",
@@ -573,7 +573,7 @@
           "fairy tale"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Fantasy is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Fantasy is logged in the atlas."
       },
       {
         "label": "Documentary",
@@ -583,7 +583,7 @@
           "slow documentary"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Documentary is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Documentary is logged in the atlas."
       },
       {
         "label": "Period drama",
@@ -593,7 +593,7 @@
           "regency drama"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Period drama is logged in the atlas."
+        "insight": "A quiet cult favourite. Period drama is logged in the atlas."
       },
       {
         "label": "Musical",
@@ -603,7 +603,7 @@
           "song film"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Musical is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Musical is logged in the atlas."
       },
       {
         "label": "Crime",
@@ -613,7 +613,7 @@
           "crime drama"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Crime is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Crime is logged in the atlas."
       },
       {
         "label": "Adventure",
@@ -623,7 +623,7 @@
           "journey story"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Adventure is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Adventure is logged in the atlas."
       },
       {
         "label": "Coming-of-age",
@@ -633,7 +633,7 @@
           "teen drama"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Coming-of-age is logged in the atlas."
+        "insight": "A very small crew picked this. Coming-of-age is logged in the atlas."
       },
       {
         "label": "Thriller",
@@ -643,7 +643,7 @@
           "slow burn thriller"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Thriller is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Thriller is logged in the atlas."
       },
       {
         "label": "Science fiction",
@@ -653,7 +653,7 @@
           "space story"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Science fiction is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Science fiction is logged in the atlas."
       },
       {
         "label": "Sports drama",
@@ -663,7 +663,7 @@
           "athlete story"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Sports drama is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Sports drama is logged in the atlas."
       }
     ]
   },
@@ -680,7 +680,7 @@
           "slasher spoof"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Horror is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Horror is logged in the atlas."
       },
       {
         "label": "Superhero",
@@ -690,7 +690,7 @@
           "comic book movies"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Superhero is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Superhero is logged in the atlas."
       },
       {
         "label": "Western",
@@ -700,7 +700,7 @@
           "wild west spoof"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Western is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Western is logged in the atlas."
       },
       {
         "label": "Spy",
@@ -710,7 +710,7 @@
           "espionage"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Spy is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Spy is logged in the atlas."
       },
       {
         "label": "Action",
@@ -720,7 +720,7 @@
           "big action films"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Action is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Action is logged in the atlas."
       },
       {
         "label": "Science fiction",
@@ -730,7 +730,7 @@
           "scifi spoof"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Science fiction is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Science fiction is logged in the atlas."
       },
       {
         "label": "Disaster movie",
@@ -740,7 +740,7 @@
           "catastrophe films"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Disaster movie is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Disaster movie is logged in the atlas."
       },
       {
         "label": "Romance",
@@ -750,7 +750,7 @@
           "rom-com spoof"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Romance is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Romance is logged in the atlas."
       },
       {
         "label": "Kung fu",
@@ -760,7 +760,7 @@
           "chop socky"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Kung fu is logged in the atlas."
+        "insight": "A quiet cult favourite. Kung fu is logged in the atlas."
       },
       {
         "label": "Gangster",
@@ -770,7 +770,7 @@
           "gangster films"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Gangster is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Gangster is logged in the atlas."
       },
       {
         "label": "Fantasy",
@@ -780,7 +780,7 @@
           "medieval fantasy"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Fantasy is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Fantasy is logged in the atlas."
       },
       {
         "label": "Sports",
@@ -790,7 +790,7 @@
           "sports films"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Sports is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Sports is logged in the atlas."
       },
       {
         "label": "Vampire",
@@ -800,7 +800,7 @@
           "bloodsucker movies"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Vampire is logged in the atlas."
+        "insight": "A very small crew picked this. Vampire is logged in the atlas."
       },
       {
         "label": "Zombie",
@@ -810,7 +810,7 @@
           "shaun-style zombie"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Zombie is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Zombie is logged in the atlas."
       },
       {
         "label": "Heist",
@@ -820,7 +820,7 @@
           "robbery movies"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Heist is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Heist is logged in the atlas."
       },
       {
         "label": "War film",
@@ -830,7 +830,7 @@
           "military movies"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. War film is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. War film is logged in the atlas."
       }
     ]
   },
@@ -847,7 +847,7 @@
           "edge-of-seat film"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Thriller is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Thriller is logged in the atlas."
       },
       {
         "label": "Mystery",
@@ -857,7 +857,7 @@
           "murder mystery"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. Mystery is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Mystery is logged in the atlas."
       },
       {
         "label": "Horror",
@@ -867,7 +867,7 @@
           "final girl film"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Horror is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Horror is logged in the atlas."
       },
       {
         "label": "Drama",
@@ -877,7 +877,7 @@
           "character drama"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Drama is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Drama is logged in the atlas."
       },
       {
         "label": "Heist",
@@ -887,7 +887,7 @@
           "robbery movie"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Heist is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Heist is logged in the atlas."
       },
       {
         "label": "Crime",
@@ -897,7 +897,7 @@
           "crime drama"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Crime is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Crime is logged in the atlas."
       },
       {
         "label": "Science fiction",
@@ -907,7 +907,7 @@
           "scifi film"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Science fiction is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Science fiction is logged in the atlas."
       },
       {
         "label": "Romance",
@@ -917,7 +917,7 @@
           "romances"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Romance is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Romance is logged in the atlas."
       },
       {
         "label": "Comedy",
@@ -927,7 +927,7 @@
           "punchline film"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Comedy is logged in the atlas."
+        "insight": "A quiet cult favourite. Comedy is logged in the atlas."
       },
       {
         "label": "Fantasy",
@@ -937,7 +937,7 @@
           "quest fantasy"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Fantasy is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Fantasy is logged in the atlas."
       },
       {
         "label": "War film",
@@ -947,7 +947,7 @@
           "wartime drama"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. War film is logged in the atlas."
+        "insight": "A narrow cut from the atlas. War film is logged in the atlas."
       },
       {
         "label": "Psychological thriller",
@@ -957,7 +957,7 @@
           "twist thriller"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Psychological thriller is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Psychological thriller is logged in the atlas."
       },
       {
         "label": "Disaster movie",
@@ -967,7 +967,7 @@
           "catastrophe film"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Disaster movie is logged in the atlas."
+        "insight": "A very small crew picked this. Disaster movie is logged in the atlas."
       },
       {
         "label": "Slasher",
@@ -977,7 +977,7 @@
           "masked killer film"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Slasher is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Slasher is logged in the atlas."
       },
       {
         "label": "Sports drama",
@@ -987,7 +987,7 @@
           "big game movie"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Sports drama is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Sports drama is logged in the atlas."
       },
       {
         "label": "Western",
@@ -997,7 +997,7 @@
           "frontier story"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Western is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Western is logged in the atlas."
       }
     ]
   },
@@ -1014,7 +1014,7 @@
           "anakin skywalker"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. Darth Vader is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Darth Vader is logged in the atlas."
       },
       {
         "label": "The Joker",
@@ -1024,7 +1024,7 @@
           "joker from batman"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. The Joker is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. The Joker is logged in the atlas."
       },
       {
         "label": "Hannibal Lecter",
@@ -1034,7 +1034,7 @@
           "lecter"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Hannibal Lecter is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Hannibal Lecter is logged in the atlas."
       },
       {
         "label": "Voldemort",
@@ -1044,7 +1044,7 @@
           "tom riddle"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Voldemort is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Voldemort is logged in the atlas."
       },
       {
         "label": "Thanos",
@@ -1054,7 +1054,7 @@
           "thanos from avengers"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Thanos is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Thanos is logged in the atlas."
       },
       {
         "label": "Scar",
@@ -1064,7 +1064,7 @@
           "simba's uncle"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Scar is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Scar is logged in the atlas."
       },
       {
         "label": "Hans Gruber",
@@ -1074,7 +1074,7 @@
           "alan rickman in die hard"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Hans Gruber is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Hans Gruber is logged in the atlas."
       },
       {
         "label": "Freddy Krueger",
@@ -1084,7 +1084,7 @@
           "nightmare on elm street killer"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Freddy Krueger is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Freddy Krueger is logged in the atlas."
       },
       {
         "label": "Michael Myers",
@@ -1094,7 +1094,7 @@
           "halloween killer"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Michael Myers is logged in the atlas."
+        "insight": "A quiet cult favourite. Michael Myers is logged in the atlas."
       },
       {
         "label": "Norman Bates",
@@ -1104,7 +1104,7 @@
           "bates motel owner"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Norman Bates is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Norman Bates is logged in the atlas."
       },
       {
         "label": "Anton Chigurh",
@@ -1114,7 +1114,7 @@
           "coin flip killer"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Anton Chigurh is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Anton Chigurh is logged in the atlas."
       },
       {
         "label": "Agent Smith",
@@ -1124,7 +1124,7 @@
           "matrix agent"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Agent Smith is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Agent Smith is logged in the atlas."
       },
       {
         "label": "Cruella de Vil",
@@ -1134,7 +1134,7 @@
           "dalmatian villain"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Cruella de Vil is logged in the atlas."
+        "insight": "A very small crew picked this. Cruella de Vil is logged in the atlas."
       },
       {
         "label": "Sauron",
@@ -1144,7 +1144,7 @@
           "lord of the rings dark lord"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Sauron is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Sauron is logged in the atlas."
       },
       {
         "label": "Nurse Ratched",
@@ -1154,7 +1154,7 @@
           "cuckoo's nest nurse"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Nurse Ratched is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Nurse Ratched is logged in the atlas."
       },
       {
         "label": "Loki",
@@ -1164,7 +1164,7 @@
           "thor's brother"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Loki is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Loki is logged in the atlas."
       }
     ]
   },
@@ -1181,7 +1181,7 @@
           "john mcclane from die hard"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. John McClane is logged in the atlas."
+        "insight": "The whole audience shouts this one first. John McClane is logged in the atlas."
       },
       {
         "label": "Rocky Balboa",
@@ -1191,7 +1191,7 @@
           "balboa"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Rocky Balboa is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Rocky Balboa is logged in the atlas."
       },
       {
         "label": "Marty McFly",
@@ -1201,7 +1201,7 @@
           "back to the future hero"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Marty McFly is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Marty McFly is logged in the atlas."
       },
       {
         "label": "Forrest Gump",
@@ -1211,7 +1211,7 @@
           "run forrest run"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Forrest Gump is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Forrest Gump is logged in the atlas."
       },
       {
         "label": "Peter Parker",
@@ -1221,7 +1221,7 @@
           "the friendly neighbourhood spider-man"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Peter Parker is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Peter Parker is logged in the atlas."
       },
       {
         "label": "Frodo Baggins",
@@ -1231,7 +1231,7 @@
           "ring bearer"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Frodo Baggins is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Frodo Baggins is logged in the atlas."
       },
       {
         "label": "Katniss Everdeen",
@@ -1241,7 +1241,7 @@
           "hunger games heroine"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Katniss Everdeen is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Katniss Everdeen is logged in the atlas."
       },
       {
         "label": "Ellen Ripley",
@@ -1251,7 +1251,7 @@
           "alien survivor"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Ellen Ripley is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Ellen Ripley is logged in the atlas."
       },
       {
         "label": "Andy Dufresne",
@@ -1261,7 +1261,7 @@
           "andy from shawshank"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Andy Dufresne is logged in the atlas."
+        "insight": "A quiet cult favourite. Andy Dufresne is logged in the atlas."
       },
       {
         "label": "Sarah Connor",
@@ -1271,7 +1271,7 @@
           "john connor's mum"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Sarah Connor is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Sarah Connor is logged in the atlas."
       },
       {
         "label": "Neo",
@@ -1281,7 +1281,7 @@
           "matrix hero"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Neo is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Neo is logged in the atlas."
       },
       {
         "label": "Harry Potter",
@@ -1291,7 +1291,7 @@
           "potter"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Harry Potter is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Harry Potter is logged in the atlas."
       },
       {
         "label": "Luke Skywalker",
@@ -1301,7 +1301,7 @@
           "farm boy from tatooine"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Luke Skywalker is logged in the atlas."
+        "insight": "A very small crew picked this. Luke Skywalker is logged in the atlas."
       },
       {
         "label": "Erin Brockovich",
@@ -1311,7 +1311,7 @@
           "erin brockovich the film"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Erin Brockovich is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Erin Brockovich is logged in the atlas."
       },
       {
         "label": "Mark Watney",
@@ -1321,7 +1321,7 @@
           "stranded botanist"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Mark Watney is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Mark Watney is logged in the atlas."
       },
       {
         "label": "Bilbo Baggins",
@@ -1331,7 +1331,7 @@
           "burglar"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Bilbo Baggins is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Bilbo Baggins is logged in the atlas."
       }
     ]
   },
@@ -1348,7 +1348,7 @@
           "sam gamgee"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Samwise Gamgee is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Samwise Gamgee is logged in the atlas."
       },
       {
         "label": "Chewbacca",
@@ -1358,7 +1358,7 @@
           "han solo's co-pilot"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Chewbacca is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Chewbacca is logged in the atlas."
       },
       {
         "label": "Donkey",
@@ -1368,7 +1368,7 @@
           "talking donkey"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Donkey is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Donkey is logged in the atlas."
       },
       {
         "label": "R2-D2",
@@ -1378,7 +1378,7 @@
           "astromech droid"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. R2-D2 is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. R2-D2 is logged in the atlas."
       },
       {
         "label": "C-3PO",
@@ -1388,7 +1388,7 @@
           "protocol droid"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. C-3PO is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. C-3PO is logged in the atlas."
       },
       {
         "label": "Genie",
@@ -1398,7 +1398,7 @@
           "robin williams genie"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Genie is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Genie is logged in the atlas."
       },
       {
         "label": "Ron Weasley",
@@ -1408,7 +1408,7 @@
           "harry's best friend ron"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Ron Weasley is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Ron Weasley is logged in the atlas."
       },
       {
         "label": "Hermione Granger",
@@ -1418,7 +1418,7 @@
           "harry's friend hermione"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Hermione Granger is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Hermione Granger is logged in the atlas."
       },
       {
         "label": "Dory",
@@ -1428,7 +1428,7 @@
           "nemo's blue friend"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Dory is logged in the atlas."
+        "insight": "A quiet cult favourite. Dory is logged in the atlas."
       },
       {
         "label": "Timon and Pumbaa",
@@ -1438,7 +1438,7 @@
           "hakuna matata pair"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Timon and Pumbaa is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Timon and Pumbaa is logged in the atlas."
       },
       {
         "label": "Groot",
@@ -1448,7 +1448,7 @@
           "guardians tree"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Groot is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Groot is logged in the atlas."
       },
       {
         "label": "Rocket Raccoon",
@@ -1458,7 +1458,7 @@
           "guardians raccoon"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Rocket Raccoon is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Rocket Raccoon is logged in the atlas."
       },
       {
         "label": "Baymax",
@@ -1468,7 +1468,7 @@
           "inflatable healthcare companion"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Baymax is logged in the atlas."
+        "insight": "A very small crew picked this. Baymax is logged in the atlas."
       },
       {
         "label": "Mushu",
@@ -1478,7 +1478,7 @@
           "eddie murphy dragon"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Mushu is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Mushu is logged in the atlas."
       },
       {
         "label": "Robin",
@@ -1488,7 +1488,7 @@
           "dick grayson"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Robin is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Robin is logged in the atlas."
       },
       {
         "label": "Olaf",
@@ -1498,7 +1498,7 @@
           "warm hugs snowman"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Olaf is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Olaf is logged in the atlas."
       }
     ]
   },
@@ -1515,7 +1515,7 @@
           "arnold's terminator"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. The Terminator is logged in the atlas."
+        "insight": "The whole audience shouts this one first. The Terminator is logged in the atlas."
       },
       {
         "label": "James Bond",
@@ -1525,7 +1525,7 @@
           "agent 007"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. James Bond is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. James Bond is logged in the atlas."
       },
       {
         "label": "Buzz Lightyear",
@@ -1535,7 +1535,7 @@
           "space ranger buzz"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Buzz Lightyear is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Buzz Lightyear is logged in the atlas."
       },
       {
         "label": "Gandalf",
@@ -1545,7 +1545,7 @@
           "you shall not pass wizard"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Gandalf is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Gandalf is logged in the atlas."
       },
       {
         "label": "E.T.",
@@ -1555,7 +1555,7 @@
           "phone home alien"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. E.T. is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. E.T. is logged in the atlas."
       },
       {
         "label": "Forrest Gump",
@@ -1565,7 +1565,7 @@
           "box of chocolates guy"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Forrest Gump is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Forrest Gump is logged in the atlas."
       },
       {
         "label": "Darth Vader",
@@ -1575,7 +1575,7 @@
           "i am your father"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Darth Vader is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Darth Vader is logged in the atlas."
       },
       {
         "label": "Yoda",
@@ -1585,7 +1585,7 @@
           "small green jedi"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Yoda is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Yoda is logged in the atlas."
       },
       {
         "label": "Gollum",
@@ -1595,7 +1595,7 @@
           "sméagol"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Gollum is logged in the atlas."
+        "insight": "A quiet cult favourite. Gollum is logged in the atlas."
       },
       {
         "label": "Dirty Harry",
@@ -1605,7 +1605,7 @@
           "do you feel lucky punk"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Dirty Harry is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Dirty Harry is logged in the atlas."
       },
       {
         "label": "Don Corleone",
@@ -1615,7 +1615,7 @@
           "offer he can't refuse"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Don Corleone is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Don Corleone is logged in the atlas."
       },
       {
         "label": "Maximus",
@@ -1625,7 +1625,7 @@
           "are you not entertained"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Maximus is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Maximus is logged in the atlas."
       },
       {
         "label": "Jack Sparrow",
@@ -1635,7 +1635,7 @@
           "savvy pirate"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Jack Sparrow is logged in the atlas."
+        "insight": "A very small crew picked this. Jack Sparrow is logged in the atlas."
       },
       {
         "label": "Dorothy Gale",
@@ -1645,7 +1645,7 @@
           "wizard of oz dorothy"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Dorothy Gale is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Dorothy Gale is logged in the atlas."
       },
       {
         "label": "Jules Winnfield",
@@ -1655,7 +1655,7 @@
           "ezekiel 25:17 guy"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Jules Winnfield is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Jules Winnfield is logged in the atlas."
       },
       {
         "label": "Hal 9000",
@@ -1665,7 +1665,7 @@
           "i'm sorry dave computer"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Hal 9000 is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Hal 9000 is logged in the atlas."
       }
     ]
   },
@@ -1682,7 +1682,7 @@
           "young simba"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. Simba is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Simba is logged in the atlas."
       },
       {
         "label": "Nemo",
@@ -1692,7 +1692,7 @@
           "marlin's son"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. Nemo is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Nemo is logged in the atlas."
       },
       {
         "label": "Dory",
@@ -1702,7 +1702,7 @@
           "forgetful fish"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Dory is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Dory is logged in the atlas."
       },
       {
         "label": "Donkey",
@@ -1712,7 +1712,7 @@
           "talking donkey"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Donkey is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Donkey is logged in the atlas."
       },
       {
         "label": "Baloo",
@@ -1722,7 +1722,7 @@
           "bare necessities bear"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Baloo is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Baloo is logged in the atlas."
       },
       {
         "label": "Bambi",
@@ -1732,7 +1732,7 @@
           "disney fawn"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Bambi is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Bambi is logged in the atlas."
       },
       {
         "label": "Remy",
@@ -1742,7 +1742,7 @@
           "chef rat"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Remy is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Remy is logged in the atlas."
       },
       {
         "label": "Timon",
@@ -1752,7 +1752,7 @@
           "meerkat"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Timon is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Timon is logged in the atlas."
       },
       {
         "label": "Pumbaa",
@@ -1762,7 +1762,7 @@
           "warthog"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Pumbaa is logged in the atlas."
+        "insight": "A quiet cult favourite. Pumbaa is logged in the atlas."
       },
       {
         "label": "Babe",
@@ -1772,7 +1772,7 @@
           "talking pig"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Babe is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Babe is logged in the atlas."
       },
       {
         "label": "Nala",
@@ -1782,7 +1782,7 @@
           "lion king lioness"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Nala is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Nala is logged in the atlas."
       },
       {
         "label": "Toothless",
@@ -1792,7 +1792,7 @@
           "how to train your dragon dragon"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Toothless is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Toothless is logged in the atlas."
       },
       {
         "label": "Po",
@@ -1802,7 +1802,7 @@
           "kung fu panda"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Po is logged in the atlas."
+        "insight": "A very small crew picked this. Po is logged in the atlas."
       },
       {
         "label": "Mushu",
@@ -1812,7 +1812,7 @@
           "small red dragon"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Mushu is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Mushu is logged in the atlas."
       },
       {
         "label": "Scar",
@@ -1822,7 +1822,7 @@
           "lion king villain"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Scar is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Scar is logged in the atlas."
       },
       {
         "label": "Marlin",
@@ -1832,7 +1832,7 @@
           "nemo's father"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Marlin is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Marlin is logged in the atlas."
       }
     ]
   },
@@ -1849,7 +1849,7 @@
           "george clooney's ocean"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. Danny Ocean is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Danny Ocean is logged in the atlas."
       },
       {
         "label": "Ethan Hunt",
@@ -1859,7 +1859,7 @@
           "imf agent hunt"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Ethan Hunt is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Ethan Hunt is logged in the atlas."
       },
       {
         "label": "Neil McCauley",
@@ -1869,7 +1869,7 @@
           "robert de niro in heat"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Neil McCauley is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Neil McCauley is logged in the atlas."
       },
       {
         "label": "Dominic Toretto",
@@ -1879,7 +1879,7 @@
           "dom toretto"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Dominic Toretto is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Dominic Toretto is logged in the atlas."
       },
       {
         "label": "Keyser Soze",
@@ -1889,7 +1889,7 @@
           "usual suspects mastermind"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Keyser Soze is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Keyser Soze is logged in the atlas."
       },
       {
         "label": "The Joker",
@@ -1899,7 +1899,7 @@
           "joker from the dark knight"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. The Joker is logged in the atlas."
+        "insight": "Only a few film buffs called this one. The Joker is logged in the atlas."
       },
       {
         "label": "Selina Kyle",
@@ -1909,7 +1909,7 @@
           "the cat burglar"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Selina Kyle is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Selina Kyle is logged in the atlas."
       },
       {
         "label": "Han Solo",
@@ -1919,7 +1919,7 @@
           "smuggler han"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Han Solo is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Han Solo is logged in the atlas."
       },
       {
         "label": "Jack Sparrow",
@@ -1929,7 +1929,7 @@
           "pirate jack"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Jack Sparrow is logged in the atlas."
+        "insight": "A quiet cult favourite. Jack Sparrow is logged in the atlas."
       },
       {
         "label": "Thomas Crown",
@@ -1939,7 +1939,7 @@
           "crown affair thief"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Thomas Crown is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Thomas Crown is logged in the atlas."
       },
       {
         "label": "Arsène Lupin",
@@ -1949,7 +1949,7 @@
           "gentleman thief"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Arsène Lupin is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Arsène Lupin is logged in the atlas."
       },
       {
         "label": "Gru",
@@ -1959,7 +1959,7 @@
           "the moon thief"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Gru is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Gru is logged in the atlas."
       },
       {
         "label": "Baby",
@@ -1969,7 +1969,7 @@
           "baby from baby driver"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Baby is logged in the atlas."
+        "insight": "A very small crew picked this. Baby is logged in the atlas."
       },
       {
         "label": "Bruce Wayne",
@@ -1979,7 +1979,7 @@
           "bruce wayne batman"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Bruce Wayne is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Bruce Wayne is logged in the atlas."
       },
       {
         "label": "Robin Hood",
@@ -1989,7 +1989,7 @@
           "outlaw of sherwood"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Robin Hood is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Robin Hood is logged in the atlas."
       },
       {
         "label": "Rusty Ryan",
@@ -1999,7 +1999,7 @@
           "brad pitt's ocean's character"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Rusty Ryan is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Rusty Ryan is logged in the atlas."
       }
     ]
   },
@@ -2016,7 +2016,7 @@
           "forrest gump actor"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Tom Hanks is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Tom Hanks is logged in the atlas."
       },
       {
         "label": "Tom Cruise",
@@ -2026,7 +2026,7 @@
           "mission impossible star"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Tom Cruise is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Tom Cruise is logged in the atlas."
       },
       {
         "label": "Leonardo DiCaprio",
@@ -2036,7 +2036,7 @@
           "leonardo di caprio"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Leonardo DiCaprio is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Leonardo DiCaprio is logged in the atlas."
       },
       {
         "label": "Denzel Washington",
@@ -2046,7 +2046,7 @@
           "denzel washington the actor"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Denzel Washington is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Denzel Washington is logged in the atlas."
       },
       {
         "label": "Brad Pitt",
@@ -2056,7 +2056,7 @@
           "fight club actor"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Brad Pitt is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Brad Pitt is logged in the atlas."
       },
       {
         "label": "Will Smith",
@@ -2066,7 +2066,7 @@
           "men in black star"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Will Smith is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Will Smith is logged in the atlas."
       },
       {
         "label": "Robert De Niro",
@@ -2076,7 +2076,7 @@
           "robert deniro"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Robert De Niro is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Robert De Niro is logged in the atlas."
       },
       {
         "label": "Keanu Reeves",
@@ -2086,7 +2086,7 @@
           "john wick actor"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Keanu Reeves is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Keanu Reeves is logged in the atlas."
       },
       {
         "label": "Harrison Ford",
@@ -2096,7 +2096,7 @@
           "indiana jones actor"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Harrison Ford is logged in the atlas."
+        "insight": "A quiet cult favourite. Harrison Ford is logged in the atlas."
       },
       {
         "label": "Samuel L. Jackson",
@@ -2106,7 +2106,7 @@
           "samuel l jackson"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Samuel L. Jackson is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Samuel L. Jackson is logged in the atlas."
       },
       {
         "label": "Morgan Freeman",
@@ -2116,7 +2116,7 @@
           "shawshank narrator"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Morgan Freeman is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Morgan Freeman is logged in the atlas."
       },
       {
         "label": "Al Pacino",
@@ -2126,7 +2126,7 @@
           "scarface actor"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Al Pacino is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Al Pacino is logged in the atlas."
       },
       {
         "label": "Jack Nicholson",
@@ -2136,7 +2136,7 @@
           "the shining actor"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Jack Nicholson is logged in the atlas."
+        "insight": "A very small crew picked this. Jack Nicholson is logged in the atlas."
       },
       {
         "label": "Dwayne Johnson",
@@ -2146,7 +2146,7 @@
           "rock johnson"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Dwayne Johnson is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Dwayne Johnson is logged in the atlas."
       },
       {
         "label": "Johnny Depp",
@@ -2156,7 +2156,7 @@
           "jack sparrow actor"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Johnny Depp is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Johnny Depp is logged in the atlas."
       },
       {
         "label": "Meryl Streep",
@@ -2166,7 +2166,7 @@
           "devil wears prada star"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Meryl Streep is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Meryl Streep is logged in the atlas."
       }
     ]
   },
@@ -2183,7 +2183,7 @@
           "pulp fiction director"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Quentin Tarantino is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Quentin Tarantino is logged in the atlas."
       },
       {
         "label": "Christopher Nolan",
@@ -2193,7 +2193,7 @@
           "inception director"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. Christopher Nolan is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Christopher Nolan is logged in the atlas."
       },
       {
         "label": "Steven Spielberg",
@@ -2203,7 +2203,7 @@
           "jaws director"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Steven Spielberg is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Steven Spielberg is logged in the atlas."
       },
       {
         "label": "Wes Anderson",
@@ -2213,7 +2213,7 @@
           "grand budapest director"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Wes Anderson is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Wes Anderson is logged in the atlas."
       },
       {
         "label": "Alfred Hitchcock",
@@ -2223,7 +2223,7 @@
           "master of suspense"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Alfred Hitchcock is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Alfred Hitchcock is logged in the atlas."
       },
       {
         "label": "Stanley Kubrick",
@@ -2233,7 +2233,7 @@
           "2001 director"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Stanley Kubrick is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Stanley Kubrick is logged in the atlas."
       },
       {
         "label": "Martin Scorsese",
@@ -2243,7 +2243,7 @@
           "goodfellas director"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Martin Scorsese is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Martin Scorsese is logged in the atlas."
       },
       {
         "label": "Tim Burton",
@@ -2253,7 +2253,7 @@
           "edward scissorhands director"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Tim Burton is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Tim Burton is logged in the atlas."
       },
       {
         "label": "James Cameron",
@@ -2262,7 +2262,7 @@
           "titanic director"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. James Cameron is logged in the atlas."
+        "insight": "A quiet cult favourite. James Cameron is logged in the atlas."
       },
       {
         "label": "David Lynch",
@@ -2272,7 +2272,7 @@
           "twin peaks creator"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. David Lynch is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. David Lynch is logged in the atlas."
       },
       {
         "label": "Ridley Scott",
@@ -2281,7 +2281,7 @@
           "alien director"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Ridley Scott is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Ridley Scott is logged in the atlas."
       },
       {
         "label": "Guillermo del Toro",
@@ -2291,7 +2291,7 @@
           "pan's labyrinth director"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Guillermo del Toro is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Guillermo del Toro is logged in the atlas."
       },
       {
         "label": "Denis Villeneuve",
@@ -2301,7 +2301,7 @@
           "dune director"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Denis Villeneuve is logged in the atlas."
+        "insight": "A very small crew picked this. Denis Villeneuve is logged in the atlas."
       },
       {
         "label": "Hayao Miyazaki",
@@ -2311,7 +2311,7 @@
           "studio ghibli director"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Hayao Miyazaki is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Hayao Miyazaki is logged in the atlas."
       },
       {
         "label": "The Coen Brothers",
@@ -2321,7 +2321,7 @@
           "fargo directors"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. The Coen Brothers is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. The Coen Brothers is logged in the atlas."
       },
       {
         "label": "Francis Ford Coppola",
@@ -2331,7 +2331,7 @@
           "godfather director"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Francis Ford Coppola is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Francis Ford Coppola is logged in the atlas."
       }
     ]
   },
@@ -2348,7 +2348,7 @@
           "iron man actor"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. Robert Downey Jr. is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Robert Downey Jr. is logged in the atlas."
       },
       {
         "label": "Chris Hemsworth",
@@ -2358,7 +2358,7 @@
           "chris hemsworth the actor"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. Chris Hemsworth is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Chris Hemsworth is logged in the atlas."
       },
       {
         "label": "Chris Evans",
@@ -2368,7 +2368,7 @@
           "evans"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Chris Evans is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Chris Evans is logged in the atlas."
       },
       {
         "label": "Hugh Jackman",
@@ -2378,7 +2378,7 @@
           "hugh jackman the actor"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Hugh Jackman is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Hugh Jackman is logged in the atlas."
       },
       {
         "label": "Ryan Reynolds",
@@ -2388,7 +2388,7 @@
           "ryan reynolds the actor"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Ryan Reynolds is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Ryan Reynolds is logged in the atlas."
       },
       {
         "label": "Christian Bale",
@@ -2398,7 +2398,7 @@
           "christian bale the actor"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Christian Bale is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Christian Bale is logged in the atlas."
       },
       {
         "label": "Tom Holland",
@@ -2408,7 +2408,7 @@
           "tom holland the actor"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Tom Holland is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Tom Holland is logged in the atlas."
       },
       {
         "label": "Tobey Maguire",
@@ -2418,7 +2418,7 @@
           "tobey maguire the actor"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Tobey Maguire is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Tobey Maguire is logged in the atlas."
       },
       {
         "label": "Scarlett Johansson",
@@ -2428,7 +2428,7 @@
           "scarlett johansson the actress"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Scarlett Johansson is logged in the atlas."
+        "insight": "A quiet cult favourite. Scarlett Johansson is logged in the atlas."
       },
       {
         "label": "Henry Cavill",
@@ -2438,7 +2438,7 @@
           "henry cavill the actor"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Henry Cavill is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Henry Cavill is logged in the atlas."
       },
       {
         "label": "Andrew Garfield",
@@ -2448,7 +2448,7 @@
           "andrew garfield the actor"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Andrew Garfield is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Andrew Garfield is logged in the atlas."
       },
       {
         "label": "Ben Affleck",
@@ -2458,7 +2458,7 @@
           "ben affleck the actor"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Ben Affleck is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Ben Affleck is logged in the atlas."
       },
       {
         "label": "Gal Gadot",
@@ -2468,7 +2468,7 @@
           "gal gadot the actress"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Gal Gadot is logged in the atlas."
+        "insight": "A very small crew picked this. Gal Gadot is logged in the atlas."
       },
       {
         "label": "Chadwick Boseman",
@@ -2478,7 +2478,7 @@
           "chadwick boseman the actor"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Chadwick Boseman is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Chadwick Boseman is logged in the atlas."
       },
       {
         "label": "Michael Keaton",
@@ -2488,7 +2488,7 @@
           "michael keaton the actor"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Michael Keaton is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Michael Keaton is logged in the atlas."
       },
       {
         "label": "Mark Ruffalo",
@@ -2498,7 +2498,7 @@
           "mark ruffalo the actor"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Mark Ruffalo is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Mark Ruffalo is logged in the atlas."
       }
     ]
   },
@@ -2515,7 +2515,7 @@
           "john williams the composer"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. John Williams is logged in the atlas."
+        "insight": "The whole audience shouts this one first. John Williams is logged in the atlas."
       },
       {
         "label": "Hans Zimmer",
@@ -2525,7 +2525,7 @@
           "hans zimmer the composer"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Hans Zimmer is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Hans Zimmer is logged in the atlas."
       },
       {
         "label": "Ennio Morricone",
@@ -2535,7 +2535,7 @@
           "spaghetti western composer"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Ennio Morricone is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Ennio Morricone is logged in the atlas."
       },
       {
         "label": "Howard Shore",
@@ -2544,7 +2544,7 @@
           "howard shore the composer"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Howard Shore is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Howard Shore is logged in the atlas."
       },
       {
         "label": "Danny Elfman",
@@ -2554,7 +2554,7 @@
           "danny elfman the composer"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Danny Elfman is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Danny Elfman is logged in the atlas."
       },
       {
         "label": "James Horner",
@@ -2564,7 +2564,7 @@
           "james horner the composer"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. James Horner is logged in the atlas."
+        "insight": "Only a few film buffs called this one. James Horner is logged in the atlas."
       },
       {
         "label": "Alan Silvestri",
@@ -2574,7 +2574,7 @@
           "alan silvestri the composer"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Alan Silvestri is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Alan Silvestri is logged in the atlas."
       },
       {
         "label": "Bernard Herrmann",
@@ -2584,7 +2584,7 @@
           "bernard herrmann the composer"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Bernard Herrmann is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Bernard Herrmann is logged in the atlas."
       },
       {
         "label": "Vangelis",
@@ -2594,7 +2594,7 @@
           "blade runner composer"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Vangelis is logged in the atlas."
+        "insight": "A quiet cult favourite. Vangelis is logged in the atlas."
       },
       {
         "label": "Jerry Goldsmith",
@@ -2604,7 +2604,7 @@
           "jerry goldsmith the composer"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Jerry Goldsmith is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Jerry Goldsmith is logged in the atlas."
       },
       {
         "label": "Nino Rota",
@@ -2614,7 +2614,7 @@
           "nino rota the composer"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Nino Rota is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Nino Rota is logged in the atlas."
       },
       {
         "label": "Michael Giacchino",
@@ -2624,7 +2624,7 @@
           "michael giacchino the composer"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Michael Giacchino is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Michael Giacchino is logged in the atlas."
       },
       {
         "label": "Ludwig Göransson",
@@ -2634,7 +2634,7 @@
           "oppenheimer composer"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Ludwig Göransson is logged in the atlas."
+        "insight": "A very small crew picked this. Ludwig Göransson is logged in the atlas."
       },
       {
         "label": "Alexandre Desplat",
@@ -2644,7 +2644,7 @@
           "alexandre desplat the composer"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Alexandre Desplat is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Alexandre Desplat is logged in the atlas."
       },
       {
         "label": "Thomas Newman",
@@ -2653,7 +2653,7 @@
           "shawshank composer"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Thomas Newman is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Thomas Newman is logged in the atlas."
       },
       {
         "label": "Randy Newman",
@@ -2663,7 +2663,7 @@
           "you've got a friend in me composer"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Randy Newman is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Randy Newman is logged in the atlas."
       }
     ]
   },
@@ -2680,7 +2680,7 @@
           "the terminator actor"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Arnold Schwarzenegger is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Arnold Schwarzenegger is logged in the atlas."
       },
       {
         "label": "Sylvester Stallone",
@@ -2690,7 +2690,7 @@
           "rocky actor"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Sylvester Stallone is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Sylvester Stallone is logged in the atlas."
       },
       {
         "label": "Bruce Willis",
@@ -2700,7 +2700,7 @@
           "bruce willis the actor"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Bruce Willis is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Bruce Willis is logged in the atlas."
       },
       {
         "label": "Jason Statham",
@@ -2710,7 +2710,7 @@
           "jason statham the actor"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Jason Statham is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Jason Statham is logged in the atlas."
       },
       {
         "label": "Clint Eastwood",
@@ -2720,7 +2720,7 @@
           "clint eastwood the actor"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Clint Eastwood is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Clint Eastwood is logged in the atlas."
       },
       {
         "label": "Vin Diesel",
@@ -2730,7 +2730,7 @@
           "vin diesel the actor"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Vin Diesel is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Vin Diesel is logged in the atlas."
       },
       {
         "label": "Jean-Claude Van Damme",
@@ -2740,7 +2740,7 @@
           "muscles from brussels"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Jean-Claude Van Damme is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Jean-Claude Van Damme is logged in the atlas."
       },
       {
         "label": "Dwayne Johnson",
@@ -2750,7 +2750,7 @@
           "rock johnson"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Dwayne Johnson is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Dwayne Johnson is logged in the atlas."
       },
       {
         "label": "Charles Bronson",
@@ -2760,7 +2760,7 @@
           "charles bronson the actor"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Charles Bronson is logged in the atlas."
+        "insight": "A quiet cult favourite. Charles Bronson is logged in the atlas."
       },
       {
         "label": "Liam Neeson",
@@ -2770,7 +2770,7 @@
           "liam neeson the actor"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Liam Neeson is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Liam Neeson is logged in the atlas."
       },
       {
         "label": "Steven Seagal",
@@ -2780,7 +2780,7 @@
           "steven seagal the actor"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Steven Seagal is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Steven Seagal is logged in the atlas."
       },
       {
         "label": "Bruce Lee",
@@ -2789,7 +2789,7 @@
           "bruce lee the actor"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Bruce Lee is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Bruce Lee is logged in the atlas."
       },
       {
         "label": "Chuck Norris",
@@ -2799,7 +2799,7 @@
           "chuck norris the actor"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Chuck Norris is logged in the atlas."
+        "insight": "A very small crew picked this. Chuck Norris is logged in the atlas."
       },
       {
         "label": "Mel Gibson",
@@ -2809,7 +2809,7 @@
           "mel gibson the actor"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Mel Gibson is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Mel Gibson is logged in the atlas."
       },
       {
         "label": "Keanu Reeves",
@@ -2819,7 +2819,7 @@
           "john wick actor"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Keanu Reeves is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Keanu Reeves is logged in the atlas."
       },
       {
         "label": "Jackie Chan",
@@ -2829,7 +2829,7 @@
           "jackie chan the actor"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Jackie Chan is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Jackie Chan is logged in the atlas."
       }
     ]
   },
@@ -2846,7 +2846,7 @@
           "jim carrey the actor"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Jim Carrey is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Jim Carrey is logged in the atlas."
       },
       {
         "label": "Adam Sandler",
@@ -2856,7 +2856,7 @@
           "adam sandler the actor"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. Adam Sandler is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Adam Sandler is logged in the atlas."
       },
       {
         "label": "Eddie Murphy",
@@ -2866,7 +2866,7 @@
           "eddie murphy the actor"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Eddie Murphy is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Eddie Murphy is logged in the atlas."
       },
       {
         "label": "Robin Williams",
@@ -2876,7 +2876,7 @@
           "robin williams the actor"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Robin Williams is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Robin Williams is logged in the atlas."
       },
       {
         "label": "Will Ferrell",
@@ -2886,7 +2886,7 @@
           "will ferrell the actor"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Will Ferrell is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Will Ferrell is logged in the atlas."
       },
       {
         "label": "Steve Carell",
@@ -2896,7 +2896,7 @@
           "steve carell the actor"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Steve Carell is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Steve Carell is logged in the atlas."
       },
       {
         "label": "Ben Stiller",
@@ -2906,7 +2906,7 @@
           "ben stiller the actor"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Ben Stiller is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Ben Stiller is logged in the atlas."
       },
       {
         "label": "Mike Myers",
@@ -2916,7 +2916,7 @@
           "mike myers the actor"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Mike Myers is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Mike Myers is logged in the atlas."
       },
       {
         "label": "Kevin Hart",
@@ -2925,7 +2925,7 @@
           "jumanji comedian"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Kevin Hart is logged in the atlas."
+        "insight": "A quiet cult favourite. Kevin Hart is logged in the atlas."
       },
       {
         "label": "Rowan Atkinson",
@@ -2935,7 +2935,7 @@
           "rowan atkinson the actor"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Rowan Atkinson is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Rowan Atkinson is logged in the atlas."
       },
       {
         "label": "Bill Murray",
@@ -2945,7 +2945,7 @@
           "bill murray the actor"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Bill Murray is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Bill Murray is logged in the atlas."
       },
       {
         "label": "Jack Black",
@@ -2954,7 +2954,7 @@
           "jack black the actor"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Jack Black is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Jack Black is logged in the atlas."
       },
       {
         "label": "Melissa McCarthy",
@@ -2964,7 +2964,7 @@
           "melissa mccarthy the actress"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Melissa McCarthy is logged in the atlas."
+        "insight": "A very small crew picked this. Melissa McCarthy is logged in the atlas."
       },
       {
         "label": "Steve Martin",
@@ -2973,7 +2973,7 @@
           "steve martin the actor"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Steve Martin is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Steve Martin is logged in the atlas."
       },
       {
         "label": "Kristen Wiig",
@@ -2983,7 +2983,7 @@
           "kristen wiig the actress"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Kristen Wiig is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Kristen Wiig is logged in the atlas."
       },
       {
         "label": "Chevy Chase",
@@ -2992,7 +2992,7 @@
           "chevy chase the actor"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Chevy Chase is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Chevy Chase is logged in the atlas."
       }
     ]
   },
@@ -3009,7 +3009,7 @@
           "fast furious"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. Fast & Furious is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Fast & Furious is logged in the atlas."
       },
       {
         "label": "James Bond",
@@ -3019,7 +3019,7 @@
           "the bond series"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. James Bond is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. James Bond is logged in the atlas."
       },
       {
         "label": "Marvel Cinematic Universe",
@@ -3029,7 +3029,7 @@
           "the avengers series"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Marvel Cinematic Universe is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Marvel Cinematic Universe is logged in the atlas."
       },
       {
         "label": "Star Wars",
@@ -3039,7 +3039,7 @@
           "skywalker saga"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Star Wars is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Star Wars is logged in the atlas."
       },
       {
         "label": "Halloween",
@@ -3049,7 +3049,7 @@
           "halloween franchise"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Halloween is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Halloween is logged in the atlas."
       },
       {
         "label": "Friday the 13th",
@@ -3059,7 +3059,7 @@
           "friday 13th films"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Friday the 13th is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Friday the 13th is logged in the atlas."
       },
       {
         "label": "Saw",
@@ -3069,7 +3069,7 @@
           "saw franchise"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Saw is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Saw is logged in the atlas."
       },
       {
         "label": "Godzilla",
@@ -3079,7 +3079,7 @@
           "toho godzilla"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Godzilla is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Godzilla is logged in the atlas."
       },
       {
         "label": "Harry Potter",
@@ -3089,7 +3089,7 @@
           "harry potter series"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Harry Potter is logged in the atlas."
+        "insight": "A quiet cult favourite. Harry Potter is logged in the atlas."
       },
       {
         "label": "Mission: Impossible",
@@ -3099,7 +3099,7 @@
           "ethan hunt series"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Mission: Impossible is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Mission: Impossible is logged in the atlas."
       },
       {
         "label": "Transformers",
@@ -3109,7 +3109,7 @@
           "autobots series"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Transformers is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Transformers is logged in the atlas."
       },
       {
         "label": "Pirates of the Caribbean",
@@ -3119,7 +3119,7 @@
           "pirates franchise"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Pirates of the Caribbean is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Pirates of the Caribbean is logged in the atlas."
       },
       {
         "label": "Rocky",
@@ -3129,7 +3129,7 @@
           "rocky and creed series"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Rocky is logged in the atlas."
+        "insight": "A very small crew picked this. Rocky is logged in the atlas."
       },
       {
         "label": "Toy Story",
@@ -3139,7 +3139,7 @@
           "toy story franchise"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Toy Story is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Toy Story is logged in the atlas."
       },
       {
         "label": "Resident Evil",
@@ -3149,7 +3149,7 @@
           "resident evil franchise"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Resident Evil is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Resident Evil is logged in the atlas."
       },
       {
         "label": "Carry On",
@@ -3159,7 +3159,7 @@
           "carry on movies"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Carry On is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Carry On is logged in the atlas."
       }
     ]
   },
@@ -3176,7 +3176,7 @@
           "middle-earth films"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. The Lord of the Rings is logged in the atlas."
+        "insight": "The whole audience shouts this one first. The Lord of the Rings is logged in the atlas."
       },
       {
         "label": "Harry Potter",
@@ -3186,7 +3186,7 @@
           "harry potter series"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Harry Potter is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Harry Potter is logged in the atlas."
       },
       {
         "label": "Star Wars",
@@ -3196,7 +3196,7 @@
           "skywalker saga"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Star Wars is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Star Wars is logged in the atlas."
       },
       {
         "label": "The Godfather",
@@ -3206,7 +3206,7 @@
           "godfather films"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. The Godfather is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. The Godfather is logged in the atlas."
       },
       {
         "label": "Marvel Cinematic Universe",
@@ -3216,7 +3216,7 @@
           "the avengers series"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Marvel Cinematic Universe is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Marvel Cinematic Universe is logged in the atlas."
       },
       {
         "label": "Toy Story",
@@ -3226,7 +3226,7 @@
           "toy story franchise"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Toy Story is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Toy Story is logged in the atlas."
       },
       {
         "label": "Back to the Future",
@@ -3236,7 +3236,7 @@
           "bttf"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Back to the Future is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Back to the Future is logged in the atlas."
       },
       {
         "label": "Jurassic Park",
@@ -3246,7 +3246,7 @@
           "jurassic park series"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Jurassic Park is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Jurassic Park is logged in the atlas."
       },
       {
         "label": "Indiana Jones",
@@ -3256,7 +3256,7 @@
           "indiana jones series"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Indiana Jones is logged in the atlas."
+        "insight": "A quiet cult favourite. Indiana Jones is logged in the atlas."
       },
       {
         "label": "The Matrix",
@@ -3266,7 +3266,7 @@
           "neo series"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. The Matrix is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. The Matrix is logged in the atlas."
       },
       {
         "label": "Pirates of the Caribbean",
@@ -3276,7 +3276,7 @@
           "pirates franchise"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Pirates of the Caribbean is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Pirates of the Caribbean is logged in the atlas."
       },
       {
         "label": "The Hunger Games",
@@ -3286,7 +3286,7 @@
           "hunger games franchise"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. The Hunger Games is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. The Hunger Games is logged in the atlas."
       },
       {
         "label": "Mission: Impossible",
@@ -3296,7 +3296,7 @@
           "ethan hunt series"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Mission: Impossible is logged in the atlas."
+        "insight": "A very small crew picked this. Mission: Impossible is logged in the atlas."
       },
       {
         "label": "John Wick",
@@ -3306,7 +3306,7 @@
           "john wick franchise"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. John Wick is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. John Wick is logged in the atlas."
       },
       {
         "label": "Rocky",
@@ -3316,7 +3316,7 @@
           "rocky and creed series"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Rocky is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Rocky is logged in the atlas."
       },
       {
         "label": "Twilight",
@@ -3326,7 +3326,7 @@
           "bella and edward series"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Twilight is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Twilight is logged in the atlas."
       }
     ]
   },
@@ -3343,7 +3343,7 @@
           "toy story studio"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Pixar is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Pixar is logged in the atlas."
       },
       {
         "label": "Disney",
@@ -3353,7 +3353,7 @@
           "walt disney animation"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Disney is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Disney is logged in the atlas."
       },
       {
         "label": "DreamWorks",
@@ -3363,7 +3363,7 @@
           "shrek studio"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. DreamWorks is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. DreamWorks is logged in the atlas."
       },
       {
         "label": "Studio Ghibli",
@@ -3373,7 +3373,7 @@
           "spirited away studio"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Studio Ghibli is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Studio Ghibli is logged in the atlas."
       },
       {
         "label": "Illumination",
@@ -3383,7 +3383,7 @@
           "despicable me studio"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Illumination is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Illumination is logged in the atlas."
       },
       {
         "label": "Blue Sky Studios",
@@ -3393,7 +3393,7 @@
           "blue sky animation"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Blue Sky Studios is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Blue Sky Studios is logged in the atlas."
       },
       {
         "label": "Aardman",
@@ -3403,7 +3403,7 @@
           "shaun the sheep studio"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Aardman is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Aardman is logged in the atlas."
       },
       {
         "label": "Laika",
@@ -3413,7 +3413,7 @@
           "kubo studio"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Laika is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Laika is logged in the atlas."
       },
       {
         "label": "Sony Pictures Animation",
@@ -3423,7 +3423,7 @@
           "sony pictures animation studio"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Sony Pictures Animation is logged in the atlas."
+        "insight": "A quiet cult favourite. Sony Pictures Animation is logged in the atlas."
       },
       {
         "label": "Warner Bros. Animation",
@@ -3433,7 +3433,7 @@
           "warner bros animation"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Warner Bros. Animation is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Warner Bros. Animation is logged in the atlas."
       },
       {
         "label": "Cartoon Saloon",
@@ -3443,7 +3443,7 @@
           "wolfwalkers studio"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Cartoon Saloon is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Cartoon Saloon is logged in the atlas."
       },
       {
         "label": "Hanna-Barbera",
@@ -3453,7 +3453,7 @@
           "flintstones studio"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Hanna-Barbera is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Hanna-Barbera is logged in the atlas."
       },
       {
         "label": "Toei Animation",
@@ -3463,7 +3463,7 @@
           "toei studio"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Toei Animation is logged in the atlas."
+        "insight": "A very small crew picked this. Toei Animation is logged in the atlas."
       },
       {
         "label": "Madhouse",
@@ -3473,7 +3473,7 @@
           "paprika studio"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Madhouse is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Madhouse is logged in the atlas."
       },
       {
         "label": "Fleischer Studios",
@@ -3483,7 +3483,7 @@
           "popeye studio"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Fleischer Studios is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Fleischer Studios is logged in the atlas."
       },
       {
         "label": "Nickelodeon Animation",
@@ -3493,7 +3493,7 @@
           "nickelodeon movies"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Nickelodeon Animation is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Nickelodeon Animation is logged in the atlas."
       }
     ]
   },
@@ -3510,7 +3510,7 @@
           "warner bros pictures"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Warner Bros. is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Warner Bros. is logged in the atlas."
       },
       {
         "label": "Universal",
@@ -3520,7 +3520,7 @@
           "universal films"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. Universal is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Universal is logged in the atlas."
       },
       {
         "label": "Paramount",
@@ -3530,7 +3530,7 @@
           "paramount films"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Paramount is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Paramount is logged in the atlas."
       },
       {
         "label": "Disney",
@@ -3540,7 +3540,7 @@
           "disney studios"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Disney is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Disney is logged in the atlas."
       },
       {
         "label": "Sony Pictures",
@@ -3550,7 +3550,7 @@
           "sony pictures entertainment"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Sony Pictures is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Sony Pictures is logged in the atlas."
       },
       {
         "label": "20th Century Studios",
@@ -3560,7 +3560,7 @@
           "fox studios"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. 20th Century Studios is logged in the atlas."
+        "insight": "Only a few film buffs called this one. 20th Century Studios is logged in the atlas."
       },
       {
         "label": "MGM",
@@ -3570,7 +3570,7 @@
           "mgm studios"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. MGM is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. MGM is logged in the atlas."
       },
       {
         "label": "Lionsgate",
@@ -3580,7 +3580,7 @@
           "lionsgate studios"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Lionsgate is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Lionsgate is logged in the atlas."
       },
       {
         "label": "A24",
@@ -3590,7 +3590,7 @@
           "a24 studio"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. A24 is logged in the atlas."
+        "insight": "A quiet cult favourite. A24 is logged in the atlas."
       },
       {
         "label": "Pixar",
@@ -3600,7 +3600,7 @@
           "toy story studio"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Pixar is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Pixar is logged in the atlas."
       },
       {
         "label": "Miramax",
@@ -3610,7 +3610,7 @@
           "miramax pictures"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Miramax is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Miramax is logged in the atlas."
       },
       {
         "label": "DreamWorks",
@@ -3620,7 +3620,7 @@
           "dreamworks studios"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. DreamWorks is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. DreamWorks is logged in the atlas."
       },
       {
         "label": "Netflix",
@@ -3630,7 +3630,7 @@
           "netflix originals"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Netflix is logged in the atlas."
+        "insight": "A very small crew picked this. Netflix is logged in the atlas."
       },
       {
         "label": "Focus Features",
@@ -3639,7 +3639,7 @@
           "universal focus"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Focus Features is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Focus Features is logged in the atlas."
       },
       {
         "label": "Legendary",
@@ -3649,7 +3649,7 @@
           "legendary studios"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Legendary is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Legendary is logged in the atlas."
       },
       {
         "label": "Lucasfilm",
@@ -3659,7 +3659,7 @@
           "lucasfilm ltd"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Lucasfilm is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Lucasfilm is logged in the atlas."
       }
     ]
   },
@@ -3676,7 +3676,7 @@
           "star wars v"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. The Empire Strikes Back is logged in the atlas."
+        "insight": "The whole audience shouts this one first. The Empire Strikes Back is logged in the atlas."
       },
       {
         "label": "The Godfather Part II",
@@ -3686,7 +3686,7 @@
           "godfather part two"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. The Godfather Part II is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. The Godfather Part II is logged in the atlas."
       },
       {
         "label": "Terminator 2",
@@ -3696,7 +3696,7 @@
           "terminator 2 judgement day"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Terminator 2 is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Terminator 2 is logged in the atlas."
       },
       {
         "label": "Aliens",
@@ -3706,7 +3706,7 @@
           "james cameron's aliens"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Aliens is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Aliens is logged in the atlas."
       },
       {
         "label": "The Dark Knight",
@@ -3716,7 +3716,7 @@
           "nolan's dark knight"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. The Dark Knight is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. The Dark Knight is logged in the atlas."
       },
       {
         "label": "Toy Story 2",
@@ -3726,7 +3726,7 @@
           "woody's roundup film"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Toy Story 2 is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Toy Story 2 is logged in the atlas."
       },
       {
         "label": "Toy Story 3",
@@ -3736,7 +3736,7 @@
           "incinerator scene film"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Toy Story 3 is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Toy Story 3 is logged in the atlas."
       },
       {
         "label": "The Road Warrior",
@@ -3746,7 +3746,7 @@
           "road warrior film"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. The Road Warrior is logged in the atlas."
+        "insight": "A small club of regulars knew this one. The Road Warrior is logged in the atlas."
       },
       {
         "label": "Spider-Man 2",
@@ -3756,7 +3756,7 @@
           "spider-man two"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Spider-Man 2 is logged in the atlas."
+        "insight": "A quiet cult favourite. Spider-Man 2 is logged in the atlas."
       },
       {
         "label": "Paddington 2",
@@ -3766,7 +3766,7 @@
           "paddington 2 movie"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Paddington 2 is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Paddington 2 is logged in the atlas."
       },
       {
         "label": "Evil Dead II",
@@ -3776,7 +3776,7 @@
           "evil dead ii film"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Evil Dead II is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Evil Dead II is logged in the atlas."
       },
       {
         "label": "The Wrath of Khan",
@@ -3786,7 +3786,7 @@
           "wrath of khan"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. The Wrath of Khan is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. The Wrath of Khan is logged in the atlas."
       },
       {
         "label": "Shrek 2",
@@ -3796,7 +3796,7 @@
           "shrek 2 movie"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Shrek 2 is logged in the atlas."
+        "insight": "A very small crew picked this. Shrek 2 is logged in the atlas."
       },
       {
         "label": "John Wick: Chapter 2",
@@ -3806,7 +3806,7 @@
           "john wick two"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. John Wick: Chapter 2 is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. John Wick: Chapter 2 is logged in the atlas."
       },
       {
         "label": "Mission: Impossible – Fallout",
@@ -3816,7 +3816,7 @@
           "mi fallout"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Mission: Impossible – Fallout is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Mission: Impossible – Fallout is logged in the atlas."
       },
       {
         "label": "Superman II",
@@ -3826,7 +3826,7 @@
           "superman ii film"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Superman II is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Superman II is logged in the atlas."
       }
     ]
   },
@@ -3843,7 +3843,7 @@
           "the imperial march"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. Star Wars is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Star Wars is logged in the atlas."
       },
       {
         "label": "James Bond",
@@ -3853,7 +3853,7 @@
           "007 theme"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. James Bond is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. James Bond is logged in the atlas."
       },
       {
         "label": "Jaws",
@@ -3863,7 +3863,7 @@
           "shark theme"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Jaws is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Jaws is logged in the atlas."
       },
       {
         "label": "Indiana Jones",
@@ -3873,7 +3873,7 @@
           "raiders of the lost ark theme"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Indiana Jones is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Indiana Jones is logged in the atlas."
       },
       {
         "label": "Mission: Impossible",
@@ -3883,7 +3883,7 @@
           "lalo schifrin theme"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Mission: Impossible is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Mission: Impossible is logged in the atlas."
       },
       {
         "label": "Harry Potter",
@@ -3893,7 +3893,7 @@
           "hedwigs theme"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Harry Potter is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Harry Potter is logged in the atlas."
       },
       {
         "label": "Jurassic Park",
@@ -3903,7 +3903,7 @@
           "welcome to jurassic park"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Jurassic Park is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Jurassic Park is logged in the atlas."
       },
       {
         "label": "Pirates of the Caribbean",
@@ -3913,7 +3913,7 @@
           "hes a pirate"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Pirates of the Caribbean is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Pirates of the Caribbean is logged in the atlas."
       },
       {
         "label": "Superman",
@@ -3923,7 +3923,7 @@
           "john williams superman"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Superman is logged in the atlas."
+        "insight": "A quiet cult favourite. Superman is logged in the atlas."
       },
       {
         "label": "The Lord of the Rings",
@@ -3933,7 +3933,7 @@
           "lord of the rings theme"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. The Lord of the Rings is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. The Lord of the Rings is logged in the atlas."
       },
       {
         "label": "Ghostbusters",
@@ -3943,7 +3943,7 @@
           "ray parker jr theme"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Ghostbusters is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Ghostbusters is logged in the atlas."
       },
       {
         "label": "Rocky",
@@ -3953,7 +3953,7 @@
           "rocky's theme"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Rocky is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Rocky is logged in the atlas."
       },
       {
         "label": "Star Trek",
@@ -3963,7 +3963,7 @@
           "space the final frontier theme"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Star Trek is logged in the atlas."
+        "insight": "A very small crew picked this. Star Trek is logged in the atlas."
       },
       {
         "label": "Back to the Future",
@@ -3973,7 +3973,7 @@
           "power of love theme"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Back to the Future is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Back to the Future is logged in the atlas."
       },
       {
         "label": "The Godfather",
@@ -3983,7 +3983,7 @@
           "speak softly love"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. The Godfather is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. The Godfather is logged in the atlas."
       },
       {
         "label": "Halloween",
@@ -3993,7 +3993,7 @@
           "john carpenter halloween theme"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Halloween is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Halloween is logged in the atlas."
       }
     ]
   },
@@ -4010,7 +4010,7 @@
           "tense music"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Music is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Music is logged in the atlas."
       },
       {
         "label": "Darkness",
@@ -4020,7 +4020,7 @@
           "low lighting"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Darkness is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Darkness is logged in the atlas."
       },
       {
         "label": "Silence",
@@ -4030,7 +4030,7 @@
           "quiet before the scare"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Silence is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Silence is logged in the atlas."
       },
       {
         "label": "Jump scares",
@@ -4040,7 +4040,7 @@
           "something leaping out"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Jump scares is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Jump scares is logged in the atlas."
       },
       {
         "label": "Shadows",
@@ -4050,7 +4050,7 @@
           "things in the shadows"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Shadows is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Shadows is logged in the atlas."
       },
       {
         "label": "Sound effects",
@@ -4060,7 +4060,7 @@
           "scary sound design"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Sound effects is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Sound effects is logged in the atlas."
       },
       {
         "label": "Not seeing the monster",
@@ -4070,7 +4070,7 @@
           "what you can't see"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Not seeing the monster is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Not seeing the monster is logged in the atlas."
       },
       {
         "label": "A creepy child",
@@ -4080,7 +4080,7 @@
           "eerie kid"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. A creepy child is logged in the atlas."
+        "insight": "A small club of regulars knew this one. A creepy child is logged in the atlas."
       },
       {
         "label": "Fog",
@@ -4090,7 +4090,7 @@
           "foggy woods"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Fog is logged in the atlas."
+        "insight": "A quiet cult favourite. Fog is logged in the atlas."
       },
       {
         "label": "Isolation",
@@ -4100,7 +4100,7 @@
           "cabin in the woods"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Isolation is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Isolation is logged in the atlas."
       },
       {
         "label": "A slow build",
@@ -4110,7 +4110,7 @@
           "creeping dread"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. A slow build is logged in the atlas."
+        "insight": "A narrow cut from the atlas. A slow build is logged in the atlas."
       },
       {
         "label": "Whispering",
@@ -4120,7 +4120,7 @@
           "creepy whispers"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Whispering is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Whispering is logged in the atlas."
       },
       {
         "label": "Flickering lights",
@@ -4130,7 +4130,7 @@
           "flickering bulbs"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Flickering lights is logged in the atlas."
+        "insight": "A very small crew picked this. Flickering lights is logged in the atlas."
       },
       {
         "label": "Mirrors",
@@ -4140,7 +4140,7 @@
           "something in the mirror"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Mirrors is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Mirrors is logged in the atlas."
       },
       {
         "label": "Masks",
@@ -4150,7 +4150,7 @@
           "creepy mask"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Masks is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Masks is logged in the atlas."
       },
       {
         "label": "Clowns",
@@ -4160,7 +4160,7 @@
           "evil clown"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Clowns is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Clowns is logged in the atlas."
       }
     ]
   },
@@ -4177,7 +4177,7 @@
           "movie director"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Director is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Director is logged in the atlas."
       },
       {
         "label": "Actor",
@@ -4187,7 +4187,7 @@
           "performer"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. Actor is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Actor is logged in the atlas."
       },
       {
         "label": "Producer",
@@ -4197,7 +4197,7 @@
           "executive producer"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Producer is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Producer is logged in the atlas."
       },
       {
         "label": "Cinematographer",
@@ -4207,7 +4207,7 @@
           "camera operator"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Cinematographer is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Cinematographer is logged in the atlas."
       },
       {
         "label": "Editor",
@@ -4217,7 +4217,7 @@
           "movie editor"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Editor is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Editor is logged in the atlas."
       },
       {
         "label": "Screenwriter",
@@ -4227,7 +4227,7 @@
           "scriptwriter"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Screenwriter is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Screenwriter is logged in the atlas."
       },
       {
         "label": "Sound designer",
@@ -4237,7 +4237,7 @@
           "foley artist"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Sound designer is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Sound designer is logged in the atlas."
       },
       {
         "label": "Costume designer",
@@ -4247,7 +4247,7 @@
           "wardrobe designer"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Costume designer is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Costume designer is logged in the atlas."
       },
       {
         "label": "Makeup artist",
@@ -4257,7 +4257,7 @@
           "makeup department"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Makeup artist is logged in the atlas."
+        "insight": "A quiet cult favourite. Makeup artist is logged in the atlas."
       },
       {
         "label": "Stunt performer",
@@ -4267,7 +4267,7 @@
           "stunt coordinator"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Stunt performer is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Stunt performer is logged in the atlas."
       },
       {
         "label": "Gaffer",
@@ -4277,7 +4277,7 @@
           "head electrician"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Gaffer is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Gaffer is logged in the atlas."
       },
       {
         "label": "Set designer",
@@ -4287,7 +4287,7 @@
           "art director"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Set designer is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Set designer is logged in the atlas."
       },
       {
         "label": "Composer",
@@ -4297,7 +4297,7 @@
           "music composer"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Composer is logged in the atlas."
+        "insight": "A very small crew picked this. Composer is logged in the atlas."
       },
       {
         "label": "Best boy",
@@ -4307,7 +4307,7 @@
           "assistant gaffer"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. Best boy is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Best boy is logged in the atlas."
       },
       {
         "label": "Grip",
@@ -4317,7 +4317,7 @@
           "grip crew"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Grip is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Grip is logged in the atlas."
       },
       {
         "label": "Script supervisor",
@@ -4327,7 +4327,7 @@
           "script continuity"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Script supervisor is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Script supervisor is logged in the atlas."
       }
     ]
   },
@@ -4344,7 +4344,7 @@
           "computer effects"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. CGI is logged in the atlas."
+        "insight": "The whole audience shouts this one first. CGI is logged in the atlas."
       },
       {
         "label": "Practical effects",
@@ -4354,7 +4354,7 @@
           "in-camera effects"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. Practical effects is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Practical effects is logged in the atlas."
       },
       {
         "label": "Green screen",
@@ -4364,7 +4364,7 @@
           "blue screen"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Green screen is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Green screen is logged in the atlas."
       },
       {
         "label": "Miniatures",
@@ -4374,7 +4374,7 @@
           "miniature effects"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Miniatures is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Miniatures is logged in the atlas."
       },
       {
         "label": "Stop motion",
@@ -4384,7 +4384,7 @@
           "frame by frame animation"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Stop motion is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Stop motion is logged in the atlas."
       },
       {
         "label": "Motion capture",
@@ -4394,7 +4394,7 @@
           "mo-cap"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Motion capture is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Motion capture is logged in the atlas."
       },
       {
         "label": "Animatronics",
@@ -4404,7 +4404,7 @@
           "mechanical creatures"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Animatronics is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Animatronics is logged in the atlas."
       },
       {
         "label": "Matte painting",
@@ -4414,7 +4414,7 @@
           "painted backgrounds"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Matte painting is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Matte painting is logged in the atlas."
       },
       {
         "label": "Prosthetic makeup",
@@ -4424,7 +4424,7 @@
           "creature makeup"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Prosthetic makeup is logged in the atlas."
+        "insight": "A quiet cult favourite. Prosthetic makeup is logged in the atlas."
       },
       {
         "label": "Rear projection",
@@ -4434,7 +4434,7 @@
           "projected backdrops"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Rear projection is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Rear projection is logged in the atlas."
       },
       {
         "label": "Wire work",
@@ -4444,7 +4444,7 @@
           "harness flying"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Wire work is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Wire work is logged in the atlas."
       },
       {
         "label": "Puppetry",
@@ -4454,7 +4454,7 @@
           "puppeteering"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Puppetry is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Puppetry is logged in the atlas."
       },
       {
         "label": "Forced perspective",
@@ -4464,7 +4464,7 @@
           "camera perspective trick"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Forced perspective is logged in the atlas."
+        "insight": "A very small crew picked this. Forced perspective is logged in the atlas."
       },
       {
         "label": "Slow motion",
@@ -4474,7 +4474,7 @@
           "high speed photography"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Slow motion is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Slow motion is logged in the atlas."
       },
       {
         "label": "Bullet time",
@@ -4484,7 +4484,7 @@
           "frozen time shot"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Bullet time is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Bullet time is logged in the atlas."
       },
       {
         "label": "Squibs",
@@ -4494,7 +4494,7 @@
           "exploding blood packs"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Squibs is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Squibs is logged in the atlas."
       }
     ]
   },
@@ -4511,7 +4511,7 @@
           "tight shot"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. Close-up is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Close-up is logged in the atlas."
       },
       {
         "label": "Tracking shot",
@@ -4521,7 +4521,7 @@
           "tracking move"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Tracking shot is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Tracking shot is logged in the atlas."
       },
       {
         "label": "Dolly zoom",
@@ -4531,7 +4531,7 @@
           "contra zoom"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Dolly zoom is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Dolly zoom is logged in the atlas."
       },
       {
         "label": "Wide shot",
@@ -4541,7 +4541,7 @@
           "establishing wide"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Wide shot is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Wide shot is logged in the atlas."
       },
       {
         "label": "Aerial shot",
@@ -4551,7 +4551,7 @@
           "helicopter shot"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Aerial shot is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Aerial shot is logged in the atlas."
       },
       {
         "label": "Long take",
@@ -4561,7 +4561,7 @@
           "oner"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Long take is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Long take is logged in the atlas."
       },
       {
         "label": "Slow motion",
@@ -4571,7 +4571,7 @@
           "slow mo shot"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Slow motion is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Slow motion is logged in the atlas."
       },
       {
         "label": "Point of view",
@@ -4581,7 +4581,7 @@
           "first person shot"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Point of view is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Point of view is logged in the atlas."
       },
       {
         "label": "Crane shot",
@@ -4591,7 +4591,7 @@
           "crane"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Crane shot is logged in the atlas."
+        "insight": "A quiet cult favourite. Crane shot is logged in the atlas."
       },
       {
         "label": "Handheld",
@@ -4601,7 +4601,7 @@
           "handheld shot"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Handheld is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Handheld is logged in the atlas."
       },
       {
         "label": "Pan",
@@ -4611,7 +4611,7 @@
           "camera pan"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Pan is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Pan is logged in the atlas."
       },
       {
         "label": "Over-the-shoulder",
@@ -4621,7 +4621,7 @@
           "over the shoulder shot"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Over-the-shoulder is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Over-the-shoulder is logged in the atlas."
       },
       {
         "label": "Steadicam",
@@ -4631,7 +4631,7 @@
           "gimbal shot"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Steadicam is logged in the atlas."
+        "insight": "A very small crew picked this. Steadicam is logged in the atlas."
       },
       {
         "label": "Zoom",
@@ -4641,7 +4641,7 @@
           "crash zoom"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Zoom is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Zoom is logged in the atlas."
       },
       {
         "label": "Establishing shot",
@@ -4651,7 +4651,7 @@
           "opening wide shot"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Establishing shot is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Establishing shot is logged in the atlas."
       },
       {
         "label": "Dutch angle",
@@ -4661,7 +4661,7 @@
           "canted angle"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Dutch angle is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Dutch angle is logged in the atlas."
       }
     ]
   },
@@ -4678,7 +4678,7 @@
           "dramatic music"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Music is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Music is logged in the atlas."
       },
       {
         "label": "Voiceover",
@@ -4688,7 +4688,7 @@
           "deep voice narration"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Voiceover is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Voiceover is logged in the atlas."
       },
       {
         "label": "Quick cuts",
@@ -4698,7 +4698,7 @@
           "montage"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Quick cuts is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Quick cuts is logged in the atlas."
       },
       {
         "label": "Big explosion",
@@ -4708,7 +4708,7 @@
           "blowing things up"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Big explosion is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Big explosion is logged in the atlas."
       },
       {
         "label": "A famous star",
@@ -4718,7 +4718,7 @@
           "famous faces"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. A famous star is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. A famous star is logged in the atlas."
       },
       {
         "label": "A twist tease",
@@ -4728,7 +4728,7 @@
           "cliffhanger"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. A twist tease is logged in the atlas."
+        "insight": "Only a few film buffs called this one. A twist tease is logged in the atlas."
       },
       {
         "label": "The best jokes",
@@ -4738,7 +4738,7 @@
           "big laughs"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. The best jokes is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. The best jokes is logged in the atlas."
       },
       {
         "label": "A countdown",
@@ -4748,7 +4748,7 @@
           "date reveal"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. A countdown is logged in the atlas."
+        "insight": "A small club of regulars knew this one. A countdown is logged in the atlas."
       },
       {
         "label": "Slow reveal",
@@ -4758,7 +4758,7 @@
           "hiding the creature"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Slow reveal is logged in the atlas."
+        "insight": "A quiet cult favourite. Slow reveal is logged in the atlas."
       },
       {
         "label": "A big bass drop",
@@ -4768,7 +4768,7 @@
           "loud sound hit"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. A big bass drop is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. A big bass drop is logged in the atlas."
       },
       {
         "label": "A recognizable song",
@@ -4778,7 +4778,7 @@
           "popular track"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. A recognizable song is logged in the atlas."
+        "insight": "A narrow cut from the atlas. A recognizable song is logged in the atlas."
       },
       {
         "label": "A tagline",
@@ -4788,7 +4788,7 @@
           "one-liner"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. A tagline is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. A tagline is logged in the atlas."
       },
       {
         "label": "Silence then a drop",
@@ -4798,7 +4798,7 @@
           "sudden silence"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Silence then a drop is logged in the atlas."
+        "insight": "A very small crew picked this. Silence then a drop is logged in the atlas."
       },
       {
         "label": "Dialogue snippets",
@@ -4808,7 +4808,7 @@
           "one line of dialogue"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Dialogue snippets is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Dialogue snippets is logged in the atlas."
       },
       {
         "label": "A shocking moment",
@@ -4818,7 +4818,7 @@
           "shock scene"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. A shocking moment is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. A shocking moment is logged in the atlas."
       },
       {
         "label": "Sweeping landscapes",
@@ -4828,7 +4828,7 @@
           "beautiful vistas"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Sweeping landscapes is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Sweeping landscapes is logged in the atlas."
       }
     ]
   },
@@ -4845,7 +4845,7 @@
           "shark theme"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. The Jaws theme is logged in the atlas."
+        "insight": "The whole audience shouts this one first. The Jaws theme is logged in the atlas."
       },
       {
         "label": "The Imperial March",
@@ -4855,7 +4855,7 @@
           "star wars imperial march"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. The Imperial March is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. The Imperial March is logged in the atlas."
       },
       {
         "label": "The Wilhelm scream",
@@ -4865,7 +4865,7 @@
           "stock scream"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. The Wilhelm scream is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. The Wilhelm scream is logged in the atlas."
       },
       {
         "label": "The Star Wars main theme",
@@ -4875,7 +4875,7 @@
           "star wars theme music"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. The Star Wars main theme is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. The Star Wars main theme is logged in the atlas."
       },
       {
         "label": "The Psycho shower strings",
@@ -4885,7 +4885,7 @@
           "psycho shower music"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. The Psycho shower strings is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. The Psycho shower strings is logged in the atlas."
       },
       {
         "label": "The Inception horn",
@@ -4895,7 +4895,7 @@
           "inception bwaaam"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. The Inception horn is logged in the atlas."
+        "insight": "Only a few film buffs called this one. The Inception horn is logged in the atlas."
       },
       {
         "label": "The James Bond theme",
@@ -4905,7 +4905,7 @@
           "james bond music"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. The James Bond theme is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. The James Bond theme is logged in the atlas."
       },
       {
         "label": "The Indiana Jones theme",
@@ -4915,7 +4915,7 @@
           "raiders of the lost ark theme"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. The Indiana Jones theme is logged in the atlas."
+        "insight": "A small club of regulars knew this one. The Indiana Jones theme is logged in the atlas."
       },
       {
         "label": "The Jurassic Park theme",
@@ -4925,7 +4925,7 @@
           "jurassic theme"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. The Jurassic Park theme is logged in the atlas."
+        "insight": "A quiet cult favourite. The Jurassic Park theme is logged in the atlas."
       },
       {
         "label": "The Mission: Impossible theme",
@@ -4935,7 +4935,7 @@
           "lalo schifrin theme"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. The Mission: Impossible theme is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. The Mission: Impossible theme is logged in the atlas."
       },
       {
         "label": "The Ghostbusters theme",
@@ -4945,7 +4945,7 @@
           "ghostbusters music"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. The Ghostbusters theme is logged in the atlas."
+        "insight": "A narrow cut from the atlas. The Ghostbusters theme is logged in the atlas."
       },
       {
         "label": "My Heart Will Go On",
@@ -4955,7 +4955,7 @@
           "titanic theme song"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. My Heart Will Go On is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. My Heart Will Go On is logged in the atlas."
       },
       {
         "label": "Gonna Fly Now",
@@ -4965,7 +4965,7 @@
           "rocky training music"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. Gonna Fly Now is logged in the atlas."
+        "insight": "A very small crew picked this. Gonna Fly Now is logged in the atlas."
       },
       {
         "label": "The THX Deep Note",
@@ -4975,7 +4975,7 @@
           "thx deep note"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. The THX Deep Note is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. The THX Deep Note is logged in the atlas."
       },
       {
         "label": "The Lightsaber hum",
@@ -4985,7 +4985,7 @@
           "saber hum"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. The Lightsaber hum is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. The Lightsaber hum is logged in the atlas."
       },
       {
         "label": "The Godfather theme",
@@ -4995,7 +4995,7 @@
           "speak softly love"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. The Godfather theme is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. The Godfather theme is logged in the atlas."
       }
     ]
   },
@@ -5012,7 +5012,7 @@
           "buttered popcorn"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. Popcorn is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Popcorn is logged in the atlas."
       },
       {
         "label": "Nachos",
@@ -5022,7 +5022,7 @@
           "nachos and cheese"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. Nachos is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Nachos is logged in the atlas."
       },
       {
         "label": "Candy",
@@ -5032,7 +5032,7 @@
           "lollies"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Candy is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Candy is logged in the atlas."
       },
       {
         "label": "Soda",
@@ -5042,7 +5042,7 @@
           "soft drink"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Soda is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Soda is logged in the atlas."
       },
       {
         "label": "Hot dog",
@@ -5052,7 +5052,7 @@
           "frankfurter"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. Hot dog is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Hot dog is logged in the atlas."
       },
       {
         "label": "Ice cream",
@@ -5062,7 +5062,7 @@
           "cinema ice cream"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Ice cream is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Ice cream is logged in the atlas."
       },
       {
         "label": "Pretzel",
@@ -5072,7 +5072,7 @@
           "salted pretzel"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Pretzel is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Pretzel is logged in the atlas."
       },
       {
         "label": "Chocolate",
@@ -5082,7 +5082,7 @@
           "candy bar"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Chocolate is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Chocolate is logged in the atlas."
       },
       {
         "label": "Chips",
@@ -5092,7 +5092,7 @@
           "tortilla chips"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Chips is logged in the atlas."
+        "insight": "A quiet cult favourite. Chips is logged in the atlas."
       },
       {
         "label": "Slushie",
@@ -5102,7 +5102,7 @@
           "frozen slush"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Slushie is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Slushie is logged in the atlas."
       },
       {
         "label": "Pizza",
@@ -5112,7 +5112,7 @@
           "slice of pizza"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Pizza is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Pizza is logged in the atlas."
       },
       {
         "label": "Gummy bears",
@@ -5122,7 +5122,7 @@
           "jelly bears"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. Gummy bears is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Gummy bears is logged in the atlas."
       },
       {
         "label": "Water",
@@ -5132,7 +5132,7 @@
           "a bottle of water"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Water is logged in the atlas."
+        "insight": "A very small crew picked this. Water is logged in the atlas."
       },
       {
         "label": "Fries",
@@ -5142,7 +5142,7 @@
           "hot fries"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. Fries is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Fries is logged in the atlas."
       },
       {
         "label": "Candy floss",
@@ -5152,7 +5152,7 @@
           "spun sugar"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Candy floss is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Candy floss is logged in the atlas."
       },
       {
         "label": "Sour sweets",
@@ -5162,7 +5162,7 @@
           "sour lollies"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Sour sweets is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Sour sweets is logged in the atlas."
       }
     ]
   },
@@ -5179,7 +5179,7 @@
           "simba film"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. The Lion King is logged in the atlas."
+        "insight": "The whole audience shouts this one first. The Lion King is logged in the atlas."
       },
       {
         "label": "Shrek",
@@ -5189,7 +5189,7 @@
           "shrek movie"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Shrek is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Shrek is logged in the atlas."
       },
       {
         "label": "Monty Python and the Holy Grail",
@@ -5199,7 +5199,7 @@
           "the holy grail"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. Monty Python and the Holy Grail is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Monty Python and the Holy Grail is logged in the atlas."
       },
       {
         "label": "The Princess Bride",
@@ -5209,7 +5209,7 @@
           "as you wish film"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. The Princess Bride is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. The Princess Bride is logged in the atlas."
       },
       {
         "label": "Star Wars",
@@ -5219,7 +5219,7 @@
           "star wars saga"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Star Wars is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Star Wars is logged in the atlas."
       },
       {
         "label": "Forrest Gump",
@@ -5229,7 +5229,7 @@
           "gump"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Forrest Gump is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Forrest Gump is logged in the atlas."
       },
       {
         "label": "Mean Girls",
@@ -5239,7 +5239,7 @@
           "plastics film"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Mean Girls is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Mean Girls is logged in the atlas."
       },
       {
         "label": "Anchorman",
@@ -5249,7 +5249,7 @@
           "anchorman legend of ron burgundy"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Anchorman is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Anchorman is logged in the atlas."
       },
       {
         "label": "The Godfather",
@@ -5259,7 +5259,7 @@
           "the godfather film"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. The Godfather is logged in the atlas."
+        "insight": "A quiet cult favourite. The Godfather is logged in the atlas."
       },
       {
         "label": "Toy Story",
@@ -5269,7 +5269,7 @@
           "to infinity and beyond film"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Toy Story is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Toy Story is logged in the atlas."
       },
       {
         "label": "Finding Nemo",
@@ -5279,7 +5279,7 @@
           "finding nemo film"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Finding Nemo is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Finding Nemo is logged in the atlas."
       },
       {
         "label": "Home Alone",
@@ -5289,7 +5289,7 @@
           "home alone movie"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Home Alone is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Home Alone is logged in the atlas."
       },
       {
         "label": "Dumb and Dumber",
@@ -5299,7 +5299,7 @@
           "dumb & dumber"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Dumb and Dumber is logged in the atlas."
+        "insight": "A very small crew picked this. Dumb and Dumber is logged in the atlas."
       },
       {
         "label": "Pulp Fiction",
@@ -5309,7 +5309,7 @@
           "royale with cheese film"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Pulp Fiction is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Pulp Fiction is logged in the atlas."
       },
       {
         "label": "The Big Lebowski",
@@ -5319,7 +5319,7 @@
           "lebowski"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. The Big Lebowski is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. The Big Lebowski is logged in the atlas."
       },
       {
         "label": "Frozen",
@@ -5329,7 +5329,7 @@
           "elsa film"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Frozen is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Frozen is logged in the atlas."
       }
     ]
   },
@@ -5346,7 +5346,7 @@
           "home alone movie"
         ],
         "share": 34,
-        "insight": "The surface crowd reaches for this first. Home Alone is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Home Alone is logged in the atlas."
       },
       {
         "label": "Elf",
@@ -5356,7 +5356,7 @@
           "will ferrell elf"
         ],
         "share": 19,
-        "insight": "A familiar current carries this answer. Elf is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Elf is logged in the atlas."
       },
       {
         "label": "Love Actually",
@@ -5366,7 +5366,7 @@
           "love actually movie"
         ],
         "share": 14,
-        "insight": "This choice travels through the middle of the school. Love Actually is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Love Actually is logged in the atlas."
       },
       {
         "label": "Die Hard",
@@ -5376,7 +5376,7 @@
           "die hard movie"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Die Hard is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Die Hard is logged in the atlas."
       },
       {
         "label": "The Grinch",
@@ -5386,7 +5386,7 @@
           "the grinch film"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. The Grinch is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. The Grinch is logged in the atlas."
       },
       {
         "label": "It's a Wonderful Life",
@@ -5396,7 +5396,7 @@
           "george bailey film"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. It's a Wonderful Life is logged in the atlas."
+        "insight": "Only a few film buffs called this one. It's a Wonderful Life is logged in the atlas."
       },
       {
         "label": "Miracle on 34th Street",
@@ -5406,7 +5406,7 @@
           "santa in court film"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. Miracle on 34th Street is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Miracle on 34th Street is logged in the atlas."
       },
       {
         "label": "The Polar Express",
@@ -5416,7 +5416,7 @@
           "train to the north pole film"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. The Polar Express is logged in the atlas."
+        "insight": "A small club of regulars knew this one. The Polar Express is logged in the atlas."
       },
       {
         "label": "A Christmas Carol",
@@ -5426,7 +5426,7 @@
           "dickens christmas film"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. A Christmas Carol is logged in the atlas."
+        "insight": "A quiet cult favourite. A Christmas Carol is logged in the atlas."
       },
       {
         "label": "The Nightmare Before Christmas",
@@ -5436,7 +5436,7 @@
           "tim burton christmas film"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. The Nightmare Before Christmas is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. The Nightmare Before Christmas is logged in the atlas."
       },
       {
         "label": "Gremlins",
@@ -5446,7 +5446,7 @@
           "gremlins movie"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Gremlins is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Gremlins is logged in the atlas."
       },
       {
         "label": "Christmas Vacation",
@@ -5456,7 +5456,7 @@
           "christmas vacation film"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Christmas Vacation is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Christmas Vacation is logged in the atlas."
       },
       {
         "label": "The Santa Clause",
@@ -5466,7 +5466,7 @@
           "the santa clause film"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. The Santa Clause is logged in the atlas."
+        "insight": "A very small crew picked this. The Santa Clause is logged in the atlas."
       },
       {
         "label": "Arthur Christmas",
@@ -5476,7 +5476,7 @@
           "aardman christmas film"
         ],
         "share": 0.15,
-        "insight": "A hidden answer beneath the common tide. Arthur Christmas is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Arthur Christmas is logged in the atlas."
       },
       {
         "label": "Klaus",
@@ -5486,7 +5486,7 @@
           "animated santa origin film"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Klaus is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Klaus is logged in the atlas."
       },
       {
         "label": "Jingle All the Way",
@@ -5496,7 +5496,7 @@
           "arnold christmas film"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. Jingle All the Way is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Jingle All the Way is logged in the atlas."
       }
     ]
   },
@@ -5513,7 +5513,7 @@
           "titanic movie"
         ],
         "share": 31,
-        "insight": "The surface crowd reaches for this first. Titanic is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Titanic is logged in the atlas."
       },
       {
         "label": "The Lion King",
@@ -5523,7 +5523,7 @@
           "simba film"
         ],
         "share": 21,
-        "insight": "A familiar current carries this answer. The Lion King is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. The Lion King is logged in the atlas."
       },
       {
         "label": "Up",
@@ -5533,7 +5533,7 @@
           "carl and ellie film"
         ],
         "share": 16,
-        "insight": "This choice travels through the middle of the school. Up is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Up is logged in the atlas."
       },
       {
         "label": "Toy Story 3",
@@ -5543,7 +5543,7 @@
           "toy story 3 film"
         ],
         "share": 11,
-        "insight": "A measured answer with a clear signal. Toy Story 3 is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Toy Story 3 is logged in the atlas."
       },
       {
         "label": "Marley & Me",
@@ -5553,7 +5553,7 @@
           "labrador film"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Marley & Me is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Marley & Me is logged in the atlas."
       },
       {
         "label": "The Notebook",
@@ -5563,7 +5563,7 @@
           "noah and allie film"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. The Notebook is logged in the atlas."
+        "insight": "Only a few film buffs called this one. The Notebook is logged in the atlas."
       },
       {
         "label": "Schindler's List",
@@ -5573,7 +5573,7 @@
           "schindler's list film"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Schindler's List is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Schindler's List is logged in the atlas."
       },
       {
         "label": "Forrest Gump",
@@ -5583,7 +5583,7 @@
           "gump"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Forrest Gump is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Forrest Gump is logged in the atlas."
       },
       {
         "label": "Coco",
@@ -5593,7 +5593,7 @@
           "remember me film"
         ],
         "share": 1,
-        "insight": "A quiet answer in the lower current. Coco is logged in the atlas."
+        "insight": "A quiet cult favourite. Coco is logged in the atlas."
       },
       {
         "label": "Bambi",
@@ -5603,7 +5603,7 @@
           "disney bambi"
         ],
         "share": 0.7,
-        "insight": "A specialist current carries this one. Bambi is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Bambi is logged in the atlas."
       },
       {
         "label": "Hachi: A Dog's Tale",
@@ -5613,7 +5613,7 @@
           "hachi a dogs tale"
         ],
         "share": 0.5,
-        "insight": "A narrow route through the atlas. Hachi: A Dog's Tale is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Hachi: A Dog's Tale is logged in the atlas."
       },
       {
         "label": "Inside Out",
@@ -5623,7 +5623,7 @@
           "pixar inside out"
         ],
         "share": 0.3,
-        "insight": "A deep-water answer with a distinct signal. Inside Out is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Inside Out is logged in the atlas."
       },
       {
         "label": "The Green Mile",
@@ -5633,7 +5633,7 @@
           "john coffey film"
         ],
         "share": 0.2,
-        "insight": "A very small crew chose this route. The Green Mile is logged in the atlas."
+        "insight": "A very small crew picked this. The Green Mile is logged in the atlas."
       },
       {
         "label": "The Fault in Our Stars",
@@ -5643,7 +5643,7 @@
           "hazel and gus film"
         ],
         "share": 0.1,
-        "insight": "A hidden answer beneath the common tide. The Fault in Our Stars is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. The Fault in Our Stars is logged in the atlas."
       },
       {
         "label": "Life Is Beautiful",
@@ -5653,7 +5653,7 @@
           "roberto benigni film"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Life Is Beautiful is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Life Is Beautiful is logged in the atlas."
       },
       {
         "label": "Old Yeller",
@@ -5663,7 +5663,7 @@
           "old yeller movie"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Old Yeller is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Old Yeller is logged in the atlas."
       }
     ]
   },
@@ -5680,7 +5680,7 @@
           "noah and allie film"
         ],
         "share": 40.3,
-        "insight": "The surface crowd reaches for this first. The Notebook is logged in the atlas."
+        "insight": "The whole audience shouts this one first. The Notebook is logged in the atlas."
       },
       {
         "label": "La La Land",
@@ -5690,7 +5690,7 @@
           "ryan gosling musical"
         ],
         "share": 18,
-        "insight": "A familiar current carries this answer. La La Land is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. La La Land is logged in the atlas."
       },
       {
         "label": "Pretty Woman",
@@ -5700,7 +5700,7 @@
           "pretty woman movie"
         ],
         "share": 12,
-        "insight": "This choice travels through the middle of the school. Pretty Woman is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. Pretty Woman is logged in the atlas."
       },
       {
         "label": "Love Actually",
@@ -5710,7 +5710,7 @@
           "love actually movie"
         ],
         "share": 9,
-        "insight": "A measured answer with a clear signal. Love Actually is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Love Actually is logged in the atlas."
       },
       {
         "label": "When Harry Met Sally",
@@ -5720,7 +5720,7 @@
           "billy crystal romance"
         ],
         "share": 7,
-        "insight": "The atlas marks this as a rarer route. When Harry Met Sally is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. When Harry Met Sally is logged in the atlas."
       },
       {
         "label": "Notting Hill",
@@ -5730,7 +5730,7 @@
           "notting hill movie"
         ],
         "share": 5,
-        "insight": "Only a few explorers sent this one down. Notting Hill is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Notting Hill is logged in the atlas."
       },
       {
         "label": "Crazy Rich Asians",
@@ -5740,7 +5740,7 @@
           "singapore romcom"
         ],
         "share": 3,
-        "insight": "A sly side channel in the crowd map. Crazy Rich Asians is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. Crazy Rich Asians is logged in the atlas."
       },
       {
         "label": "Grease",
@@ -5750,7 +5750,7 @@
           "grease musical"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Grease is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Grease is logged in the atlas."
       },
       {
         "label": "Dirty Dancing",
@@ -5760,7 +5760,7 @@
           "dirty dancing movie"
         ],
         "share": 1.2,
-        "insight": "A quiet answer in the lower current. Dirty Dancing is logged in the atlas."
+        "insight": "A quiet cult favourite. Dirty Dancing is logged in the atlas."
       },
       {
         "label": "Amélie",
@@ -5770,7 +5770,7 @@
           "amelie film"
         ],
         "share": 0.8,
-        "insight": "A specialist current carries this one. Amélie is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Amélie is logged in the atlas."
       },
       {
         "label": "Before Sunrise",
@@ -5780,7 +5780,7 @@
           "vienna romance film"
         ],
         "share": 0.6,
-        "insight": "A narrow route through the atlas. Before Sunrise is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Before Sunrise is logged in the atlas."
       },
       {
         "label": "10 Things I Hate About You",
@@ -5790,7 +5790,7 @@
           "heath ledger romcom"
         ],
         "share": 0.4,
-        "insight": "A deep-water answer with a distinct signal. 10 Things I Hate About You is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. 10 Things I Hate About You is logged in the atlas."
       },
       {
         "label": "Casablanca",
@@ -5800,7 +5800,7 @@
           "here's looking at you kid film"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Casablanca is logged in the atlas."
+        "insight": "A very small crew picked this. Casablanca is logged in the atlas."
       },
       {
         "label": "The Princess Bride",
@@ -5810,7 +5810,7 @@
           "princess bride film"
         ],
         "share": 0.2,
-        "insight": "A hidden answer beneath the common tide. The Princess Bride is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. The Princess Bride is logged in the atlas."
       },
       {
         "label": "Titanic",
@@ -5820,7 +5820,7 @@
           "titanic movie"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Titanic is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Titanic is logged in the atlas."
       },
       {
         "label": "Ratatouille",
@@ -5830,7 +5830,7 @@
           "remy film"
         ],
         "share": 0.1,
-        "insight": "A krillion-level answer for careful explorers. Ratatouille is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. Ratatouille is logged in the atlas."
       }
     ]
   },
@@ -5847,7 +5847,7 @@
           "toy story movie"
         ],
         "share": 30.5,
-        "insight": "The surface crowd reaches for this first. Toy Story is logged in the atlas."
+        "insight": "The whole audience shouts this one first. Toy Story is logged in the atlas."
       },
       {
         "label": "Finding Nemo",
@@ -5857,7 +5857,7 @@
           "finding nemo movie"
         ],
         "share": 20,
-        "insight": "A familiar current carries this answer. Finding Nemo is logged in the atlas."
+        "insight": "A crowd favourite from the front rows. Finding Nemo is logged in the atlas."
       },
       {
         "label": "The Lion King",
@@ -5867,7 +5867,7 @@
           "the lion king film"
         ],
         "share": 15,
-        "insight": "This choice travels through the middle of the school. The Lion King is logged in the atlas."
+        "insight": "A popular pick from the middle of the house. The Lion King is logged in the atlas."
       },
       {
         "label": "Shrek",
@@ -5877,7 +5877,7 @@
           "shrek movie"
         ],
         "share": 10,
-        "insight": "A measured answer with a clear signal. Shrek is logged in the atlas."
+        "insight": "A solid answer with plenty of fans. Shrek is logged in the atlas."
       },
       {
         "label": "Frozen",
@@ -5887,7 +5887,7 @@
           "frozen movie"
         ],
         "share": 8,
-        "insight": "The atlas marks this as a rarer route. Frozen is logged in the atlas."
+        "insight": "The atlas marks this as a rarer pick. Frozen is logged in the atlas."
       },
       {
         "label": "Moana",
@@ -5897,7 +5897,7 @@
           "moana movie"
         ],
         "share": 6,
-        "insight": "Only a few explorers sent this one down. Moana is logged in the atlas."
+        "insight": "Only a few film buffs called this one. Moana is logged in the atlas."
       },
       {
         "label": "The Incredibles",
@@ -5907,7 +5907,7 @@
           "superhero family film"
         ],
         "share": 4,
-        "insight": "A sly side channel in the crowd map. The Incredibles is logged in the atlas."
+        "insight": "A sly pick from the back of the theatre. The Incredibles is logged in the atlas."
       },
       {
         "label": "Coco",
@@ -5917,7 +5917,7 @@
           "day of the dead film"
         ],
         "share": 2,
-        "insight": "A tiny crew knew to look this deep. Coco is logged in the atlas."
+        "insight": "A small club of regulars knew this one. Coco is logged in the atlas."
       },
       {
         "label": "Paddington",
@@ -5927,7 +5927,7 @@
           "paddington movie"
         ],
         "share": 1.5,
-        "insight": "A quiet answer in the lower current. Paddington is logged in the atlas."
+        "insight": "A quiet cult favourite. Paddington is logged in the atlas."
       },
       {
         "label": "Home Alone",
@@ -5937,7 +5937,7 @@
           "home alone movie"
         ],
         "share": 1,
-        "insight": "A specialist current carries this one. Home Alone is logged in the atlas."
+        "insight": "A specialist's pick from the repertory list. Home Alone is logged in the atlas."
       },
       {
         "label": "Harry Potter",
@@ -5947,7 +5947,7 @@
           "harry potter movie"
         ],
         "share": 0.8,
-        "insight": "A narrow route through the atlas. Harry Potter is logged in the atlas."
+        "insight": "A narrow cut from the atlas. Harry Potter is logged in the atlas."
       },
       {
         "label": "Back to the Future",
@@ -5957,7 +5957,7 @@
           "delorean film"
         ],
         "share": 0.5,
-        "insight": "A deep-water answer with a distinct signal. Back to the Future is logged in the atlas."
+        "insight": "A late-show answer with a loyal following. Back to the Future is logged in the atlas."
       },
       {
         "label": "Mary Poppins",
@@ -5967,7 +5967,7 @@
           "julie andrews film"
         ],
         "share": 0.3,
-        "insight": "A very small crew chose this route. Mary Poppins is logged in the atlas."
+        "insight": "A very small crew picked this. Mary Poppins is logged in the atlas."
       },
       {
         "label": "Despicable Me",
@@ -5977,7 +5977,7 @@
           "gru film"
         ],
         "share": 0.25,
-        "insight": "A hidden answer beneath the common tide. Despicable Me is logged in the atlas."
+        "insight": "A hidden gem behind the headline titles. Despicable Me is logged in the atlas."
       },
       {
         "label": "Kung Fu Panda",
@@ -5987,7 +5987,7 @@
           "kung fu panda movie"
         ],
         "share": 0.1,
-        "insight": "A nearly unvisited trench in the crowd map. Kung Fu Panda is logged in the atlas."
+        "insight": "A nearly unseen reel in the atlas. Kung Fu Panda is logged in the atlas."
       },
       {
         "label": "WALL-E",
@@ -5997,7 +5997,7 @@
           "wall-e film"
         ],
         "share": 0.05,
-        "insight": "A krillion-level answer for careful explorers. WALL-E is logged in the atlas."
+        "insight": "A deep-cut answer for dedicated film fans. WALL-E is logged in the atlas."
       }
     ]
   }
