@@ -18,6 +18,7 @@ import {
   createInitialGameState,
   gameReducer,
   type GameMode,
+  type GamePhase,
 } from "../components/game/gameReducer";
 import {
   DEFAULT_STATS,
@@ -36,6 +37,14 @@ type ApiEnvelope<T> = Readonly<{
 }>;
 
 export const SUBMISSION_TIMEOUT_MS = 8_000;
+
+// Phases of a run in progress. Reaching the summary from one of them ends that run.
+const LIVE_RUN_PHASES: ReadonlySet<GamePhase> = new Set([
+  "preview",
+  "answering",
+  "submitting",
+  "feedback",
+]);
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -88,6 +97,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   const [dayLabel, setDayLabel] = useState<string | null>(null);
   const mountedRef = useRef(true);
   const unlimitedRunRef = useRef<number | null>(null);
+  const liveRunRef = useRef(false);
   const stateRef = useRef(state);
   const statsRef = useRef(stats);
   const expireQuestionRef = useRef<() => void>(() => undefined);
@@ -215,6 +225,19 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     },
     [mode, stats],
   );
+
+  // Log each run once, however it reached the summary: the final NEXT_ROUND, or a Survival
+  // run losing its last life on an answer, pass, or timeout. A summary restored from saved
+  // progress was never live in this session, so reloading it does not count the run again.
+  useEffect(() => {
+    if (state.phase !== "summary") {
+      liveRunRef.current = LIVE_RUN_PHASES.has(state.phase);
+      return;
+    }
+    if (!hydrated || !liveRunRef.current) return;
+    liveRunRef.current = false;
+    finalizeRun(state.score);
+  }, [finalizeRun, hydrated, state.phase, state.score]);
 
   const expireQuestion = useCallback(() => {
     const latestState = stateRef.current;
@@ -398,15 +421,8 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   }, [sfx, state.phase, stats]);
 
   const continueDive = useCallback(() => {
-    const isFinalFeedback =
-      state.phase === "feedback" && state.questionIndex === state.questions.length - 1;
-
-    if (isFinalFeedback) {
-      finalizeRun(state.score);
-    }
-
     dispatch({ type: "NEXT_ROUND" });
-  }, [finalizeRun, state.phase, state.questionIndex, state.questions.length, state.score]);
+  }, []);
 
   const setAnswer = useCallback((answer: string) => {
     if (
