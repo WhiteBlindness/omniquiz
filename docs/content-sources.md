@@ -33,11 +33,12 @@ Answer aliases that include a person's name are neutral descriptors (for example
 | --- | --- | --- |
 | Ocean, submersible, sky and UI-frame pixel art | `public/ocean/`, `public/ui/` | **Origin and licence not recorded in the repository.** Owner to confirm. |
 | Rarity tier icons | `public/ocean/tier-*.png` | Same as above. No code references these files; they are shipped but unused. |
-| Pack card art (movies, sports, music) | CSS shapes in `src/styles/routes.css` | Drawn in CSS; no external image. |
+| Cinema world pixel art (skylines, lamps, marquees, drive-in, premiere cinema, cars, moon) | `public/cinema/*.svg` | Original. Generated from rectangles by `scripts/generate-cinema-art.mjs`, which is the source of truth; rerun it to rebuild the files. All signage is generic ("NOW SHOWING", "PREMIERE", "TICKETS", "DRIVE-IN"); no film title, poster, still, studio logo or real venue is depicted. |
+| World card art (Sports, Music) | CSS gradients in `src/styles/worlds.css` | Drawn in CSS; no external image. |
 | Icons | Inline SVG in components | Authored in the repository. |
 | Sound effects | Synthesized in the browser (`src/state/AppStateProvider.tsx`, `src/lib/audio/sfx.ts`) | No audio files. |
 | Pixelify Sans | `@fontsource-variable/pixelify-sans` (self-hosted) | Distributed under the SIL Open Font License by its package. |
-| Reference screenshots | `reference/krillion-*.png` | **Screenshots of a product named "Krillion".** Ownership and permission are not recorded. See `docs/release-readiness.md`. |
+| Reference screenshots | `reference/krillion-*.png` | **Screenshots of a third-party product named "Krillion"**, kept as design inspiration. No permission is recorded; scheduled for removal. See `docs/release-readiness.md`. |
 
 The `reference/` screenshots are not used by the application at runtime.
 

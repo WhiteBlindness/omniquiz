@@ -1,6 +1,8 @@
 # OMNIQUIZ
 
-A pixel-art ocean trivia game where the *uncommon* answer wins. You get a deliberately broad prompt, type one honest answer, and the game reveals how common that answer is inside a curated answer atlas. Rarer, recognizable answers score more and sink your submersible deeper.
+A pixel-art trivia game where the *uncommon* answer wins. You get a deliberately broad prompt, type one honest answer, and the game reveals how common that answer is inside a curated answer atlas. Rarer, recognizable answers score more.
+
+Each content pack is its own world. The core game is an ocean descent where good answers sink your submersible deeper; the Movies pack is a late-night drive from the city limits, past neon marquees and a drive-in, to a premiere night, with its own interface wording.
 
 It is a free, account-free browser game with four game modes and themed content packs, built as a small full-stack TypeScript project: Next.js on Cloudflare Workers, deterministic scoring, and a server-side answer atlas that the browser never receives.
 
@@ -10,9 +12,9 @@ It is a free, account-free browser game with four game modes and themed content 
 
 ![OMNIQUIZ landing page on desktop](docs/screenshots/landing-desktop.jpg)
 
-| Themed packs | At the Movies, scored answer |
-| --- | --- |
-| ![Packs page](docs/screenshots/packs-desktop.jpg) | ![Movies feedback](docs/screenshots/movies-feedback-desktop.jpg) |
+| Choose a world | At the Movies, mid-run | At the Movies, arrival |
+| --- | --- | --- |
+| ![Packs page](docs/screenshots/packs-desktop.jpg) | ![Movies run on the neon boulevard](docs/screenshots/movies-boulevard-desktop.jpg) | ![Movies summary at premiere night](docs/screenshots/movies-summary-desktop.jpg) |
 
 ## What it does
 
@@ -42,6 +44,8 @@ It is a free, account-free browser game with four game modes and themed content 
 - **Bounded, explainable answer matching.** Case, accents, punctuation, leading articles and conservative singular/plural variants converge; there is no fuzzy or semantic matching, and expanded answer keys may not collide across families within a prompt. The validator enforces this when the catalog loads.
 - **Atlases are compiled, deterministic data.** `scripts/atlas/` holds the maintainable sources; `node scripts/generate-questions.mjs` compiles `src/data/questions.json` and `src/data/packs/movies.json`. A test asserts the output is byte-stable.
 - **Runs survive refreshes, and packs stay isolated.** Progress is restored from local storage with the pack recorded, so a Movies run can never be resumed inside a core route. Statistics are namespaced per pack.
+- **Packs choose a world, not just content.** A pack names an environment; the environment supplies ordered stages, a complete interface lexicon and a backdrop renderer. The Movies backdrop is layered, script-generated SVG pixel art moved by one CSS variable for parallax, animating only `transform` and `opacity`, with ambient motion off under `prefers-reduced-motion`. Tests fail if ocean vocabulary appears anywhere in the Movies interface, including CSS-generated labels.
+- **Leaving a run is safe.** The logo and Exit share one guard: a confirmation appears only while a prompt is on screen, the run is saved locally, and returning offers to resume it.
 - **Security headers via one proxy.** `src/proxy.ts` applies a same-origin Content-Security-Policy and hardening headers to every route in production, verified on both the Next.js server and the Cloudflare Workers runtime.
 - **Time is measured against a deadline, not ticks.** The answer clock is an absolute deadline re-synced on visibility and focus, so a backgrounded tab cannot buy extra time.
 
@@ -60,7 +64,7 @@ Cloudflare Worker (Next.js via vinext)
   src/data/*.json         compiled atlases (server only)
 ```
 
-There is no database, account system or external API. See [docs/architecture.md](docs/architecture.md) for the pack contract and how to add a pack, and [docs/content-sources.md](docs/content-sources.md) for where content comes from.
+There is no database, account system or external API. See [docs/architecture.md](docs/architecture.md) for the pack and environment contracts and how to add a pack or world, and [docs/content-sources.md](docs/content-sources.md) for where content comes from.
 
 ## Stack
 

@@ -41,7 +41,13 @@ Scope of this pass: the themed-pack architecture and At the Movies pack, plus a 
 
 ## Red: blocks public promotion until answered
 
-**Provenance of the "Krillion" material.** The repository contains six screenshots of a product called "Krillion" (`reference/krillion-*.png`). The OMNIQUIZ landing page uses near-identical wording ("THE DAILY DIVE", "7 prompts · 15 seconds each · rarer answers sink deeper", "BEGIN DESCENT", "THEMED PACKS"), and the top rarity tier is named "One in a Krillion" (also the `krillion` tier id and an e2e file name). If Krillion is the owner's own earlier project, nothing is wrong and this can be closed with a note. If it is someone else's product, publishing their screenshots and mirroring their copy and layout is an infringement and reputation risk. Nothing was deleted or renamed in this pass, because only the owner can say which case applies. The Terms page's statement that prompts, atlases and code are original work relies on this answer.
+**Third-party "Krillion" material.** The owner has confirmed that Krillion is someone else's product, used as inspiration for this game. The repository still contains six screenshots of it (`reference/krillion-*.png`), and the core landing page still mirrors its wording ("THE DAILY DIVE", "7 prompts · 15 seconds each · rarer answers sink deeper", "BEGIN DESCENT", "THEMED PACKS"). The top rarity tier is named "One in a Krillion" (also the `krillion` tier id and an e2e file name). Publishing another product's screenshots and closely mirroring its copy is an infringement and reputation risk. Nothing has been removed or renamed yet. Before public promotion:
+
+- remove `reference/` from the repository (the files remain in Git history; decide whether that matters for a public repo),
+- rewrite the core landing copy and the rarity-tier name in the project's own words, and
+- recheck the Terms page's statement that prompts, atlases and code are original work.
+
+The Movies world's copy and art were written for this project and do not reuse the landing wording above. Two of its tier names ("Too Clever", "Deep Cut") are shared with the core tiers and should be reviewed alongside them.
 
 ## Not applicable
 
@@ -71,7 +77,7 @@ Sources: search-result summaries only. The primary texts could not be opened fro
 
 ## Owner input required
 
-1. Is "Krillion" your own project or a third party's? (Red item above.)
+1. Schedule the Krillion clean-up (Red item above). Confirmed third-party; not yet done.
 2. Operator identity and contact address to publish in the Privacy Policy and Terms, and the governing law to name.
 3. Confirm the site is served through Cloudflare (the Privacy Policy says so, based on the deployment configuration) and whether Cloudflare Web Analytics, Logpush or other dashboard-level logging is enabled.
 4. Origin and licence of the pixel art in `public/ocean/` and `public/ui/`.
