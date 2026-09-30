@@ -14,6 +14,7 @@ import {
   createInitialGameState,
   gameReducer,
   type GameMode,
+  type GamePhase,
 } from "../components/game/gameReducer";
 import {
   DEFAULT_STATS,
@@ -34,6 +35,8 @@ type ApiEnvelope<T> = Readonly<{
 }>;
 
 export const SUBMISSION_TIMEOUT_MS = 8_000;
+
+const RUN_PHASES: ReadonlySet<GamePhase> = new Set(["preview", "answering", "submitting", "feedback"]);
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -411,16 +414,22 @@ export const useGameLoop = (
     setStats(nextStats);
   }, [sfx, state.phase, stats]);
 
-  const continueDive = useCallback(() => {
-    const isFinalFeedback =
-      state.phase === "feedback" && state.questionIndex === state.questions.length - 1;
-
-    if (isFinalFeedback) {
+  // A run finishes whenever play enters the summary, however it got there: continuing
+  // past the last prompt, or a Survival round that costs the final life. Finalizing on
+  // that transition counts each run exactly once; a summary restored from saved
+  // progress arrives from the intro and is not a new finish.
+  const previousPhaseRef = useRef(state.phase);
+  useEffect(() => {
+    const previousPhase = previousPhaseRef.current;
+    previousPhaseRef.current = state.phase;
+    if (state.phase === "summary" && RUN_PHASES.has(previousPhase)) {
       finalizeRun(state.score);
     }
+  }, [finalizeRun, state.phase, state.score]);
 
+  const continueDive = useCallback(() => {
     dispatch({ type: "NEXT_ROUND" });
-  }, [finalizeRun, state.phase, state.questionIndex, state.questions.length, state.score]);
+  }, []);
 
   const setAnswer = useCallback((answer: string) => {
     if (
