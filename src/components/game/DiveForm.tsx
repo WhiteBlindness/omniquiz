@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import type { CSSProperties } from "react";
 
+import { useLexicon } from "./EnvironmentContext";
 import { answerSecondsForMode, type GameState } from "./gameReducer";
 
 type DiveFormProps = Readonly<{
@@ -21,6 +22,7 @@ export function DiveForm({
   onPass,
   remainingMilliseconds,
 }: DiveFormProps) {
+  const lex = useLexicon();
   const inputRef = useRef<HTMLInputElement>(null);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const [swipeHint, setSwipeHint] = useState(false);
@@ -108,7 +110,7 @@ export function DiveForm({
         maxLength={120}
       />
       <button className="dive-submit" type="submit" disabled={!state.answer.trim() || state.phase === "submitting"}>
-        {state.phase === "submitting" ? "LOGGING" : state.mode === "speed" || state.mode === "survival" ? "LOCK" : "DIVE"}
+        {state.phase === "submitting" ? "LOGGING" : lex.submit[state.mode]}
       </button>
       <button
         className="dive-pass"

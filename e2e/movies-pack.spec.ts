@@ -15,7 +15,7 @@ test.describe("Movies pack", () => {
     await expect(movies).toHaveAttribute("href", "/packs/movies");
     await expect(page.getByRole("link", { name: /sports/i })).toHaveCount(0);
     await expect(page.getByRole("link", { name: /^music/i })).toHaveCount(0);
-    const planned = page.locator("article.pack-card");
+    const planned = page.locator("article.world-card");
     await expect(planned).toHaveCount(2);
     await expect(planned.nth(0)).toContainText(/sports/i);
     await expect(planned.nth(0)).toContainText(/coming soon/i);
@@ -29,11 +29,11 @@ test.describe("Movies pack", () => {
     );
 
     await page.goto("/packs/movies");
-    await expect(page.getByText("AT THE MOVIES / THE ARCADE DIVE")).toBeVisible();
+    await expect(page.getByText("AT THE MOVIES / THE LATE SHOW")).toBeVisible();
     await expect(page.getByRole("button", { name: /daily mode/i })).toHaveCount(0);
     await expect(page.getByRole("button", { name: /speed mode/i })).toBeVisible();
 
-    await page.getByRole("button", { name: /begin descent/i }).click();
+    await page.getByRole("button", { name: /start the show/i }).click();
     const response = await questionResponse;
     expect(response.url()).toContain("pack=movies");
     expect(response.url()).not.toContain("category=");
@@ -53,14 +53,23 @@ test.describe("Movies pack", () => {
     const topAnswer = atlas.get(first.id)?.answers[0];
     expect(topAnswer).toBeTruthy();
     await answer.fill(topAnswer!.label);
-    await page.getByRole("button", { name: /^dive$/i }).click();
+    await page.getByRole("button", { name: /^submit$/i }).click();
 
     const status = page.getByRole("status");
-    await expect(status).toContainText(/plankton|too clever|schooler|rare catch|deep cut/i);
+    await expect(status).toContainText(/extra|too clever|supporting role|cult find|deep cut|one of a kind/i);
     await expect(status).toContainText(topAnswer!.label);
     await expect(status).toContainText(/atlas share/i);
-    await expect(status).toContainText(/common signals/i);
-    await expect(page.getByRole("button", { name: /continue descent/i })).toBeFocused();
+    await expect(status).toContainText(/common answers/i);
+    await expect(page.getByRole("button", { name: /next scene/i })).toBeFocused();
+
+    // Feedback copy, including the atlas insight, speaks cinema; answer labels are film content.
+    let feedbackCopy = (await status.innerText()).toLowerCase();
+    for (const entry of atlas.get(first.id)?.answers ?? []) {
+      feedbackCopy = feedbackCopy.replaceAll(entry.label.toLowerCase(), "");
+    }
+    expect(feedbackCopy).not.toMatch(
+      /\b(dive|depth|descent|surface|ocean|current|tide|trench|abyss|krillion|explorers)\b/i,
+    );
   });
 
   test("switches Movies modes inside the pack and rejects unsupported modes", async ({ page }) => {
@@ -70,7 +79,7 @@ test.describe("Movies pack", () => {
     await expect(page.getByText("AT THE MOVIES / SPEED RUN")).toBeVisible();
 
     await page.goto("/packs/movies?mode=daily");
-    await expect(page.getByText("AT THE MOVIES / THE ARCADE DIVE")).toBeVisible();
+    await expect(page.getByText("AT THE MOVIES / THE LATE SHOW")).toBeVisible();
 
     const daily = await page.request.get("/api/questions?pack=movies&mode=daily");
     expect(daily.status()).toBe(400);
@@ -88,7 +97,7 @@ test.describe("Movies pack", () => {
 
   test("keeps Movies progress out of the core routes", async ({ page }) => {
     await page.goto("/packs/movies");
-    await page.getByRole("button", { name: /begin descent/i }).click();
+    await page.getByRole("button", { name: /start the show/i }).click();
     await expect(page.getByPlaceholder(/type one answer/i)).toBeVisible({ timeout: 6_000 });
 
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("omniquiz-progress-v3") ?? "{}"));
@@ -108,7 +117,7 @@ test.describe("Movies pack", () => {
 
     await answer.fill("no such movie thing");
     await answer.press("Enter");
-    await expect(page.getByRole("status")).toContainText(/uncharted/i);
+    await expect(page.getByRole("status")).toContainText(/not in the atlas/i);
 
     await page.reload();
     await expect(page.getByRole("button", { name: /continue|next prompt/i })).toBeVisible({ timeout: 6_000 });

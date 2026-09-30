@@ -19,10 +19,6 @@
     width: calc(100% - 3rem);
   }
 
-  .pack-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .mode-selector-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -511,14 +507,6 @@
 
   .packs-header p {
     text-align: left;
-  }
-
-  .pack-list {
-    grid-template-columns: 1fr;
-  }
-
-  .pack-card {
-    grid-template-rows: 145px 1fr;
   }
 
   .logbook {

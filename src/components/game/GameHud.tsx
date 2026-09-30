@@ -1,5 +1,8 @@
+import Link from "next/link";
 import type { CSSProperties } from "react";
 
+import { rarityForCrowdShare } from "../../lib/game/scoring";
+import { useLexicon } from "./EnvironmentContext";
 import { answerSecondsForMode, type GameMode, type GamePhase, type GameState } from "./gameReducer";
 
 type GameHudProps = Readonly<{
@@ -8,7 +11,11 @@ type GameHudProps = Readonly<{
   remainingMilliseconds: number;
   bestScore: number;
   atlasLabel?: string;
+  stage?: Readonly<{ label: string; short: string }>;
+  onExit?: () => void;
 }>;
+
+const LEGEND_SHARE = { plankton: 30, rare: 5, krillion: 1 } as const;
 
 const timerDurationMs = (mode: GameMode): number => answerSecondsForMode(mode) * 1_000;
 
@@ -59,15 +66,18 @@ export const getWindowLabel = (
       : formatWindowTime(remainingMilliseconds);
 };
 
-export function GameHud({ state, mode, remainingMilliseconds, bestScore, atlasLabel = "CROWD ATLAS" }: GameHudProps) {
+export function GameHud({
+  state,
+  mode,
+  remainingMilliseconds,
+  bestScore,
+  atlasLabel = "CROWD ATLAS",
+  stage,
+  onExit,
+}: GameHudProps) {
+  const lex = useLexicon();
   const roundCount = state.questions.length || 7;
-  const labels: Record<GameMode, string> = {
-    daily: "THE DAILY DIVE",
-    unlimited: "THE ARCADE DIVE",
-    speed: "SPEED RUN",
-    survival: "SURVIVAL MODE",
-  };
-  const label = labels[mode];
+  const label = lex.modeTitle[mode];
   const currentQuestion = state.questions[state.questionIndex] ?? null;
   const completedRounds = Math.min(
     state.questionIndex + (
@@ -104,12 +114,34 @@ export function GameHud({ state, mode, remainingMilliseconds, bestScore, atlasLa
     : "normal";
 
   return (
-    <header className="game-hud" aria-label={mode === "speed" ? "Race telemetry" : mode === "survival" ? "Threat telemetry" : "Dive telemetry"}>
-      <div className="hud-brand" aria-label="OMNIQUIZ">OMNIQUIZ</div>
-      <div className="hud-meter hud-depth" aria-label="Current depth">
-        <span>DEPTH</span>
-        <strong className="telemetry-data hud-value-flash" key={`d-${state.depthMetres}`}>{state.depthMetres}m</strong>
+    <header className="game-hud" aria-label={lex.hudAria[mode]}>
+      <div className="hud-brand">
+        <Link href="/" className="hud-home" aria-label="OMNIQUIZ home" onClick={(event) => {
+          if (!onExit || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+          event.preventDefault();
+          onExit();
+        }}>OMNIQUIZ</Link>
+        {onExit ? (
+          <button className="hud-exit" type="button" onClick={onExit} aria-label="Exit to home">
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M4 11.5 12 4l8 7.5M6.5 10v9.5h11V10M10 19.5v-5h4v5" /></svg>
+            <span>EXIT</span>
+          </button>
+        ) : null}
       </div>
+      {lex.travel ? (
+        <div className="hud-meter hud-depth" aria-label={lex.travel.aria}>
+          <span>{lex.travel.label}</span>
+          <strong className="telemetry-data hud-value-flash" key={`d-${state.depthMetres}`}>{state.depthMetres}m</strong>
+        </div>
+      ) : (
+        <div className="hud-meter hud-depth hud-stage" aria-label={`${lex.stageLabel}: ${stage?.label ?? ""}`}>
+          <span>{lex.stageLabel}</span>
+          <strong className="telemetry-data hud-value-flash" key={`st-${stage?.label}`}>
+            <span className="stage-long">{stage?.label}</span>
+            <span className="stage-short" aria-hidden="true">{stage?.short}</span>
+          </strong>
+        </div>
+      )}
       <div
         className="hud-timer"
         role="timer"
@@ -170,10 +202,13 @@ export function GameHud({ state, mode, remainingMilliseconds, bestScore, atlasLa
         </span>
       ) : null}
       <div className="hud-legend" role="group" aria-label="Rarity legend">
-        <span><i className="hud-legend-swatch hud-legend-common" aria-hidden="true" />PLANKTON 10</span>
-        <span><i className="hud-legend-swatch hud-legend-rare" aria-hidden="true" />RARE CATCH 60</span>
-        <span><i className="hud-legend-swatch hud-legend-krillion" aria-hidden="true" />KRILLION 100</span>
-        <span className="sr-only">points; every point adds 10 metres</span>
+        {lex.legend.map((entry) => (
+          <span key={entry.tier}>
+            <i className={`hud-legend-swatch hud-legend-${entry.tier === "plankton" ? "common" : entry.tier}`} aria-hidden="true" />
+            {entry.label} {rarityForCrowdShare(LEGEND_SHARE[entry.tier]).score}
+          </span>
+        ))}
+        <span className="sr-only">{lex.travel ? lex.travel.srNote : "points"}</span>
       </div>
     </header>
   );

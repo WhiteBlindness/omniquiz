@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { useLexicon } from "./EnvironmentContext";
 import { PREVIEW_SECONDS, type GamePhase, type GameState } from "./gameReducer";
 
 type PromptCardProps = Readonly<{
@@ -9,6 +10,7 @@ type PromptCardProps = Readonly<{
 }>;
 
 export function PromptCard({ state, phase, atlasLabel = "CROWD ATLAS" }: PromptCardProps) {
+  const lex = useLexicon();
   const question = state.questions[state.questionIndex];
   if (!question) return null;
 
@@ -23,11 +25,7 @@ export function PromptCard({ state, phase, atlasLabel = "CROWD ATLAS" }: PromptC
       </span>
       <h1 id="current-prompt">{question.prompt}</h1>
       <p className="rarity-hint">
-        {state.mode === "speed"
-          ? "Name the first honest answer that comes to mind. Rarer recognizable signals score higher."
-          : state.mode === "survival"
-            ? "Name the first honest answer that comes to mind. Rarer recognizable signals keep you alive."
-            : "Name the first honest answer that surfaces. Rarer recognizable signals sink deeper."}
+        {lex.promptHint[state.mode]}
       </p>
       {preview ? (
         <div className="preview-countdown" aria-live="polite">

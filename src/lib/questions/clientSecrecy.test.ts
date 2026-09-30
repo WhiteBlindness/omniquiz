@@ -8,7 +8,10 @@ const clientRoots = [
   resolve(process.cwd(), "src/state"),
 ];
 
-const clientImportedFiles = [resolve(process.cwd(), "src/lib/packs/meta.ts")];
+const clientImportedFiles = [
+  resolve(process.cwd(), "src/lib/packs/meta.ts"),
+  resolve(process.cwd(), "src/lib/packs/environment.ts"),
+];
 
 const ATLAS_REFERENCE =
   /questions\.json|packs\/movies\.json|src\/data|\/data\/|questions\/catalog|QUESTION_BANK|PACK_QUESTION_BANKS|questionsForPack|findQuestionById/;

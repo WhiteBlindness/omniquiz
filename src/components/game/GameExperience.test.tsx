@@ -128,7 +128,7 @@ describe("GameExperience", () => {
   it("keeps the ocean launch and explains crowd rarity play", () => {
     render(<GameExperience mode="daily" />);
 
-    expect(screen.getByRole("heading", { name: "OMNIQUIZ" })).toBeVisible();
+    expect(screen.getByRole("heading", { name: /omniquiz/i })).toBeVisible();
     expect(screen.getByText("THE DAILY DIVE")).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: /how to play/i }));
     expect(screen.getByText(/answer families, not one fixed fact/i)).toBeVisible();
@@ -511,7 +511,7 @@ describe("GameExperience", () => {
     const beginPack = async () => {
       render(<GameExperience mode="unlimited" pack="movies" />);
       await act(async () => {
-        fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+        fireEvent.click(screen.getByRole("button", { name: /start the show/i }));
       });
       await act(async () => {
         await vi.advanceTimersByTimeAsync(3_000);
@@ -521,7 +521,7 @@ describe("GameExperience", () => {
     it("offers only the modes the pack supports and routes within the pack", () => {
       render(<GameExperience mode="unlimited" pack="movies" />);
 
-      expect(screen.getByText("AT THE MOVIES / THE ARCADE DIVE")).toBeVisible();
+      expect(screen.getByText("AT THE MOVIES / THE LATE SHOW")).toBeVisible();
       expect(screen.getByText(/films, characters, stars/i)).toBeVisible();
       expect(screen.queryByRole("button", { name: /daily mode/i })).not.toBeInTheDocument();
       expect(screen.getByRole("button", { name: /unlimited mode/i })).toBeVisible();
@@ -555,7 +555,7 @@ describe("GameExperience", () => {
       stubPackFetch([question]);
       render(<GameExperience mode="unlimited" pack="movies" />);
       await act(async () => {
-        fireEvent.click(screen.getByRole("button", { name: /begin descent/i }));
+        fireEvent.click(screen.getByRole("button", { name: /start the show/i }));
       });
 
       expect(screen.getByRole("alert")).toHaveTextContent(/unreadable payload/i);

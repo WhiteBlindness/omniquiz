@@ -1,0 +1,297 @@
+/* World cards: the entry points to the core game and each themed pack. */
+.worlds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  width: min(100%, 1040px);
+  margin: 0 auto;
+}
+
+.world-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--paper);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 160ms ease-out, box-shadow 220ms ease-out;
+}
+
+.world-card.is-live:hover,
+.world-card.is-live:focus-visible {
+  border-color: var(--line-hot);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.4);
+}
+
+.world-card:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.world-card:active {
+  transform: translateY(0);
+  transition-duration: 60ms;
+}
+
+.world-art {
+  position: relative;
+  height: 9.5rem;
+  overflow: hidden;
+  background: #060b18;
+}
+
+.world-feature .world-art {
+  height: clamp(11rem, 22vw, 15.5rem);
+}
+
+.world-layer,
+.world-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.world-layer {
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* core: the ocean mission panorama */
+.world-art-core .world-layer-back {
+  background: url("/ocean/rov-mission-panorama.webp") center 30% / cover no-repeat;
+}
+
+.world-card.is-live:hover .world-art-core .world-layer-back {
+  transform: scale(1.06);
+}
+
+/* movies: sky, skyline and the premiere theatre */
+.world-art-movies {
+  background: linear-gradient(to bottom, #070514 0%, #1c0d3d 60%, #4a1360 100%);
+}
+
+.world-art-movies .world-layer-mid {
+  background: url("/cinema/skyline-mid.svg") repeat-x left bottom / auto 62%;
+  image-rendering: pixelated;
+  opacity: 0.9;
+}
+
+.world-art-movies .world-layer-front {
+  background: url("/cinema/piece-premiere-night.svg") 70% bottom / auto 88% no-repeat;
+  image-rendering: pixelated;
+}
+
+.world-art-movies .world-glow {
+  background: radial-gradient(ellipse 45% 35% at 70% 55%, rgba(255, 61, 242, 0.32), transparent 70%);
+}
+
+.world-card.is-live:hover .world-art-movies .world-layer-mid { transform: translateX(-10px); }
+.world-card.is-live:hover .world-art-movies .world-layer-front { transform: translateX(-6px) scale(1.03); }
+
+/* planned worlds: quiet placeholders until content exists */
+.world-art-sports {
+  background:
+    linear-gradient(to top, #0b3a2a 0 22%, transparent 22%),
+    linear-gradient(to bottom, #04120f, #0a2a24);
+}
+
+.world-art-sports .world-layer-mid {
+  background:
+    linear-gradient(#cfeee0, #cfeee0) 18% 30% / 3px 40% no-repeat,
+    linear-gradient(#cfeee0, #cfeee0) 50% 22% / 3px 48% no-repeat,
+    linear-gradient(#cfeee0, #cfeee0) 82% 30% / 3px 40% no-repeat;
+  opacity: 0.55;
+}
+
+.world-art-music {
+  background: linear-gradient(to bottom, #0b0616, #2a1046);
+}
+
+.world-art-music .world-layer-mid {
+  background:
+    linear-gradient(100deg, transparent 30%, rgba(190, 120, 255, 0.35) 50%, transparent 70%) 25% 0 / 40% 100% no-repeat,
+    linear-gradient(80deg, transparent 30%, rgba(120, 200, 255, 0.28) 50%, transparent 70%) 78% 0 / 40% 100% no-repeat;
+}
+
+/* Planned worlds recede through desaturated art, not text opacity, so their copy stays legible. */
+
+.world-card.is-planned .world-art {
+  filter: saturate(0.6);
+  opacity: 0.75;
+}
+
+.world-body {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.world-eyebrow {
+  color: var(--gold);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+}
+
+.world-card.is-planned .world-eyebrow {
+  color: var(--drift);
+}
+
+.world-title {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+  letter-spacing: 0.06em;
+}
+
+.world-detail {
+  margin: 0;
+  color: var(--drift);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.world-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.world-modes li {
+  padding: 0.22rem 0.45rem;
+  border: 1px solid var(--line);
+  color: var(--drift);
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+}
+
+.world-action {
+  margin-top: 0.3rem;
+  color: var(--cyan);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.world-card.is-live .world-action::after {
+  content: " \2192";
+  display: inline-block;
+  transition: transform 200ms ease-out;
+}
+
+.world-card.is-live:hover .world-action::after {
+  transform: translateX(4px);
+}
+
+.world-card.is-planned .world-action {
+  color: var(--drift);
+}
+
+.world-card.is-planned .world-detail {
+  color: var(--drift);
+}
+
+/* Packs page: the two live worlds lead; planned worlds sit below them. */
+.worlds-grid .world-core,
+.worlds-grid .world-movies {
+  grid-column: span 1;
+}
+
+.worlds-grid .world-sports,
+.worlds-grid .world-music {
+  grid-column: span 1;
+}
+
+.worlds-grid .world-sports .world-art,
+.worlds-grid .world-music .world-art {
+  height: 6.5rem;
+}
+
+/* Landing strip: compact entries under the main call to action. */
+.worlds-strip {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: var(--edge);
+}
+
+.worlds-strip-title {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+}
+
+.worlds-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.worlds-strip .world-movies,
+.worlds-strip .world-core {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.worlds-strip .world-compact .world-art {
+  flex: 0 0 38%;
+  height: auto;
+  min-height: 5.6rem;
+}
+
+.worlds-strip .world-compact.is-planned .world-art {
+  flex: none;
+  height: 3.6rem;
+}
+
+.worlds-strip .world-compact .world-body {
+  padding: 0.6rem 0.75rem;
+  gap: 0.3rem;
+}
+
+.worlds-strip .world-compact .world-title {
+  font-size: 0.85rem;
+}
+
+.worlds-strip .world-compact .world-eyebrow,
+.worlds-strip .world-compact .world-action {
+  font-size: 0.52rem;
+}
+
+.worlds-strip .world-compact.is-planned .world-body {
+  padding: 0.5rem 0.6rem;
+}
+
+@media (max-width: 720px) {
+  .worlds-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-card,
+  .world-layer,
+  .world-action::after {
+    transition: none !important;
+  }
+  .world-card.is-live:hover,
+  .world-card.is-live:focus-visible {
+    transform: none;
+  }
+}
+
+/* Light theme */
+[data-theme="light"] .world-card.is-live:hover,
+[data-theme="light"] .world-card.is-live:focus-visible {
+  box-shadow: 0 14px 28px rgba(12, 54, 64, 0.22);
+}
+
+[data-theme="light"] .world-eyebrow { color: var(--gold); }
+
+.worlds-strip .world-compact .world-detail { display: none; }

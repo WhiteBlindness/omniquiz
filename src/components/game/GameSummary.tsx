@@ -4,14 +4,15 @@ import { useState } from "react";
 
 import { useCountUp } from "../../hooks/useCountUp";
 import { getDailyScoreShare } from "../../lib/game/dailyCeiling";
+import { useLexicon } from "./EnvironmentContext";
 import type { PackId } from "../../lib/packs/meta";
-import type { RoundLog } from "./gameReducer";
+import type { GameMode, RoundLog } from "./gameReducer";
 import type { DiveStats } from "./storage";
 
 type GameSummaryProps = Readonly<{
   score: number;
   depthMetres: number;
-  mode: "daily" | "unlimited" | "speed" | "survival";
+  mode: GameMode;
   stats: DiveStats;
   roundLog: readonly RoundLog[];
   shareLabel: string;
@@ -20,6 +21,7 @@ type GameSummaryProps = Readonly<{
   lives?: number;
   bestStreak?: number;
   pack?: PackId;
+  stageName?: string;
 }>;
 
 export function GameSummary({
@@ -34,7 +36,9 @@ export function GameSummary({
   lives,
   bestStreak,
   pack = "core",
+  stageName,
 }: GameSummaryProps) {
+  const lex = useLexicon();
   const dailyScoreShare = getDailyScoreShare(score);
   const animatedScore = useCountUp(score);
   const animatedDepth = useCountUp(depthMetres);
@@ -45,25 +49,17 @@ export function GameSummary({
     acc[r.tier] = (acc[r.tier] ?? 0) + r.score;
     return acc;
   }, {});
-  const tierSegments = [
-    { tier: "krillion", label: "KRILLION", score: tierBuckets.krillion ?? 0 },
-    { tier: "deepcut", label: "DEEP CUT", score: tierBuckets.deepcut ?? 0 },
-    { tier: "rare", label: "RARE", score: tierBuckets.rare ?? 0 },
-    { tier: "schooler", label: "SCHOOLER", score: tierBuckets.schooler ?? 0 },
-    { tier: "plankton", label: "PLANKTON", score: tierBuckets.plankton ?? 0 },
-    { tier: "tooclever", label: "TOO CLEVER", score: tierBuckets.tooclever ?? 0 },
-  ].filter((s) => s.score > 0);
+  const tierSegments = (["krillion", "deepcut", "rare", "schooler", "plankton", "tooclever"] as const)
+    .map((tier) => ({ tier, label: lex.tierScale[tier], score: tierBuckets[tier] ?? 0 }))
+    .filter((s) => s.score > 0);
 
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
       <p className="sr-only">
-        {mode === "speed" ? "Race complete" : mode === "survival" ? "Run ended" : "Dive logged after the final prompt"}
+        {lex.summarySr[mode]}
       </p>
       <h1 id="summary-title">
-        {mode === "speed" ? "SPEED RUN COMPLETE"
-          : mode === "survival" ? (lives === 0 ? "SIGNAL LOST" : "SURVIVAL COMPLETE")
-          : mode === "unlimited" ? "ARCADE RUN COMPLETE"
-          : "DIVE COMPLETE"}
+        {mode === "survival" && lives === 0 ? lex.summaryTitleLoss : lex.summaryTitle[mode]}
       </h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>
@@ -74,10 +70,17 @@ export function GameSummary({
           <small>points earned from recognizable rarity</small>
         )}
       </div>
-      <div className="summary-depth">
-        <span>YOU REACHED</span>
-        <b className="telemetry-data" aria-label={`${depthMetres} metres`}>{animatedDepth}m</b>
-      </div>
+      {lex.travel ? (
+        <div className="summary-depth">
+          <span>{lex.travel.summaryLabel}</span>
+          <b className="telemetry-data" aria-label={`${depthMetres} metres`}>{animatedDepth}m</b>
+        </div>
+      ) : (
+        <div className="summary-depth summary-stage">
+          <span>{lex.stageSummaryLabel}</span>
+          <b className="telemetry-data">{stageName}</b>
+        </div>
+      )}
       {mode === "daily" ? (
         <>
           <div className="summary-percentile">
@@ -139,10 +142,10 @@ export function GameSummary({
           </div>
         </div>
       ) : null}
-      <SummaryLog roundLog={roundLog} mode={mode} />
+      <SummaryLog roundLog={roundLog} mode={mode} showDistance={lex.travel !== null} />
       <div className="summary-actions">
         <button className="continue-button" type="button" onClick={onReplay}>
-          {mode === "speed" ? "RACE AGAIN" : mode === "survival" ? "ENTER AGAIN" : "DIVE AGAIN"}
+          {lex.replay[mode]}
         </button>
         <button className="share-button pixel-control" type="button" onClick={onShare}>
           {shareLabel}
@@ -179,25 +182,25 @@ function RecognitionRing({ pct }: { pct: number }) {
   );
 }
 
-const TIER_TAG: Record<string, string> = {
-  krillion: "KRILLION",
-  deepcut: "DEEP CUT",
-  rare: "RARE",
-  schooler: "SCHOOLER",
-  plankton: "PLANKTON",
-  tooclever: "TOO CLEVER",
-  uncharted: "UNCHARTED",
-};
-
-function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: string }) {
+function SummaryLog({
+  roundLog,
+  mode,
+  showDistance,
+}: {
+  roundLog: readonly RoundLog[];
+  mode: GameMode;
+  showDistance: boolean;
+}) {
+  const lex = useLexicon();
+  const TIER_TAG = lex.tierScale;
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const bestScore = Math.max(0, ...roundLog.map((r) => r.score));
   const bestIndex = bestScore > 0 ? roundLog.findIndex((r) => r.score === bestScore) : -1;
 
   return (
-    <div className="summary-log" aria-label={mode === "speed" ? "Race log" : mode === "survival" ? "Threat log" : "Dive log"}>
+    <div className="summary-log" aria-label={lex.logAria[mode]}>
       <div className="summary-log-heading">
-        <span>{mode === "speed" ? "RACE LOG" : mode === "survival" ? "THREAT LOG" : "DIVE LOG"}</span>
+        <span>{lex.logName[mode]}</span>
         <small>{roundLog.length} ROUNDS</small>
       </div>
       {roundLog.map((entry, index) => {
@@ -226,13 +229,13 @@ function SummaryLog({ roundLog, mode }: { roundLog: readonly RoundLog[]; mode: s
                 {hasCommon ? <span className="summary-log-chevron" aria-hidden="true" /> : null}
               </button>
               {entry.submittedAnswer.toLowerCase().trim() !== entry.answerLabel.toLowerCase().trim() && entry.tier !== "uncharted" ? (
-                <small className="summary-log-signal">YOU TYPED: {entry.submittedAnswer}</small>
+                <small className="summary-log-signal">{lex.typedLabel}: {entry.submittedAnswer}</small>
               ) : null}
               <small className="telemetry-data">
-                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% ATLAS`} · +{entry.score} PTS · {entry.depthMetres}m
+                {entry.crowdShare === null ? TIER_TAG.uncharted : `${entry.crowdShare}% ATLAS`} · +{entry.score} PTS{showDistance ? ` · ${entry.depthMetres}m` : ""}
               </small>
               <small className="summary-log-prompt">{entry.prompt}</small>
-              {isBest ? <small className="summary-log-best">BEST SIGNAL</small> : null}
+              {isBest ? <small className="summary-log-best">{lex.bestEntry}</small> : null}
               {isExpanded ? (
                 <ul className="summary-log-common" aria-label="Common answers for this round">
                   {entry.commonAnswers.map((a) => (

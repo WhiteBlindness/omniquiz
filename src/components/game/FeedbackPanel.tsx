@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { useEffect, useRef } from "react";
 
 import { useCountUp } from "../../hooks/useCountUp";
+import { useLexicon } from "./EnvironmentContext";
 import type { SubmissionResult } from "../../lib/game/scoring";
 import type { GameMode, GameOutcome } from "./gameReducer";
 
@@ -19,16 +20,6 @@ type FeedbackPanelProps = Readonly<{
   lives?: number;
 }>;
 
-const TIER_LABELS: Record<SubmissionResult["tier"], string> = {
-  uncharted: "UNCHARTED",
-  plankton: "PLANKTON",
-  tooclever: "TOO CLEVER",
-  schooler: "SCHOOLER",
-  rare: "RARE CATCH",
-  deepcut: "DEEP CUT",
-  krillion: "ONE IN A KRILLION",
-};
-
 export function FeedbackPanel({
   result,
   submittedAnswer,
@@ -42,6 +33,7 @@ export function FeedbackPanel({
   streakMultiplier = 1,
   lives,
 }: FeedbackPanelProps) {
+  const lex = useLexicon();
   const continueRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -50,6 +42,8 @@ export function FeedbackPanel({
 
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
+      // The answer form marks the Escape that passed a prompt as handled; do not also continue.
+      if (event.defaultPrevented) return;
       if (event.key === "Escape" || event.key === " " || event.key === "Enter") {
         event.preventDefault();
         onContinue();
@@ -66,8 +60,8 @@ export function FeedbackPanel({
       ? "PASS LOGGED"
       : outcome === "timeout"
         ? "TIME EXPIRED"
-        : TIER_LABELS[result.tier];
-  const submittedLabel = submittedAnswer.trim() || (outcome === "pass" ? "No answer" : "No signal");
+        : lex.tierHeading[result.tier];
+  const submittedLabel = submittedAnswer.trim() || (outcome === "pass" ? lex.noAnswer : lex.noSignal);
   const hasEarnedDepth = result.recognized && result.depthMetres > 0;
 
   return (
@@ -88,7 +82,7 @@ export function FeedbackPanel({
       ) : null}
       <h1 id="feedback-title">{heading}</h1>
       <p className="feedback-answer">
-        <span>YOUR SIGNAL</span>
+        <span>{lex.yourAnswer}</span>
         <strong>{submittedLabel}</strong>
         {result.recognized ? <small>ATLAS LABEL / {result.answerLabel}</small> : null}
       </p>
@@ -99,14 +93,16 @@ export function FeedbackPanel({
           ATLAS SHARE
         </span>
         <span><b className="telemetry-data">+{result.score}</b> POINTS</span>
-        <span aria-label={`${score} total, ${depthMetres}m`}><b className="telemetry-data">{animatedTotal}</b> TOTAL / {depthMetres}m</span>
+        <span aria-label={lex.travel ? `${score} total, ${depthMetres}m` : `${score} total`}><b className="telemetry-data">{animatedTotal}</b> TOTAL{lex.travel ? ` / ${depthMetres}m` : ""}</span>
       </div>
-      <p
-        className={`feedback-depth-delta telemetry-data ${hasEarnedDepth ? "is-earned" : ""}`}
-        aria-label={`Earned depth ${result.depthMetres} metres`}
-      >
-        <b>+{result.depthMetres}m</b> DESCENT
-      </p>
+      {lex.travel ? (
+        <p
+          className={`feedback-depth-delta telemetry-data ${hasEarnedDepth ? "is-earned" : ""}`}
+          aria-label={lex.travel.deltaAria(result.depthMetres)}
+        >
+          <b>+{result.depthMetres}m</b> {lex.travel.deltaLabel}
+        </p>
+      ) : null}
       {mode === "speed" && outcome === "answer" && streak > 0 ? (
         <div className="feedback-streak" aria-label={`${streak} answer streak, ${streakMultiplier}x multiplier`}>
           <span className="feedback-streak-count telemetry-data">{streak}× STREAK</span>
@@ -133,7 +129,7 @@ export function FeedbackPanel({
       ) : null}
       {result.commonAnswers.length > 0 ? (
         <div className="common-answers">
-          <span className="common-answers-title">COMMON SIGNALS</span>
+          <span className="common-answers-title">{lex.commonAnswers}</span>
           <ul aria-label="Common answers from this prompt">
             {result.commonAnswers.map((answer, i) => (
               <li className="common-answer" key={answer.label} style={{ "--answer-index": i } as CSSProperties}>
@@ -151,15 +147,11 @@ export function FeedbackPanel({
         </div>
       ) : (
         <p className="common-answers-empty">
-          {mode === "speed" ? "No atlas match logged; the clock keeps running."
-            : mode === "survival" ? "No atlas match logged; the void deepens."
-            : "No atlas match logged; the dive continues."}
+          {lex.noMatchNote[mode]}
         </p>
       )}
       <button ref={continueRef} className="continue-button" type="button" onClick={onContinue}>
-        {isLastRound
-          ? (mode === "speed" ? "FINISH RUN" : mode === "survival" ? "VIEW LOG" : "SURFACE WITH LOG")
-          : (mode === "speed" ? "NEXT PROMPT" : mode === "survival" ? "NEXT PROMPT" : "CONTINUE DESCENT")}
+        {isLastRound ? lex.lastPrompt[mode] : lex.nextPrompt[mode]}
       </button>
       <p className="feedback-shortcuts" aria-hidden="true">ENTER · SPACE · ESC TO CONTINUE</p>
     </section>

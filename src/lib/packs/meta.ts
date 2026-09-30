@@ -1,17 +1,17 @@
 import type { GameMode } from "../../components/game/gameReducer";
 import { CATEGORIES } from "../questions/types";
+import type { EnvironmentId } from "./environment";
 
 export const PACK_IDS = ["core", "movies", "sports", "music"] as const;
 export type PackId = (typeof PACK_IDS)[number];
 export type PackStatus = "live" | "planned";
-export type PackArt = "movies" | "sports" | "music";
 
 export type PackMeta = Readonly<{
   id: PackId;
   slug: string | null;
   shortName: string;
   title: string;
-  art: PackArt | null;
+  environment: EnvironmentId;
   status: PackStatus;
   modes: readonly GameMode[];
   defaultMode: GameMode | null;
@@ -26,22 +26,22 @@ export const PACKS: Readonly<Record<PackId, PackMeta>> = Object.freeze({
     id: "core",
     slug: null,
     shortName: "Core",
-    title: "OMNIQUIZ",
-    art: null,
+    title: "THE OCEAN DIVE",
+    environment: "ocean",
     status: "live",
     modes: Object.freeze(["daily", "unlimited", "speed", "survival"] as const),
     defaultMode: "daily",
     topics: CATEGORIES,
     atlasLabel: "CROWD ATLAS",
     intro: "Broad prompts from the core crowd atlas.",
-    cardDetail: "",
+    cardDetail: "One prompt at a time, sinking deeper with every rare answer.",
   }),
   movies: Object.freeze({
     id: "movies",
     slug: "movies",
     shortName: "Movies",
     title: "AT THE MOVIES",
-    art: "movies",
+    environment: "cinema",
     status: "live",
     modes: Object.freeze(["unlimited", "speed", "survival"] as const),
     defaultMode: "unlimited",
@@ -55,35 +55,35 @@ export const PACKS: Readonly<Record<PackId, PackMeta>> = Object.freeze({
     ] as const),
     atlasLabel: "FILM ATLAS",
     intro: "Broad prompts about films, characters, stars and the way movies get made.",
-    cardDetail: "Genres, characters, stars, franchises and craft. Arcade, Speed Run and Survival.",
+    cardDetail: "Drive a neon boulevard from the city limits to premiere night, answering film prompts on the way.",
   }),
   sports: Object.freeze({
     id: "sports",
     slug: "sports",
     shortName: "Sports",
     title: "SPORTS",
-    art: "sports",
+    environment: "stadium",
     status: "planned",
     modes: Object.freeze([] as const),
     defaultMode: null,
     topics: Object.freeze([] as const),
     atlasLabel: "SPORTS ATLAS",
     intro: "",
-    cardDetail: "Court to podium. Content is in development.",
+    cardDetail: "A stadium journey from the city to the arena. In development.",
   }),
   music: Object.freeze({
     id: "music",
     slug: "music",
     shortName: "Music",
     title: "MUSIC",
-    art: "music",
+    environment: "venue",
     status: "planned",
     modes: Object.freeze([] as const),
     defaultMode: null,
     topics: Object.freeze([] as const),
     atlasLabel: "MUSIC ATLAS",
     intro: "",
-    cardDetail: "From the charts to the deep cuts. Content is in development.",
+    cardDetail: "A night-venue journey from the queue to the stage. In development.",
   }),
 });
 

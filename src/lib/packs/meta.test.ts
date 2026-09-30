@@ -36,6 +36,11 @@ describe("pack metadata", () => {
     }
   });
 
+  it("gives every pack a card description and a distinct environment", () => {
+    for (const pack of PACK_LIST) expect(pack.cardDetail.length, pack.id).toBeGreaterThan(20);
+    expect(new Set(PACK_LIST.map((pack) => pack.environment)).size).toBe(PACK_LIST.length);
+  });
+
   it("keeps the core taxonomy separate from pack topics", () => {
     expect(PACKS.core.topics).toEqual(["General", "Science", "Geography", "History"]);
     for (const topic of PACKS.movies.topics) expect(PACKS.core.topics).not.toContain(topic);

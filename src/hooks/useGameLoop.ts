@@ -24,6 +24,7 @@ import {
   writeProgress,
   writeStats,
   type DiveStats,
+  type PersistedProgress,
 } from "../components/game/storage";
 
 type ApiEnvelope<T> = Readonly<{
@@ -65,7 +66,14 @@ const getApiData = async <T>(response: Response): Promise<T> => {
   return payload.data;
 };
 
-export const useGameLoop = (mode: GameMode, category?: Category, pack: PackId = "core") => {
+export const useGameLoop = (
+  mode: GameMode,
+  category?: Category,
+  pack: PackId = "core",
+  options: Readonly<{ autoRestore?: boolean }> = {},
+) => {
+  const autoRestore = options.autoRestore ?? true;
+  const [savedRun, setSavedRun] = useState<PersistedProgress | null>(null);
   const [state, dispatch] = useReducer(gameReducer, mode, createInitialGameState);
   const [hydrated, setHydrated] = useState(false);
   const [stats, setStats] = useState<DiveStats>(DEFAULT_STATS);
@@ -90,7 +98,10 @@ export const useGameLoop = (mode: GameMode, category?: Category, pack: PackId = 
     mountedRef.current = true;
     const dailyDate = mode === "daily" ? getUtcDateKey() : undefined;
     const progress = readProgress(mode, dailyDate, pack);
-    if (progress) dispatch({ type: "RESTORE_PROGRESS", progress });
+    if (progress) {
+      if (autoRestore) dispatch({ type: "RESTORE_PROGRESS", progress });
+      else if (progress.phase !== "summary") queueMicrotask(() => setSavedRun(progress));
+    }
     let hydrationCancelled = false;
     queueMicrotask(() => {
       if (hydrationCancelled || !mountedRef.current) return;
@@ -102,7 +113,7 @@ export const useGameLoop = (mode: GameMode, category?: Category, pack: PackId = 
       mountedRef.current = false;
       hydrationCancelled = true;
     };
-  }, [mode, pack]);
+  }, [autoRestore, mode, pack]);
 
   useEffect(() => {
     const persistablePhase =
@@ -113,6 +124,12 @@ export const useGameLoop = (mode: GameMode, category?: Category, pack: PackId = 
     if (!hydrated || !persistablePhase) return;
     writeProgress(state, pack);
   }, [hydrated, pack, state]);
+
+  const resumeSavedRun = useCallback(() => {
+    if (!savedRun) return;
+    dispatch({ type: "RESTORE_PROGRESS", progress: savedRun });
+    setSavedRun(null);
+  }, [savedRun]);
 
   const startDive = useCallback(async () => {
     if (
@@ -444,6 +461,8 @@ export const useGameLoop = (mode: GameMode, category?: Category, pack: PackId = 
     continueDive,
     skipPreview,
     resetDive,
+    savedRun,
+    resumeSavedRun,
     previewSeconds: PREVIEW_SECONDS,
     answerSeconds: answerSecondsForMode(mode),
     remainingMilliseconds,
