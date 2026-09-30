@@ -39,7 +39,7 @@ export default function PrivacyPage() {
 
       <h2>Hosting</h2>
       <p>
-        OMNIQUIZ is delivered through Cloudflare&apos;s network. Like any web service,
+        OMNIQUIZ is delivered by a hosting provider. Like any web service,
         the infrastructure that serves the site handles technical request data such
         as your IP address and browser details in order to deliver pages and keep the
         service secure. The application itself is not configured to log or analyse
