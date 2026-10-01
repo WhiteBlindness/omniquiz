@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "OMNIQUIZ — Dive Control",
     short_name: "OMNIQUIZ",
-    description: "A cinematic 16-bit ROV mission broadcast where uncommon answers drive a visible descent.",
+    description: "A free trivia game where uncommon answers score higher. Daily challenge, unlimited, speed run, and survival modes.",
     start_url: "/",
     display: "standalone",
     background_color: "#020711",
@@ -12,8 +12,14 @@ export default function manifest(): MetadataRoute.Manifest {
     icons: [
       {
         src: "/favicon.ico",
-        sizes: "any",
+        sizes: "256x256",
         type: "image/x-icon",
+      },
+      {
+        src: "/icon",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
       },
     ],
   };

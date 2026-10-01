@@ -39,21 +39,21 @@ describe("production crowd atlas contract", () => {
       for (const family of question.answers) {
         bands.add(
           family.share >= 30
-            ? "plankton"
+            ? "common"
             : family.share >= 18
-              ? "tooclever"
+              ? "familiar"
               : family.share >= 10
-                ? "schooler"
+                ? "notable"
                 : family.share >= 5
                   ? "rare"
                   : family.share >= 2
-                    ? "deepcut"
-                    : "krillion",
+                    ? "obscure"
+                    : "unique",
         );
       }
     }
 
-    expect(bands).toEqual(new Set(["plankton", "tooclever", "schooler", "rare", "deepcut", "krillion"]));
+    expect(bands).toEqual(new Set(["common", "familiar", "notable", "rare", "obscure", "unique"]));
   });
 
   it("keeps the rocket family safe and explicit", () => {

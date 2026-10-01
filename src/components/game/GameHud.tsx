@@ -1,14 +1,23 @@
+import Link from "next/link";
 import type { CSSProperties } from "react";
 
-import { ANSWER_SECONDS, type GameMode, type GamePhase, type GameState } from "./gameReducer";
+import { rarityForCrowdShare } from "../../lib/game/scoring";
+import { useLexicon } from "./EnvironmentContext";
+import { answerSecondsForMode, type GameMode, type GamePhase, type GameState } from "./gameReducer";
 
 type GameHudProps = Readonly<{
   state: GameState;
   mode: GameMode;
   remainingMilliseconds: number;
+  bestScore: number;
+  atlasLabel?: string;
+  stage?: Readonly<{ label: string; short: string }>;
+  onExit?: () => void;
 }>;
 
-const TIMER_DURATION_MS = ANSWER_SECONDS * 1_000;
+const LEGEND_SHARE = { common: 30, rare: 5, unique: 1 } as const;
+
+const timerDurationMs = (mode: GameMode): number => answerSecondsForMode(mode) * 1_000;
 
 type TimerWindowState = "armed" | "open" | "closed";
 
@@ -32,10 +41,11 @@ const getRemainingSeconds = (remainingMilliseconds: number): number =>
 const getTimerProgress = (
   timerState: TimerWindowState,
   remainingMilliseconds: number,
+  mode: GameMode,
 ): number => {
   if (timerState === "armed") return 1;
   if (timerState === "closed") return 0;
-  return Math.min(1, Math.max(0, remainingMilliseconds / TIMER_DURATION_MS));
+  return Math.min(1, Math.max(0, remainingMilliseconds / timerDurationMs(mode)));
 };
 
 const formatWindowTime = (remainingMilliseconds: number): string => {
@@ -56,9 +66,18 @@ export const getWindowLabel = (
       : formatWindowTime(remainingMilliseconds);
 };
 
-export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
+export function GameHud({
+  state,
+  mode,
+  remainingMilliseconds,
+  bestScore,
+  atlasLabel = "CROWD ATLAS",
+  stage,
+  onExit,
+}: GameHudProps) {
+  const lex = useLexicon();
   const roundCount = state.questions.length || 7;
-  const label = mode === "unlimited" ? "THE ARCADE DIVE" : "THE DAILY DIVE";
+  const label = lex.modeTitle[mode];
   const currentQuestion = state.questions[state.questionIndex] ?? null;
   const completedRounds = Math.min(
     state.questionIndex + (
@@ -82,7 +101,7 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
   const timerState = getTimerWindowState(state.phase, remainingMilliseconds);
   const remainingSeconds = getRemainingSeconds(remainingMilliseconds);
   const remainingTime = String(remainingSeconds).padStart(2, "0");
-  const timerProgress = getTimerProgress(timerState, remainingMilliseconds);
+  const timerProgress = getTimerProgress(timerState, remainingMilliseconds, mode);
   const timerLabel = timerState === "open"
     ? `${remainingSeconds} ${remainingSeconds === 1 ? "second" : "seconds"} remaining`
     : timerState === "armed"
@@ -95,12 +114,34 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
     : "normal";
 
   return (
-    <header className="game-hud" aria-label="Dive telemetry">
-      <div className="hud-brand" aria-label="OMNIQUIZ">OMNIQUIZ</div>
-      <div className="hud-meter hud-depth" aria-label="Current depth">
-        <span>DEPTH</span>
-        <strong className="telemetry-data hud-value-flash" key={`d-${state.depthMetres}`}>{state.depthMetres}m</strong>
+    <header className="game-hud" aria-label={lex.hudAria[mode]}>
+      <div className="hud-brand">
+        <Link href="/" className="hud-home" aria-label="OMNIQUIZ home" onClick={(event) => {
+          if (!onExit || event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+          event.preventDefault();
+          onExit();
+        }}>OMNIQUIZ</Link>
+        {onExit ? (
+          <button className="hud-exit" type="button" onClick={onExit} aria-label="Exit to home">
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M4 11.5 12 4l8 7.5M6.5 10v9.5h11V10M10 19.5v-5h4v5" /></svg>
+            <span>EXIT</span>
+          </button>
+        ) : null}
       </div>
+      {lex.travel ? (
+        <div className="hud-meter hud-depth" aria-label={lex.travel.aria}>
+          <span>{lex.travel.label}</span>
+          <strong className="telemetry-data hud-value-flash" key={`d-${state.depthMetres}`}>{state.depthMetres}m</strong>
+        </div>
+      ) : (
+        <div className="hud-meter hud-depth hud-stage" aria-label={`${lex.stageLabel}: ${stage?.label ?? ""}`}>
+          <span>{lex.stageLabel}</span>
+          <strong className="telemetry-data hud-value-flash" key={`st-${stage?.label}`}>
+            <span className="stage-long">{stage?.label}</span>
+            <span className="stage-short" aria-hidden="true">{stage?.short}</span>
+          </strong>
+        </div>
+      )}
       <div
         className="hud-timer"
         role="timer"
@@ -121,9 +162,12 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
           </strong>
         </div>
       </div>
-      <div className="hud-meter hud-score" aria-label="Current score">
+      <div className={`hud-meter hud-score ${state.score > 0 && state.score >= bestScore && bestScore > 0 ? "hud-score-pb" : ""}`} aria-label="Current score">
         <span>SCORE</span>
         <strong className="telemetry-data hud-value-flash" key={`s-${state.score}`}>{state.score}</strong>
+        {state.score > 0 && state.score >= bestScore && bestScore > 0 ? (
+          <small className="hud-pb-tag telemetry-data">PB</small>
+        ) : null}
       </div>
       <div
         className="hud-rounds"
@@ -135,27 +179,36 @@ export function GameHud({ state, mode, remainingMilliseconds }: GameHudProps) {
         aria-valuetext={progressText}
       >
         <span className="hud-rounds-label telemetry-data">ROUND {state.questionIndex + 1} / {roundCount}</span>
-        {visibleRounds.map((index) => (
-          <span
-            className={`hud-round-step ${index < completedRounds ? "is-complete" : ""} ${index === state.questionIndex ? "is-current" : ""}`}
-            aria-hidden="true"
-            key={index}
-          >
-            <b className="telemetry-data">{index + 1}</b><i />
-          </span>
-        ))}
+        {visibleRounds.map((index) => {
+          const entry = state.roundLog[index];
+          const tierClass = entry ? `step-tier-${entry.tier}` : "";
+          const isPass = entry?.outcome === "pass" || entry?.outcome === "timeout";
+          return (
+            <span
+              className={`hud-round-step ${index < completedRounds ? "is-complete" : ""} ${index === state.questionIndex ? "is-current" : ""} ${tierClass}`}
+              aria-hidden="true"
+              key={index}
+            >
+              <b className="telemetry-data">{index + 1}</b>
+              {entry && !isPass ? <i className="step-pip" /> : <i />}
+            </span>
+          );
+        })}
       </div>
       <span className="hud-title">{label}</span>
       {currentQuestion ? (
         <span className="hud-question-meta">
-          {currentQuestion.category.toUpperCase()} / CROWD ATLAS
+          {currentQuestion.category.toUpperCase()} / {atlasLabel}
         </span>
       ) : null}
       <div className="hud-legend" role="group" aria-label="Rarity legend">
-        <span><i className="hud-legend-swatch hud-legend-common" aria-hidden="true" />PLANKTON 10</span>
-        <span><i className="hud-legend-swatch hud-legend-rare" aria-hidden="true" />RARE CATCH 60</span>
-        <span><i className="hud-legend-swatch hud-legend-krillion" aria-hidden="true" />KRILLION 100</span>
-        <span className="sr-only">points; every point descends 10 metres</span>
+        {lex.legend.map((entry) => (
+          <span key={entry.tier}>
+            <i className={`hud-legend-swatch hud-legend-${entry.tier === "common" ? "common" : entry.tier}`} aria-hidden="true" />
+            {entry.label} {rarityForCrowdShare(LEGEND_SHARE[entry.tier]).score}
+          </span>
+        ))}
+        <span className="sr-only">{lex.travel ? lex.travel.srNote : "points"}</span>
       </div>
     </header>
   );

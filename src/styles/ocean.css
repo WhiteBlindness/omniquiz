@@ -1,7 +1,6 @@
 .ocean-backdrop,
 .ocean-world,
 .mission-panorama,
-.sky-layer,
 .surface-glow,
 .water-layer,
 .surface-line,
@@ -38,14 +37,6 @@
   transform: scale(1.012) translateY(calc(var(--depth-factor) * -3%));
   transform-origin: center;
   transition: filter 700ms ease-out, transform 700ms ease-out;
-}
-
-.sky-layer {
-  height: 58%;
-  background: url("/ocean/bg-sky.webp") center top / cover no-repeat;
-  opacity: calc(0.82 - var(--depth-factor) * 0.72);
-  transform: translateY(calc(var(--depth-factor) * -5%));
-  transition: opacity 700ms ease-out, transform 700ms ease-out;
 }
 
 .surface-glow {

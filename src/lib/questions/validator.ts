@@ -1,7 +1,6 @@
 import {
   CATEGORIES,
   type AnswerFamily,
-  type Category,
   type Question,
 } from "./types";
 import { answerKeys, normalizeAnswer } from "./normalize";
@@ -10,8 +9,19 @@ export const MINIMUM_QUESTION_COUNT = 120;
 export const MINIMUM_FAMILY_COUNT = 16;
 export const MINIMUM_ALIAS_COUNT = 2;
 export const MINIMUM_ACCEPTED_KEY_COUNT = 4;
-const QUESTION_ID_PATTERN = /^(general|science|geography|history)-\d{3}$/;
 const SHARE_TOLERANCE = 0.000_001;
+
+export type AtlasSpec = Readonly<{
+  categories: readonly string[];
+  idPrefix: (category: string) => string;
+  minimumQuestionCount: number;
+}>;
+
+export const CORE_ATLAS_SPEC: AtlasSpec = Object.freeze({
+  categories: CATEGORIES,
+  idPrefix: (category: string) => category.toLowerCase(),
+  minimumQuestionCount: MINIMUM_QUESTION_COUNT,
+});
 
 export class QuestionBankValidationError extends Error {
   constructor(message: string) {
@@ -27,9 +37,6 @@ const fail = (message: string): never => {
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
-
-const isCategory = (value: unknown): value is Category =>
-  typeof value === "string" && (CATEGORIES as readonly string[]).includes(value);
 
 const requireText = (value: unknown, message: string): string =>
   typeof value === "string" && normalizeAnswer(value) ? value : fail(message);
@@ -101,12 +108,15 @@ const freezeAnswerFamily = (
   });
 };
 
-export const validateQuestionBank = (records: unknown): readonly Question[] => {
+export const validateQuestionBank = (
+  records: unknown,
+  spec: AtlasSpec = CORE_ATLAS_SPEC,
+): readonly Question[] => {
   const inputRecords = Array.isArray(records)
     ? records
     : fail("catalog must be an array");
-  if (inputRecords.length < MINIMUM_QUESTION_COUNT) {
-    fail(`catalog must contain at least ${MINIMUM_QUESTION_COUNT} prompts`);
+  if (inputRecords.length < spec.minimumQuestionCount) {
+    fail(`catalog must contain at least ${spec.minimumQuestionCount} prompts`);
   }
 
   const ids = new Set<string>();
@@ -123,13 +133,13 @@ export const validateQuestionBank = (records: unknown): readonly Question[] => {
     const prompt = record.prompt;
     const answers = record.answers;
 
-    const validCategory = isCategory(category)
-      ? category
-      : fail(`record ${index + 1} has an invalid category`);
+    const validCategory =
+      typeof category === "string" && spec.categories.includes(category)
+        ? category
+        : fail(`record ${index + 1} has an invalid category`);
+    const idPattern = new RegExp(`^${spec.idPrefix(validCategory)}-\\d{3}$`);
     const validId =
-      typeof id === "string" &&
-      QUESTION_ID_PATTERN.test(id) &&
-      id.startsWith(`${validCategory.toLowerCase()}-`)
+      typeof id === "string" && idPattern.test(id)
         ? id
         : fail(`record ${index + 1} has an unstable id`);
     if (ids.has(validId)) fail(`duplicate id ${validId}`);

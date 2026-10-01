@@ -18,7 +18,7 @@ describe("POST /api/submit", () => {
       recognized: true,
       answerLabel: "A shower",
       crowdShare: 19,
-      tier: "tooclever",
+      tier: "familiar",
       score: 15,
       depthMetres: 150,
       quip: expect.any(String),
@@ -110,5 +110,40 @@ describe("POST /api/submit", () => {
       }),
     );
     expect(response.status).toBe(404);
+  });
+
+  it("scores a movies prompt through the same evaluation boundary", async () => {
+    const response = await POST(
+      new Request("http://localhost/api/submit", {
+        method: "POST",
+        body: JSON.stringify({ questionId: "movies-001", answer: "comedy" }),
+      }),
+    );
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.data).toMatchObject({ recognized: true, answerLabel: "Comedy", tier: "common" });
+    expect(body.data).not.toHaveProperty("answers");
+    expect(body.data.commonAnswers.length).toBeLessThanOrEqual(3);
+  });
+
+  it("marks unlisted movie answers uncharted and rejects malformed ids", async () => {
+    const uncharted = await POST(
+      new Request("http://localhost/api/submit", {
+        method: "POST",
+        body: JSON.stringify({ questionId: "movies-001", answer: "an entirely unrelated string" }),
+      }),
+    );
+    expect((await uncharted.json()).data).toMatchObject({ recognized: false, score: 0, tier: "uncharted" });
+
+    for (const questionId of ["movies-1", "MOVIES-001", "movies-001; drop", "../movies-001", "sports-001"]) {
+      const response = await POST(
+        new Request("http://localhost/api/submit", {
+          method: "POST",
+          body: JSON.stringify({ questionId, answer: "comedy" }),
+        }),
+      );
+      expect([400, 404]).toContain(response.status);
+    }
   });
 });

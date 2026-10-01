@@ -105,6 +105,61 @@
   animation: depth-confirm 480ms steps(2, end) both;
 }
 
+@keyframes speed-line-rush {
+  from { opacity: 0; transform: translateY(-20vh); }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  to { opacity: 0; transform: translateY(120vh); }
+}
+
+@keyframes speed-node-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes speed-boost {
+  from { opacity: 0; transform: scale(0.95); }
+  20% { opacity: 1; }
+  to { opacity: 0; transform: scale(1.05); }
+}
+
+@keyframes survival-heartbeat {
+  0%, 100% { opacity: 0.35; }
+  30% { opacity: 1; }
+  50% { opacity: 0.6; }
+  70% { opacity: 0.85; }
+}
+
+@keyframes survival-ember-rise {
+  0% { opacity: 0; transform: translateY(20px) scale(0.5); }
+  15% { opacity: 0.7; }
+  85% { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-100px) translateX(18px) scale(0.3); }
+}
+
+@keyframes survival-crack-flicker {
+  0%, 100% { opacity: 0.25; }
+  25% { opacity: 0.65; }
+  50% { opacity: 0.15; }
+  75% { opacity: 0.55; }
+}
+
+@keyframes spark-burst {
+  0% { opacity: 0; transform: scale(0) translateY(0); }
+  30% { opacity: 1; transform: scale(1.8) translateY(-8px); }
+  100% { opacity: 0; transform: scale(0.6) translateY(-28px); }
+}
+
+@keyframes bar-grow {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes tier-glow-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 
@@ -114,25 +169,35 @@
   .summary-panel,
   .summary-score strong,
   .summary-depth b,
+  .personal-best,
   .tutorial-rules,
   .fish,
   .particle,
   .hud-timer[data-urgency="critical"] .hud-timer-dial,
+  .dive-form[data-urgency="critical"] input,
   .begin-button:disabled,
   .summary-log-entry,
   .signal-error,
   .countdown-digit,
   .hud-value-flash,
-  .phase-submitting .prompt-card {
+  .phase-submitting .prompt-card,
+  .common-answer-bar::after,
+  .consent-banner,
+  .brand-stage,
+  .landing-console,
+  .packs-header,
+  .logbook,
+  .back-dive,
+  .not-found-content {
     animation: none !important;
   }
 
   .mission-panorama,
-  .sky-layer,
   .water-layer,
   .current-depth-marker,
   .answer-progress span,
-  .countdown-ring-fill {
+  .countdown-ring-fill,
+  .summary-log-chevron {
     transition: none !important;
   }
 
@@ -160,5 +225,34 @@
 
   .feedback-depth-delta.is-earned {
     animation: depth-confirm 200ms steps(2, end) both;
+  }
+
+  .speed-line,
+  .speed-node,
+  .speed-boost-flash,
+  .survival-heartbeat,
+  .survival-ember,
+  .survival-crack,
+  .tier-unique.feedback-panel,
+  .hud-pb-tag,
+  .score-segment,
+  .recognition-ring-fill,
+  .common-answer,
+  .feedback-spark,
+  .feedback-streak,
+  .feedback-lives,
+  .streak-indicator,
+  .lives-indicator,
+  .rarity-scale,
+  .not-found-sonar-sweep,
+  .not-found-code {
+    animation: none !important;
+  }
+
+  .life-pip,
+  .feedback-life-pip,
+  .common-answer,
+  .summary-log-entry {
+    transition: none !important;
   }
 }

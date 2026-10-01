@@ -241,7 +241,7 @@ The control language is square and engineered: buttons, inputs, route cards, lin
 ### Buttons
 
 - **Shape:** Square, minimum 44px touch targets; primary game actions add a four- or five-pixel lower border for tactile pressure.
-- **Primary:** Begin Descent is a full-width 62px-minimum coral-dark control with opposing descent marks and 0.8rem by 1rem padding.
+- **Primary:** Launch the ROV is a full-width 62px-minimum coral-dark control with opposing descent marks and 0.8rem by 1rem padding.
 - **Hover / Focus:** Hover fills coral and lifts the launch action by 2px; keyboard focus retains the global two-pixel Phosphor Paper outline at a four-pixel offset.
 - **Submit / Pass / Continue:** DIVE and Continue use the coral action family; PASS stays navy with a live-line border and secondary text until hover.
 
@@ -257,7 +257,7 @@ The control language is square and engineered: buttons, inputs, route cards, lin
 - **Prompt / Feedback:** A 620px-max blackwater panel is wrapped by the sliced `public/ui/prompt-hull.webp` raster; feedback inherits the same hull and swaps to the score-slam entrance.
 - **Answer Hull:** The 690px-max form uses `public/ui/answer-hull.webp` around a flexible answer field plus DIVE and PASS controls.
 - **Launch / Dive Log:** Dense Broadcast Panel surfaces use a three-pixel cyan top rail, quiet side borders, and Panel Lift.
-- **Daily Dive Log:** After seven prompts, retain final score and depth, add `EST. SCORE PERCENTILE` against the 700-point daily ceiling, and show the immutable per-round rarity log.
+- **Daily Expedition Log:** After seven prompts, retain final score and depth, add `EST. SCORE PERCENTILE` against the 700-point daily ceiling, and show the immutable per-round rarity log.
 - **Unlimited Dive Log:** Fifteen prompts always resolve to a full log; zero-score pass, timeout, and uncharted rounds never terminate the run.
 
 ### Inputs / Fields
@@ -281,6 +281,17 @@ The desktop spine stacks brand, mode, depth, circular timer, score, and a seven-
 ### Motion
 
 Panel arrivals use a 420ms `cubic-bezier(0.16, 1, 0.3, 1)` entrance; feedback changes that entrance to a deliberate score slam. Ocean filters and layers transition over 700ms, the depth marker over 800ms with the same expressive curve, the answer rail depletes linearly each second, and critical timer urgency pulses in 760ms stepped beats. Reduced motion collapses all animation and transition durations to 0.001ms for one iteration without hiding state.
+
+### Pack Worlds
+
+Everything above describes the Core world, the ocean descent. A pack can supply its own world through its environment (`src/lib/packs/environment.ts`); the shell exposes it as `data-environment`, and the world's stylesheet overrides tokens and chrome under that attribute. The layout rules (spine, live stage, mobile dock, prompt and answer widths) stay shared.
+
+- **Cinema (Movies):** a late-night boulevard in generated pixel art (`public/cinema/`). Marquee Magenta replaces Sonar Cyan for navigation and progress, Amber Bulb takes rarity and score, and cards wear a lit marquee frame instead of the hull. Progress reads as named stages (city limits to premiere night) on a route ruler, not metres. The light theme becomes dusk rather than daylight. Motion is parallax travel between stages plus ambient cars, neon flicker and searchlights, all off under reduced motion.
+- A world never reuses another world's vocabulary: interface wording comes from the world's lexicon.
+
+### Leaving a Run
+
+The logo is a home link everywhere. During a run the HUD also carries an Exit control. Both share one guard, which confirms only while a prompt is on screen. The confirmation is a small modal in the world's own frame, with "Keep playing" as the default focus.
 
 ## Do's and Don'ts
 

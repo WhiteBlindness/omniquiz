@@ -32,6 +32,7 @@ describe("GameHud timer", () => {
         state={{ ...state, remainingSeconds: 2 }}
         mode="daily"
         remainingMilliseconds={1_500}
+        bestScore={0}
       />,
     );
 
@@ -56,12 +57,13 @@ describe("GameHud timer", () => {
         state={preview}
         mode="daily"
         remainingMilliseconds={ANSWER_SECONDS * 1_000}
+        bestScore={0}
       />,
     );
     expect(screen.getByRole("timer")).toHaveAttribute("aria-label", "Answer window armed");
     expect(screen.getByText("ARMED")).toBeInTheDocument();
 
-    rerender(<GameHud state={feedback} mode="daily" remainingMilliseconds={0} />);
+    rerender(<GameHud state={feedback} mode="daily" remainingMilliseconds={0} bestScore={0} />);
     expect(screen.getByRole("timer")).toHaveAttribute("aria-label", "Answer window closed");
     expect(screen.getByText("CLOSED")).toBeInTheDocument();
   });

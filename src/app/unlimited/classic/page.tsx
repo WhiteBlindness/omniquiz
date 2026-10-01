@@ -2,8 +2,12 @@ import { GameExperience } from "../../../components/game/GameExperience";
 import { CATEGORIES, type Category } from "../../../lib/questions/types";
 
 export const metadata = {
-  title: "OMNIQUIZ — Arcade Dive",
-  description: "Fifteen prompts. Every run reaches the surface. Rarer answers sink deeper.",
+  title: "OMNIQUIZ — Arcade Expedition",
+  description: "Fifteen prompts per expedition, as many expeditions as you like. Uncommon answers score higher.",
+  openGraph: {
+    title: "OMNIQUIZ — Arcade Expedition",
+    description: "Fifteen prompts per expedition, as many expeditions as you like. Uncommon answers score higher.",
+  },
 };
 
 type UnlimitedClassicPageProps = Readonly<{

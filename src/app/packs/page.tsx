@@ -1,119 +1,41 @@
 import Link from "next/link";
 
 import { PacksControls } from "../../components/PacksControls";
+import { WorldCards } from "../../components/WorldCards";
+import { SiteFooter } from "../../components/SiteFooter";
 import { ThemeShell } from "../../components/ThemeShell";
 
-const PACKS = [
-  {
-    title: "AT THE MOVIES",
-    detail: "10 prompts · 8 seconds each · streak multipliers on the boulevard",
-    action: "START THE CLOCK",
-    categoryLabel: "SPEED RUN / HISTORY",
-    href: "/speed-run?category=History",
-    state: "NOW SHOWING",
-    art: "movies",
-  },
-  {
-    title: "SPORTS",
-    detail: "3 lives · 30 prompts · survive the gauntlet, court to podium",
-    action: "ENTER THE ARENA",
-    categoryLabel: "SURVIVAL / GENERAL",
-    href: "/survival?category=General",
-    state: "GAME ON",
-    art: "sports",
-  },
-  {
-    title: "MUSIC",
-    detail: "from the charts to the deep cuts",
-    action: "COMING SOON",
-    categoryLabel: undefined,
-    href: undefined,
-    state: "COMING SOON",
-    art: "music",
-  },
-] as const;
-
 export const metadata = {
-  title: "OMNIQUIZ — Themed Packs",
-  description: "Themed packs with unique routes and rules.",
+  title: "OMNIQUIZ — Packs",
+  description: "Themed content packs for OMNIQUIZ. Each pack has its own prompts and answer atlas.",
 };
-
-type Pack = (typeof PACKS)[number];
-
-function PackCard({ pack }: Readonly<{ pack: Pack }>) {
-  const className = `pack-card pack-${pack.art} ${pack.art === "music" ? "pack-disabled" : ""}`;
-  const content = (
-    <>
-      <div className="pack-art" aria-hidden="true">
-        <span className="pack-sun" />
-        <span className="pack-horizon" />
-        <span className="pack-beam pack-beam-left" />
-        <span className="pack-beam pack-beam-right" />
-        <span className="pack-silhouette" />
-      </div>
-      <span className="pack-state">{pack.state}</span>
-      <div className="pack-copy">
-        <h2>{pack.title}</h2>
-        <p>{pack.detail}</p>
-        <span className="pack-action">
-          {pack.categoryLabel ? `${pack.categoryLabel} / ` : null}{pack.action}
-        </span>
-      </div>
-    </>
-  );
-
-  if (pack.href) {
-    return (
-      <Link
-        className={className}
-        href={pack.href}
-        aria-label={`${pack.title}: ${pack.categoryLabel}`}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <article className={className}>
-      {content}
-    </article>
-  );
-}
 
 export default function PacksPage() {
   return (
     <ThemeShell className="packs-page">
       <PacksControls />
       <header className="packs-header">
-        <Link className="packs-brand" href="/" aria-label="Return to today's dive">OMNIQUIZ</Link>
-        <p>THEMED PACKS · PICK YOUR ROUTE</p>
+        <Link className="packs-brand" href="/" aria-label="OMNIQUIZ home">OMNIQUIZ</Link>
+        <p>CHOOSE A WORLD</p>
       </header>
 
-      <section className="pack-list" aria-labelledby="packs-heading">
-        <h1 id="packs-heading" className="sr-only">Themed packs</h1>
-        {PACKS.map((pack) => <PackCard key={pack.title} pack={pack} />)}
+      <section className="worlds-section" aria-labelledby="packs-heading">
+        <h1 id="packs-heading" className="sr-only">Choose a world</h1>
+        <div className="worlds-grid">
+          <WorldCards variant="feature" />
+        </div>
       </section>
-
-      <p className="packs-coming">MORE ROUTES COMING SOON_</p>
 
       <section className="logbook" aria-labelledby="logbook-title">
         <div>
-          <p className="logbook-kicker" id="logbook-title">THE LOGBOOK</p>
-          <p className="logbook-copy">YOUR UNLOCKS, KEPT</p>
-          <small>Progress stays in this browser; cloud restore is unavailable.</small>
+          <p className="logbook-kicker" id="logbook-title">SAVED ON THIS DEVICE</p>
+          <p className="logbook-copy">RUN HISTORY</p>
+          <small>Stats and your current run stay in this browser. There is no account or cloud sync.</small>
         </div>
-        <button
-          type="button"
-          className="restore-button"
-          disabled
-          aria-label="Local only — cloud restore unavailable"
-        >
-          LOCAL ONLY
-        </button>
       </section>
 
-      <Link className="back-dive" href="/">TODAY&apos;S DIVE</Link>
+      <Link className="back-dive" href="/">TODAY&apos;S EXPEDITION</Link>
+      <SiteFooter />
     </ThemeShell>
   );
 }

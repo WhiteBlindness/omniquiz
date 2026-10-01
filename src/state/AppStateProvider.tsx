@@ -7,13 +7,13 @@ import {
   useEffect,
   useMemo,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
 import { createSfx, type SoundCue, type SoundEffects } from "../lib/audio/sfx";
 import {
   readMutePreference,
-  readThemePreference,
   writeMutePreference,
   writeThemePreference,
   type ThemePreference,
@@ -21,13 +21,20 @@ import {
 
 export type Theme = ThemePreference;
 
-function getInitialTheme(): Theme {
-  if (typeof document !== "undefined") {
-    const stored = document.documentElement.dataset.storedTheme;
-    if (stored === "light" || stored === "dark") return stored;
-  }
-  return "dark";
-}
+// The stored theme is an external store: the server always renders dark, and hydration
+// switches to the stored preference in the same commit instead of mismatching markup.
+const themeListeners = new Set<() => void>();
+const subscribeTheme = (listener: () => void) => {
+  themeListeners.add(listener);
+  return () => {
+    themeListeners.delete(listener);
+  };
+};
+const getServerTheme = (): Theme => "dark";
+// The pre-paint script in the root layout copies the stored preference onto <html>; toggling
+// updates it there too, so the theme still switches when storage writes are unavailable.
+const getClientTheme = (): Theme =>
+  document.documentElement.dataset.storedTheme === "light" ? "light" : "dark";
 
 type Tone = Readonly<{
   frequency: number;
@@ -117,14 +124,13 @@ const AppStateContext = createContext<AppState | null>(null);
 
 export function AppStateProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [muted, setMuted] = useState(false);
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const theme = useSyncExternalStore(subscribeTheme, getClientTheme, getServerTheme);
 
   useEffect(() => {
     let hydrationCancelled = false;
     queueMicrotask(() => {
       if (hydrationCancelled) return;
       setMuted(readMutePreference());
-      setTheme(readThemePreference());
     });
 
     return () => {
@@ -141,13 +147,11 @@ export function AppStateProvider({ children }: Readonly<{ children: ReactNode }>
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setTheme((current) => {
-      const next: Theme = current === "dark" ? "light" : "dark";
-      writeThemePreference(next);
-      document.documentElement.dataset.storedTheme = next;
-      document.documentElement.dataset.theme = next;
-      return next;
-    });
+    const next: Theme = getClientTheme() === "dark" ? "light" : "dark";
+    writeThemePreference(next);
+    document.documentElement.dataset.storedTheme = next;
+    document.documentElement.dataset.theme = next;
+    themeListeners.forEach((listener) => listener());
   }, []);
 
   const play = useCallback(

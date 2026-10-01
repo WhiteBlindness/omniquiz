@@ -8,7 +8,7 @@
   --line-hot: rgba(91, 226, 239, 0.72);
   --paper: #edf7f7;
   --drift: #84a5b5;
-  --muted: #526e7e;
+  --muted: #5d7d8c;
   --cyan: #5be2ef;
   --coral: #ff667f;
   --gold: #f3cd69;
@@ -96,9 +96,12 @@ input:focus-visible {
   top: max(0.75rem, env(safe-area-inset-top));
   left: max(0.75rem, env(safe-area-inset-left));
   z-index: 100;
+  display: inline-flex;
+  align-items: center;
   width: auto;
   height: auto;
-  padding: 0.55rem 0.85rem;
+  min-height: 44px;
+  padding: 0 0.85rem;
   overflow: visible;
   clip: auto;
   border: 2px solid var(--cyan);
@@ -142,8 +145,8 @@ input:focus-visible {
   --line-hot: rgba(5, 119, 142, 0.72);
   --paper: #062533;
   --drift: #315b68;
-  --muted: #597783;
-  --cyan: #087f96;
+  --muted: #4b6b78;
+  --cyan: #067588;
   --coral: #bb3e57;
   --gold: #8e6414;
   --green: #177b5f;
@@ -181,11 +184,22 @@ input:focus-visible {
   background: rgba(3, 14, 28, 0.88);
   box-shadow: 0 8px 18px rgba(0, 4, 12, 0.38);
   color: var(--drift);
+  transition: border-color 140ms ease-out, color 140ms ease-out, background 140ms ease-out;
 }
 
 .pixel-control:hover {
   border-color: var(--cyan);
   color: var(--paper);
+}
+
+.pixel-control:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.pixel-control:active {
+  transform: translateY(1px);
+  transition: transform 60ms ease-out;
 }
 
 .global-controls {
@@ -229,5 +243,43 @@ input:focus-visible {
   .game-shell {
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --line: rgba(112, 168, 192, 0.5);
+    --line-hot: rgba(91, 226, 239, 0.9);
+    --drift: #c4dce5;
+    --muted: #8eaab4;
+  }
+
+  [data-theme="light"] {
+    --line: rgba(8, 54, 68, 0.55);
+    --line-hot: rgba(5, 119, 142, 0.9);
+    --drift: #1a3d4a;
+    --muted: #2e5462;
+  }
+
+  *:focus-visible {
+    outline-width: 3px !important;
+  }
+
+  .mode-option {
+    border-width: 2px;
+    border-bottom-width: 3px;
+  }
+
+  .consent-banner {
+    border-top-width: 2px;
+  }
+
+  .pixel-control {
+    border-width: 2px;
+  }
+
+  .legal-content p,
+  .legal-content ul {
+    line-height: 1.85;
   }
 }

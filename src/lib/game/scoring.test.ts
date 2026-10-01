@@ -25,12 +25,12 @@ const question: Question = Object.freeze({
 
 describe("crowd-rarity scoring", () => {
   it.each([
-    [30, "plankton", 10],
-    [18, "tooclever", 15],
-    [10, "schooler", 30],
+    [30, "common", 10],
+    [18, "familiar", 15],
+    [10, "notable", 30],
     [5, "rare", 60],
-    [2, "deepcut", 85],
-    [1.99, "krillion", 100],
+    [2, "obscure", 85],
+    [1.99, "unique", 100],
   ] as const)("derives %s%% share as %s", (share, tier, score) => {
     expect(rarityForCrowdShare(share)).toEqual({
       tier,

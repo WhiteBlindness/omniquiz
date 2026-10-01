@@ -1,9 +1,17 @@
+import type { GameMode } from "../../components/game/gameReducer";
 import type { Question } from "./types";
 
 export const DAILY_QUESTION_COUNT = 7;
 export const ARCADE_QUESTION_COUNT = 15;
 export const SPEED_QUESTION_COUNT = 10;
 export const SURVIVAL_QUESTION_COUNT = 30;
+
+export const QUESTIONS_PER_MODE: Readonly<Record<GameMode, number>> = Object.freeze({
+  daily: DAILY_QUESTION_COUNT,
+  unlimited: ARCADE_QUESTION_COUNT,
+  speed: SPEED_QUESTION_COUNT,
+  survival: SURVIVAL_QUESTION_COUNT,
+});
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 

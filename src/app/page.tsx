@@ -16,5 +16,5 @@ export default async function Home() {
   await connection();
   const dayOfYear = getUtcDayOfYear(new Date());
 
-  return <GameExperience mode="daily" dailyLabel={`DIVE #${dayOfYear}`} />;
+  return <GameExperience mode="daily" dailyLabel={`EXPEDITION #${dayOfYear}`} />;
 }

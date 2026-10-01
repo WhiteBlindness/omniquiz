@@ -1,0 +1,6004 @@
+[
+  {
+    "id": "movies-001",
+    "category": "Genres",
+    "prompt": "Name a movie genre that never gets old.",
+    "answers": [
+      {
+        "label": "Comedy",
+        "aliases": [
+          "funny movies",
+          "comedies",
+          "stand-up comedy film"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Comedy is logged in the atlas."
+      },
+      {
+        "label": "Action",
+        "aliases": [
+          "action movies",
+          "action adventure",
+          "shoot-em-up"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Action is logged in the atlas."
+      },
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movies",
+          "horror films",
+          "creepy movies"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Horror is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "scifi",
+          "space movies"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Thriller",
+        "aliases": [
+          "suspense",
+          "edge-of-your-seat films",
+          "thrillers"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Thriller is logged in the atlas."
+      },
+      {
+        "label": "Drama",
+        "aliases": [
+          "dramas",
+          "serious films",
+          "character study"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Drama is logged in the atlas."
+      },
+      {
+        "label": "Animation",
+        "aliases": [
+          "animated films",
+          "cartoons",
+          "animated movies"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Animation is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "love stories",
+          "romantic films",
+          "romantic movies"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Romance is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "fantasy epics",
+          "swords and sorcery",
+          "magical worlds"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "Crime",
+        "aliases": [
+          "crime films",
+          "gangster movies",
+          "crime dramas"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Crime is logged in the atlas."
+      },
+      {
+        "label": "Adventure",
+        "aliases": [
+          "adventure films",
+          "quest movies",
+          "swashbuckler"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Adventure is logged in the atlas."
+      },
+      {
+        "label": "Mystery",
+        "aliases": [
+          "whodunit",
+          "detective films",
+          "murder mystery"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Mystery is logged in the atlas."
+      },
+      {
+        "label": "Musical",
+        "aliases": [
+          "musicals",
+          "song and dance films",
+          "movie musical"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Musical is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "westerns",
+          "cowboy movies",
+          "wild west films"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Western is logged in the atlas."
+      },
+      {
+        "label": "Documentary",
+        "aliases": [
+          "documentaries",
+          "nonfiction film",
+          "docs"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Documentary is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war movies",
+          "combat films",
+          "battlefield drama"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. War film is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-002",
+    "category": "Genres",
+    "prompt": "Name a movie subgenre with its own loyal fanbase.",
+    "answers": [
+      {
+        "label": "Superhero",
+        "aliases": [
+          "superhero movies",
+          "comic book movies",
+          "caped crusader films"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Superhero is logged in the atlas."
+      },
+      {
+        "label": "Slasher",
+        "aliases": [
+          "slasher films",
+          "stalk and slash",
+          "masked killer movies"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. Slasher is logged in the atlas."
+      },
+      {
+        "label": "Rom-com",
+        "aliases": [
+          "romantic comedy",
+          "romcom",
+          "romantic comedies"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Rom-com is logged in the atlas."
+      },
+      {
+        "label": "Zombie",
+        "aliases": [
+          "zombie movies",
+          "undead films",
+          "zombie apocalypse"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Zombie is logged in the atlas."
+      },
+      {
+        "label": "Heist",
+        "aliases": [
+          "heist movies",
+          "caper films",
+          "robbery movies"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Heist is logged in the atlas."
+      },
+      {
+        "label": "Film noir",
+        "aliases": [
+          "noir",
+          "classic noir",
+          "black and white crime"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Film noir is logged in the atlas."
+      },
+      {
+        "label": "Space opera",
+        "aliases": [
+          "galactic adventure",
+          "space saga",
+          "interstellar epic"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Space opera is logged in the atlas."
+      },
+      {
+        "label": "Found footage",
+        "aliases": [
+          "found-footage horror",
+          "shaky cam movies",
+          "handheld horror"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Found footage is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster films",
+          "catastrophe films",
+          "natural disaster movies"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "Kung fu",
+        "aliases": [
+          "martial arts films",
+          "kung fu movies",
+          "chop socky"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Kung fu is logged in the atlas."
+      },
+      {
+        "label": "Spaghetti western",
+        "aliases": [
+          "italian westerns",
+          "european westerns",
+          "macaroni western"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Spaghetti western is logged in the atlas."
+      },
+      {
+        "label": "Cyberpunk",
+        "aliases": [
+          "cyber punk",
+          "neon dystopia",
+          "high tech low life"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Cyberpunk is logged in the atlas."
+      },
+      {
+        "label": "Buddy cop",
+        "aliases": [
+          "buddy cop movies",
+          "odd couple cops",
+          "partner cop films"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Buddy cop is logged in the atlas."
+      },
+      {
+        "label": "Coming-of-age",
+        "aliases": [
+          "coming of age films",
+          "teen growing up movies",
+          "youth drama"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Coming-of-age is logged in the atlas."
+      },
+      {
+        "label": "Body horror",
+        "aliases": [
+          "body-horror",
+          "flesh horror",
+          "cronenberg style horror"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Body horror is logged in the atlas."
+      },
+      {
+        "label": "Mockumentary",
+        "aliases": [
+          "mock documentary",
+          "fake documentary",
+          "faux doc"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Mockumentary is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-003",
+    "category": "Genres",
+    "prompt": "Name a kind of movie worth seeing on the biggest screen you can find.",
+    "answers": [
+      {
+        "label": "Action blockbuster",
+        "aliases": [
+          "big action movie",
+          "summer blockbuster",
+          "action spectacle"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. Action blockbuster is logged in the atlas."
+      },
+      {
+        "label": "Sci-fi epic",
+        "aliases": [
+          "science fiction epic",
+          "space epic",
+          "big sci-fi"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. Sci-fi epic is logged in the atlas."
+      },
+      {
+        "label": "Fantasy epic",
+        "aliases": [
+          "big fantasy",
+          "sword and sorcery epic",
+          "high fantasy film"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Fantasy epic is logged in the atlas."
+      },
+      {
+        "label": "Superhero movie",
+        "aliases": [
+          "superhero film",
+          "comic book blockbuster",
+          "hero team-up"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Superhero movie is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster film",
+          "catastrophe epic",
+          "end of the world film"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war epic",
+          "battle movie",
+          "wartime drama"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. War film is logged in the atlas."
+      },
+      {
+        "label": "Space adventure",
+        "aliases": [
+          "space exploration film",
+          "astronaut movie",
+          "outer space movie"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Space adventure is logged in the atlas."
+      },
+      {
+        "label": "Animated feature",
+        "aliases": [
+          "animated film",
+          "big animation",
+          "pixar-style film"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Animated feature is logged in the atlas."
+      },
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movie",
+          "horror film",
+          "cinema scare"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Horror is logged in the atlas."
+      },
+      {
+        "label": "Musical",
+        "aliases": [
+          "movie musical",
+          "big musical",
+          "song and dance spectacle"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Musical is logged in the atlas."
+      },
+      {
+        "label": "Nature documentary",
+        "aliases": [
+          "wildlife film",
+          "planet documentary",
+          "ocean documentary"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Nature documentary is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "epic western",
+          "cowboy epic",
+          "frontier film"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Western is logged in the atlas."
+      },
+      {
+        "label": "Heist movie",
+        "aliases": [
+          "heist film",
+          "caper spectacle",
+          "big robbery film"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Heist movie is logged in the atlas."
+      },
+      {
+        "label": "Historical epic",
+        "aliases": [
+          "period epic",
+          "sword and sandal",
+          "ancient world epic"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Historical epic is logged in the atlas."
+      },
+      {
+        "label": "Concert film",
+        "aliases": [
+          "music film",
+          "live performance movie",
+          "gig on screen"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Concert film is logged in the atlas."
+      },
+      {
+        "label": "Racing movie",
+        "aliases": [
+          "car racing film",
+          "motorsport movie",
+          "driving film"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Racing movie is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-004",
+    "category": "Genres",
+    "prompt": "Name a genre that fits a rainy Sunday.",
+    "answers": [
+      {
+        "label": "Comedy",
+        "aliases": [
+          "comedies",
+          "light comedy",
+          "funny movie"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. Comedy is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "love story",
+          "romantic movie",
+          "romances"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Romance is logged in the atlas."
+      },
+      {
+        "label": "Drama",
+        "aliases": [
+          "dramas",
+          "slow drama",
+          "character drama"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Drama is logged in the atlas."
+      },
+      {
+        "label": "Animation",
+        "aliases": [
+          "animated movie",
+          "cartoons",
+          "animated film"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Animation is logged in the atlas."
+      },
+      {
+        "label": "Family film",
+        "aliases": [
+          "family movie",
+          "kids movie",
+          "family adventure"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Family film is logged in the atlas."
+      },
+      {
+        "label": "Mystery",
+        "aliases": [
+          "whodunit",
+          "detective story",
+          "murder mystery"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Mystery is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "cosy fantasy",
+          "magical adventure",
+          "fairy tale"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "Documentary",
+        "aliases": [
+          "documentaries",
+          "nonfiction",
+          "slow documentary"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Documentary is logged in the atlas."
+      },
+      {
+        "label": "Period drama",
+        "aliases": [
+          "costume drama",
+          "historical drama",
+          "regency drama"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Period drama is logged in the atlas."
+      },
+      {
+        "label": "Musical",
+        "aliases": [
+          "musicals",
+          "feel good musical",
+          "song film"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Musical is logged in the atlas."
+      },
+      {
+        "label": "Crime",
+        "aliases": [
+          "crime film",
+          "detective crime",
+          "crime drama"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Crime is logged in the atlas."
+      },
+      {
+        "label": "Adventure",
+        "aliases": [
+          "adventure film",
+          "quest movie",
+          "journey story"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Adventure is logged in the atlas."
+      },
+      {
+        "label": "Coming-of-age",
+        "aliases": [
+          "coming of age",
+          "growing up film",
+          "teen drama"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Coming-of-age is logged in the atlas."
+      },
+      {
+        "label": "Thriller",
+        "aliases": [
+          "suspense film",
+          "thrillers",
+          "slow burn thriller"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Thriller is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "scifi movie",
+          "space story"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Sports drama",
+        "aliases": [
+          "sports movie",
+          "underdog sports film",
+          "athlete story"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Sports drama is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-005",
+    "category": "Genres",
+    "prompt": "Name a genre that gets parodied a lot.",
+    "answers": [
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movies",
+          "horror films",
+          "slasher spoof"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Horror is logged in the atlas."
+      },
+      {
+        "label": "Superhero",
+        "aliases": [
+          "superhero movies",
+          "hero spoof",
+          "comic book movies"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Superhero is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "cowboy films",
+          "westerns",
+          "wild west spoof"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Western is logged in the atlas."
+      },
+      {
+        "label": "Spy",
+        "aliases": [
+          "spy films",
+          "secret agent movies",
+          "espionage"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Spy is logged in the atlas."
+      },
+      {
+        "label": "Action",
+        "aliases": [
+          "action movies",
+          "action spoof",
+          "big action films"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Action is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "space movies",
+          "scifi spoof"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster films",
+          "airplane-style spoof",
+          "catastrophe films"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "romantic films",
+          "love stories",
+          "rom-com spoof"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Romance is logged in the atlas."
+      },
+      {
+        "label": "Kung fu",
+        "aliases": [
+          "martial arts",
+          "kung fu movies",
+          "chop socky"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Kung fu is logged in the atlas."
+      },
+      {
+        "label": "Gangster",
+        "aliases": [
+          "mob movies",
+          "mafia films",
+          "gangster films"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Gangster is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "fantasy epics",
+          "swords and sorcery",
+          "medieval fantasy"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "Sports",
+        "aliases": [
+          "sports movies",
+          "underdog sports",
+          "sports films"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Sports is logged in the atlas."
+      },
+      {
+        "label": "Vampire",
+        "aliases": [
+          "vampire films",
+          "dracula movies",
+          "bloodsucker movies"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Vampire is logged in the atlas."
+      },
+      {
+        "label": "Zombie",
+        "aliases": [
+          "zombie movies",
+          "undead films",
+          "shaun-style zombie"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Zombie is logged in the atlas."
+      },
+      {
+        "label": "Heist",
+        "aliases": [
+          "heist films",
+          "caper movies",
+          "robbery movies"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Heist is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war movies",
+          "combat films",
+          "military movies"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. War film is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-006",
+    "category": "Genres",
+    "prompt": "Name a genre where the ending matters most.",
+    "answers": [
+      {
+        "label": "Thriller",
+        "aliases": [
+          "suspense film",
+          "thrillers",
+          "edge-of-seat film"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Thriller is logged in the atlas."
+      },
+      {
+        "label": "Mystery",
+        "aliases": [
+          "whodunit",
+          "detective story",
+          "murder mystery"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. Mystery is logged in the atlas."
+      },
+      {
+        "label": "Horror",
+        "aliases": [
+          "scary movies",
+          "horror films",
+          "final girl film"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Horror is logged in the atlas."
+      },
+      {
+        "label": "Drama",
+        "aliases": [
+          "dramas",
+          "serious film",
+          "character drama"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Drama is logged in the atlas."
+      },
+      {
+        "label": "Heist",
+        "aliases": [
+          "heist movie",
+          "caper film",
+          "robbery movie"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Heist is logged in the atlas."
+      },
+      {
+        "label": "Crime",
+        "aliases": [
+          "crime film",
+          "crime story",
+          "crime drama"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Crime is logged in the atlas."
+      },
+      {
+        "label": "Science fiction",
+        "aliases": [
+          "sci-fi",
+          "twist sci-fi",
+          "scifi film"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Science fiction is logged in the atlas."
+      },
+      {
+        "label": "Romance",
+        "aliases": [
+          "love story",
+          "romantic film",
+          "romances"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Romance is logged in the atlas."
+      },
+      {
+        "label": "Comedy",
+        "aliases": [
+          "comedies",
+          "funny movie",
+          "punchline film"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Comedy is logged in the atlas."
+      },
+      {
+        "label": "Fantasy",
+        "aliases": [
+          "fantasy epic",
+          "magical story",
+          "quest fantasy"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Fantasy is logged in the atlas."
+      },
+      {
+        "label": "War film",
+        "aliases": [
+          "war movie",
+          "battle film",
+          "wartime drama"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. War film is logged in the atlas."
+      },
+      {
+        "label": "Psychological thriller",
+        "aliases": [
+          "mind game film",
+          "head trip movie",
+          "twist thriller"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Psychological thriller is logged in the atlas."
+      },
+      {
+        "label": "Disaster movie",
+        "aliases": [
+          "disaster film",
+          "survival disaster",
+          "catastrophe film"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Disaster movie is logged in the atlas."
+      },
+      {
+        "label": "Slasher",
+        "aliases": [
+          "slasher film",
+          "stalker horror",
+          "masked killer film"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Slasher is logged in the atlas."
+      },
+      {
+        "label": "Sports drama",
+        "aliases": [
+          "underdog film",
+          "sports movie",
+          "big game movie"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Sports drama is logged in the atlas."
+      },
+      {
+        "label": "Western",
+        "aliases": [
+          "cowboy film",
+          "showdown western",
+          "frontier story"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Western is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-007",
+    "category": "Characters",
+    "prompt": "Name a movie villain people love to hate.",
+    "answers": [
+      {
+        "label": "Darth Vader",
+        "aliases": [
+          "vader",
+          "lord vader",
+          "anakin skywalker"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. Darth Vader is logged in the atlas."
+      },
+      {
+        "label": "The Joker",
+        "aliases": [
+          "joker",
+          "the clown prince of crime",
+          "joker from batman"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. The Joker is logged in the atlas."
+      },
+      {
+        "label": "Hannibal Lecter",
+        "aliases": [
+          "dr lecter",
+          "hannibal the cannibal",
+          "lecter"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Hannibal Lecter is logged in the atlas."
+      },
+      {
+        "label": "Voldemort",
+        "aliases": [
+          "lord voldemort",
+          "he who must not be named",
+          "tom riddle"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Voldemort is logged in the atlas."
+      },
+      {
+        "label": "Thanos",
+        "aliases": [
+          "the mad titan",
+          "mad titan",
+          "thanos from avengers"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Thanos is logged in the atlas."
+      },
+      {
+        "label": "Scar",
+        "aliases": [
+          "scar from the lion king",
+          "uncle scar",
+          "simba's uncle"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Scar is logged in the atlas."
+      },
+      {
+        "label": "Hans Gruber",
+        "aliases": [
+          "gruber",
+          "die hard villain",
+          "alan rickman in die hard"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Hans Gruber is logged in the atlas."
+      },
+      {
+        "label": "Freddy Krueger",
+        "aliases": [
+          "freddy",
+          "krueger",
+          "nightmare on elm street killer"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Freddy Krueger is logged in the atlas."
+      },
+      {
+        "label": "Michael Myers",
+        "aliases": [
+          "myers",
+          "the shape",
+          "halloween killer"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Michael Myers is logged in the atlas."
+      },
+      {
+        "label": "Norman Bates",
+        "aliases": [
+          "bates",
+          "psycho killer",
+          "bates motel owner"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Norman Bates is logged in the atlas."
+      },
+      {
+        "label": "Anton Chigurh",
+        "aliases": [
+          "chigurh",
+          "no country for old men killer",
+          "coin flip killer"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Anton Chigurh is logged in the atlas."
+      },
+      {
+        "label": "Agent Smith",
+        "aliases": [
+          "smith from the matrix",
+          "mr smith",
+          "matrix agent"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Agent Smith is logged in the atlas."
+      },
+      {
+        "label": "Cruella de Vil",
+        "aliases": [
+          "cruella",
+          "101 dalmatians villain",
+          "dalmatian villain"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Cruella de Vil is logged in the atlas."
+      },
+      {
+        "label": "Sauron",
+        "aliases": [
+          "the dark lord sauron",
+          "eye of sauron",
+          "lord of the rings dark lord"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Sauron is logged in the atlas."
+      },
+      {
+        "label": "Nurse Ratched",
+        "aliases": [
+          "ratched",
+          "mildred ratched",
+          "cuckoo's nest nurse"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Nurse Ratched is logged in the atlas."
+      },
+      {
+        "label": "Loki",
+        "aliases": [
+          "loki laufeyson",
+          "god of mischief",
+          "thor's brother"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Loki is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-008",
+    "category": "Characters",
+    "prompt": "Name a movie hero who feels like an ordinary person.",
+    "answers": [
+      {
+        "label": "John McClane",
+        "aliases": [
+          "mcclane",
+          "die hard hero",
+          "john mcclane from die hard"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. John McClane is logged in the atlas."
+      },
+      {
+        "label": "Rocky Balboa",
+        "aliases": [
+          "rocky",
+          "the italian stallion",
+          "balboa"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Rocky Balboa is logged in the atlas."
+      },
+      {
+        "label": "Marty McFly",
+        "aliases": [
+          "marty",
+          "mcfly",
+          "back to the future hero"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Marty McFly is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest",
+          "gump",
+          "run forrest run"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Peter Parker",
+        "aliases": [
+          "spider-man",
+          "spiderman",
+          "the friendly neighbourhood spider-man"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Peter Parker is logged in the atlas."
+      },
+      {
+        "label": "Frodo Baggins",
+        "aliases": [
+          "frodo",
+          "baggins",
+          "ring bearer"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Frodo Baggins is logged in the atlas."
+      },
+      {
+        "label": "Katniss Everdeen",
+        "aliases": [
+          "katniss",
+          "the girl on fire",
+          "hunger games heroine"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Katniss Everdeen is logged in the atlas."
+      },
+      {
+        "label": "Ellen Ripley",
+        "aliases": [
+          "ripley",
+          "lieutenant ripley",
+          "alien survivor"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Ellen Ripley is logged in the atlas."
+      },
+      {
+        "label": "Andy Dufresne",
+        "aliases": [
+          "dufresne",
+          "shawshank prisoner",
+          "andy from shawshank"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Andy Dufresne is logged in the atlas."
+      },
+      {
+        "label": "Sarah Connor",
+        "aliases": [
+          "connor",
+          "mother of john connor",
+          "john connor's mum"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Sarah Connor is logged in the atlas."
+      },
+      {
+        "label": "Neo",
+        "aliases": [
+          "thomas anderson",
+          "the one",
+          "matrix hero"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Neo is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "harry",
+          "the boy who lived",
+          "potter"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Luke Skywalker",
+        "aliases": [
+          "luke",
+          "skywalker",
+          "farm boy from tatooine"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Luke Skywalker is logged in the atlas."
+      },
+      {
+        "label": "Erin Brockovich",
+        "aliases": [
+          "erin",
+          "brockovich",
+          "erin brockovich the film"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Erin Brockovich is logged in the atlas."
+      },
+      {
+        "label": "Mark Watney",
+        "aliases": [
+          "watney",
+          "the martian",
+          "stranded botanist"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Mark Watney is logged in the atlas."
+      },
+      {
+        "label": "Bilbo Baggins",
+        "aliases": [
+          "bilbo",
+          "the hobbit hero",
+          "burglar"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Bilbo Baggins is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-009",
+    "category": "Characters",
+    "prompt": "Name a movie sidekick you'd want on your team.",
+    "answers": [
+      {
+        "label": "Samwise Gamgee",
+        "aliases": [
+          "sam",
+          "samwise",
+          "sam gamgee"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Samwise Gamgee is logged in the atlas."
+      },
+      {
+        "label": "Chewbacca",
+        "aliases": [
+          "chewie",
+          "wookiee",
+          "han solo's co-pilot"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Chewbacca is logged in the atlas."
+      },
+      {
+        "label": "Donkey",
+        "aliases": [
+          "donkey from shrek",
+          "shrek's donkey",
+          "talking donkey"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Donkey is logged in the atlas."
+      },
+      {
+        "label": "R2-D2",
+        "aliases": [
+          "r2d2",
+          "artoo",
+          "astromech droid"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. R2-D2 is logged in the atlas."
+      },
+      {
+        "label": "C-3PO",
+        "aliases": [
+          "c3po",
+          "threepio",
+          "protocol droid"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. C-3PO is logged in the atlas."
+      },
+      {
+        "label": "Genie",
+        "aliases": [
+          "the genie",
+          "aladdin's genie",
+          "robin williams genie"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Genie is logged in the atlas."
+      },
+      {
+        "label": "Ron Weasley",
+        "aliases": [
+          "ron",
+          "weasley",
+          "harry's best friend ron"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Ron Weasley is logged in the atlas."
+      },
+      {
+        "label": "Hermione Granger",
+        "aliases": [
+          "hermione",
+          "granger",
+          "harry's friend hermione"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Hermione Granger is logged in the atlas."
+      },
+      {
+        "label": "Dory",
+        "aliases": [
+          "dory the fish",
+          "just keep swimming fish",
+          "nemo's blue friend"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Dory is logged in the atlas."
+      },
+      {
+        "label": "Timon and Pumbaa",
+        "aliases": [
+          "timon",
+          "pumbaa",
+          "hakuna matata pair"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Timon and Pumbaa is logged in the atlas."
+      },
+      {
+        "label": "Groot",
+        "aliases": [
+          "baby groot",
+          "i am groot",
+          "guardians tree"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Groot is logged in the atlas."
+      },
+      {
+        "label": "Rocket Raccoon",
+        "aliases": [
+          "rocket",
+          "raccoon from guardians",
+          "guardians raccoon"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Rocket Raccoon is logged in the atlas."
+      },
+      {
+        "label": "Baymax",
+        "aliases": [
+          "baymax the robot",
+          "big hero 6 robot",
+          "inflatable healthcare companion"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Baymax is logged in the atlas."
+      },
+      {
+        "label": "Mushu",
+        "aliases": [
+          "mushu the dragon",
+          "mulan's dragon",
+          "eddie murphy dragon"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Mushu is logged in the atlas."
+      },
+      {
+        "label": "Robin",
+        "aliases": [
+          "batman's sidekick",
+          "boy wonder",
+          "dick grayson"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Robin is logged in the atlas."
+      },
+      {
+        "label": "Olaf",
+        "aliases": [
+          "olaf the snowman",
+          "frozen snowman",
+          "warm hugs snowman"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Olaf is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-010",
+    "category": "Characters",
+    "prompt": "Name a movie character with an unforgettable line.",
+    "answers": [
+      {
+        "label": "The Terminator",
+        "aliases": [
+          "terminator",
+          "t-800",
+          "arnold's terminator"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. The Terminator is logged in the atlas."
+      },
+      {
+        "label": "James Bond",
+        "aliases": [
+          "bond",
+          "007",
+          "agent 007"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. James Bond is logged in the atlas."
+      },
+      {
+        "label": "Buzz Lightyear",
+        "aliases": [
+          "buzz",
+          "to infinity and beyond guy",
+          "space ranger buzz"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Buzz Lightyear is logged in the atlas."
+      },
+      {
+        "label": "Gandalf",
+        "aliases": [
+          "gandalf the grey",
+          "gandalf the white",
+          "you shall not pass wizard"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Gandalf is logged in the atlas."
+      },
+      {
+        "label": "E.T.",
+        "aliases": [
+          "et",
+          "the extra-terrestrial",
+          "phone home alien"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. E.T. is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest",
+          "gump",
+          "box of chocolates guy"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Darth Vader",
+        "aliases": [
+          "vader",
+          "lord vader",
+          "i am your father"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Darth Vader is logged in the atlas."
+      },
+      {
+        "label": "Yoda",
+        "aliases": [
+          "master yoda",
+          "do or do not",
+          "small green jedi"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Yoda is logged in the atlas."
+      },
+      {
+        "label": "Gollum",
+        "aliases": [
+          "smeagol",
+          "my precious creature",
+          "sméagol"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Gollum is logged in the atlas."
+      },
+      {
+        "label": "Dirty Harry",
+        "aliases": [
+          "harry callahan",
+          "callahan",
+          "do you feel lucky punk"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Dirty Harry is logged in the atlas."
+      },
+      {
+        "label": "Don Corleone",
+        "aliases": [
+          "vito corleone",
+          "the godfather",
+          "offer he can't refuse"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Don Corleone is logged in the atlas."
+      },
+      {
+        "label": "Maximus",
+        "aliases": [
+          "maximus decimus meridius",
+          "gladiator hero",
+          "are you not entertained"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Maximus is logged in the atlas."
+      },
+      {
+        "label": "Jack Sparrow",
+        "aliases": [
+          "captain jack sparrow",
+          "captain sparrow",
+          "savvy pirate"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Jack Sparrow is logged in the atlas."
+      },
+      {
+        "label": "Dorothy Gale",
+        "aliases": [
+          "dorothy",
+          "no place like home girl",
+          "wizard of oz dorothy"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Dorothy Gale is logged in the atlas."
+      },
+      {
+        "label": "Jules Winnfield",
+        "aliases": [
+          "jules",
+          "pulp fiction hitman",
+          "ezekiel 25:17 guy"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Jules Winnfield is logged in the atlas."
+      },
+      {
+        "label": "Hal 9000",
+        "aliases": [
+          "hal",
+          "hal-9000",
+          "i'm sorry dave computer"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Hal 9000 is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-011",
+    "category": "Characters",
+    "prompt": "Name a talking animal from a movie.",
+    "answers": [
+      {
+        "label": "Simba",
+        "aliases": [
+          "simba the lion",
+          "lion king cub",
+          "young simba"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. Simba is logged in the atlas."
+      },
+      {
+        "label": "Nemo",
+        "aliases": [
+          "nemo the clownfish",
+          "finding nemo fish",
+          "marlin's son"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. Nemo is logged in the atlas."
+      },
+      {
+        "label": "Dory",
+        "aliases": [
+          "dory the fish",
+          "blue tang",
+          "forgetful fish"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Dory is logged in the atlas."
+      },
+      {
+        "label": "Donkey",
+        "aliases": [
+          "donkey from shrek",
+          "shrek's donkey",
+          "talking donkey"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Donkey is logged in the atlas."
+      },
+      {
+        "label": "Baloo",
+        "aliases": [
+          "baloo the bear",
+          "jungle book bear",
+          "bare necessities bear"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Baloo is logged in the atlas."
+      },
+      {
+        "label": "Bambi",
+        "aliases": [
+          "bambi the deer",
+          "young deer",
+          "disney fawn"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Bambi is logged in the atlas."
+      },
+      {
+        "label": "Remy",
+        "aliases": [
+          "remy the rat",
+          "ratatouille rat",
+          "chef rat"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Remy is logged in the atlas."
+      },
+      {
+        "label": "Timon",
+        "aliases": [
+          "timon the meerkat",
+          "lion king meerkat",
+          "meerkat"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Timon is logged in the atlas."
+      },
+      {
+        "label": "Pumbaa",
+        "aliases": [
+          "pumbaa the warthog",
+          "lion king warthog",
+          "warthog"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Pumbaa is logged in the atlas."
+      },
+      {
+        "label": "Babe",
+        "aliases": [
+          "babe the pig",
+          "sheep pig",
+          "talking pig"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Babe is logged in the atlas."
+      },
+      {
+        "label": "Nala",
+        "aliases": [
+          "nala the lioness",
+          "simba's friend nala",
+          "lion king lioness"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Nala is logged in the atlas."
+      },
+      {
+        "label": "Toothless",
+        "aliases": [
+          "toothless the dragon",
+          "night fury",
+          "how to train your dragon dragon"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Toothless is logged in the atlas."
+      },
+      {
+        "label": "Po",
+        "aliases": [
+          "po the panda",
+          "dragon warrior",
+          "kung fu panda"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Po is logged in the atlas."
+      },
+      {
+        "label": "Mushu",
+        "aliases": [
+          "mushu the dragon",
+          "mulan's dragon",
+          "small red dragon"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Mushu is logged in the atlas."
+      },
+      {
+        "label": "Scar",
+        "aliases": [
+          "uncle scar",
+          "scar the lion",
+          "lion king villain"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Scar is logged in the atlas."
+      },
+      {
+        "label": "Marlin",
+        "aliases": [
+          "marlin the clownfish",
+          "nemo's dad",
+          "nemo's father"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Marlin is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-012",
+    "category": "Characters",
+    "prompt": "Name a movie character who would ace a heist.",
+    "answers": [
+      {
+        "label": "Danny Ocean",
+        "aliases": [
+          "danny",
+          "ocean",
+          "george clooney's ocean"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. Danny Ocean is logged in the atlas."
+      },
+      {
+        "label": "Ethan Hunt",
+        "aliases": [
+          "hunt",
+          "mission impossible agent",
+          "imf agent hunt"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Ethan Hunt is logged in the atlas."
+      },
+      {
+        "label": "Neil McCauley",
+        "aliases": [
+          "mccauley",
+          "heat robber",
+          "robert de niro in heat"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Neil McCauley is logged in the atlas."
+      },
+      {
+        "label": "Dominic Toretto",
+        "aliases": [
+          "dom",
+          "toretto",
+          "dom toretto"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Dominic Toretto is logged in the atlas."
+      },
+      {
+        "label": "Keyser Soze",
+        "aliases": [
+          "keyser söze",
+          "soze",
+          "usual suspects mastermind"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Keyser Soze is logged in the atlas."
+      },
+      {
+        "label": "The Joker",
+        "aliases": [
+          "joker",
+          "clown prince of crime",
+          "joker from the dark knight"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. The Joker is logged in the atlas."
+      },
+      {
+        "label": "Selina Kyle",
+        "aliases": [
+          "catwoman",
+          "cat woman",
+          "the cat burglar"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Selina Kyle is logged in the atlas."
+      },
+      {
+        "label": "Han Solo",
+        "aliases": [
+          "han",
+          "solo",
+          "smuggler han"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Han Solo is logged in the atlas."
+      },
+      {
+        "label": "Jack Sparrow",
+        "aliases": [
+          "captain jack sparrow",
+          "captain sparrow",
+          "pirate jack"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Jack Sparrow is logged in the atlas."
+      },
+      {
+        "label": "Thomas Crown",
+        "aliases": [
+          "the thomas crown affair",
+          "crown",
+          "crown affair thief"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Thomas Crown is logged in the atlas."
+      },
+      {
+        "label": "Arsène Lupin",
+        "aliases": [
+          "arsene lupin",
+          "lupin",
+          "gentleman thief"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Arsène Lupin is logged in the atlas."
+      },
+      {
+        "label": "Gru",
+        "aliases": [
+          "felonius gru",
+          "gru from despicable me",
+          "the moon thief"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Gru is logged in the atlas."
+      },
+      {
+        "label": "Baby",
+        "aliases": [
+          "baby driver",
+          "the getaway driver baby",
+          "baby from baby driver"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Baby is logged in the atlas."
+      },
+      {
+        "label": "Bruce Wayne",
+        "aliases": [
+          "batman",
+          "the dark knight",
+          "bruce wayne batman"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Bruce Wayne is logged in the atlas."
+      },
+      {
+        "label": "Robin Hood",
+        "aliases": [
+          "robin of locksley",
+          "prince of thieves",
+          "outlaw of sherwood"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Robin Hood is logged in the atlas."
+      },
+      {
+        "label": "Rusty Ryan",
+        "aliases": [
+          "rusty",
+          "ryan from ocean's eleven",
+          "brad pitt's ocean's character"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Rusty Ryan is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-013",
+    "category": "Stars",
+    "prompt": "Name an actor who can carry a movie alone.",
+    "answers": [
+      {
+        "label": "Tom Hanks",
+        "aliases": [
+          "hanks",
+          "tom hanks the actor",
+          "forrest gump actor"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Tom Hanks is logged in the atlas."
+      },
+      {
+        "label": "Tom Cruise",
+        "aliases": [
+          "cruise",
+          "tom cruise the actor",
+          "mission impossible star"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Tom Cruise is logged in the atlas."
+      },
+      {
+        "label": "Leonardo DiCaprio",
+        "aliases": [
+          "dicaprio",
+          "leo dicaprio",
+          "leonardo di caprio"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Leonardo DiCaprio is logged in the atlas."
+      },
+      {
+        "label": "Denzel Washington",
+        "aliases": [
+          "denzel",
+          "washington",
+          "denzel washington the actor"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Denzel Washington is logged in the atlas."
+      },
+      {
+        "label": "Brad Pitt",
+        "aliases": [
+          "pitt",
+          "brad pitt the actor",
+          "fight club actor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Brad Pitt is logged in the atlas."
+      },
+      {
+        "label": "Will Smith",
+        "aliases": [
+          "fresh prince actor",
+          "will smith the actor",
+          "men in black star"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Will Smith is logged in the atlas."
+      },
+      {
+        "label": "Robert De Niro",
+        "aliases": [
+          "de niro",
+          "deniro",
+          "robert deniro"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Robert De Niro is logged in the atlas."
+      },
+      {
+        "label": "Keanu Reeves",
+        "aliases": [
+          "keanu",
+          "reeves",
+          "john wick actor"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Keanu Reeves is logged in the atlas."
+      },
+      {
+        "label": "Harrison Ford",
+        "aliases": [
+          "ford",
+          "han solo actor",
+          "indiana jones actor"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Harrison Ford is logged in the atlas."
+      },
+      {
+        "label": "Samuel L. Jackson",
+        "aliases": [
+          "samuel jackson",
+          "sam jackson",
+          "samuel l jackson"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Samuel L. Jackson is logged in the atlas."
+      },
+      {
+        "label": "Morgan Freeman",
+        "aliases": [
+          "freeman",
+          "morgan freeman the actor",
+          "shawshank narrator"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Morgan Freeman is logged in the atlas."
+      },
+      {
+        "label": "Al Pacino",
+        "aliases": [
+          "pacino",
+          "al pacino the actor",
+          "scarface actor"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Al Pacino is logged in the atlas."
+      },
+      {
+        "label": "Jack Nicholson",
+        "aliases": [
+          "nicholson",
+          "jack nicholson the actor",
+          "the shining actor"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Jack Nicholson is logged in the atlas."
+      },
+      {
+        "label": "Dwayne Johnson",
+        "aliases": [
+          "the rock",
+          "dwayne the rock johnson",
+          "rock johnson"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Dwayne Johnson is logged in the atlas."
+      },
+      {
+        "label": "Johnny Depp",
+        "aliases": [
+          "depp",
+          "johnny depp the actor",
+          "jack sparrow actor"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Johnny Depp is logged in the atlas."
+      },
+      {
+        "label": "Meryl Streep",
+        "aliases": [
+          "streep",
+          "meryl streep the actress",
+          "devil wears prada star"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Meryl Streep is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-014",
+    "category": "Stars",
+    "prompt": "Name a film director whose style is instantly recognizable.",
+    "answers": [
+      {
+        "label": "Quentin Tarantino",
+        "aliases": [
+          "tarantino",
+          "quentin tarantino the director",
+          "pulp fiction director"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Quentin Tarantino is logged in the atlas."
+      },
+      {
+        "label": "Christopher Nolan",
+        "aliases": [
+          "nolan",
+          "christopher nolan the director",
+          "inception director"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. Christopher Nolan is logged in the atlas."
+      },
+      {
+        "label": "Steven Spielberg",
+        "aliases": [
+          "spielberg",
+          "steven spielberg the director",
+          "jaws director"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Steven Spielberg is logged in the atlas."
+      },
+      {
+        "label": "Wes Anderson",
+        "aliases": [
+          "anderson",
+          "wes anderson the director",
+          "grand budapest director"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Wes Anderson is logged in the atlas."
+      },
+      {
+        "label": "Alfred Hitchcock",
+        "aliases": [
+          "hitchcock",
+          "hitch",
+          "master of suspense"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Alfred Hitchcock is logged in the atlas."
+      },
+      {
+        "label": "Stanley Kubrick",
+        "aliases": [
+          "kubrick",
+          "stanley kubrick the director",
+          "2001 director"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Stanley Kubrick is logged in the atlas."
+      },
+      {
+        "label": "Martin Scorsese",
+        "aliases": [
+          "scorsese",
+          "marty scorsese",
+          "goodfellas director"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Martin Scorsese is logged in the atlas."
+      },
+      {
+        "label": "Tim Burton",
+        "aliases": [
+          "burton",
+          "tim burton the director",
+          "edward scissorhands director"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Tim Burton is logged in the atlas."
+      },
+      {
+        "label": "James Cameron",
+        "aliases": [
+          "james cameron the director",
+          "titanic director"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. James Cameron is logged in the atlas."
+      },
+      {
+        "label": "David Lynch",
+        "aliases": [
+          "lynch",
+          "david lynch the director",
+          "twin peaks creator"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. David Lynch is logged in the atlas."
+      },
+      {
+        "label": "Ridley Scott",
+        "aliases": [
+          "ridley scott the director",
+          "alien director"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Ridley Scott is logged in the atlas."
+      },
+      {
+        "label": "Guillermo del Toro",
+        "aliases": [
+          "del toro",
+          "guillermo",
+          "pan's labyrinth director"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Guillermo del Toro is logged in the atlas."
+      },
+      {
+        "label": "Denis Villeneuve",
+        "aliases": [
+          "villeneuve",
+          "denis villeneuve the director",
+          "dune director"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Denis Villeneuve is logged in the atlas."
+      },
+      {
+        "label": "Hayao Miyazaki",
+        "aliases": [
+          "miyazaki",
+          "hayao",
+          "studio ghibli director"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Hayao Miyazaki is logged in the atlas."
+      },
+      {
+        "label": "The Coen Brothers",
+        "aliases": [
+          "coen brothers",
+          "joel and ethan coen",
+          "fargo directors"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. The Coen Brothers is logged in the atlas."
+      },
+      {
+        "label": "Francis Ford Coppola",
+        "aliases": [
+          "coppola",
+          "francis coppola",
+          "godfather director"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Francis Ford Coppola is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-015",
+    "category": "Stars",
+    "prompt": "Name an actor who has played a superhero.",
+    "answers": [
+      {
+        "label": "Robert Downey Jr.",
+        "aliases": [
+          "rdj",
+          "robert downey",
+          "iron man actor"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. Robert Downey Jr. is logged in the atlas."
+      },
+      {
+        "label": "Chris Hemsworth",
+        "aliases": [
+          "hemsworth",
+          "thor actor",
+          "chris hemsworth the actor"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. Chris Hemsworth is logged in the atlas."
+      },
+      {
+        "label": "Chris Evans",
+        "aliases": [
+          "captain america actor",
+          "chris evans the actor",
+          "evans"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Chris Evans is logged in the atlas."
+      },
+      {
+        "label": "Hugh Jackman",
+        "aliases": [
+          "jackman",
+          "wolverine actor",
+          "hugh jackman the actor"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Hugh Jackman is logged in the atlas."
+      },
+      {
+        "label": "Ryan Reynolds",
+        "aliases": [
+          "reynolds",
+          "deadpool actor",
+          "ryan reynolds the actor"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Ryan Reynolds is logged in the atlas."
+      },
+      {
+        "label": "Christian Bale",
+        "aliases": [
+          "bale",
+          "batman actor bale",
+          "christian bale the actor"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Christian Bale is logged in the atlas."
+      },
+      {
+        "label": "Tom Holland",
+        "aliases": [
+          "holland",
+          "spider-man actor holland",
+          "tom holland the actor"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Tom Holland is logged in the atlas."
+      },
+      {
+        "label": "Tobey Maguire",
+        "aliases": [
+          "maguire",
+          "spider-man actor maguire",
+          "tobey maguire the actor"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Tobey Maguire is logged in the atlas."
+      },
+      {
+        "label": "Scarlett Johansson",
+        "aliases": [
+          "johansson",
+          "black widow actress",
+          "scarlett johansson the actress"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Scarlett Johansson is logged in the atlas."
+      },
+      {
+        "label": "Henry Cavill",
+        "aliases": [
+          "cavill",
+          "superman actor",
+          "henry cavill the actor"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Henry Cavill is logged in the atlas."
+      },
+      {
+        "label": "Andrew Garfield",
+        "aliases": [
+          "garfield",
+          "spider-man actor garfield",
+          "andrew garfield the actor"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Andrew Garfield is logged in the atlas."
+      },
+      {
+        "label": "Ben Affleck",
+        "aliases": [
+          "affleck",
+          "batman actor affleck",
+          "ben affleck the actor"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Ben Affleck is logged in the atlas."
+      },
+      {
+        "label": "Gal Gadot",
+        "aliases": [
+          "gadot",
+          "wonder woman actress",
+          "gal gadot the actress"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Gal Gadot is logged in the atlas."
+      },
+      {
+        "label": "Chadwick Boseman",
+        "aliases": [
+          "boseman",
+          "black panther actor",
+          "chadwick boseman the actor"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Chadwick Boseman is logged in the atlas."
+      },
+      {
+        "label": "Michael Keaton",
+        "aliases": [
+          "keaton",
+          "batman actor keaton",
+          "michael keaton the actor"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Michael Keaton is logged in the atlas."
+      },
+      {
+        "label": "Mark Ruffalo",
+        "aliases": [
+          "ruffalo",
+          "hulk actor",
+          "mark ruffalo the actor"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Mark Ruffalo is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-016",
+    "category": "Stars",
+    "prompt": "Name a film composer whose music you'd know in a few notes.",
+    "answers": [
+      {
+        "label": "John Williams",
+        "aliases": [
+          "williams",
+          "star wars composer",
+          "john williams the composer"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. John Williams is logged in the atlas."
+      },
+      {
+        "label": "Hans Zimmer",
+        "aliases": [
+          "zimmer",
+          "inception composer",
+          "hans zimmer the composer"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Hans Zimmer is logged in the atlas."
+      },
+      {
+        "label": "Ennio Morricone",
+        "aliases": [
+          "morricone",
+          "ennio",
+          "spaghetti western composer"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Ennio Morricone is logged in the atlas."
+      },
+      {
+        "label": "Howard Shore",
+        "aliases": [
+          "lord of the rings composer",
+          "howard shore the composer"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Howard Shore is logged in the atlas."
+      },
+      {
+        "label": "Danny Elfman",
+        "aliases": [
+          "elfman",
+          "batman theme composer",
+          "danny elfman the composer"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Danny Elfman is logged in the atlas."
+      },
+      {
+        "label": "James Horner",
+        "aliases": [
+          "horner",
+          "titanic composer",
+          "james horner the composer"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. James Horner is logged in the atlas."
+      },
+      {
+        "label": "Alan Silvestri",
+        "aliases": [
+          "silvestri",
+          "back to the future composer",
+          "alan silvestri the composer"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Alan Silvestri is logged in the atlas."
+      },
+      {
+        "label": "Bernard Herrmann",
+        "aliases": [
+          "herrmann",
+          "psycho composer",
+          "bernard herrmann the composer"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Bernard Herrmann is logged in the atlas."
+      },
+      {
+        "label": "Vangelis",
+        "aliases": [
+          "vangelis papathanassiou",
+          "chariots of fire composer",
+          "blade runner composer"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Vangelis is logged in the atlas."
+      },
+      {
+        "label": "Jerry Goldsmith",
+        "aliases": [
+          "goldsmith",
+          "alien composer",
+          "jerry goldsmith the composer"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Jerry Goldsmith is logged in the atlas."
+      },
+      {
+        "label": "Nino Rota",
+        "aliases": [
+          "rota",
+          "godfather composer",
+          "nino rota the composer"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Nino Rota is logged in the atlas."
+      },
+      {
+        "label": "Michael Giacchino",
+        "aliases": [
+          "giacchino",
+          "up composer",
+          "michael giacchino the composer"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Michael Giacchino is logged in the atlas."
+      },
+      {
+        "label": "Ludwig Göransson",
+        "aliases": [
+          "ludwig goransson",
+          "goransson",
+          "oppenheimer composer"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Ludwig Göransson is logged in the atlas."
+      },
+      {
+        "label": "Alexandre Desplat",
+        "aliases": [
+          "desplat",
+          "grand budapest composer",
+          "alexandre desplat the composer"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Alexandre Desplat is logged in the atlas."
+      },
+      {
+        "label": "Thomas Newman",
+        "aliases": [
+          "thomas newman the composer",
+          "shawshank composer"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Thomas Newman is logged in the atlas."
+      },
+      {
+        "label": "Randy Newman",
+        "aliases": [
+          "randy newman the composer",
+          "toy story composer",
+          "you've got a friend in me composer"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Randy Newman is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-017",
+    "category": "Stars",
+    "prompt": "Name an actor known for playing tough guys.",
+    "answers": [
+      {
+        "label": "Arnold Schwarzenegger",
+        "aliases": [
+          "schwarzenegger",
+          "arnie",
+          "the terminator actor"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Arnold Schwarzenegger is logged in the atlas."
+      },
+      {
+        "label": "Sylvester Stallone",
+        "aliases": [
+          "stallone",
+          "sly stallone",
+          "rocky actor"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Sylvester Stallone is logged in the atlas."
+      },
+      {
+        "label": "Bruce Willis",
+        "aliases": [
+          "willis",
+          "die hard actor",
+          "bruce willis the actor"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Bruce Willis is logged in the atlas."
+      },
+      {
+        "label": "Jason Statham",
+        "aliases": [
+          "statham",
+          "the transporter actor",
+          "jason statham the actor"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Jason Statham is logged in the atlas."
+      },
+      {
+        "label": "Clint Eastwood",
+        "aliases": [
+          "eastwood",
+          "dirty harry actor",
+          "clint eastwood the actor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Clint Eastwood is logged in the atlas."
+      },
+      {
+        "label": "Vin Diesel",
+        "aliases": [
+          "diesel",
+          "dom toretto actor",
+          "vin diesel the actor"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Vin Diesel is logged in the atlas."
+      },
+      {
+        "label": "Jean-Claude Van Damme",
+        "aliases": [
+          "van damme",
+          "jcvd",
+          "muscles from brussels"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Jean-Claude Van Damme is logged in the atlas."
+      },
+      {
+        "label": "Dwayne Johnson",
+        "aliases": [
+          "the rock",
+          "dwayne the rock johnson",
+          "rock johnson"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Dwayne Johnson is logged in the atlas."
+      },
+      {
+        "label": "Charles Bronson",
+        "aliases": [
+          "bronson",
+          "death wish actor",
+          "charles bronson the actor"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Charles Bronson is logged in the atlas."
+      },
+      {
+        "label": "Liam Neeson",
+        "aliases": [
+          "neeson",
+          "taken actor",
+          "liam neeson the actor"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Liam Neeson is logged in the atlas."
+      },
+      {
+        "label": "Steven Seagal",
+        "aliases": [
+          "seagal",
+          "under siege actor",
+          "steven seagal the actor"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Steven Seagal is logged in the atlas."
+      },
+      {
+        "label": "Bruce Lee",
+        "aliases": [
+          "enter the dragon actor",
+          "bruce lee the actor"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Bruce Lee is logged in the atlas."
+      },
+      {
+        "label": "Chuck Norris",
+        "aliases": [
+          "norris",
+          "walker texas ranger actor",
+          "chuck norris the actor"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Chuck Norris is logged in the atlas."
+      },
+      {
+        "label": "Mel Gibson",
+        "aliases": [
+          "gibson",
+          "lethal weapon actor",
+          "mel gibson the actor"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Mel Gibson is logged in the atlas."
+      },
+      {
+        "label": "Keanu Reeves",
+        "aliases": [
+          "keanu",
+          "reeves",
+          "john wick actor"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Keanu Reeves is logged in the atlas."
+      },
+      {
+        "label": "Jackie Chan",
+        "aliases": [
+          "chan",
+          "rush hour actor",
+          "jackie chan the actor"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Jackie Chan is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-018",
+    "category": "Stars",
+    "prompt": "Name an actor famous for comedy.",
+    "answers": [
+      {
+        "label": "Jim Carrey",
+        "aliases": [
+          "carrey",
+          "ace ventura actor",
+          "jim carrey the actor"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Jim Carrey is logged in the atlas."
+      },
+      {
+        "label": "Adam Sandler",
+        "aliases": [
+          "sandler",
+          "happy gilmore actor",
+          "adam sandler the actor"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. Adam Sandler is logged in the atlas."
+      },
+      {
+        "label": "Eddie Murphy",
+        "aliases": [
+          "murphy",
+          "beverly hills cop actor",
+          "eddie murphy the actor"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Eddie Murphy is logged in the atlas."
+      },
+      {
+        "label": "Robin Williams",
+        "aliases": [
+          "williams",
+          "mrs doubtfire actor",
+          "robin williams the actor"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Robin Williams is logged in the atlas."
+      },
+      {
+        "label": "Will Ferrell",
+        "aliases": [
+          "ferrell",
+          "anchorman actor",
+          "will ferrell the actor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Will Ferrell is logged in the atlas."
+      },
+      {
+        "label": "Steve Carell",
+        "aliases": [
+          "carell",
+          "the office actor",
+          "steve carell the actor"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Steve Carell is logged in the atlas."
+      },
+      {
+        "label": "Ben Stiller",
+        "aliases": [
+          "stiller",
+          "zoolander actor",
+          "ben stiller the actor"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Ben Stiller is logged in the atlas."
+      },
+      {
+        "label": "Mike Myers",
+        "aliases": [
+          "myers",
+          "austin powers actor",
+          "mike myers the actor"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Mike Myers is logged in the atlas."
+      },
+      {
+        "label": "Kevin Hart",
+        "aliases": [
+          "kevin hart the comedian",
+          "jumanji comedian"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Kevin Hart is logged in the atlas."
+      },
+      {
+        "label": "Rowan Atkinson",
+        "aliases": [
+          "atkinson",
+          "mr bean actor",
+          "rowan atkinson the actor"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Rowan Atkinson is logged in the atlas."
+      },
+      {
+        "label": "Bill Murray",
+        "aliases": [
+          "murray",
+          "ghostbusters actor",
+          "bill murray the actor"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Bill Murray is logged in the atlas."
+      },
+      {
+        "label": "Jack Black",
+        "aliases": [
+          "school of rock actor",
+          "jack black the actor"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Jack Black is logged in the atlas."
+      },
+      {
+        "label": "Melissa McCarthy",
+        "aliases": [
+          "mccarthy",
+          "bridesmaids actress",
+          "melissa mccarthy the actress"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Melissa McCarthy is logged in the atlas."
+      },
+      {
+        "label": "Steve Martin",
+        "aliases": [
+          "the jerk actor",
+          "steve martin the actor"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Steve Martin is logged in the atlas."
+      },
+      {
+        "label": "Kristen Wiig",
+        "aliases": [
+          "wiig",
+          "bridesmaids star",
+          "kristen wiig the actress"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Kristen Wiig is logged in the atlas."
+      },
+      {
+        "label": "Chevy Chase",
+        "aliases": [
+          "vacation actor",
+          "chevy chase the actor"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Chevy Chase is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-019",
+    "category": "Franchises",
+    "prompt": "Name a movie franchise with more sequels than you can count.",
+    "answers": [
+      {
+        "label": "Fast & Furious",
+        "aliases": [
+          "fast and furious",
+          "the fast saga",
+          "fast furious"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. Fast & Furious is logged in the atlas."
+      },
+      {
+        "label": "James Bond",
+        "aliases": [
+          "bond films",
+          "007 films",
+          "the bond series"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. James Bond is logged in the atlas."
+      },
+      {
+        "label": "Marvel Cinematic Universe",
+        "aliases": [
+          "mcu",
+          "marvel movies",
+          "the avengers series"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Marvel Cinematic Universe is logged in the atlas."
+      },
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars saga",
+          "star wars films",
+          "skywalker saga"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "Halloween",
+        "aliases": [
+          "halloween films",
+          "michael myers series",
+          "halloween franchise"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Halloween is logged in the atlas."
+      },
+      {
+        "label": "Friday the 13th",
+        "aliases": [
+          "friday the thirteenth",
+          "jason series",
+          "friday 13th films"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Friday the 13th is logged in the atlas."
+      },
+      {
+        "label": "Saw",
+        "aliases": [
+          "saw films",
+          "jigsaw series",
+          "saw franchise"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Saw is logged in the atlas."
+      },
+      {
+        "label": "Godzilla",
+        "aliases": [
+          "godzilla films",
+          "monsterverse",
+          "toho godzilla"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Godzilla is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "potter films",
+          "wizarding world films",
+          "harry potter series"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible",
+        "aliases": [
+          "mission impossible",
+          "mi films",
+          "ethan hunt series"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Mission: Impossible is logged in the atlas."
+      },
+      {
+        "label": "Transformers",
+        "aliases": [
+          "transformers films",
+          "michael bay transformers",
+          "autobots series"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Transformers is logged in the atlas."
+      },
+      {
+        "label": "Pirates of the Caribbean",
+        "aliases": [
+          "pirates films",
+          "jack sparrow series",
+          "pirates franchise"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Pirates of the Caribbean is logged in the atlas."
+      },
+      {
+        "label": "Rocky",
+        "aliases": [
+          "rocky films",
+          "rocky balboa series",
+          "rocky and creed series"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Rocky is logged in the atlas."
+      },
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story films",
+          "woody and buzz series",
+          "toy story franchise"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Resident Evil",
+        "aliases": [
+          "resident evil films",
+          "milla jovovich series",
+          "resident evil franchise"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Resident Evil is logged in the atlas."
+      },
+      {
+        "label": "Carry On",
+        "aliases": [
+          "carry on films",
+          "carry on series",
+          "carry on movies"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Carry On is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-020",
+    "category": "Franchises",
+    "prompt": "Name a movie franchise you could binge in one weekend.",
+    "answers": [
+      {
+        "label": "The Lord of the Rings",
+        "aliases": [
+          "lotr",
+          "lord of the rings trilogy",
+          "middle-earth films"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. The Lord of the Rings is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "potter films",
+          "wizarding world films",
+          "harry potter series"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars saga",
+          "star wars films",
+          "skywalker saga"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "The Godfather",
+        "aliases": [
+          "godfather trilogy",
+          "corleone films",
+          "godfather films"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. The Godfather is logged in the atlas."
+      },
+      {
+        "label": "Marvel Cinematic Universe",
+        "aliases": [
+          "mcu",
+          "marvel movies",
+          "the avengers series"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Marvel Cinematic Universe is logged in the atlas."
+      },
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story films",
+          "woody and buzz series",
+          "toy story franchise"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Back to the Future",
+        "aliases": [
+          "back to the future trilogy",
+          "marty mcfly films",
+          "bttf"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Back to the Future is logged in the atlas."
+      },
+      {
+        "label": "Jurassic Park",
+        "aliases": [
+          "jurassic world",
+          "jurassic films",
+          "jurassic park series"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Jurassic Park is logged in the atlas."
+      },
+      {
+        "label": "Indiana Jones",
+        "aliases": [
+          "indy films",
+          "raiders series",
+          "indiana jones series"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Indiana Jones is logged in the atlas."
+      },
+      {
+        "label": "The Matrix",
+        "aliases": [
+          "matrix trilogy",
+          "matrix films",
+          "neo series"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. The Matrix is logged in the atlas."
+      },
+      {
+        "label": "Pirates of the Caribbean",
+        "aliases": [
+          "pirates films",
+          "jack sparrow series",
+          "pirates franchise"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Pirates of the Caribbean is logged in the atlas."
+      },
+      {
+        "label": "The Hunger Games",
+        "aliases": [
+          "hunger games films",
+          "katniss series",
+          "hunger games franchise"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. The Hunger Games is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible",
+        "aliases": [
+          "mission impossible",
+          "mi films",
+          "ethan hunt series"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Mission: Impossible is logged in the atlas."
+      },
+      {
+        "label": "John Wick",
+        "aliases": [
+          "john wick films",
+          "baba yaga series",
+          "john wick franchise"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. John Wick is logged in the atlas."
+      },
+      {
+        "label": "Rocky",
+        "aliases": [
+          "rocky films",
+          "rocky balboa series",
+          "rocky and creed series"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Rocky is logged in the atlas."
+      },
+      {
+        "label": "Twilight",
+        "aliases": [
+          "twilight saga",
+          "twilight films",
+          "bella and edward series"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Twilight is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-021",
+    "category": "Franchises",
+    "prompt": "Name an animation studio.",
+    "answers": [
+      {
+        "label": "Pixar",
+        "aliases": [
+          "pixar animation studios",
+          "pixar studios",
+          "toy story studio"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Pixar is logged in the atlas."
+      },
+      {
+        "label": "Disney",
+        "aliases": [
+          "walt disney animation studios",
+          "disney animation",
+          "walt disney animation"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Disney is logged in the atlas."
+      },
+      {
+        "label": "DreamWorks",
+        "aliases": [
+          "dreamworks animation",
+          "dream works",
+          "shrek studio"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. DreamWorks is logged in the atlas."
+      },
+      {
+        "label": "Studio Ghibli",
+        "aliases": [
+          "ghibli",
+          "miyazaki's studio",
+          "spirited away studio"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Studio Ghibli is logged in the atlas."
+      },
+      {
+        "label": "Illumination",
+        "aliases": [
+          "illumination entertainment",
+          "minions studio",
+          "despicable me studio"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Illumination is logged in the atlas."
+      },
+      {
+        "label": "Blue Sky Studios",
+        "aliases": [
+          "blue sky",
+          "ice age studio",
+          "blue sky animation"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Blue Sky Studios is logged in the atlas."
+      },
+      {
+        "label": "Aardman",
+        "aliases": [
+          "aardman animations",
+          "wallace and gromit studio",
+          "shaun the sheep studio"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Aardman is logged in the atlas."
+      },
+      {
+        "label": "Laika",
+        "aliases": [
+          "laika studios",
+          "coraline studio",
+          "kubo studio"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Laika is logged in the atlas."
+      },
+      {
+        "label": "Sony Pictures Animation",
+        "aliases": [
+          "sony animation",
+          "spider-verse studio",
+          "sony pictures animation studio"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Sony Pictures Animation is logged in the atlas."
+      },
+      {
+        "label": "Warner Bros. Animation",
+        "aliases": [
+          "warner animation",
+          "looney tunes studio",
+          "warner bros animation"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Warner Bros. Animation is logged in the atlas."
+      },
+      {
+        "label": "Cartoon Saloon",
+        "aliases": [
+          "cartoon saloon studio",
+          "song of the sea studio",
+          "wolfwalkers studio"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Cartoon Saloon is logged in the atlas."
+      },
+      {
+        "label": "Hanna-Barbera",
+        "aliases": [
+          "hanna barbera",
+          "scooby-doo studio",
+          "flintstones studio"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Hanna-Barbera is logged in the atlas."
+      },
+      {
+        "label": "Toei Animation",
+        "aliases": [
+          "toei",
+          "dragon ball studio",
+          "toei studio"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Toei Animation is logged in the atlas."
+      },
+      {
+        "label": "Madhouse",
+        "aliases": [
+          "madhouse studio",
+          "madhouse animation",
+          "paprika studio"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Madhouse is logged in the atlas."
+      },
+      {
+        "label": "Fleischer Studios",
+        "aliases": [
+          "fleischer",
+          "betty boop studio",
+          "popeye studio"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Fleischer Studios is logged in the atlas."
+      },
+      {
+        "label": "Nickelodeon Animation",
+        "aliases": [
+          "nickelodeon animation studio",
+          "spongebob studio",
+          "nickelodeon movies"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Nickelodeon Animation is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-022",
+    "category": "Franchises",
+    "prompt": "Name a film studio.",
+    "answers": [
+      {
+        "label": "Warner Bros.",
+        "aliases": [
+          "warner brothers",
+          "wb",
+          "warner bros pictures"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Warner Bros. is logged in the atlas."
+      },
+      {
+        "label": "Universal",
+        "aliases": [
+          "universal pictures",
+          "universal studios",
+          "universal films"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. Universal is logged in the atlas."
+      },
+      {
+        "label": "Paramount",
+        "aliases": [
+          "paramount pictures",
+          "paramount studios",
+          "paramount films"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Paramount is logged in the atlas."
+      },
+      {
+        "label": "Disney",
+        "aliases": [
+          "walt disney pictures",
+          "walt disney studios",
+          "disney studios"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Disney is logged in the atlas."
+      },
+      {
+        "label": "Sony Pictures",
+        "aliases": [
+          "sony",
+          "columbia pictures",
+          "sony pictures entertainment"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Sony Pictures is logged in the atlas."
+      },
+      {
+        "label": "20th Century Studios",
+        "aliases": [
+          "20th century fox",
+          "twentieth century fox",
+          "fox studios"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. 20th Century Studios is logged in the atlas."
+      },
+      {
+        "label": "MGM",
+        "aliases": [
+          "metro-goldwyn-mayer",
+          "metro goldwyn mayer",
+          "mgm studios"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. MGM is logged in the atlas."
+      },
+      {
+        "label": "Lionsgate",
+        "aliases": [
+          "lions gate",
+          "lionsgate films",
+          "lionsgate studios"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Lionsgate is logged in the atlas."
+      },
+      {
+        "label": "A24",
+        "aliases": [
+          "a24 films",
+          "a twenty four",
+          "a24 studio"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. A24 is logged in the atlas."
+      },
+      {
+        "label": "Pixar",
+        "aliases": [
+          "pixar animation studios",
+          "pixar studios",
+          "toy story studio"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Pixar is logged in the atlas."
+      },
+      {
+        "label": "Miramax",
+        "aliases": [
+          "miramax films",
+          "miramax studios",
+          "miramax pictures"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Miramax is logged in the atlas."
+      },
+      {
+        "label": "DreamWorks",
+        "aliases": [
+          "dreamworks pictures",
+          "dream works",
+          "dreamworks studios"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. DreamWorks is logged in the atlas."
+      },
+      {
+        "label": "Netflix",
+        "aliases": [
+          "netflix films",
+          "netflix studios",
+          "netflix originals"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Netflix is logged in the atlas."
+      },
+      {
+        "label": "Focus Features",
+        "aliases": [
+          "focus films",
+          "universal focus"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Focus Features is logged in the atlas."
+      },
+      {
+        "label": "Legendary",
+        "aliases": [
+          "legendary pictures",
+          "legendary entertainment",
+          "legendary studios"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Legendary is logged in the atlas."
+      },
+      {
+        "label": "Lucasfilm",
+        "aliases": [
+          "lucas film",
+          "star wars studio",
+          "lucasfilm ltd"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Lucasfilm is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-023",
+    "category": "Franchises",
+    "prompt": "Name a sequel widely rated as good as the original.",
+    "answers": [
+      {
+        "label": "The Empire Strikes Back",
+        "aliases": [
+          "empire strikes back",
+          "star wars episode v",
+          "star wars v"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. The Empire Strikes Back is logged in the atlas."
+      },
+      {
+        "label": "The Godfather Part II",
+        "aliases": [
+          "godfather part 2",
+          "godfather 2",
+          "godfather part two"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. The Godfather Part II is logged in the atlas."
+      },
+      {
+        "label": "Terminator 2",
+        "aliases": [
+          "terminator 2 judgment day",
+          "t2",
+          "terminator 2 judgement day"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Terminator 2 is logged in the atlas."
+      },
+      {
+        "label": "Aliens",
+        "aliases": [
+          "aliens 1986",
+          "alien sequel",
+          "james cameron's aliens"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Aliens is logged in the atlas."
+      },
+      {
+        "label": "The Dark Knight",
+        "aliases": [
+          "dark knight",
+          "batman the dark knight",
+          "nolan's dark knight"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. The Dark Knight is logged in the atlas."
+      },
+      {
+        "label": "Toy Story 2",
+        "aliases": [
+          "toy story two",
+          "toy story 2 film",
+          "woody's roundup film"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Toy Story 2 is logged in the atlas."
+      },
+      {
+        "label": "Toy Story 3",
+        "aliases": [
+          "toy story three",
+          "toy story 3 film",
+          "incinerator scene film"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Toy Story 3 is logged in the atlas."
+      },
+      {
+        "label": "The Road Warrior",
+        "aliases": [
+          "mad max 2",
+          "mad max two",
+          "road warrior film"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. The Road Warrior is logged in the atlas."
+      },
+      {
+        "label": "Spider-Man 2",
+        "aliases": [
+          "spiderman 2",
+          "spider man 2",
+          "spider-man two"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Spider-Man 2 is logged in the atlas."
+      },
+      {
+        "label": "Paddington 2",
+        "aliases": [
+          "paddington two",
+          "paddington 2 film",
+          "paddington 2 movie"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Paddington 2 is logged in the atlas."
+      },
+      {
+        "label": "Evil Dead II",
+        "aliases": [
+          "evil dead 2",
+          "evil dead two",
+          "evil dead ii film"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Evil Dead II is logged in the atlas."
+      },
+      {
+        "label": "The Wrath of Khan",
+        "aliases": [
+          "star trek ii",
+          "star trek 2",
+          "wrath of khan"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. The Wrath of Khan is logged in the atlas."
+      },
+      {
+        "label": "Shrek 2",
+        "aliases": [
+          "shrek two",
+          "shrek 2 film",
+          "shrek 2 movie"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Shrek 2 is logged in the atlas."
+      },
+      {
+        "label": "John Wick: Chapter 2",
+        "aliases": [
+          "john wick 2",
+          "john wick chapter two",
+          "john wick two"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. John Wick: Chapter 2 is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible – Fallout",
+        "aliases": [
+          "fallout",
+          "mission impossible fallout",
+          "mi fallout"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Mission: Impossible – Fallout is logged in the atlas."
+      },
+      {
+        "label": "Superman II",
+        "aliases": [
+          "superman 2",
+          "superman two",
+          "superman ii film"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Superman II is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-024",
+    "category": "Franchises",
+    "prompt": "Name a movie theme tune everyone recognizes.",
+    "answers": [
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars theme",
+          "star wars main title",
+          "the imperial march"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "James Bond",
+        "aliases": [
+          "james bond theme",
+          "bond theme",
+          "007 theme"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. James Bond is logged in the atlas."
+      },
+      {
+        "label": "Jaws",
+        "aliases": [
+          "jaws theme",
+          "da dum da dum",
+          "shark theme"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Jaws is logged in the atlas."
+      },
+      {
+        "label": "Indiana Jones",
+        "aliases": [
+          "raiders march",
+          "indiana jones theme",
+          "raiders of the lost ark theme"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Indiana Jones is logged in the atlas."
+      },
+      {
+        "label": "Mission: Impossible",
+        "aliases": [
+          "mission impossible theme",
+          "mi theme",
+          "lalo schifrin theme"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Mission: Impossible is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "hedwig's theme",
+          "harry potter theme",
+          "hedwigs theme"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Jurassic Park",
+        "aliases": [
+          "jurassic park theme",
+          "jurassic theme",
+          "welcome to jurassic park"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Jurassic Park is logged in the atlas."
+      },
+      {
+        "label": "Pirates of the Caribbean",
+        "aliases": [
+          "he's a pirate",
+          "pirates theme",
+          "hes a pirate"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Pirates of the Caribbean is logged in the atlas."
+      },
+      {
+        "label": "Superman",
+        "aliases": [
+          "superman theme",
+          "superman march",
+          "john williams superman"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Superman is logged in the atlas."
+      },
+      {
+        "label": "The Lord of the Rings",
+        "aliases": [
+          "shire theme",
+          "lotr theme",
+          "lord of the rings theme"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. The Lord of the Rings is logged in the atlas."
+      },
+      {
+        "label": "Ghostbusters",
+        "aliases": [
+          "ghostbusters theme",
+          "who you gonna call",
+          "ray parker jr theme"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Ghostbusters is logged in the atlas."
+      },
+      {
+        "label": "Rocky",
+        "aliases": [
+          "gonna fly now",
+          "rocky theme",
+          "rocky's theme"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Rocky is logged in the atlas."
+      },
+      {
+        "label": "Star Trek",
+        "aliases": [
+          "star trek theme",
+          "star trek fanfare",
+          "space the final frontier theme"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Star Trek is logged in the atlas."
+      },
+      {
+        "label": "Back to the Future",
+        "aliases": [
+          "back to the future theme",
+          "bttf theme",
+          "power of love theme"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Back to the Future is logged in the atlas."
+      },
+      {
+        "label": "The Godfather",
+        "aliases": [
+          "godfather theme",
+          "love theme from the godfather",
+          "speak softly love"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. The Godfather is logged in the atlas."
+      },
+      {
+        "label": "Halloween",
+        "aliases": [
+          "halloween theme",
+          "michael myers theme",
+          "john carpenter halloween theme"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Halloween is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-025",
+    "category": "Craft",
+    "prompt": "Name something that makes a movie scene scary.",
+    "answers": [
+      {
+        "label": "Music",
+        "aliases": [
+          "creepy score",
+          "eerie soundtrack",
+          "tense music"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Music is logged in the atlas."
+      },
+      {
+        "label": "Darkness",
+        "aliases": [
+          "dark rooms",
+          "no lights",
+          "low lighting"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Darkness is logged in the atlas."
+      },
+      {
+        "label": "Silence",
+        "aliases": [
+          "sudden quiet",
+          "dead silence",
+          "quiet before the scare"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Silence is logged in the atlas."
+      },
+      {
+        "label": "Jump scares",
+        "aliases": [
+          "jump scare",
+          "sudden shock",
+          "something leaping out"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Jump scares is logged in the atlas."
+      },
+      {
+        "label": "Shadows",
+        "aliases": [
+          "moving shadows",
+          "shadowy figures",
+          "things in the shadows"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Shadows is logged in the atlas."
+      },
+      {
+        "label": "Sound effects",
+        "aliases": [
+          "creaking doors",
+          "strange noises",
+          "scary sound design"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Sound effects is logged in the atlas."
+      },
+      {
+        "label": "Not seeing the monster",
+        "aliases": [
+          "unseen threat",
+          "hidden monster",
+          "what you can't see"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Not seeing the monster is logged in the atlas."
+      },
+      {
+        "label": "A creepy child",
+        "aliases": [
+          "scary kids",
+          "spooky child",
+          "eerie kid"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. A creepy child is logged in the atlas."
+      },
+      {
+        "label": "Fog",
+        "aliases": [
+          "mist",
+          "thick fog",
+          "foggy woods"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Fog is logged in the atlas."
+      },
+      {
+        "label": "Isolation",
+        "aliases": [
+          "being alone",
+          "remote location",
+          "cabin in the woods"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Isolation is logged in the atlas."
+      },
+      {
+        "label": "A slow build",
+        "aliases": [
+          "slow pacing",
+          "building tension",
+          "creeping dread"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. A slow build is logged in the atlas."
+      },
+      {
+        "label": "Whispering",
+        "aliases": [
+          "whispers",
+          "hushed voices",
+          "creepy whispers"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Whispering is logged in the atlas."
+      },
+      {
+        "label": "Flickering lights",
+        "aliases": [
+          "lights going out",
+          "flashing bulbs",
+          "flickering bulbs"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Flickering lights is logged in the atlas."
+      },
+      {
+        "label": "Mirrors",
+        "aliases": [
+          "mirror reflections",
+          "reflection scares",
+          "something in the mirror"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Mirrors is logged in the atlas."
+      },
+      {
+        "label": "Masks",
+        "aliases": [
+          "scary masks",
+          "masked figure",
+          "creepy mask"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Masks is logged in the atlas."
+      },
+      {
+        "label": "Clowns",
+        "aliases": [
+          "creepy clown",
+          "scary clowns",
+          "evil clown"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Clowns is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-026",
+    "category": "Craft",
+    "prompt": "Name a job on a film set.",
+    "answers": [
+      {
+        "label": "Director",
+        "aliases": [
+          "film director",
+          "the director",
+          "movie director"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Director is logged in the atlas."
+      },
+      {
+        "label": "Actor",
+        "aliases": [
+          "actress",
+          "cast member",
+          "performer"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. Actor is logged in the atlas."
+      },
+      {
+        "label": "Producer",
+        "aliases": [
+          "film producer",
+          "movie producer",
+          "executive producer"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Producer is logged in the atlas."
+      },
+      {
+        "label": "Cinematographer",
+        "aliases": [
+          "director of photography",
+          "dp",
+          "camera operator"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Cinematographer is logged in the atlas."
+      },
+      {
+        "label": "Editor",
+        "aliases": [
+          "film editor",
+          "video editor",
+          "movie editor"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Editor is logged in the atlas."
+      },
+      {
+        "label": "Screenwriter",
+        "aliases": [
+          "writer",
+          "script writer",
+          "scriptwriter"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Screenwriter is logged in the atlas."
+      },
+      {
+        "label": "Sound designer",
+        "aliases": [
+          "sound engineer",
+          "sound mixer",
+          "foley artist"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Sound designer is logged in the atlas."
+      },
+      {
+        "label": "Costume designer",
+        "aliases": [
+          "wardrobe",
+          "costume department",
+          "wardrobe designer"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Costume designer is logged in the atlas."
+      },
+      {
+        "label": "Makeup artist",
+        "aliases": [
+          "make-up artist",
+          "hair and makeup",
+          "makeup department"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Makeup artist is logged in the atlas."
+      },
+      {
+        "label": "Stunt performer",
+        "aliases": [
+          "stuntman",
+          "stunt double",
+          "stunt coordinator"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Stunt performer is logged in the atlas."
+      },
+      {
+        "label": "Gaffer",
+        "aliases": [
+          "chief lighting technician",
+          "lighting chief",
+          "head electrician"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Gaffer is logged in the atlas."
+      },
+      {
+        "label": "Set designer",
+        "aliases": [
+          "production designer",
+          "set decorator",
+          "art director"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Set designer is logged in the atlas."
+      },
+      {
+        "label": "Composer",
+        "aliases": [
+          "film composer",
+          "score composer",
+          "music composer"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Composer is logged in the atlas."
+      },
+      {
+        "label": "Best boy",
+        "aliases": [
+          "best boy electric",
+          "gaffer's assistant",
+          "assistant gaffer"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. Best boy is logged in the atlas."
+      },
+      {
+        "label": "Grip",
+        "aliases": [
+          "key grip",
+          "dolly grip",
+          "grip crew"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Grip is logged in the atlas."
+      },
+      {
+        "label": "Script supervisor",
+        "aliases": [
+          "continuity",
+          "continuity supervisor",
+          "script continuity"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Script supervisor is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-027",
+    "category": "Craft",
+    "prompt": "Name a classic movie special effects technique.",
+    "answers": [
+      {
+        "label": "CGI",
+        "aliases": [
+          "computer generated imagery",
+          "computer graphics",
+          "computer effects"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. CGI is logged in the atlas."
+      },
+      {
+        "label": "Practical effects",
+        "aliases": [
+          "practical fx",
+          "real effects",
+          "in-camera effects"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. Practical effects is logged in the atlas."
+      },
+      {
+        "label": "Green screen",
+        "aliases": [
+          "greenscreen",
+          "chroma key",
+          "blue screen"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Green screen is logged in the atlas."
+      },
+      {
+        "label": "Miniatures",
+        "aliases": [
+          "scale models",
+          "model shots",
+          "miniature effects"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Miniatures is logged in the atlas."
+      },
+      {
+        "label": "Stop motion",
+        "aliases": [
+          "stop-motion",
+          "claymation",
+          "frame by frame animation"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Stop motion is logged in the atlas."
+      },
+      {
+        "label": "Motion capture",
+        "aliases": [
+          "mocap",
+          "performance capture",
+          "mo-cap"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Motion capture is logged in the atlas."
+      },
+      {
+        "label": "Animatronics",
+        "aliases": [
+          "animatronic puppets",
+          "robotic puppets",
+          "mechanical creatures"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Animatronics is logged in the atlas."
+      },
+      {
+        "label": "Matte painting",
+        "aliases": [
+          "matte paintings",
+          "painted backdrops",
+          "painted backgrounds"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Matte painting is logged in the atlas."
+      },
+      {
+        "label": "Prosthetic makeup",
+        "aliases": [
+          "prosthetics",
+          "special makeup",
+          "creature makeup"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Prosthetic makeup is logged in the atlas."
+      },
+      {
+        "label": "Rear projection",
+        "aliases": [
+          "back projection",
+          "process shot",
+          "projected backdrops"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Rear projection is logged in the atlas."
+      },
+      {
+        "label": "Wire work",
+        "aliases": [
+          "wirework",
+          "wire fu",
+          "harness flying"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Wire work is logged in the atlas."
+      },
+      {
+        "label": "Puppetry",
+        "aliases": [
+          "puppets",
+          "muppet-style effects",
+          "puppeteering"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Puppetry is logged in the atlas."
+      },
+      {
+        "label": "Forced perspective",
+        "aliases": [
+          "perspective trick",
+          "size illusion",
+          "camera perspective trick"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Forced perspective is logged in the atlas."
+      },
+      {
+        "label": "Slow motion",
+        "aliases": [
+          "slow-mo",
+          "slo-mo",
+          "high speed photography"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Slow motion is logged in the atlas."
+      },
+      {
+        "label": "Bullet time",
+        "aliases": [
+          "bullet-time",
+          "matrix effect",
+          "frozen time shot"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Bullet time is logged in the atlas."
+      },
+      {
+        "label": "Squibs",
+        "aliases": [
+          "blood squibs",
+          "bullet hit effects",
+          "exploding blood packs"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Squibs is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-028",
+    "category": "Craft",
+    "prompt": "Name a type of camera shot or camera move.",
+    "answers": [
+      {
+        "label": "Close-up",
+        "aliases": [
+          "close up",
+          "closeup",
+          "tight shot"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. Close-up is logged in the atlas."
+      },
+      {
+        "label": "Tracking shot",
+        "aliases": [
+          "follow shot",
+          "dolly shot",
+          "tracking move"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Tracking shot is logged in the atlas."
+      },
+      {
+        "label": "Dolly zoom",
+        "aliases": [
+          "vertigo effect",
+          "zolly",
+          "contra zoom"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Dolly zoom is logged in the atlas."
+      },
+      {
+        "label": "Wide shot",
+        "aliases": [
+          "long shot",
+          "wide angle",
+          "establishing wide"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Wide shot is logged in the atlas."
+      },
+      {
+        "label": "Aerial shot",
+        "aliases": [
+          "drone shot",
+          "bird's eye shot",
+          "helicopter shot"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Aerial shot is logged in the atlas."
+      },
+      {
+        "label": "Long take",
+        "aliases": [
+          "one-shot",
+          "single take",
+          "oner"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Long take is logged in the atlas."
+      },
+      {
+        "label": "Slow motion",
+        "aliases": [
+          "slow-mo",
+          "slo-mo",
+          "slow mo shot"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Slow motion is logged in the atlas."
+      },
+      {
+        "label": "Point of view",
+        "aliases": [
+          "pov shot",
+          "pov",
+          "first person shot"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Point of view is logged in the atlas."
+      },
+      {
+        "label": "Crane shot",
+        "aliases": [
+          "crane move",
+          "jib shot",
+          "crane"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Crane shot is logged in the atlas."
+      },
+      {
+        "label": "Handheld",
+        "aliases": [
+          "shaky cam",
+          "handheld camera",
+          "handheld shot"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Handheld is logged in the atlas."
+      },
+      {
+        "label": "Pan",
+        "aliases": [
+          "panning shot",
+          "pan shot",
+          "camera pan"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Pan is logged in the atlas."
+      },
+      {
+        "label": "Over-the-shoulder",
+        "aliases": [
+          "over the shoulder",
+          "ots shot",
+          "over the shoulder shot"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Over-the-shoulder is logged in the atlas."
+      },
+      {
+        "label": "Steadicam",
+        "aliases": [
+          "steady cam",
+          "steadicam shot",
+          "gimbal shot"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Steadicam is logged in the atlas."
+      },
+      {
+        "label": "Zoom",
+        "aliases": [
+          "zoom in",
+          "zoom shot",
+          "crash zoom"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Zoom is logged in the atlas."
+      },
+      {
+        "label": "Establishing shot",
+        "aliases": [
+          "scene setter",
+          "location shot",
+          "opening wide shot"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Establishing shot is logged in the atlas."
+      },
+      {
+        "label": "Dutch angle",
+        "aliases": [
+          "dutch tilt",
+          "tilted camera",
+          "canted angle"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Dutch angle is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-029",
+    "category": "Craft",
+    "prompt": "Name something a movie trailer does to hook you.",
+    "answers": [
+      {
+        "label": "Music",
+        "aliases": [
+          "epic score",
+          "big soundtrack",
+          "dramatic music"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Music is logged in the atlas."
+      },
+      {
+        "label": "Voiceover",
+        "aliases": [
+          "narration",
+          "in a world voice",
+          "deep voice narration"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Voiceover is logged in the atlas."
+      },
+      {
+        "label": "Quick cuts",
+        "aliases": [
+          "fast editing",
+          "rapid cuts",
+          "montage"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Quick cuts is logged in the atlas."
+      },
+      {
+        "label": "Big explosion",
+        "aliases": [
+          "explosions",
+          "action shots",
+          "blowing things up"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Big explosion is logged in the atlas."
+      },
+      {
+        "label": "A famous star",
+        "aliases": [
+          "big names",
+          "star cast",
+          "famous faces"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. A famous star is logged in the atlas."
+      },
+      {
+        "label": "A twist tease",
+        "aliases": [
+          "teasing a twist",
+          "mystery hook",
+          "cliffhanger"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. A twist tease is logged in the atlas."
+      },
+      {
+        "label": "The best jokes",
+        "aliases": [
+          "comedy moments",
+          "funniest lines",
+          "big laughs"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. The best jokes is logged in the atlas."
+      },
+      {
+        "label": "A countdown",
+        "aliases": [
+          "release date",
+          "coming soon card",
+          "date reveal"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. A countdown is logged in the atlas."
+      },
+      {
+        "label": "Slow reveal",
+        "aliases": [
+          "gradual reveal",
+          "teasing the monster",
+          "hiding the creature"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Slow reveal is logged in the atlas."
+      },
+      {
+        "label": "A big bass drop",
+        "aliases": [
+          "braam",
+          "big sound hit",
+          "loud sound hit"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. A big bass drop is logged in the atlas."
+      },
+      {
+        "label": "A recognizable song",
+        "aliases": [
+          "famous song",
+          "cover song",
+          "popular track"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. A recognizable song is logged in the atlas."
+      },
+      {
+        "label": "A tagline",
+        "aliases": [
+          "catchphrase",
+          "slogan",
+          "one-liner"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. A tagline is logged in the atlas."
+      },
+      {
+        "label": "Silence then a drop",
+        "aliases": [
+          "quiet then loud",
+          "pause before the action",
+          "sudden silence"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Silence then a drop is logged in the atlas."
+      },
+      {
+        "label": "Dialogue snippets",
+        "aliases": [
+          "memorable line",
+          "quotable lines",
+          "one line of dialogue"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Dialogue snippets is logged in the atlas."
+      },
+      {
+        "label": "A shocking moment",
+        "aliases": [
+          "big surprise",
+          "gasp moment",
+          "shock scene"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. A shocking moment is logged in the atlas."
+      },
+      {
+        "label": "Sweeping landscapes",
+        "aliases": [
+          "epic scenery",
+          "aerial landscapes",
+          "beautiful vistas"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Sweeping landscapes is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-030",
+    "category": "Craft",
+    "prompt": "Name a famous piece of movie music or a movie sound.",
+    "answers": [
+      {
+        "label": "The Jaws theme",
+        "aliases": [
+          "jaws music",
+          "da dum da dum",
+          "shark theme"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. The Jaws theme is logged in the atlas."
+      },
+      {
+        "label": "The Imperial March",
+        "aliases": [
+          "darth vader's theme",
+          "vader's theme",
+          "star wars imperial march"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. The Imperial March is logged in the atlas."
+      },
+      {
+        "label": "The Wilhelm scream",
+        "aliases": [
+          "wilhelm scream sound",
+          "famous movie scream",
+          "stock scream"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. The Wilhelm scream is logged in the atlas."
+      },
+      {
+        "label": "The Star Wars main theme",
+        "aliases": [
+          "star wars fanfare",
+          "star wars opening",
+          "star wars theme music"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. The Star Wars main theme is logged in the atlas."
+      },
+      {
+        "label": "The Psycho shower strings",
+        "aliases": [
+          "psycho strings",
+          "screeching violins",
+          "psycho shower music"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. The Psycho shower strings is logged in the atlas."
+      },
+      {
+        "label": "The Inception horn",
+        "aliases": [
+          "inception braam",
+          "braaam",
+          "inception bwaaam"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. The Inception horn is logged in the atlas."
+      },
+      {
+        "label": "The James Bond theme",
+        "aliases": [
+          "bond theme",
+          "007 theme",
+          "james bond music"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. The James Bond theme is logged in the atlas."
+      },
+      {
+        "label": "The Indiana Jones theme",
+        "aliases": [
+          "raiders march",
+          "indy theme",
+          "raiders of the lost ark theme"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. The Indiana Jones theme is logged in the atlas."
+      },
+      {
+        "label": "The Jurassic Park theme",
+        "aliases": [
+          "jurassic park music",
+          "welcome to jurassic park",
+          "jurassic theme"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. The Jurassic Park theme is logged in the atlas."
+      },
+      {
+        "label": "The Mission: Impossible theme",
+        "aliases": [
+          "mission impossible theme",
+          "mi theme",
+          "lalo schifrin theme"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. The Mission: Impossible theme is logged in the atlas."
+      },
+      {
+        "label": "The Ghostbusters theme",
+        "aliases": [
+          "who you gonna call",
+          "ghostbusters song",
+          "ghostbusters music"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. The Ghostbusters theme is logged in the atlas."
+      },
+      {
+        "label": "My Heart Will Go On",
+        "aliases": [
+          "titanic song",
+          "celine dion titanic",
+          "titanic theme song"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. My Heart Will Go On is logged in the atlas."
+      },
+      {
+        "label": "Gonna Fly Now",
+        "aliases": [
+          "rocky theme",
+          "rocky music",
+          "rocky training music"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. Gonna Fly Now is logged in the atlas."
+      },
+      {
+        "label": "The THX Deep Note",
+        "aliases": [
+          "thx sound",
+          "thx logo sound",
+          "thx deep note"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. The THX Deep Note is logged in the atlas."
+      },
+      {
+        "label": "The Lightsaber hum",
+        "aliases": [
+          "lightsaber sound",
+          "lightsaber noise",
+          "saber hum"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. The Lightsaber hum is logged in the atlas."
+      },
+      {
+        "label": "The Godfather theme",
+        "aliases": [
+          "godfather music",
+          "love theme from the godfather",
+          "speak softly love"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. The Godfather theme is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-031",
+    "category": "Movie Night",
+    "prompt": "Name a snack you'd take to the cinema.",
+    "answers": [
+      {
+        "label": "Popcorn",
+        "aliases": [
+          "salted popcorn",
+          "sweet popcorn",
+          "buttered popcorn"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. Popcorn is logged in the atlas."
+      },
+      {
+        "label": "Nachos",
+        "aliases": [
+          "nacho chips",
+          "cheesy nachos",
+          "nachos and cheese"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. Nachos is logged in the atlas."
+      },
+      {
+        "label": "Candy",
+        "aliases": [
+          "sweets",
+          "movie candy",
+          "lollies"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Candy is logged in the atlas."
+      },
+      {
+        "label": "Soda",
+        "aliases": [
+          "fizzy drink",
+          "cola",
+          "soft drink"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Soda is logged in the atlas."
+      },
+      {
+        "label": "Hot dog",
+        "aliases": [
+          "hotdog",
+          "cinema hot dog",
+          "frankfurter"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. Hot dog is logged in the atlas."
+      },
+      {
+        "label": "Ice cream",
+        "aliases": [
+          "ice-cream",
+          "choc ice",
+          "cinema ice cream"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Ice cream is logged in the atlas."
+      },
+      {
+        "label": "Pretzel",
+        "aliases": [
+          "soft pretzel",
+          "pretzels",
+          "salted pretzel"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Pretzel is logged in the atlas."
+      },
+      {
+        "label": "Chocolate",
+        "aliases": [
+          "chocolate bar",
+          "chocolate bites",
+          "candy bar"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Chocolate is logged in the atlas."
+      },
+      {
+        "label": "Chips",
+        "aliases": [
+          "crisps",
+          "potato chips",
+          "tortilla chips"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Chips is logged in the atlas."
+      },
+      {
+        "label": "Slushie",
+        "aliases": [
+          "slush",
+          "frozen drink",
+          "frozen slush"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Slushie is logged in the atlas."
+      },
+      {
+        "label": "Pizza",
+        "aliases": [
+          "pizza slice",
+          "cinema pizza",
+          "slice of pizza"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Pizza is logged in the atlas."
+      },
+      {
+        "label": "Gummy bears",
+        "aliases": [
+          "gummies",
+          "gummy sweets",
+          "jelly bears"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. Gummy bears is logged in the atlas."
+      },
+      {
+        "label": "Water",
+        "aliases": [
+          "bottled water",
+          "water bottle",
+          "a bottle of water"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Water is logged in the atlas."
+      },
+      {
+        "label": "Fries",
+        "aliases": [
+          "french fries",
+          "cinema fries",
+          "hot fries"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. Fries is logged in the atlas."
+      },
+      {
+        "label": "Candy floss",
+        "aliases": [
+          "cotton candy",
+          "fairy floss",
+          "spun sugar"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Candy floss is logged in the atlas."
+      },
+      {
+        "label": "Sour sweets",
+        "aliases": [
+          "sour candy",
+          "sour belts",
+          "sour lollies"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Sour sweets is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-032",
+    "category": "Movie Night",
+    "prompt": "Name a movie you can quote from memory.",
+    "answers": [
+      {
+        "label": "The Lion King",
+        "aliases": [
+          "lion king",
+          "circle of life film",
+          "simba film"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. The Lion King is logged in the atlas."
+      },
+      {
+        "label": "Shrek",
+        "aliases": [
+          "shrek film",
+          "ogre film",
+          "shrek movie"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Shrek is logged in the atlas."
+      },
+      {
+        "label": "Monty Python and the Holy Grail",
+        "aliases": [
+          "holy grail",
+          "monty python",
+          "the holy grail"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. Monty Python and the Holy Grail is logged in the atlas."
+      },
+      {
+        "label": "The Princess Bride",
+        "aliases": [
+          "princess bride",
+          "inconceivable film",
+          "as you wish film"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. The Princess Bride is logged in the atlas."
+      },
+      {
+        "label": "Star Wars",
+        "aliases": [
+          "star wars film",
+          "a new hope",
+          "star wars saga"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Star Wars is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest gump film",
+          "box of chocolates film",
+          "gump"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Mean Girls",
+        "aliases": [
+          "mean girls film",
+          "fetch film",
+          "plastics film"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Mean Girls is logged in the atlas."
+      },
+      {
+        "label": "Anchorman",
+        "aliases": [
+          "anchorman film",
+          "ron burgundy film",
+          "anchorman legend of ron burgundy"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Anchorman is logged in the atlas."
+      },
+      {
+        "label": "The Godfather",
+        "aliases": [
+          "godfather",
+          "corleone film",
+          "the godfather film"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. The Godfather is logged in the atlas."
+      },
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story film",
+          "woody and buzz film",
+          "to infinity and beyond film"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Finding Nemo",
+        "aliases": [
+          "nemo",
+          "just keep swimming film",
+          "finding nemo film"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Finding Nemo is logged in the atlas."
+      },
+      {
+        "label": "Home Alone",
+        "aliases": [
+          "home alone film",
+          "kevin mccallister film",
+          "home alone movie"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Home Alone is logged in the atlas."
+      },
+      {
+        "label": "Dumb and Dumber",
+        "aliases": [
+          "dumb and dumber film",
+          "lloyd and harry film",
+          "dumb & dumber"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Dumb and Dumber is logged in the atlas."
+      },
+      {
+        "label": "Pulp Fiction",
+        "aliases": [
+          "pulp fiction film",
+          "tarantino pulp fiction",
+          "royale with cheese film"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Pulp Fiction is logged in the atlas."
+      },
+      {
+        "label": "The Big Lebowski",
+        "aliases": [
+          "big lebowski",
+          "the dude film",
+          "lebowski"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. The Big Lebowski is logged in the atlas."
+      },
+      {
+        "label": "Frozen",
+        "aliases": [
+          "frozen film",
+          "let it go film",
+          "elsa film"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Frozen is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-033",
+    "category": "Movie Night",
+    "prompt": "Name a movie you'd watch at Christmas.",
+    "answers": [
+      {
+        "label": "Home Alone",
+        "aliases": [
+          "home alone film",
+          "kevin mccallister film",
+          "home alone movie"
+        ],
+        "share": 34,
+        "insight": "The whole audience shouts this one first. Home Alone is logged in the atlas."
+      },
+      {
+        "label": "Elf",
+        "aliases": [
+          "elf film",
+          "buddy the elf film",
+          "will ferrell elf"
+        ],
+        "share": 19,
+        "insight": "A crowd favourite from the front rows. Elf is logged in the atlas."
+      },
+      {
+        "label": "Love Actually",
+        "aliases": [
+          "love actually film",
+          "richard curtis christmas film",
+          "love actually movie"
+        ],
+        "share": 14,
+        "insight": "A popular pick from the middle of the house. Love Actually is logged in the atlas."
+      },
+      {
+        "label": "Die Hard",
+        "aliases": [
+          "die hard film",
+          "john mcclane christmas film",
+          "die hard movie"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Die Hard is logged in the atlas."
+      },
+      {
+        "label": "The Grinch",
+        "aliases": [
+          "how the grinch stole christmas",
+          "grinch",
+          "the grinch film"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. The Grinch is logged in the atlas."
+      },
+      {
+        "label": "It's a Wonderful Life",
+        "aliases": [
+          "its a wonderful life",
+          "wonderful life",
+          "george bailey film"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. It's a Wonderful Life is logged in the atlas."
+      },
+      {
+        "label": "Miracle on 34th Street",
+        "aliases": [
+          "miracle on thirty-fourth street",
+          "miracle on 34th",
+          "santa in court film"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. Miracle on 34th Street is logged in the atlas."
+      },
+      {
+        "label": "The Polar Express",
+        "aliases": [
+          "polar express",
+          "polar express film",
+          "train to the north pole film"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. The Polar Express is logged in the atlas."
+      },
+      {
+        "label": "A Christmas Carol",
+        "aliases": [
+          "christmas carol",
+          "scrooge film",
+          "dickens christmas film"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. A Christmas Carol is logged in the atlas."
+      },
+      {
+        "label": "The Nightmare Before Christmas",
+        "aliases": [
+          "nightmare before christmas",
+          "jack skellington film",
+          "tim burton christmas film"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. The Nightmare Before Christmas is logged in the atlas."
+      },
+      {
+        "label": "Gremlins",
+        "aliases": [
+          "gremlins film",
+          "gizmo film",
+          "gremlins movie"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Gremlins is logged in the atlas."
+      },
+      {
+        "label": "Christmas Vacation",
+        "aliases": [
+          "national lampoon's christmas vacation",
+          "griswold christmas film",
+          "christmas vacation film"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Christmas Vacation is logged in the atlas."
+      },
+      {
+        "label": "The Santa Clause",
+        "aliases": [
+          "santa clause",
+          "tim allen santa film",
+          "the santa clause film"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. The Santa Clause is logged in the atlas."
+      },
+      {
+        "label": "Arthur Christmas",
+        "aliases": [
+          "arthur christmas film",
+          "santa's son film",
+          "aardman christmas film"
+        ],
+        "share": 0.15,
+        "insight": "A hidden gem behind the headline titles. Arthur Christmas is logged in the atlas."
+      },
+      {
+        "label": "Klaus",
+        "aliases": [
+          "klaus film",
+          "netflix klaus",
+          "animated santa origin film"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Klaus is logged in the atlas."
+      },
+      {
+        "label": "Jingle All the Way",
+        "aliases": [
+          "jingle all the way film",
+          "turbo man film",
+          "arnold christmas film"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. Jingle All the Way is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-034",
+    "category": "Movie Night",
+    "prompt": "Name a film that made you cry.",
+    "answers": [
+      {
+        "label": "Titanic",
+        "aliases": [
+          "titanic film",
+          "jack and rose film",
+          "titanic movie"
+        ],
+        "share": 31,
+        "insight": "The whole audience shouts this one first. Titanic is logged in the atlas."
+      },
+      {
+        "label": "The Lion King",
+        "aliases": [
+          "lion king",
+          "mufasa scene film",
+          "simba film"
+        ],
+        "share": 21,
+        "insight": "A crowd favourite from the front rows. The Lion King is logged in the atlas."
+      },
+      {
+        "label": "Up",
+        "aliases": [
+          "up film",
+          "pixar up",
+          "carl and ellie film"
+        ],
+        "share": 16,
+        "insight": "A popular pick from the middle of the house. Up is logged in the atlas."
+      },
+      {
+        "label": "Toy Story 3",
+        "aliases": [
+          "toy story three",
+          "incinerator film",
+          "toy story 3 film"
+        ],
+        "share": 11,
+        "insight": "A solid answer with plenty of fans. Toy Story 3 is logged in the atlas."
+      },
+      {
+        "label": "Marley & Me",
+        "aliases": [
+          "marley and me",
+          "marley and me film",
+          "labrador film"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Marley & Me is logged in the atlas."
+      },
+      {
+        "label": "The Notebook",
+        "aliases": [
+          "notebook",
+          "the notebook film",
+          "noah and allie film"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. The Notebook is logged in the atlas."
+      },
+      {
+        "label": "Schindler's List",
+        "aliases": [
+          "schindlers list",
+          "spielberg holocaust film",
+          "schindler's list film"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Schindler's List is logged in the atlas."
+      },
+      {
+        "label": "Forrest Gump",
+        "aliases": [
+          "forrest gump film",
+          "jenny and forrest film",
+          "gump"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Forrest Gump is logged in the atlas."
+      },
+      {
+        "label": "Coco",
+        "aliases": [
+          "coco film",
+          "pixar coco",
+          "remember me film"
+        ],
+        "share": 1,
+        "insight": "A quiet cult favourite. Coco is logged in the atlas."
+      },
+      {
+        "label": "Bambi",
+        "aliases": [
+          "bambi film",
+          "bambi's mother film",
+          "disney bambi"
+        ],
+        "share": 0.7,
+        "insight": "A specialist's pick from the repertory list. Bambi is logged in the atlas."
+      },
+      {
+        "label": "Hachi: A Dog's Tale",
+        "aliases": [
+          "hachi",
+          "hachiko film",
+          "hachi a dogs tale"
+        ],
+        "share": 0.5,
+        "insight": "A narrow cut from the atlas. Hachi: A Dog's Tale is logged in the atlas."
+      },
+      {
+        "label": "Inside Out",
+        "aliases": [
+          "inside out film",
+          "bing bong film",
+          "pixar inside out"
+        ],
+        "share": 0.3,
+        "insight": "A late-show answer with a loyal following. Inside Out is logged in the atlas."
+      },
+      {
+        "label": "The Green Mile",
+        "aliases": [
+          "green mile",
+          "the green mile film",
+          "john coffey film"
+        ],
+        "share": 0.2,
+        "insight": "A very small crew picked this. The Green Mile is logged in the atlas."
+      },
+      {
+        "label": "The Fault in Our Stars",
+        "aliases": [
+          "fault in our stars",
+          "the fault in our stars film",
+          "hazel and gus film"
+        ],
+        "share": 0.1,
+        "insight": "A hidden gem behind the headline titles. The Fault in Our Stars is logged in the atlas."
+      },
+      {
+        "label": "Life Is Beautiful",
+        "aliases": [
+          "life is beautiful film",
+          "la vita e bella",
+          "roberto benigni film"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Life Is Beautiful is logged in the atlas."
+      },
+      {
+        "label": "Old Yeller",
+        "aliases": [
+          "old yeller film",
+          "disney dog film",
+          "old yeller movie"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Old Yeller is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-035",
+    "category": "Movie Night",
+    "prompt": "Name a movie for a first date.",
+    "answers": [
+      {
+        "label": "The Notebook",
+        "aliases": [
+          "notebook",
+          "the notebook film",
+          "noah and allie film"
+        ],
+        "share": 40.3,
+        "insight": "The whole audience shouts this one first. The Notebook is logged in the atlas."
+      },
+      {
+        "label": "La La Land",
+        "aliases": [
+          "la la land film",
+          "la la land movie",
+          "ryan gosling musical"
+        ],
+        "share": 18,
+        "insight": "A crowd favourite from the front rows. La La Land is logged in the atlas."
+      },
+      {
+        "label": "Pretty Woman",
+        "aliases": [
+          "pretty woman film",
+          "julia roberts film",
+          "pretty woman movie"
+        ],
+        "share": 12,
+        "insight": "A popular pick from the middle of the house. Pretty Woman is logged in the atlas."
+      },
+      {
+        "label": "Love Actually",
+        "aliases": [
+          "love actually film",
+          "christmas romance film",
+          "love actually movie"
+        ],
+        "share": 9,
+        "insight": "A solid answer with plenty of fans. Love Actually is logged in the atlas."
+      },
+      {
+        "label": "When Harry Met Sally",
+        "aliases": [
+          "when harry met sally film",
+          "harry and sally",
+          "billy crystal romance"
+        ],
+        "share": 7,
+        "insight": "The atlas marks this as a rarer pick. When Harry Met Sally is logged in the atlas."
+      },
+      {
+        "label": "Notting Hill",
+        "aliases": [
+          "notting hill film",
+          "hugh grant romance",
+          "notting hill movie"
+        ],
+        "share": 5,
+        "insight": "Only a few film buffs called this one. Notting Hill is logged in the atlas."
+      },
+      {
+        "label": "Crazy Rich Asians",
+        "aliases": [
+          "crazy rich asians film",
+          "crazy rich asians movie",
+          "singapore romcom"
+        ],
+        "share": 3,
+        "insight": "A sly pick from the back of the theatre. Crazy Rich Asians is logged in the atlas."
+      },
+      {
+        "label": "Grease",
+        "aliases": [
+          "grease film",
+          "danny and sandy film",
+          "grease musical"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Grease is logged in the atlas."
+      },
+      {
+        "label": "Dirty Dancing",
+        "aliases": [
+          "dirty dancing film",
+          "baby and johnny film",
+          "dirty dancing movie"
+        ],
+        "share": 1.2,
+        "insight": "A quiet cult favourite. Dirty Dancing is logged in the atlas."
+      },
+      {
+        "label": "Amélie",
+        "aliases": [
+          "amelie",
+          "amélie film",
+          "amelie film"
+        ],
+        "share": 0.8,
+        "insight": "A specialist's pick from the repertory list. Amélie is logged in the atlas."
+      },
+      {
+        "label": "Before Sunrise",
+        "aliases": [
+          "before sunrise film",
+          "ethan hawke romance",
+          "vienna romance film"
+        ],
+        "share": 0.6,
+        "insight": "A narrow cut from the atlas. Before Sunrise is logged in the atlas."
+      },
+      {
+        "label": "10 Things I Hate About You",
+        "aliases": [
+          "ten things i hate about you",
+          "10 things",
+          "heath ledger romcom"
+        ],
+        "share": 0.4,
+        "insight": "A late-show answer with a loyal following. 10 Things I Hate About You is logged in the atlas."
+      },
+      {
+        "label": "Casablanca",
+        "aliases": [
+          "casablanca film",
+          "classic bogart film",
+          "here's looking at you kid film"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Casablanca is logged in the atlas."
+      },
+      {
+        "label": "The Princess Bride",
+        "aliases": [
+          "princess bride",
+          "as you wish film",
+          "princess bride film"
+        ],
+        "share": 0.2,
+        "insight": "A hidden gem behind the headline titles. The Princess Bride is logged in the atlas."
+      },
+      {
+        "label": "Titanic",
+        "aliases": [
+          "titanic film",
+          "jack and rose film",
+          "titanic movie"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Titanic is logged in the atlas."
+      },
+      {
+        "label": "Ratatouille",
+        "aliases": [
+          "ratatouille film",
+          "pixar ratatouille",
+          "remy film"
+        ],
+        "share": 0.1,
+        "insight": "A deep-cut answer for dedicated film fans. Ratatouille is logged in the atlas."
+      }
+    ]
+  },
+  {
+    "id": "movies-036",
+    "category": "Movie Night",
+    "prompt": "Name a movie that's perfect for a family night.",
+    "answers": [
+      {
+        "label": "Toy Story",
+        "aliases": [
+          "toy story film",
+          "woody and buzz film",
+          "toy story movie"
+        ],
+        "share": 30.5,
+        "insight": "The whole audience shouts this one first. Toy Story is logged in the atlas."
+      },
+      {
+        "label": "Finding Nemo",
+        "aliases": [
+          "nemo",
+          "finding nemo film",
+          "finding nemo movie"
+        ],
+        "share": 20,
+        "insight": "A crowd favourite from the front rows. Finding Nemo is logged in the atlas."
+      },
+      {
+        "label": "The Lion King",
+        "aliases": [
+          "lion king",
+          "simba film",
+          "the lion king film"
+        ],
+        "share": 15,
+        "insight": "A popular pick from the middle of the house. The Lion King is logged in the atlas."
+      },
+      {
+        "label": "Shrek",
+        "aliases": [
+          "shrek film",
+          "ogre film",
+          "shrek movie"
+        ],
+        "share": 10,
+        "insight": "A solid answer with plenty of fans. Shrek is logged in the atlas."
+      },
+      {
+        "label": "Frozen",
+        "aliases": [
+          "frozen film",
+          "elsa film",
+          "frozen movie"
+        ],
+        "share": 8,
+        "insight": "The atlas marks this as a rarer pick. Frozen is logged in the atlas."
+      },
+      {
+        "label": "Moana",
+        "aliases": [
+          "moana film",
+          "maui film",
+          "moana movie"
+        ],
+        "share": 6,
+        "insight": "Only a few film buffs called this one. Moana is logged in the atlas."
+      },
+      {
+        "label": "The Incredibles",
+        "aliases": [
+          "incredibles",
+          "the incredibles film",
+          "superhero family film"
+        ],
+        "share": 4,
+        "insight": "A sly pick from the back of the theatre. The Incredibles is logged in the atlas."
+      },
+      {
+        "label": "Coco",
+        "aliases": [
+          "coco film",
+          "pixar coco",
+          "day of the dead film"
+        ],
+        "share": 2,
+        "insight": "A small club of regulars knew this one. Coco is logged in the atlas."
+      },
+      {
+        "label": "Paddington",
+        "aliases": [
+          "paddington film",
+          "paddington bear film",
+          "paddington movie"
+        ],
+        "share": 1.5,
+        "insight": "A quiet cult favourite. Paddington is logged in the atlas."
+      },
+      {
+        "label": "Home Alone",
+        "aliases": [
+          "home alone film",
+          "kevin mccallister film",
+          "home alone movie"
+        ],
+        "share": 1,
+        "insight": "A specialist's pick from the repertory list. Home Alone is logged in the atlas."
+      },
+      {
+        "label": "Harry Potter",
+        "aliases": [
+          "harry potter film",
+          "philosopher's stone",
+          "harry potter movie"
+        ],
+        "share": 0.8,
+        "insight": "A narrow cut from the atlas. Harry Potter is logged in the atlas."
+      },
+      {
+        "label": "Back to the Future",
+        "aliases": [
+          "back to the future film",
+          "marty mcfly film",
+          "delorean film"
+        ],
+        "share": 0.5,
+        "insight": "A late-show answer with a loyal following. Back to the Future is logged in the atlas."
+      },
+      {
+        "label": "Mary Poppins",
+        "aliases": [
+          "mary poppins film",
+          "supercalifragilistic film",
+          "julie andrews film"
+        ],
+        "share": 0.3,
+        "insight": "A very small crew picked this. Mary Poppins is logged in the atlas."
+      },
+      {
+        "label": "Despicable Me",
+        "aliases": [
+          "despicable me film",
+          "minions film",
+          "gru film"
+        ],
+        "share": 0.25,
+        "insight": "A hidden gem behind the headline titles. Despicable Me is logged in the atlas."
+      },
+      {
+        "label": "Kung Fu Panda",
+        "aliases": [
+          "kung fu panda film",
+          "po film",
+          "kung fu panda movie"
+        ],
+        "share": 0.1,
+        "insight": "A nearly unseen reel in the atlas. Kung Fu Panda is logged in the atlas."
+      },
+      {
+        "label": "WALL-E",
+        "aliases": [
+          "wall e",
+          "walle",
+          "wall-e film"
+        ],
+        "share": 0.05,
+        "insight": "A deep-cut answer for dedicated film fans. WALL-E is logged in the atlas."
+      }
+    ]
+  }
+]

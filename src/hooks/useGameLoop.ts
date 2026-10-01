@@ -2,14 +2,10 @@
 
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 
-import { CATEGORIES, type Category, type PublicQuestion } from "../lib/questions/types";
+import type { Category } from "../lib/questions/types";
 import { getUtcDateKey, isIsoDate } from "../lib/questions/date";
-import {
-  ARCADE_QUESTION_COUNT,
-  DAILY_QUESTION_COUNT,
-  SPEED_QUESTION_COUNT,
-  SURVIVAL_QUESTION_COUNT,
-} from "../lib/questions/selection";
+import { QUESTIONS_PER_MODE } from "../lib/questions/selection";
+import type { PackId } from "../lib/packs/meta";
 import { useAppState } from "../state/AppStateProvider";
 import { useSoundFx } from "./useSoundFx";
 import {
@@ -18,15 +14,18 @@ import {
   createInitialGameState,
   gameReducer,
   type GameMode,
+  type GamePhase,
 } from "../components/game/gameReducer";
 import {
   DEFAULT_STATS,
   readProgress,
   readStats,
+  isPublicQuestion,
   isSubmissionResult,
   writeProgress,
   writeStats,
   type DiveStats,
+  type PersistedProgress,
 } from "../components/game/storage";
 
 type ApiEnvelope<T> = Readonly<{
@@ -37,21 +36,10 @@ type ApiEnvelope<T> = Readonly<{
 
 export const SUBMISSION_TIMEOUT_MS = 8_000;
 
+const RUN_PHASES: ReadonlySet<GamePhase> = new Set(["preview", "answering", "submitting", "feedback"]);
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
-
-const isPublicQuestion = (value: unknown): value is PublicQuestion => {
-  if (!isRecord(value) || typeof value.id !== "string" || typeof value.prompt !== "string") {
-    return false;
-  }
-  if (
-    typeof value.category !== "string" ||
-    !(CATEGORIES as readonly string[]).includes(value.category)
-  ) {
-    return false;
-  }
-  return Object.keys(value).sort().join(",") === "category,id,prompt";
-};
 
 const errorMessage = (error: unknown, fallback: string): string =>
   error instanceof Error && error.message ? error.message : fallback;
@@ -76,12 +64,19 @@ const fetchWithDeadline = async (
 const getApiData = async <T>(response: Response): Promise<T> => {
   const payload = (await response.json()) as ApiEnvelope<T>;
   if (!response.ok || !payload.success || payload.data === null) {
-    throw new Error(payload.error ?? "The dive signal was interrupted.");
+    throw new Error(payload.error ?? "The signal was interrupted.");
   }
   return payload.data;
 };
 
-export const useGameLoop = (mode: GameMode, category?: Category) => {
+export const useGameLoop = (
+  mode: GameMode,
+  category?: Category,
+  pack: PackId = "core",
+  options: Readonly<{ autoRestore?: boolean }> = {},
+) => {
+  const autoRestore = options.autoRestore ?? true;
+  const [savedRun, setSavedRun] = useState<PersistedProgress | null>(null);
   const [state, dispatch] = useReducer(gameReducer, mode, createInitialGameState);
   const [hydrated, setHydrated] = useState(false);
   const [stats, setStats] = useState<DiveStats>(DEFAULT_STATS);
@@ -105,12 +100,15 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
   useEffect(() => {
     mountedRef.current = true;
     const dailyDate = mode === "daily" ? getUtcDateKey() : undefined;
-    const progress = readProgress(mode, dailyDate);
-    if (progress) dispatch({ type: "RESTORE_PROGRESS", progress });
+    const progress = readProgress(mode, dailyDate, pack);
+    if (progress) {
+      if (autoRestore) dispatch({ type: "RESTORE_PROGRESS", progress });
+      else if (progress.phase !== "summary") queueMicrotask(() => setSavedRun(progress));
+    }
     let hydrationCancelled = false;
     queueMicrotask(() => {
       if (hydrationCancelled || !mountedRef.current) return;
-      setStats(readStats());
+      setStats(readStats(pack));
       setHydrated(true);
     });
 
@@ -118,7 +116,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       mountedRef.current = false;
       hydrationCancelled = true;
     };
-  }, [mode]);
+  }, [autoRestore, mode, pack]);
 
   useEffect(() => {
     const persistablePhase =
@@ -127,8 +125,14 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       state.phase === "feedback" ||
       state.phase === "summary";
     if (!hydrated || !persistablePhase) return;
-    writeProgress(state);
-  }, [hydrated, state]);
+    writeProgress(state, pack);
+  }, [hydrated, pack, state]);
+
+  const resumeSavedRun = useCallback(() => {
+    if (!savedRun) return;
+    dispatch({ type: "RESTORE_PROGRESS", progress: savedRun });
+    setSavedRun(null);
+  }, [savedRun]);
 
   const startDive = useCallback(async () => {
     if (
@@ -141,20 +145,15 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
 
     dispatch({ type: "LOAD_START" });
     try {
-      const questionCountForMode: Record<GameMode, number> = {
-        daily: DAILY_QUESTION_COUNT,
-        unlimited: ARCADE_QUESTION_COUNT,
-        speed: SPEED_QUESTION_COUNT,
-        survival: SURVIVAL_QUESTION_COUNT,
-      };
       const query = new URLSearchParams({
-        limit: String(questionCountForMode[mode]),
+        limit: String(QUESTIONS_PER_MODE[mode]),
         mode,
       });
+      if (pack !== "core") query.set("pack", pack);
       const requestedDailyDate = mode === "daily" ? getUtcDateKey() : null;
       if (requestedDailyDate) query.set("date", requestedDailyDate);
       if (mode !== "daily") {
-        const run = unlimitedRunRef.current ?? Math.max(1, readStats().runs + 1);
+        const run = unlimitedRunRef.current ?? Math.max(1, readStats(pack).runs + 1);
         unlimitedRunRef.current = run;
         query.set("run", String(run));
         if (category) query.set("category", category);
@@ -164,7 +163,7 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
         cache: "no-store",
       });
       const questions = await getApiData<unknown>(response);
-      if (!Array.isArray(questions) || !questions.every(isPublicQuestion)) {
+      if (!Array.isArray(questions) || !questions.every((question) => isPublicQuestion(question, pack))) {
         throw new Error("The question signal returned an unreadable payload.");
       }
       if (!mountedRef.current) return;
@@ -193,27 +192,45 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
       if (!mountedRef.current) return;
       dispatch({
         type: "LOAD_FAILED",
-        error: errorMessage(error, "The dive signal is quiet. Try again."),
+        error: errorMessage(error, "The signal is quiet. Try again."),
       });
     }
-  }, [category, mode, sfx, state.phase]);
+  }, [category, mode, pack, sfx, state.phase]);
 
   const finalizeRun = useCallback(
     (finalScore: number, statsForRun: DiveStats = stats) => {
+      let dailyStreak = statsForRun.dailyStreak;
+      let lastDailyDate = statsForRun.lastDailyDate;
+
+      if (mode === "daily") {
+        const today = getUtcDateKey();
+        if (lastDailyDate === today) {
+          // Already played today — keep streak as-is
+        } else if (lastDailyDate) {
+          const yesterday = getUtcDateKey(Date.now() - 86_400_000);
+          dailyStreak = lastDailyDate === yesterday ? dailyStreak + 1 : 1;
+        } else {
+          dailyStreak = 1;
+        }
+        lastDailyDate = today;
+      }
+
       const nextStats = Object.freeze({
         ...statsForRun,
         runs: statsForRun.runs + 1,
         bestScore: Math.max(statsForRun.bestScore, finalScore),
         lastScore: finalScore,
+        dailyStreak,
+        lastDailyDate,
       });
       setStats(nextStats);
-      writeStats(nextStats);
+      writeStats(nextStats, pack);
       if (mode === "unlimited") {
         const currentRun = unlimitedRunRef.current ?? nextStats.runs;
         unlimitedRunRef.current = Math.max(currentRun + 1, nextStats.runs + 1);
       }
     },
-    [mode, stats],
+    [mode, pack, stats],
   );
 
   const expireQuestion = useCallback(() => {
@@ -397,16 +414,22 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     setStats(nextStats);
   }, [sfx, state.phase, stats]);
 
-  const continueDive = useCallback(() => {
-    const isFinalFeedback =
-      state.phase === "feedback" && state.questionIndex === state.questions.length - 1;
-
-    if (isFinalFeedback) {
+  // A run finishes whenever play enters the summary, however it got there: continuing
+  // past the last prompt, or a Survival round that costs the final life. Finalizing on
+  // that transition counts each run exactly once; a summary restored from saved
+  // progress arrives from the intro and is not a new finish.
+  const previousPhaseRef = useRef(state.phase);
+  useEffect(() => {
+    const previousPhase = previousPhaseRef.current;
+    previousPhaseRef.current = state.phase;
+    if (state.phase === "summary" && RUN_PHASES.has(previousPhase)) {
       finalizeRun(state.score);
     }
+  }, [finalizeRun, state.phase, state.score]);
 
+  const continueDive = useCallback(() => {
     dispatch({ type: "NEXT_ROUND" });
-  }, [finalizeRun, state.phase, state.questionIndex, state.questions.length, state.score]);
+  }, []);
 
   const setAnswer = useCallback((answer: string) => {
     if (
@@ -447,6 +470,8 @@ export const useGameLoop = (mode: GameMode, category?: Category) => {
     continueDive,
     skipPreview,
     resetDive,
+    savedRun,
+    resumeSavedRun,
     previewSeconds: PREVIEW_SECONDS,
     answerSeconds: answerSecondsForMode(mode),
     remainingMilliseconds,

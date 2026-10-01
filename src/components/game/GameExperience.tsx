@@ -2,12 +2,22 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { useGameLoop } from "../../hooks/useGameLoop";
+import { rarityForCrowdShare } from "../../lib/game/scoring";
+import {
+  ENVIRONMENTS,
+  isLiveEnvironment,
+  routeProgress,
+  stageIndexFor,
+} from "../../lib/packs/environment";
+import { PACK_LIST, PACKS, packHref, type PackId } from "../../lib/packs/meta";
 import type { Category } from "../../lib/questions/types";
 import { AppStateProvider } from "../../state/AppStateProvider";
-import { OceanBackdrop } from "./OceanBackdrop";
+import { EnvironmentProvider, useEnvironment } from "./EnvironmentContext";
+import { ExitConfirm } from "./ExitConfirm";
+import { PackBackdrop } from "./PackBackdrop";
 import { DiveForm } from "./DiveForm";
 import { FeedbackPanel } from "./FeedbackPanel";
 import { GameHud, getWindowLabel } from "./GameHud";
@@ -18,53 +28,35 @@ import {
   type GameMode,
 } from "./gameReducer";
 import { PromptCard } from "./PromptCard";
+import { LastRunBadge } from "./LastRunBadge";
 import { SoundControl } from "./SoundControl";
 import { ThemeControl } from "./ThemeControl";
+import { SiteFooter } from "../SiteFooter";
+import { WorldCard } from "../WorldCards";
 
 type GameExperienceProps = Readonly<{
   mode: GameMode;
   category?: Category;
+  pack?: PackId;
   dailyLabel?: string;
 }>;
 
 type GameSessionProps = GameExperienceProps & Readonly<{
   onModeChange: (mode: GameMode) => void;
+  onGoHome: () => void;
+  offerResume: boolean;
 }>;
 
-const DAILY_RULES = [
-  "Seven prompts a day. Same for everyone.",
-  "15 seconds to name one honest thing.",
-  "The atlas recognizes answer families, not one fixed fact.",
-  "Crowd share maps to rarity, points, and depth.",
-  "Pass, timeout, or an uncharted answer scores zero and keeps the dive moving.",
-  "Every point sinks you 10 metres. Surface with a full dive log.",
-] as const;
+const ATLAS_NOTE = "Atlas shares are curated estimates for gameplay, not live poll results.";
 
-const ARCADE_RULES = [
-  "Fifteen prompts. Every run reaches the surface.",
-  "15 seconds to name one honest thing.",
-  "The atlas recognizes many reasonable answer families.",
-  "Crowd share maps to rarity, points, and depth.",
-  "Pass, timeout, or an uncharted answer scores zero and keeps the dive moving.",
-  "Replay to chart a different route through the crowd.",
-] as const;
-
-const SPEED_RULES = [
-  "Ten prompts. Eight seconds each. No room to hesitate.",
-  "Consecutive correct answers build a streak multiplier.",
-  "3 in a row = 2× points. 5 in a row = 3× points.",
-  "A miss, pass, or timeout resets your streak to zero.",
-  "The atlas still recognizes answer families. Speed rewards instinct.",
-  "Chase the highest multiplied score across runs.",
-] as const;
-
-const SURVIVAL_RULES = [
-  "You start with three lives. Every miss costs one.",
-  "When your lives run out, the run ends immediately.",
-  "15 seconds per prompt from a pool of 30 questions.",
-  "Recognized answers keep you alive and add to your score.",
-  "Uncharted answers, passes, and timeouts all cost a life.",
-  "How deep can you go before the signal fades?",
+/** One representative share per tier; points come from the scoring function, never from copy. */
+export const RARITY_SCALE = [
+  { tier: "common", share: 30 },
+  { tier: "familiar", share: 18 },
+  { tier: "notable", share: 10 },
+  { tier: "rare", share: 5 },
+  { tier: "obscure", share: 2 },
+  { tier: "unique", share: 1 },
 ] as const;
 
 const MODE_OPTIONS: readonly Readonly<{
@@ -81,36 +73,64 @@ const MODE_OPTIONS: readonly Readonly<{
 export function GameExperience(props: GameExperienceProps) {
   const [activeMode, setActiveMode] = useState<GameMode>(props.mode);
   const router = useRouter();
+  const pack = props.pack ?? "core";
+  const [resetKey, setResetKey] = useState(0);
+  const [offerResume, setOfferResume] = useState(false);
+  const environmentId = PACKS[pack].environment;
+  const environment = ENVIRONMENTS[isLiveEnvironment(environmentId) ? environmentId : "ocean"];
+
+  const goHome = useCallback(() => {
+    if (pack === "core" && activeMode === "daily") {
+      setOfferResume(true);
+      setResetKey((key) => key + 1);
+      return;
+    }
+    router.push("/");
+  }, [activeMode, pack, router]);
 
   const selectMode = useCallback(
     (nextMode: GameMode) => {
       setActiveMode(nextMode);
-      const routes: Record<GameMode, string> = {
-        daily: "/",
-        unlimited: "/unlimited/classic",
-        speed: "/speed-run",
-        survival: "/survival",
-      };
-      router.replace(routes[nextMode]);
+      router.replace(packHref(pack, nextMode));
     },
-    [router],
+    [pack, router],
   );
 
   return (
     <AppStateProvider>
-      <GameSession
-        key={`${activeMode}-${props.category ?? "all"}`}
-        {...props}
-        mode={activeMode}
-        onModeChange={selectMode}
-      />
+      <EnvironmentProvider environment={environment}>
+        <GameSession
+          key={`${pack}-${activeMode}-${props.category ?? "all"}-${resetKey}`}
+          {...props}
+          mode={activeMode}
+          onModeChange={selectMode}
+          onGoHome={goHome}
+          offerResume={offerResume}
+        />
+      </EnvironmentProvider>
     </AppStateProvider>
   );
 }
 
-function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionProps) {
+function GameSession({
+  mode,
+  category,
+  pack = "core",
+  dailyLabel,
+  onModeChange,
+  onGoHome,
+  offerResume,
+}: GameSessionProps) {
   const [tutorialOpen, setTutorialOpen] = useState(false);
-  const [shareLabel, setShareLabel] = useState("SHARE DIVE LOG");
+  const [exitOpenAt, setExitOpenAt] = useState<number | null>(null);
+  const exitTriggerRef = useRef<HTMLElement | null>(null);
+  const environment = useEnvironment();
+  const lex = environment.lexicon;
+  const packMeta = PACKS[pack];
+  const isPack = pack !== "core";
+  const modeOptions = MODE_OPTIONS.filter((option) => packMeta.modes.includes(option.mode));
+  const shareLogName = lex.logName[mode];
+  const [shareLabel, setShareLabel] = useState(`SHARE ${shareLogName}`);
   const {
     state,
     stats,
@@ -127,7 +147,9 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     continueDive,
     skipPreview,
     sfx,
-  } = useGameLoop(mode, category);
+    savedRun,
+    resumeSavedRun,
+  } = useGameLoop(mode, category, pack, { autoRestore: !offerResume });
 
   useEffect(() => {
     const base = "OMNIQUIZ";
@@ -135,16 +157,24 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     if (state.phase === "answering" || state.phase === "submitting" || state.phase === "preview") {
       suffix = ` — Round ${state.questionIndex + 1}/${state.questions.length}`;
     } else if (state.phase === "feedback") {
-      suffix = ` — ${state.score} pts · ${state.depthMetres}m`;
+      suffix = ` — ${state.score} pts${lex.travel ? ` · ${state.depthMetres}m` : ""}`;
     } else if (state.phase === "summary") {
-      suffix = ` — Dive Complete`;
+      suffix = ` — ${lex.summaryTitle[mode].toLowerCase().replace(/^\w|\s\w/g, (c) => c.toUpperCase())}`;
     }
     document.title = base + suffix;
-    return () => { document.title = "OMNIQUIZ — Dive Control"; };
-  }, [state.phase, state.questionIndex, state.questions.length, state.score, state.depthMetres]);
+    return () => {
+      document.title = isPack
+        ? `OMNIQUIZ — ${packMeta.title}`
+        : mode === "speed"
+          ? "OMNIQUIZ — Race Control"
+          : mode === "survival"
+            ? "OMNIQUIZ — Hazard Control"
+            : "OMNIQUIZ — Dive Control";
+    };
+  }, [isPack, lex, mode, packMeta.title, state.phase, state.questionIndex, state.questions.length, state.score, state.depthMetres]);
 
   useEffect(() => {
-    if (state.phase !== "preview") return;
+    if (state.phase !== "preview" || exitOpenAt !== null) return;
     const handler = (event: KeyboardEvent) => {
       if (event.key === " " || event.key === "Enter" || event.key === "Escape") {
         event.preventDefault();
@@ -153,23 +183,11 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [state.phase, skipPreview]);
+  }, [state.phase, skipPreview, exitOpenAt]);
 
   const question = getCurrentQuestion(state);
-  const titles: Record<GameMode, string> = {
-    daily: "THE DAILY DIVE",
-    unlimited: "THE ARCADE DIVE",
-    speed: "SPEED RUN",
-    survival: "SURVIVAL MODE",
-  };
-  const descriptions: Record<GameMode, string> = {
-    daily: "7 prompts · 15 seconds each · rarer recognizable answers sink deeper",
-    unlimited: "15 prompts · repeatable crowd-rarity expeditions",
-    speed: "10 prompts · 8 seconds each · streak multipliers reward momentum",
-    survival: "3 lives · 30 prompts · every miss brings you closer to the end",
-  };
-  const title = titles[mode];
-  const description = descriptions[mode];
+  const title = isPack ? `${packMeta.title} / ${lex.modeTitle[mode]}` : lex.modeTitle[mode];
+  const description = lex.modeDescription[mode];
   const isLastRound = mode === "survival"
     ? state.questionIndex + 1 >= state.questions.length || state.lives <= 0
     : state.questionIndex + 1 >= state.questions.length;
@@ -184,27 +202,83 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
   const descentEventKey = descentMetres > 0
     ? `${state.questionIndex}-${state.depthMetres}-${descentMetres}`
     : undefined;
-  const rulesMap: Record<GameMode, readonly string[]> = {
-    daily: DAILY_RULES,
-    unlimited: ARCADE_RULES,
-    speed: SPEED_RULES,
-    survival: SURVIVAL_RULES,
-  };
-  const rules = rulesMap[mode];
+  const rules = [
+    ...(isPack ? [`Every prompt in this run comes from the ${packMeta.shortName} pack.`] : []),
+    ...lex.rules[mode],
+    ATLAS_NOTE,
+  ];
+  const route = routeProgress(state.phase, state.questionIndex, state.questions.length);
+  const stages = environment.stages;
+  const stageIndex = stages ? stageIndexFor(stages, route) : 0;
+  const stage = stages ? stages[stageIndex] : undefined;
+  const stageName = stage?.label;
+  const isRunPhase =
+    state.phase === "preview" || state.phase === "answering" || state.phase === "submitting";
+  const requestExit = useCallback(() => {
+    if (isRunPhase) {
+      exitTriggerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setExitOpenAt(state.questionIndex);
+    } else {
+      onGoHome();
+    }
+  }, [isRunPhase, onGoHome, state.questionIndex]);
+  const closeExit = useCallback(() => {
+    setExitOpenAt(null);
+    const trigger = exitTriggerRef.current;
+    exitTriggerRef.current = null;
+    window.setTimeout(() => trigger?.focus(), 0);
+  }, []);
+  const exitAllowed = exitOpenAt === state.questionIndex && isRunPhase;
   const diveLabel = mode === "speed"
     ? dayLabel ? `SPEED / UTC DAY ${dayLabel}` : "SPEED RUN #1"
     : mode === "survival"
       ? dayLabel ? `SURVIVAL / UTC DAY ${dayLabel}` : "SURVIVAL RUN #1"
       : mode === "unlimited"
         ? dayLabel ? `ARCADE / UTC DAY ${dayLabel}` : "ARCADE RUN #1"
-        : dailyLabel ?? (dayLabel ? `DIVE #${dayLabel}` : "TODAY'S DIVE");
+        : dailyLabel ?? (dayLabel ? `EXPEDITION #${dayLabel}` : "TODAY'S EXPEDITION");
 
   const handleShare = useCallback(async () => {
-    const modeNames: Record<GameMode, string> = { daily: "daily", unlimited: "arcade", speed: "speed run", survival: "survival" };
-    const shareText = `OMNIQUIZ ${modeNames[mode]}: ${state.score} points, ${state.depthMetres}m deep.`;
+    const tierSquare: Record<string, string> = {
+      unique: "\u{1f7e7}",
+      obscure: "\u{1f7e8}",
+      rare: "\u{1f7e9}",
+      notable: "\u{1f7e6}",
+      common: "⬜",
+      familiar: "\u{1f7ea}",
+      uncharted: "⬛",
+    };
+    const modeEmoji: Record<GameMode, string> = environment.id === "cinema"
+      ? { daily: "\u{1f3ac}", unlimited: "\u{1f3ac}", speed: "⚡", survival: "\u{1f480}" }
+      : { daily: "\u{1f30a}", unlimited: "♾️", speed: "⚡", survival: "\u{1f480}" };
+    const grid = state.roundLog
+      .map((r) => r.outcome === "pass" || r.outcome === "timeout" ? "⬛" : (tierSquare[r.tier] ?? "⬛"))
+      .join("");
+    const recognized = state.roundLog.filter((r) => r.outcome === "answer" && r.tier !== "uncharted").length;
+    const isPB = state.score > 0 && state.score >= stats.bestScore && stats.runs > 1;
+    const scoreLine = `${state.score} pts${lex.travel ? ` · ${state.depthMetres}m` : ""} · ${recognized}/${state.roundLog.length} recognized`;
+    const lines = [
+      `OMNIQUIZ ${modeEmoji[mode]} ${isPack ? `${packMeta.title} / ` : ""}${diveLabel}`,
+      isPB ? `${scoreLine} \u{1f3c6} PB!` : scoreLine,
+      grid,
+    ];
+    if (mode === "daily" && stats.dailyStreak > 1) {
+      lines.push(`\u{1f525} ${stats.dailyStreak}-day streak`);
+    }
+    if (mode === "speed") {
+      const best = Math.max(state.streak, ...state.roundLog.reduce<number[]>((acc, entry) => {
+        const last = acc.length > 0 ? acc[acc.length - 1] : 0;
+        acc.push(entry.outcome === "answer" && entry.score > 0 ? last + 1 : 0);
+        return acc;
+      }, []));
+      if (best > 0) lines.push(`\u{1f525} Best streak: ${best}`);
+    }
+    if (mode === "survival") lines.push(`❤️ ${state.lives} lives remaining`);
+    lines.push("omniquiz.com");
+    const shareText = lines.join("\n");
+
     const flash = (label: string) => {
       setShareLabel(label);
-      window.setTimeout(() => setShareLabel("SHARE DIVE LOG"), 1_800);
+      window.setTimeout(() => setShareLabel(`SHARE ${shareLogName}`), 1_800);
     };
     const canShare =
       typeof navigator !== "undefined" && typeof navigator.share === "function";
@@ -218,9 +292,8 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
         await navigator.share({ title: "OMNIQUIZ", text: shareText });
         flash("LOG SHARED");
       } catch (error) {
-        // A dismissed native share sheet is a cancellation, not a failure.
         if (error && typeof error === "object" && (error as { name?: string }).name === "AbortError") {
-          setShareLabel("SHARE DIVE LOG");
+          setShareLabel(`SHARE ${shareLogName}`);
         } else {
           flash("SHARE UNAVAILABLE");
         }
@@ -239,7 +312,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
     }
 
     flash("SHARE UNAVAILABLE");
-  }, [mode, state.depthMetres, state.score]);
+  }, [mode, isPack, environment.id, lex.travel, packMeta.title, state.depthMetres, state.score, state.roundLog, state.streak, state.lives, stats, diveLabel, shareLogName]);
 
   const handleModeChange = useCallback(
     (nextMode: GameMode) => {
@@ -252,16 +325,29 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
   return (
     <div
-      className={`game-shell phase-${state.phase} mode-${mode}`}
+      className={`game-shell phase-${state.phase} mode-${environment.id === "ocean" ? mode : environment.id}`}
       data-phase={state.phase}
       data-theme={theme}
+      data-environment={environment.id}
+      data-stage={stages ? stages[stageIndex].id : undefined}
     >
-      <a className="skip-to-content sr-only" href="#main-stage">Skip to content</a>
-      <OceanBackdrop
-        depthMetres={state.depthMetres}
+      <nav aria-label="Skip links">
+        <a className="skip-to-content sr-only" href="#main-stage">Skip to content</a>
+      </nav>
+      <PackBackdrop
+        environment={environment.id}
         mode={mode}
+        phase={state.phase}
+        depthMetres={state.depthMetres}
         descentMetres={descentMetres}
         descentEventKey={descentEventKey}
+        score={state.score}
+        streak={state.streak}
+        streakMultiplier={state.streakMultiplier}
+        lives={state.lives}
+        route={route}
+        stageIndex={stageIndex}
+        stageCount={stages?.length ?? 0}
       />
 
       <aside className="global-controls" aria-label="Display and sound controls">
@@ -284,15 +370,18 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
       {state.phase === "intro" || state.phase === "loading" || state.phase === "error" ? (
         <main id="main-stage" className="landing-layer" aria-labelledby="brand-title">
           <div className="brand-stage">
-            <h1 className="chromatic-title" id="brand-title" data-text="OMNIQUIZ">OMNIQUIZ</h1>
+            <h1 className="chromatic-title" id="brand-title" data-text="OMNIQUIZ">
+              <Link className="brand-home" href="/" aria-label="OMNIQUIZ home">OMNIQUIZ</Link>
+            </h1>
             <p className="mode-title">{title}</p>
             <p className="mode-description">{description}</p>
+            {isPack ? <p className="pack-intro">{packMeta.intro}</p> : null}
           </div>
 
           <div className="landing-console">
             {state.phase === "error" ? (
               <div className="signal-error" role="alert">
-                <span>SIGNAL LOST</span>
+                <span>{lex.errorTitle}</span>
                 <p>{state.error}</p>
               </div>
             ) : null}
@@ -300,7 +389,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             <div className="mode-selector" role="group" aria-label="Select game mode">
               <span className="mode-selector-label">SELECT A MODE</span>
               <div className="mode-selector-options">
-                {MODE_OPTIONS.map((option) => (
+                {modeOptions.map((option) => (
                   <button
                     key={option.mode}
                     className={`mode-option ${mode === option.mode ? "is-selected" : ""}`}
@@ -330,11 +419,39 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 <span className="pixel-chevron" aria-hidden="true" /> HOW TO PLAY
               </button>
               {tutorialOpen ? (
-                <ul className="tutorial-rules" id="tutorial-rules">
-                  {rules.map((rule) => <li key={rule}>{rule}</li>)}
-                </ul>
+                <div id="tutorial-rules">
+                  <ul className="tutorial-rules">
+                    {rules.map((rule) => <li key={rule}>{rule}</li>)}
+                  </ul>
+                  <div className="rarity-scale" aria-label="Rarity tier scale">
+                    <span className="rarity-scale-label">RARITY SCALE</span>
+                    <div className="rarity-scale-tiers">
+                      {RARITY_SCALE.map((entry) => (
+                        <span className={`rarity-tier tier-${entry.tier}`} key={entry.tier}>
+                          <b>{lex.tierScale[entry.tier]}</b>
+                          <small>{rarityForCrowdShare(entry.share).score} PTS</small>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               ) : null}
             </div>
+
+            <LastRunBadge mode={mode} pack={pack} />
+
+            {savedRun ? (
+              <button
+                className="resume-button"
+                type="button"
+                onClick={() => {
+                  sfx.click();
+                  resumeSavedRun();
+                }}
+              >
+                RESUME YOUR SAVED RUN
+              </button>
+            ) : null}
 
             <button
               className="begin-button"
@@ -346,23 +463,34 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
               disabled={state.phase === "loading"}
             >
               <span className="pixel-descent-mark" aria-hidden="true" />
-              {state.phase === "loading" ? "LOADING QUESTIONS" : state.phase === "error" ? "RETRY" : mode === "speed" ? "START THE CLOCK" : mode === "survival" ? "ENTER THE ABYSS" : "BEGIN DESCENT"}
+              {state.phase === "loading" ? "LOADING QUESTIONS" : state.phase === "error" ? "RETRY" : lex.begin[mode]}
               <span className="pixel-descent-mark" aria-hidden="true" />
             </button>
 
             <div className="launch-rail">
               <span>{diveLabel}</span>
-              <nav aria-label="Other dives">
-                <Link href="/packs">THEMED PACKS</Link>
-                <Link href={mode === "daily" ? "/unlimited/classic" : "/"}>
-                  {mode === "daily" ? "ARCADE ∞" : "TODAY'S DIVE"}
+              <nav aria-label="Other modes">
+                <Link href="/packs">{isPack ? "ALL PACKS" : "PACKS"}</Link>
+                <Link href={!isPack && mode === "daily" ? "/unlimited/classic" : "/"}>
+                  {!isPack && mode === "daily" ? "ARCADE ∞" : isPack ? "MAIN GAME" : "TODAY'S EXPEDITION"}
                 </Link>
               </nav>
             </div>
+
+            <section className="worlds-strip" aria-labelledby="worlds-strip-title">
+              <span className="worlds-strip-title" id="worlds-strip-title">CHOOSE A WORLD</span>
+              <div className="worlds-strip-grid">
+                {PACK_LIST.filter((entry) => entry.id !== pack).map((entry) => (
+                  <WorldCard key={entry.id} pack={entry} variant="compact" />
+                ))}
+              </div>
+            </section>
           </div>
+          <SiteFooter />
         </main>
       ) : state.phase === "summary" ? (
         <main id="main-stage" className="summary-layer" aria-live="polite">
+          <Link className="summary-brand" href="/" aria-label="OMNIQUIZ home">OMNIQUIZ</Link>
           <GameSummary
             score={state.score}
             depthMetres={state.depthMetres}
@@ -370,6 +498,8 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
             stats={stats}
             roundLog={state.roundLog}
             shareLabel={shareLabel}
+            pack={pack}
+            stageName={stageName}
             lives={state.lives}
             bestStreak={Math.max(state.streak, ...state.roundLog.reduce<number[]>((acc, entry) => {
               const last = acc.length > 0 ? acc[acc.length - 1] : 0;
@@ -391,12 +521,23 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           id="main-stage"
           className="game-layer"
           aria-labelledby={feedbackResult ? "feedback-title" : "current-prompt"}
+          inert={exitAllowed || undefined}
         >
-          <div className="feed-plate" aria-hidden="true">CAM 01 · ROV FEED</div>
+          <div className="feed-plate" aria-hidden="true">
+            {lex.feedPlate[mode]}
+          </div>
           <div className="timecode-plate telemetry-data" aria-hidden="true">
             {getWindowLabel(state.phase, remainingMilliseconds)}
           </div>
-          <GameHud state={state} mode={mode} remainingMilliseconds={remainingMilliseconds} />
+          <GameHud
+            state={state}
+            mode={mode}
+            remainingMilliseconds={remainingMilliseconds}
+            bestScore={stats.bestScore}
+            atlasLabel={packMeta.atlasLabel}
+            stage={stage}
+            onExit={requestExit}
+          />
           {mode === "speed" && state.streak > 0 ? (
             <div className="streak-indicator" aria-live="polite">
               <span className="streak-count telemetry-data">{state.streak}× STREAK</span>
@@ -422,13 +563,17 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
                 depthMetres={state.depthMetres}
                 isLastRound={isLastRound}
                 outcome={state.lastOutcome ?? "answer"}
+                mode={mode}
+                streak={state.streak}
+                streakMultiplier={state.streakMultiplier}
+                lives={state.lives}
                 onContinue={() => {
                   sfx.click();
                   continueDive();
                 }}
               />
             ) : (
-              <PromptCard state={state} phase={state.phase} />
+              <PromptCard state={state} phase={state.phase} atlasLabel={packMeta.atlasLabel} />
             )}
           </div>
 
@@ -446,7 +591,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
 
           {state.phase === "preview" ? (
             <p className="preview-footer" aria-live="polite">
-              descending · the clock starts in {state.previewSeconds}
+              {lex.previewVerb[mode]} · the clock starts in {state.previewSeconds}
               <button className="preview-skip" type="button" onClick={skipPreview}>SKIP</button>
             </p>
           ) : null}
@@ -458,6 +603,7 @@ function GameSession({ mode, category, dailyLabel, onModeChange }: GameSessionPr
           ) : null}
         </main>
       )}
+      {exitAllowed ? <ExitConfirm onStay={closeExit} onLeave={onGoHome} /> : null}
     </div>
   );
 }

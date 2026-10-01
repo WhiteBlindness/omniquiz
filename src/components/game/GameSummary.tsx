@@ -1,14 +1,18 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
+import { useState } from "react";
 
 import { useCountUp } from "../../hooks/useCountUp";
-import { getEstimatedDailyPercentile } from "../../lib/game/percentile";
-import type { RoundLog } from "./gameReducer";
+import { getDailyScoreShare } from "../../lib/game/dailyCeiling";
+import { useLexicon } from "./EnvironmentContext";
+import type { PackId } from "../../lib/packs/meta";
+import type { GameMode, RoundLog } from "./gameReducer";
 import type { DiveStats } from "./storage";
 
 type GameSummaryProps = Readonly<{
   score: number;
   depthMetres: number;
-  mode: "daily" | "unlimited" | "speed" | "survival";
+  mode: GameMode;
   stats: DiveStats;
   roundLog: readonly RoundLog[];
   shareLabel: string;
@@ -16,6 +20,8 @@ type GameSummaryProps = Readonly<{
   onShare: () => void;
   lives?: number;
   bestStreak?: number;
+  pack?: PackId;
+  stageName?: string;
 }>;
 
 export function GameSummary({
@@ -29,35 +35,66 @@ export function GameSummary({
   onShare,
   lives,
   bestStreak,
+  pack = "core",
+  stageName,
 }: GameSummaryProps) {
-  const estimatedPercentile = getEstimatedDailyPercentile(score);
+  const lex = useLexicon();
+  const dailyScoreShare = getDailyScoreShare(score);
   const animatedScore = useCountUp(score);
   const animatedDepth = useCountUp(depthMetres);
+  const recognized = roundLog.filter((r) => r.tier !== "uncharted" && r.crowdShare !== null).length;
+  const recognitionPct = roundLog.length > 0 ? Math.round((recognized / roundLog.length) * 100) : 0;
+
+  const tierBuckets = roundLog.reduce<Record<string, number>>((acc, r) => {
+    acc[r.tier] = (acc[r.tier] ?? 0) + r.score;
+    return acc;
+  }, {});
+  const tierSegments = (["unique", "obscure", "rare", "notable", "common", "familiar"] as const)
+    .map((tier) => ({ tier, label: lex.tierScale[tier], score: tierBuckets[tier] ?? 0 }))
+    .filter((s) => s.score > 0);
 
   return (
     <section className="summary-panel" aria-labelledby="summary-title">
-      <p className="sr-only">Dive logged after the final prompt</p>
+      <p className="sr-only">
+        {lex.summarySr[mode]}
+      </p>
       <h1 id="summary-title">
-        {mode === "speed" ? "SPEED RUN COMPLETE"
-          : mode === "survival" ? (lives === 0 ? "SIGNAL LOST" : "SURVIVAL COMPLETE")
-          : mode === "unlimited" ? "ARCADE RUN COMPLETE"
-          : "DIVE COMPLETE"}
+        {mode === "survival" && lives === 0 ? lex.summaryTitleLoss : lex.summaryTitle[mode]}
       </h1>
       <div className="summary-score">
         <span>FINAL SCORE</span>
         <strong className="telemetry-data" aria-label={`${score} points`}>{animatedScore}</strong>
-        <small>points earned from recognizable rarity</small>
+        {score > 0 && score >= stats.bestScore && stats.runs > 1 ? (
+          <small className="personal-best">NEW PERSONAL BEST</small>
+        ) : (
+          <small>points earned from recognizable rarity</small>
+        )}
       </div>
-      <div className="summary-depth">
-        <span>YOU REACHED</span>
-        <b className="telemetry-data" aria-label={`${depthMetres} metres`}>{animatedDepth}m</b>
-      </div>
-      {mode === "daily" ? (
-        <div className="summary-percentile">
-          <span>EST. SCORE PERCENTILE</span>
-          <b className="telemetry-data">P{String(estimatedPercentile).padStart(2, "0")}</b>
-          <small>against the 700-point daily ceiling</small>
+      {lex.travel ? (
+        <div className="summary-depth">
+          <span>{lex.travel.summaryLabel}</span>
+          <b className="telemetry-data" aria-label={`${depthMetres} metres`}>{animatedDepth}m</b>
         </div>
+      ) : (
+        <div className="summary-depth summary-stage">
+          <span>{lex.stageSummaryLabel}</span>
+          <b className="telemetry-data">{stageName}</b>
+        </div>
+      )}
+      {mode === "daily" ? (
+        <>
+          <div className="summary-percentile">
+            <span>SHARE OF DAILY MAX</span>
+            <b className="telemetry-data">{dailyScoreShare}%</b>
+            <small>of the 700-point daily maximum</small>
+          </div>
+          {stats.dailyStreak > 1 ? (
+            <div className="summary-streak">
+              <span>DAILY STREAK</span>
+              <b className="telemetry-data">{stats.dailyStreak} DAYS</b>
+            </div>
+          ) : null}
+        </>
       ) : null}
       {mode === "speed" && bestStreak !== undefined ? (
         <div className="summary-streak">
@@ -71,34 +108,148 @@ export function GameSummary({
           <b className="telemetry-data">{roundLog.length} ROUNDS SURVIVED</b>
         </div>
       ) : null}
-      <p className="summary-stats telemetry-data">
-        BEST LOG {stats.bestScore} · RUNS {stats.runs} · RECOGNIZED {stats.recognized}
-      </p>
-      <div className="summary-log" aria-label="Dive log">
-        <div className="summary-log-heading"><span>DIVE LOG</span><small>{roundLog.length} ROUNDS</small></div>
-        {roundLog.map((entry, index) => (
-          <div className="summary-log-entry" data-tier={entry.tier} key={`${entry.questionId}-${index}`}>
-            <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
-            <div>
-              <strong>{entry.answerLabel}</strong>
-              <small className="telemetry-data">
-                {entry.crowdShare === null ? "UNCHARTED" : `${entry.crowdShare}% CROWD`} · +{entry.score} PTS · {entry.depthMetres}m
-              </small>
-            </div>
-          </div>
-        ))}
+      <div className="summary-recognition" aria-label={`${recognitionPct}% recognition rate`}>
+        <RecognitionRing pct={recognitionPct} />
+        <div className="summary-recognition-detail">
+          <span className="summary-recognition-value telemetry-data">{recognitionPct}%</span>
+          <span className="summary-recognition-label">RECOGNITION</span>
+          <small className="telemetry-data">{recognized}/{roundLog.length} ATLAS MATCHES</small>
+        </div>
       </div>
+      <p className="summary-stats telemetry-data">
+        BEST LOG {stats.bestScore} · RUNS {stats.runs}
+      </p>
+      {score > 0 && tierSegments.length > 0 ? (
+        <div className="score-composition" aria-label="Score breakdown by rarity tier">
+          <span className="score-composition-label">SCORE COMPOSITION</span>
+          <div className="score-composition-bar" aria-hidden="true">
+            {tierSegments.map((s) => (
+              <span
+                key={s.tier}
+                className={`score-segment tier-${s.tier}`}
+                style={{ "--segment-share": s.score / score } as CSSProperties}
+                title={`${s.label}: ${s.score} pts`}
+              />
+            ))}
+          </div>
+          <div className="score-composition-legend">
+            {tierSegments.map((s) => (
+              <span key={s.tier} className={`score-legend-item tier-${s.tier}`}>
+                <i aria-hidden="true" />
+                <small className="telemetry-data">{s.label} {s.score}</small>
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+      <SummaryLog roundLog={roundLog} mode={mode} showDistance={lex.travel !== null} />
       <div className="summary-actions">
         <button className="continue-button" type="button" onClick={onReplay}>
-          DIVE AGAIN
+          {lex.replay[mode]}
         </button>
         <button className="share-button pixel-control" type="button" onClick={onShare}>
           {shareLabel}
         </button>
-        <Link className="secondary-link" href={mode === "daily" ? "/unlimited/classic" : "/"}>
-          {mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S DIVE"}
+        <Link
+          className="secondary-link"
+          href={pack !== "core" ? "/packs" : mode === "daily" ? "/unlimited/classic" : "/"}
+        >
+          {pack !== "core" ? "ALL PACKS" : mode === "daily" ? "TRY UNLIMITED MODE" : "TODAY'S EXPEDITION"}
         </Link>
       </div>
     </section>
+  );
+}
+
+function RecognitionRing({ pct }: { pct: number }) {
+  const r = 22;
+  const circumference = 2 * Math.PI * r;
+  const offset = circumference - (pct / 100) * circumference;
+
+  return (
+    <svg className="recognition-ring" viewBox="0 0 52 52" aria-hidden="true">
+      <circle className="recognition-ring-bg" cx="26" cy="26" r={r} />
+      <circle
+        className="recognition-ring-fill"
+        cx="26"
+        cy="26"
+        r={r}
+        strokeDasharray={circumference}
+        strokeDashoffset={offset}
+        style={{ "--ring-circumference": circumference, "--ring-offset": offset } as CSSProperties}
+      />
+    </svg>
+  );
+}
+
+function SummaryLog({
+  roundLog,
+  mode,
+  showDistance,
+}: {
+  roundLog: readonly RoundLog[];
+  mode: GameMode;
+  showDistance: boolean;
+}) {
+  const lex = useLexicon();
+  const TIER_TAG = lex.tierScale;
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const bestScore = Math.max(0, ...roundLog.map((r) => r.score));
+  const bestIndex = bestScore > 0 ? roundLog.findIndex((r) => r.score === bestScore) : -1;
+
+  return (
+    <div className="summary-log" aria-label={lex.logAria[mode]}>
+      <div className="summary-log-heading">
+        <span>{lex.logName[mode]}</span>
+        <small>{roundLog.length} ROUNDS</small>
+      </div>
+      {roundLog.map((entry, index) => {
+        const hasCommon = entry.commonAnswers.length > 0;
+        const isExpanded = expandedIndex === index;
+        const isBest = index === bestIndex;
+        return (
+          <div
+            className={`summary-log-entry ${isExpanded ? "is-expanded" : ""} ${isBest ? "is-best" : ""}`}
+            data-tier={entry.tier}
+            key={`${entry.questionId}-${index}`}
+          >
+            <span className="summary-log-round telemetry-data">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <button
+                className="summary-log-toggle"
+                type="button"
+                aria-expanded={isExpanded}
+                onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                disabled={!hasCommon}
+              >
+                <strong>{entry.answerLabel}</strong>
+                <span className={`summary-log-tier tier-${entry.tier}`} aria-label={TIER_TAG[entry.tier]}>
+                  {TIER_TAG[entry.tier]}
+                </span>
+                {hasCommon ? <span className="summary-log-chevron" aria-hidden="true" /> : null}
+              </button>
+              {entry.submittedAnswer.toLowerCase().trim() !== entry.answerLabel.toLowerCase().trim() && entry.tier !== "uncharted" ? (
+                <small className="summary-log-signal">{lex.typedLabel}: {entry.submittedAnswer}</small>
+              ) : null}
+              <small className="telemetry-data">
+                {entry.crowdShare === null ? TIER_TAG.uncharted : `${entry.crowdShare}% ATLAS`} · +{entry.score} PTS{showDistance ? ` · ${entry.depthMetres}m` : ""}
+              </small>
+              <small className="summary-log-prompt">{entry.prompt}</small>
+              {isBest ? <small className="summary-log-best">{lex.bestEntry}</small> : null}
+              {isExpanded ? (
+                <ul className="summary-log-common" aria-label="Common answers for this round">
+                  {entry.commonAnswers.map((a) => (
+                    <li key={a.label}>
+                      <b>{a.label}</b>
+                      <small className="telemetry-data">{a.share}%</small>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

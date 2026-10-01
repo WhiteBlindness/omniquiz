@@ -117,4 +117,65 @@ describe("GET /api/questions", () => {
     expect(invalidDate.status).toBe(400);
     expect(invalidDate.headers.get("cache-control")).toBe("no-store, max-age=0");
   });
+
+  describe("content packs", () => {
+    const fetchPack = async (query: string) => {
+      const response = await GET(new NextRequest(`http://localhost/api/questions?${query}`));
+      return { response, body: await response.json() };
+    };
+
+    it("serves core prompts when no pack is requested", async () => {
+      const { body } = await fetchPack("mode=unlimited&run=1");
+      expect(body.data.every((question: { id: string }) => !question.id.startsWith("movies-"))).toBe(true);
+    });
+
+    it.each([
+      ["unlimited", 15],
+      ["speed", 10],
+      ["survival", 30],
+    ])("serves %s runs from the movies pack with only public fields", async (mode, count) => {
+      const { response, body } = await fetchPack(`pack=movies&mode=${mode}&run=1`);
+
+      expect(response.status).toBe(200);
+      expect(body.data).toHaveLength(count);
+      expect(new Set(body.data.map((question: { id: string }) => question.id)).size).toBe(count);
+      for (const question of body.data) {
+        expect(question.id).toMatch(/^movies-\d{3}$/);
+        expect(Object.keys(question).sort()).toEqual(["category", "id", "prompt"]);
+      }
+      expect(JSON.stringify(body)).not.toMatch(/answers|aliases|share|insight/);
+    });
+
+    it("rotates movies prompts between unlimited runs", async () => {
+      const first = await fetchPack("pack=movies&mode=unlimited&run=1");
+      const second = await fetchPack("pack=movies&mode=unlimited&run=2");
+      expect(first.body.data.map((question: { id: string }) => question.id)).not.toEqual(
+        second.body.data.map((question: { id: string }) => question.id),
+      );
+    });
+
+    it("rejects modes the pack does not support", async () => {
+      const { response, body } = await fetchPack("pack=movies&mode=daily");
+      expect(response.status).toBe(400);
+      expect(body.error).toMatch(/not available for the movies pack/);
+    });
+
+    it.each(["sports", "music", "polka", "core%00", ""])("rejects pack %j", async (pack) => {
+      const { response } = await fetchPack(`pack=${pack}&mode=unlimited`);
+      expect(response.status).toBe(400);
+    });
+
+    it("rejects category filtering and repeated pack parameters", async () => {
+      const withCategory = await fetchPack("pack=movies&mode=unlimited&category=History");
+      const repeated = await fetchPack("pack=movies&pack=core&mode=unlimited");
+      expect(withCategory.response.status).toBe(400);
+      expect(repeated.response.status).toBe(400);
+    });
+
+    it("keeps explicit core requests working", async () => {
+      const { response, body } = await fetchPack("pack=core&mode=daily&date=2026-08-09");
+      expect(response.status).toBe(200);
+      expect(body.data).toHaveLength(7);
+    });
+  });
 });

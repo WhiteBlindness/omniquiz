@@ -17,7 +17,7 @@ const failure = (message: string, status = 400) =>
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
 
-const QUESTION_ID_PATTERN = /^(general|science|geography|history)-\d{3}$/;
+const QUESTION_ID_PATTERN = /^[a-z]+-\d{3}$/;
 
 export async function POST(request: Request) {
   let payload: unknown;

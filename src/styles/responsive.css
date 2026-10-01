@@ -19,10 +19,6 @@
     width: calc(100% - 3rem);
   }
 
-  .pack-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .mode-selector-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -384,6 +380,11 @@
     line-height: 1.08;
   }
 
+  .prompt-round-badge {
+    margin-bottom: 0.35rem;
+    font-size: 0.44rem;
+  }
+
   .rarity-hint,
   .prompt-category,
   .feedback-quip,
@@ -400,6 +401,11 @@
 
   .feedback-stats span { font-size: 0.44rem; }
   .feedback-stats b { font-size: 0.72rem; }
+  .feedback-streak { gap: 0.45rem; padding: 0.35rem 0.5rem; }
+  .feedback-streak-count, .feedback-streak-multi { font-size: 0.52rem; }
+  .feedback-lives { gap: 0.35rem; padding: 0.35rem 0.5rem; }
+  .feedback-life-pip { width: 7px; height: 7px; }
+  .feedback-lives-label { font-size: 0.48rem; }
   .continue-button { min-height: 48px; margin-top: 0.75rem; }
 
   .dive-form {
@@ -454,8 +460,8 @@
   }
 
   .preview-skip {
-    min-height: 28px;
-    padding: 0.25rem 0.5rem;
+    min-height: 44px;
+    padding: 0.4rem 0.65rem;
     font-size: 0.46rem;
   }
 
@@ -501,14 +507,6 @@
 
   .packs-header p {
     text-align: left;
-  }
-
-  .pack-list {
-    grid-template-columns: 1fr;
-  }
-
-  .pack-card {
-    grid-template-rows: 145px 1fr;
   }
 
   .logbook {
@@ -601,5 +599,72 @@
   .game-shell[data-theme="light"] .feed-plate,
   .game-shell[data-theme="light"] .timecode-plate {
     border-color: rgba(8, 127, 150, 0.32);
+  }
+
+  /* Mode-specific mobile HUD borders */
+  .mode-speed .game-hud {
+    border-bottom-color: rgba(180, 60, 255, 0.28);
+  }
+
+  .mode-survival .game-hud {
+    border-bottom-color: rgba(255, 102, 127, 0.28);
+  }
+
+  .game-shell[data-theme="light"].mode-speed .game-hud {
+    border-bottom-color: rgba(120, 40, 180, 0.22);
+  }
+
+  .game-shell[data-theme="light"].mode-survival .game-hud {
+    border-bottom-color: rgba(187, 62, 87, 0.22);
+  }
+
+  /* Speed backdrop mobile: reduce grid density */
+  .speed-grid-floor::before {
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(180, 60, 255, 0.1) 0 1px,
+        transparent 1px 120px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(91, 226, 239, 0.06) 0 1px,
+        transparent 1px 60px
+      );
+  }
+
+  /* Speed backdrop mobile light theme: reduced density with light colors */
+  .game-shell[data-theme="light"] .speed-grid-floor::before {
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(120, 40, 180, 0.14) 0 1px,
+        transparent 1px 120px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(8, 127, 150, 0.1) 0 1px,
+        transparent 1px 60px
+      );
+  }
+
+  /* Survival backdrop mobile: soften glow for smaller viewport */
+  .survival-heartbeat {
+    background: radial-gradient(
+      ellipse 140% 120% at 50% 50%,
+      transparent 40%,
+      rgba(255, 40, 60, calc(0.02 + var(--danger-level) * 0.07)) 80%,
+      rgba(180, 20, 40, calc(0.04 + var(--danger-level) * 0.1)) 100%
+    );
+  }
+
+  /* Survival backdrop mobile light theme: soften glow */
+  .game-shell[data-theme="light"] .survival-heartbeat {
+    background: radial-gradient(
+      ellipse 140% 120% at 50% 50%,
+      transparent 40%,
+      rgba(187, 62, 87, calc(0.01 + var(--danger-level) * 0.04)) 80%,
+      rgba(160, 30, 50, calc(0.03 + var(--danger-level) * 0.06)) 100%
+    );
   }
 }

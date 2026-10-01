@@ -26,7 +26,7 @@ export type SubmissionResult = Readonly<{
   commonAnswers: readonly CommonAnswer[];
 }>;
 
-const UNCHARTED_QUIP = "That answer is outside this expedition's atlas.";
+const UNCHARTED_QUIP = "That answer isn't in the atlas.";
 
 export const rarityForCrowdShare = (share: number): RarityResult => {
   if (!Number.isFinite(share) || share <= 0 || share > 100) {
@@ -35,23 +35,23 @@ export const rarityForCrowdShare = (share: number): RarityResult => {
 
   const tier: RarityResult["tier"] =
     share >= 30
-      ? "plankton"
+      ? "common"
       : share >= 18
-        ? "tooclever"
+        ? "familiar"
         : share >= 10
-          ? "schooler"
+          ? "notable"
           : share >= 5
             ? "rare"
             : share >= 2
-              ? "deepcut"
-              : "krillion";
+              ? "obscure"
+              : "unique";
   const score = {
-    plankton: 10,
-    tooclever: 15,
-    schooler: 30,
+    common: 10,
+    familiar: 15,
+    notable: 30,
     rare: 60,
-    deepcut: 85,
-    krillion: 100,
+    obscure: 85,
+    unique: 100,
   }[tier];
 
   return Object.freeze({ tier, score, depthMetres: score * METRES_PER_POINT });
@@ -117,7 +117,7 @@ export const createZeroScoreResult = (outcome: "pass" | "timeout"): SubmissionRe
     depthMetres: 0,
     quip:
       outcome === "pass"
-        ? "Pass logged. The expedition keeps moving."
-        : "The current carried you past this prompt. Zero points, no penalty.",
+        ? "Pass logged. Moving on."
+        : "Time ran out. Zero points, no penalty.",
     commonAnswers: Object.freeze([]),
   });

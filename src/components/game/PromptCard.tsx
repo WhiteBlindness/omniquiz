@@ -1,13 +1,16 @@
 import type { CSSProperties } from "react";
 
+import { useLexicon } from "./EnvironmentContext";
 import { PREVIEW_SECONDS, type GamePhase, type GameState } from "./gameReducer";
 
 type PromptCardProps = Readonly<{
   state: GameState;
   phase: GamePhase;
+  atlasLabel?: string;
 }>;
 
-export function PromptCard({ state, phase }: PromptCardProps) {
+export function PromptCard({ state, phase, atlasLabel = "CROWD ATLAS" }: PromptCardProps) {
+  const lex = useLexicon();
   const question = state.questions[state.questionIndex];
   if (!question) return null;
 
@@ -17,8 +20,13 @@ export function PromptCard({ state, phase }: PromptCardProps) {
   return (
     <section className={`prompt-card ${preview ? "prompt-card-preview" : ""}`} aria-labelledby="current-prompt">
       <span className="sr-only">Prompt {state.questionIndex + 1} of {state.questions.length}</span>
+      <span className="prompt-round-badge telemetry-data" aria-hidden="true">
+        {String(state.questionIndex + 1).padStart(2, "0")} / {String(state.questions.length).padStart(2, "0")}
+      </span>
       <h1 id="current-prompt">{question.prompt}</h1>
-      <p className="rarity-hint">Name the first honest answer that surfaces. Rarer recognizable signals sink deeper.</p>
+      <p className="rarity-hint">
+        {lex.promptHint[state.mode]}
+      </p>
       {preview ? (
         <div className="preview-countdown" aria-live="polite">
           <svg
@@ -33,7 +41,7 @@ export function PromptCard({ state, phase }: PromptCardProps) {
           <span className="countdown-digit" key={state.previewSeconds}>{state.previewSeconds}</span>
         </div>
       ) : (
-        <p className="prompt-category">{question.category.toUpperCase()} / CROWD ATLAS</p>
+        <p className="prompt-category">{question.category.toUpperCase()} / {atlasLabel}</p>
       )}
     </section>
   );
